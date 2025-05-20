@@ -7,6 +7,12 @@
     
     <!-- Modular CSS files -->
     <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/trend-chart.css">
+    <link rel="stylesheet" href="css/location-chart.css">
+    <link rel="stylesheet" href="css/jurisdiction-chart.css">
+    <link rel="stylesheet" href="css/detection-method-chart.css">
+    <link rel="stylesheet" href="css/age-group-chart.css">
+    <link rel="stylesheet" href="css/responsive.css">
     
     <!-- SheetJS (xlsx) for Excel file parsing - load before D3 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
@@ -19,7 +25,90 @@
         <h1>Speeding Dashboard</h1>
     </header>
     
-    
+    <div class="dashboard-container">
+        <!-- KPI Section -->
+        <section class="kpi-section">
+            <div class="kpi-card" id="total-fines">
+                <h3>Total fines</h3>
+                <div class="kpi-value">4,236,133</div>
+            </div>
+            <div class="kpi-card" id="highest-month">
+                <h3>Peak month</h3>
+                <div class="kpi-value">January</div>
+            </div>
+            <div class="kpi-card" id="highest-jurisdiction">
+                <h3>Top Jurisdiction</h3>
+                <div class="kpi-value">VIC</div>
+            </div>
+            <div class="kpi-card" id="top-age-group">
+                <h3>Top Age Group</h3>
+                <div class="kpi-value">40-64</div>
+            </div>
+        </section>
+        
+        <!-- Filters Section -->
+        <section class="filters-section">
+            <h3>FILTERS</h3>
+            <div class="filter">
+                <label for="month-filter">Month:</label>
+                <select id="month-filter">
+                    <option value="all">All Months</option>
+                </select>
+            </div>
+            <div class="filter">
+                <label for="jurisdiction-filter">Jurisdiction</label>
+                <select id="jurisdiction-filter">
+                    <option value="all">All Jurisdictions</option>
+                </select>
+            </div>
+            <div class="filter">
+                <label for="age-group-filter">Age Group:</label>
+                <select id="age-group-filter">
+                    <option value="all">All Age Groups</option>
+                </select>
+            </div>
+            <button id="reset-filters">RESET FILTERS</button>
+            <div class="empty-space"></div>
+        </section>
+        
+        <!-- Line Chart (Trend) -->
+        <section class="trend-chart-container">
+            <div class="chart-container">
+                <h3>TREND OF FINES OVER MONTH</h3>
+                <div id="monthly-trend-chart" class="chart"></div>
+            </div>
+        </section>
+        
+        <!-- Middle Row - Bar Charts -->
+        <section class="bar-charts-container">
+            <!-- Location Chart - Left -->
+            <div class="chart-container">
+                <h3>FINES BY LOCATION</h3>
+                <div id="location-chart" class="chart"></div>
+            </div>
+            
+            <!-- Jurisdictions Chart - Right -->
+            <div class="chart-container">
+                <h3>TOTAL SPEEDING FINES BY JURISDICTION</h3>
+                <div id="jurisdiction-chart" class="chart"></div>
+            </div>
+        </section>
+        
+        <!-- Bottom Row - Pie Chart and Bar Chart -->
+        <section class="bottom-charts-container">
+            <!-- Detection Method Chart - Left (Pie) -->
+            <div class="chart-container">
+                <h3>DETECTION METHODS</h3>
+                <div id="detection-method-chart" class="chart"></div>
+            </div>
+            
+            <!-- Age Groups Chart - Right (Bar) -->
+            <div class="chart-container">
+                <h3>FINE BY AGE GROUP</h3>
+                <div id="age-groups-chart" class="chart"></div>
+            </div>
+        </section>
+    </div>
     
     <footer>
         <p>&copy; 2025 Team 8 - COS30045 Data Visualization</p>
@@ -29,7 +118,11 @@
     <script src="js/load_data.js"></script>
     
     <!-- Load visualization modules -->
-    
+    <script src="js/Trend_of_Speeding_Fines_Over_Months.js"></script>
+    <script src="js/Total_Speeding_Fines_by_Jurisdiction.js"></script>
+    <script src="js/Speeding_Fines_by_Detection_Method.js"></script>
+    <script src="js/Number_of_Fines_Across_Age_Groups.js"></script>
+    <script src="js/Number_of_Speeding_Fines_by_Location.js"></script>
     
     <!-- Then load dashboard that uses all the modules -->
     <script src="js/dashboard.js"></script>
