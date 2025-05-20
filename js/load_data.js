@@ -1,3 +1,5 @@
+console.log('load_data.js loaded');
+
 // Monthly Trend Data Loader
 
 // Data storage for monthly trend data
@@ -8,6 +10,7 @@ const monthlyTrendData = [];
  * @returns {Promise<Array>} Processed monthly trend data
  */
 async function loadMonthlyTrendData() {
+  console.log("loadMonthlyTrendData function called");
   try {
     console.log("Attempting to load monthly trend data");
     
@@ -117,7 +120,11 @@ function processMonthlyTrendData(data) {
         fines = parseInt(row[keys[1]] || 0);
       }
       
-      return { month, fines };
+      // Return in the format expected by the chart
+      return { 
+        month: month.toString(), 
+        totalFines: fines 
+      };
     });
     
     return result;

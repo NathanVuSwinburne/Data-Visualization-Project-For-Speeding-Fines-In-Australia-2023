@@ -126,5 +126,12 @@
     
     <!-- Then load dashboard that uses all the modules -->
     <script src="js/dashboard.js"></script>
+    
+    <!-- Error handling -->
+    <script>
+        window.addEventListener('error', function(event) {
+            console.error('Script error:', event.message, 'in', event.filename, 'line', event.lineno);
+        });
+    </script>
 </body>
-</html> 
+</html>
