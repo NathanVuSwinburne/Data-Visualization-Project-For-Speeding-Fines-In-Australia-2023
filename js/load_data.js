@@ -71,71 +71,7 @@ function loadExcelFile(fileName) {
   });
 }
 
-/**
- * Helper function to try loading Excel file with XMLHttpRequest
- * @param {string} url - URL of the Excel file to load
- * @param {Function} callback - Callback function with parsed data or null
- */
-function tryLoadExcelWithXHR(url, callback) {
-  console.log(`Attempting to load Excel from: ${url}`);
-  
-  const xhr = new XMLHttpRequest();
-  xhr.open('GET', url, true);
-  xhr.responseType = 'arraybuffer';
-  
-  xhr.onload = function() {
-    if (this.status === 200) {
-      console.log(`Got array buffer, size:`, this.response.byteLength);
-      try {
-        const data = parseExcelData(this.response);
-        console.log(`Parsed data:`, data ? data.length : 0, "records");
-        callback(data);
-      } catch (error) {
-        console.error(`Error parsing data:`, error);
-        callback(null);
-      }
-    } else {
-      console.error(`Failed with status: ${this.status}`);
-      callback(null);
-    }
-  };
-  
-  xhr.onerror = function() {
-    console.error(`Network error loading: ${url}`);
-    callback(null);
-  };
-  
-  xhr.send();
-}
 
-/**
- * Parse Excel data using SheetJS
- * @param {ArrayBuffer} arrayBuffer - Excel file as ArrayBuffer
- * @returns {Array} Parsed data from Excel file
- */
-function parseExcelData(arrayBuffer) {
-  try {
-    // Make sure XLSX is available
-    if (typeof XLSX === 'undefined') {
-      console.error("XLSX library not loaded");
-      throw new Error("XLSX library not loaded");
-    }
-    
-    // Parse the Excel file using SheetJS
-    const workbook = XLSX.read(arrayBuffer, { type: 'array' });
-    
-    // Get the first sheet
-    const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-    
-    // Convert to JSON
-    const jsonData = XLSX.utils.sheet_to_json(worksheet);
-    
-    return jsonData;
-  } catch (error) {
-    console.error("Error parsing Excel data:", error);
-    return [];
-  }
-}
 
 /**
  * Process Monthly Trend Data
