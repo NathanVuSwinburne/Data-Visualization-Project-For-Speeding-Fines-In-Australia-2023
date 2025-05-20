@@ -1,13 +1,13 @@
-/* Base CSS for Road Safety Dashboard - Team 8 */
+/* Base CSS for Road Safety Dashboard */
 
-/* Reset default browser styles for consistent rendering */
+/* Reset browser styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Global CSS variables for consistent colors across the dashboard */
+/* Global CSS variables */
 :root {
     --primary-color: #0c3155; /* Dark blue for header/footer */
     --secondary-color: #16b5bd; /* Teal color for cards/headers */
@@ -28,7 +28,7 @@
     --chart-color7: #95a5a6; /* Gray */
 }
 
-/* Base body styles */
+/* Body styles */
 html, body {
     height: 100%;
     overflow: hidden; /* Prevent scrolling on the body */
@@ -38,53 +38,54 @@ html, body {
     color: var(--filter-text-color);
 }
 
-/* Header styles - the blue bar at the top */
+/* Header styles */
 header {
     background-color: var(--primary-color);
     color: white;
-    padding: 6px 15px; /* Reduced padding from 8px to 6px */
+    padding: 6px 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    height: 40px; /* Reduced height from 45px to 40px */
+    height: 40px;
 }
 
-/* Header title text */
+/* Header title */
 header h1 {
-    font-size: 1.5rem; /* Slightly reduced from 1.6rem */
+    font-size: 1.5rem;
     text-align: center;
 }
 
-/* Main dashboard grid layout - Using viewport units for height */
+/* Dashboard grid layout */
 .dashboard-container {
     display: grid;
-    grid-template-columns: 200px 1fr; /* Reduced sidebar from 250px to 200px */
-    grid-template-rows: 70px minmax(185px, 24vh) minmax(170px, 24vh) minmax(170px, 24vh); /* Adjusted row heights */
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 70px minmax(205px, 26vh) minmax(208px, 26vh) minmax(208px, 26vh); /* Adjusted row heights */
+    /*grid-template-rows: 70px minmax(250px, 28vh) minmax(220px, 28vh) minmax(220px, 28vh); /* Increased row heights for charts */
     grid-template-areas:
         "kpi kpi"         /* KPI cards span full width */
         "filters trend"    /* Filters on left, trend chart on right */
         "filters bars"     /* Filters on left, bar charts on right */
         "filters bottom";  /* Filters on left, bottom charts on right */
-    gap: 4px; /* Reduced from 5px to 4px */
-    padding: 4px; /* Reduced from 5px to 4px */
+    gap: 4px;
+    padding: 4px;
     margin: 0 auto;
-    height: calc(100vh - 60px); /* Adjusted to match reduced header/footer height */
+    height: calc(100vh - 60px);
     overflow: auto; /* Allow scrolling within the dashboard if needed */
-    max-width: 1400px; /* Reduced maximum width from 1670px */
+    max-width: 1580px;
 }
 
-/* KPI SECTION - The 4 teal stat cards at the top */
+/* KPI section */
 .kpi-section {
     grid-area: kpi;
     display: flex;
     justify-content: space-between;
-    gap: 4px; /* Reduced from 5px to 4px */
-    margin-bottom: 4px; /* Reduced from 5px to 4px */
+    gap: 5px;
+    margin-bottom: 3px;
 }
 
-/* Individual KPI card styling */
+/* KPI card styles */
 .kpi-card {
     background-color: var(--secondary-color);
     border-radius: 10px;
-    padding: 8px 12px; /* Reduced from 10px 15px */
+    padding: 8px 12px; 
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     flex: 1;
     text-align: center;
@@ -97,28 +98,28 @@ header h1 {
 /* KPI card title */
 .kpi-card h3 {
     color: var(--text-color);
-    margin-bottom: 3px; /* Reduced from 5px */
-    font-size: 0.95rem; /* Slightly reduced from 1rem */
+    margin-bottom: 3px;
+    font-size: 0.95rem;
     font-weight: normal;
     text-align: center;
     width: 100%;
 }
 
-/* KPI card value (the numbers/statistics) */
+/* KPI card value */
 .kpi-value {
-    font-size: 1.4rem; /* Reduced from 1.5rem */
+    font-size: 1.4rem;
     font-weight: bold;
     color: var(--text-color);
     text-align: center;
     width: 100%;
 }
 
-/* FILTERS SECTION - Left sidebar with filter controls */
+/* Filters section */
 .filters-section {
     grid-area: filters;
     background-color: var(--card-bg-color); /* Changed from background-color to white */
     border-radius: 5px;
-    padding: 6px; /* Reduced from 8px */
+    padding: 6px;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -127,12 +128,11 @@ header h1 {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Added box-shadow to match other containers */
 }
 
-/* Filter container - Wraps individual filters for styling */
+/* Filter container */
 .filter-container {
     background-color: transparent; /* Changed from white to transparent */
     border-radius: 5px;
     padding: 10px 6px; /* Adjusted padding */
-    margin-bottom: 8px; /* Reduced from 10px */
     flex-shrink: 0;
 }
 
@@ -147,29 +147,29 @@ header h1 {
     padding: 0 4px; /* Added some padding */
 }
 
-/* The hamburger icon next to FILTERS text */
+/* Hamburger icon */
 .filters-section h3:after {
     content: "≡";
     margin-left: 8px; /* Reduced from 10px */
 }
 
-/* Individual filter group */
+/* Filter group */
 .filter {
-    margin-bottom: 10px; /* Reduced from 12px */
-    padding: 0 4px; /* Added padding to match layout in image */
+    margin-bottom: 10px; 
+    padding: 0 4px; 
 }
 
 /* Filter labels */
 .filter label {
     display: block;
-    margin-bottom: 3px; /* Reduced from 4px */
+    margin-bottom: 3px;
     font-weight: 500;
 }
 
-/* Dropdown select boxes */
+/* Dropdown selects */
 .filter select {
     width: 100%;
-    padding: 5px; /* Reduced from 6px */
+    padding: 5px;
     border: 1px solid var(--border-color);
     border-radius: 4px;
     background-color: var(--filter-bg-color);
@@ -186,16 +186,16 @@ button#reset-filters {
     background-color: var(--secondary-color);
     color: white;
     border: none;
-    padding: 7px 10px; /* Reduced from 8px 12px */
+    padding: 7px 10px;
     border-radius: 4px;
     cursor: pointer;
     width: calc(100% - 8px); /* Adjusted width to account for padding */
-    margin: 6px 4px; /* Added horizontal margin to match padding */
+    margin: 6px 4px;
     text-transform: uppercase;
     font-weight: bold;
 }
 
-/* Empty space below reset filters - making it match the image */
+/* Empty space */
 .empty-space {
     background-color: var(--secondary-color);
     flex-grow: 1;
