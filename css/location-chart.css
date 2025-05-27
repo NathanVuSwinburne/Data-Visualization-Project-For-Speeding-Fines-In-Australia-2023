@@ -1,0 +1,38 @@
+/* LOCATION BAR CHART STYLES */
+
+/* Container styling */
+#location-chart {
+    padding: 5px 20px 20px 30px; /* More padding to center visualization */
+    overflow: hidden; /* Prevent overflow */
+}
+
+/* Make bars purple and narrower */
+#location-chart .bar {
+    fill: var(--chart-color1); /* Purple for location */
+    width: 30px !important; /* Reduce bar width */
+    fill-opacity: 0.9;
+}
+
+/* Center the location chart SVG */
+#location-chart svg {
+    max-width: 95% !important;
+    margin: 0 auto;
+}
+
+/* Better style bar labels */
+#location-chart .bar-label {
+    font-size: 8px;
+    fill: #333;
+    text-anchor: middle;
+}
+
+/* X-axis alignment specific for this chart */
+#location-chart .axis.x-axis text {
+    text-anchor: middle;
+    font-size: 7px;
+}
+
+/* Add more space at the bottom for labels */
+#location-chart .axis.x-axis .tick line {
+    display: none; /* Hide tick lines for cleaner look */
+} 

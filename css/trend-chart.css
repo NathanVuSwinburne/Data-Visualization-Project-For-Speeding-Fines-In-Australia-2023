@@ -1,0 +1,45 @@
+/* TREND LINE CHART STYLES */
+
+/* Line chart background */
+#monthly-trend-chart {
+    border: 1px solid #ddd;
+    background: white;
+    padding: 5px 20px 15px 30px; /* Added more padding on sides to make line appear shorter */
+    text-align: center;
+    overflow: hidden; /* Prevent overflow */
+}
+
+/* Line chart stroke styling */
+#monthly-trend-chart path.line {
+    stroke: var(--secondary-color);
+    stroke-width: 1.5; /* Thinner line */
+    fill: none;
+}
+
+/* Line chart data points */
+#monthly-trend-chart circle {
+    fill: var(--secondary-color);
+    stroke: white;
+    stroke-width: 1;
+    r: 3; /* Smaller circles */
+}
+
+/* Center trend line by adjusting the SVG positioning */
+#monthly-trend-chart svg {
+    max-width: 90% !important; /* Make SVG narrower */
+    margin: 0 auto; /* Center it */
+}
+
+/* Y-axis label styling */
+#monthly-trend-chart .y-axis-label {
+    font-size: 7px;
+    fill: #666;
+}
+
+/* X-axis styling specifically for months */
+#monthly-trend-chart .axis.x-axis text {
+    transform: rotate(-45deg);
+    text-anchor: end;
+    dominant-baseline: middle;
+    font-size: 7px;
+} 

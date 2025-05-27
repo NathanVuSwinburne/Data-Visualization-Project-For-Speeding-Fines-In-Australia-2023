@@ -1,0 +1,60 @@
+/* DETECTION METHODS PIE CHART STYLES */
+
+/* Container styling */
+#detection-method-chart {
+    padding: 5px;
+    text-align: center;
+    overflow: hidden; /* Prevent overflow */
+}
+
+/* Make pie chart size smaller and centered */
+#detection-method-chart svg {
+    max-width: 80% !important; /* Make pie chart smaller */
+    margin: 0 auto; /* Center it */
+}
+
+/* Position legend closer to pie chart */
+#detection-method-chart .legend {
+    position: absolute;
+    right: 5px;
+    top: 40%; /* Position legend vertically centered */
+    max-width: 30%;
+    text-align: left;
+    margin-top: 0;
+}
+
+/* Style pie slices */
+#detection-method-chart .pie-slice {
+    stroke: white;
+    stroke-width: 1px;
+}
+
+/* Color each slice by detection method */
+#detection-method-chart .pie-slice.police {
+    fill: var(--chart-color3); /* Blue */
+}
+
+#detection-method-chart .pie-slice.fixed-camera {
+    fill: var(--chart-color4); /* Orange */
+}
+
+#detection-method-chart .pie-slice.mobile-camera {
+    fill: var(--chart-color5); /* Green */
+}
+
+#detection-method-chart .pie-slice.other {
+    fill: var(--chart-color2); /* Red */
+}
+
+#detection-method-chart .pie-slice.combined {
+    fill: var(--chart-color6); /* Pink */
+}
+
+/* Style percentage labels in pie slices */
+#detection-method-chart .pie-label {
+    font-size: 8px;
+    fill: white;
+    font-weight: bold;
+    text-anchor: middle;
+    pointer-events: none;
+} 

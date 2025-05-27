@@ -1,0 +1,40 @@
+/* JURISDICTION BAR CHART STYLES */
+
+/* Container styling */
+#jurisdiction-chart {
+    padding: 5px 20px 20px 40px; /* More padding on left to show axis */
+    overflow: hidden; /* Prevent overflow */
+}
+
+/* Style the red jurisdiction bars */
+#jurisdiction-chart .bar,
+#jurisdiction-chart .jurisdiction-bar {
+    fill: var(--chart-color2); /* Red for jurisdiction */
+    fill-opacity: 0.9;
+}
+
+/* Center the jurisdiction chart */
+#jurisdiction-chart svg {
+    max-width: 95% !important;
+    margin: 0 auto;
+}
+
+/* Bar value labels */
+#jurisdiction-chart .bar-value {
+    font-size: 7px;
+    fill: #333;
+    text-anchor: start;
+    dominant-baseline: middle;
+}
+
+/* Jurisdiction axis labels */
+#jurisdiction-chart .axis.y-axis text {
+    font-size: 7px;
+    fill: #333;
+    text-anchor: end;
+}
+
+/* Ensure there's enough space for jurisdiction labels */
+#jurisdiction-chart .axis.y-axis .tick text {
+    transform: translateX(-3px); /* Move text closer to axis */
+} 

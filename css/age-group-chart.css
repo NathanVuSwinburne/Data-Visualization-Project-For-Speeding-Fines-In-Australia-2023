@@ -1,0 +1,44 @@
+/* AGE GROUP BAR CHART STYLES */
+
+/* Container styling */
+#age-groups-chart {
+    padding: 5px 20px 20px 30px; /* More padding to center visualization */
+    overflow: hidden; /* Prevent overflow */
+}
+
+/* Make age group bars narrower and green */
+#age-groups-chart .bar,
+#age-groups-chart .age-bar {
+    fill: var(--chart-color5); /* Green for age groups */
+    width: 30px !important; /* Reduce bar width */
+    fill-opacity: 0.9;
+}
+
+/* Center age groups chart */
+#age-groups-chart svg {
+    max-width: 95% !important;
+    margin: 0 auto;
+}
+
+/* Style bar value labels */
+#age-groups-chart .bar-value {
+    font-size: 7px;
+    fill: #333;
+    text-anchor: middle;
+    dominant-baseline: text-before-edge;
+}
+
+/* Style x-axis labels for age groups */
+#age-groups-chart .axis.x-axis text {
+    font-size: 7px;
+    text-anchor: middle;
+    transform: translateY(2px); /* Move text slightly down from axis */
+}
+
+/* Add value labels above bars */
+#age-groups-chart .data-label {
+    font-size: 8px;
+    fill: #333;
+    text-anchor: middle;
+    font-weight: bold;
+} 

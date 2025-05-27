@@ -1,0 +1,156 @@
+/* RESPONSIVE DESIGN ADJUSTMENTS */
+
+/* For medium screens */
+@media (max-width: 1200px) {
+    /* Allow scrolling on smaller screens */
+    html, body {
+        overflow: auto;
+        height: auto;
+    }
+    
+    .dashboard-container {
+        height: auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "kpi"
+            "filters"
+            "trend"
+            "bars"
+            "bottom";
+        width: 95%; /* Reduced from full width to 95% */
+    }
+    
+    /* Convert filters to horizontal layout */
+    .filters-section {
+        max-width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px; /* Reduced from 10px */
+        padding: 8px; /* Increased from 5px for better spacing */
+        margin-bottom: 4px; /* Added margin-bottom */
+        background-color: var(--card-bg-color); /* Ensure white background is maintained */
+    }
+    
+    .filter-container {
+        flex: 1;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 0;
+        background-color: transparent; /* Ensure filter container background is transparent */
+        padding: 0; /* Remove padding */
+    }
+    
+    /* Filters header takes full width */
+    .filters-section h3 {
+        width: 100%;
+        margin-bottom: 4px; /* Reduced from 5px */
+    }
+    
+    /* Individual filters flex horizontally */
+    .filter {
+        flex: 1;
+        min-width: 150px;
+        margin-bottom: 4px; /* Reduced from 5px */
+        margin-right: 4px; /* Reduced from 5px */
+    }
+    
+    /* Reset button doesn't take full width */
+    button#reset-filters {
+        width: auto;
+        margin-top: 0;
+        margin: 0; /* Reset margin */
+        min-width: 120px; /* Set minimum width */
+    }
+    
+    /* Stack charts vertically */
+    .bar-charts-container,
+    .bottom-charts-container {
+        grid-template-columns: 1fr;
+        margin-bottom: 4px; /* Reduced from 5px */
+    }
+    
+    .chart-container {
+        margin-bottom: 4px; /* Reduced from 5px */
+        height: 250px;
+    }
+    
+    .empty-space {
+        display: none; /* Hide the empty space in responsive layouts */
+    }
+    
+    /* Adjust chart padding for responsive view */
+    #monthly-trend-chart,
+    #location-chart,
+    #jurisdiction-chart,
+    #detection-method-chart,
+    #age-groups-chart {
+        padding: 5px 10px; /* Simplified padding */
+    }
+    
+    /* Center legends in responsive mode */
+    #detection-method-chart .legend {
+        position: static; /* Reset from absolute */
+        max-width: 100%;
+        margin-top: 5px;
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+/* For small screens */
+@media (max-width: 768px) {
+    .dashboard-container {
+        width: 92%;
+        padding: 3px;
+    }
+    
+    .kpi-section {
+        flex-direction: column;
+    }
+    
+    .kpi-card {
+        width: 100%;
+        margin-bottom: 4px; /* Reduced from 5px */
+    }
+    
+    .filter-container {
+        flex-direction: column;
+    }
+    
+    .filter {
+        width: 100%;
+    }
+    
+    /* Further reduce chart paddings */
+    #monthly-trend-chart,
+    #location-chart,
+    #jurisdiction-chart,
+    #detection-method-chart,
+    #age-groups-chart {
+        padding: 2px 5px; /* Minimal padding */
+    }
+    
+    /* Make SVG elements more compact */
+    .chart svg {
+        max-width: 100% !important;
+    }
+}
+
+/* For extra small screens */
+@media (max-width: 480px) {
+    .chart-container h3 {
+        font-size: 0.7rem; /* Smaller headers */
+    }
+    
+    .axis text {
+        font-size: 6px; /* Even smaller axis text */
+    }
+    
+    .legend {
+        font-size: 7px; /* Smaller legend text */
+    }
+} 

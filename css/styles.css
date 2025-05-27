@@ -1,0 +1,514 @@
+/* CSS for Road Safety Dashboard - Team 8 */
+
+/* Reset default browser styles for consistent rendering */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global CSS variables for consistent colors across the dashboard */
+:root {
+    --primary-color: #0c3155; /* Dark blue for header/footer */
+    --secondary-color: #16b5bd; /* Teal color for cards/headers */
+    --text-color: #ffffff; /* White text for contrast on colored backgrounds */
+    --background-color: #f5f7fa; /* Light background for the dashboard */
+    --card-bg-color: #ffffff; /* White background for cards */
+    --border-color: #dcdfe6; /* Light gray for borders */
+    --filter-bg-color: #ffffff; /* White background for filter elements */
+    --filter-text-color: #333333; /* Dark text for filters */
+    
+    /* Chart color palette for consistency */
+    --chart-color1: #7b4ea3; /* Purple */
+    --chart-color2: #e74c3c; /* Red */
+    --chart-color3: #3498db; /* Blue */
+    --chart-color4: #f39c12; /* Orange */
+    --chart-color5: #2ecc71; /* Green */
+    --chart-color6: #e056fd; /* Pink */
+    --chart-color7: #95a5a6; /* Gray */
+}
+
+/* Base body styles */
+html, body {
+    height: 100%;
+    overflow: hidden; /* Prevent scrolling on the body */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--filter-text-color);
+}
+
+/* Header styles - the blue bar at the top */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 6px 15px; /* Reduced padding from 8px to 6px */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 40px; /* Reduced height from 45px to 40px */
+}
+
+/* Header title text */
+header h1 {
+    font-size: 1.5rem; /* Slightly reduced from 1.6rem */
+}
+
+/* Main dashboard grid layout - Using viewport units for height */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 200px 1fr; /* Reduced sidebar from 250px to 200px */
+    grid-template-rows: 70px minmax(22vh, auto) minmax(26vh, auto) minmax(26vh, auto); /* Slightly adjusted row heights */
+    grid-template-areas:
+        "kpi kpi"         /* KPI cards span full width */
+        "filters trend"    /* Filters on left, trend chart on right */
+        "filters bars"     /* Filters on left, bar charts on right */
+        "filters bottom";  /* Filters on left, bottom charts on right */
+    gap: 4px; /* Reduced from 5px to 4px */
+    padding: 4px; /* Reduced from 5px to 4px */
+    margin: 0 auto;
+    height: calc(100vh - 60px); /* Adjusted to match reduced header/footer height */
+    overflow: auto; /* Allow scrolling within the dashboard if needed */
+    max-width: 1400px; /* Reduced maximum width from 1670px */
+}
+
+/* KPI SECTION - The 4 teal stat cards at the top */
+.kpi-section {
+    grid-area: kpi;
+    display: flex;
+    justify-content: space-between;
+    gap: 4px; /* Reduced from 5px to 4px */
+    margin-bottom: 4px; /* Reduced from 5px to 4px */
+}
+
+/* Individual KPI card styling */
+.kpi-card {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    padding: 8px 12px; /* Reduced from 10px 15px */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* KPI card title */
+.kpi-card h3 {
+    color: var(--text-color);
+    margin-bottom: 3px; /* Reduced from 5px */
+    font-size: 0.95rem; /* Slightly reduced from 1rem */
+    font-weight: normal;
+    text-align: center;
+    width: 100%;
+}
+
+/* KPI card value (the numbers/statistics) */
+.kpi-value {
+    font-size: 1.4rem; /* Reduced from 1.5rem */
+    font-weight: bold;
+    color: var(--text-color);
+    text-align: center;
+    width: 100%;
+}
+
+/* FILTERS SECTION - Left sidebar with filter controls */
+.filters-section {
+    grid-area: filters;
+    background-color: var(--card-bg-color); /* Changed from background-color to white */
+    border-radius: 5px;
+    padding: 6px; /* Reduced from 8px */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    border: 1px solid var(--border-color); /* Added border to match other containers */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Added box-shadow to match other containers */
+}
+
+/* Filter container - Wraps individual filters for styling */
+.filter-container {
+    background-color: transparent; /* Changed from white to transparent */
+    border-radius: 5px;
+    padding: 10px 6px; /* Adjusted padding */
+    margin-bottom: 8px; /* Reduced from 10px */
+    flex-shrink: 0;
+}
+
+/* Filters header */
+.filters-section h3 {
+    margin-bottom: 10px; /* Reduced from 12px */
+    color: var(--filter-text-color);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    padding: 0 4px; /* Added some padding */
+}
+
+/* The hamburger icon next to FILTERS text */
+.filters-section h3:after {
+    content: "≡";
+    margin-left: 8px; /* Reduced from 10px */
+}
+
+/* Individual filter group */
+.filter {
+    margin-bottom: 10px; /* Reduced from 12px */
+    padding: 0 4px; /* Added padding to match layout in image */
+}
+
+/* Filter labels */
+.filter label {
+    display: block;
+    margin-bottom: 3px; /* Reduced from 4px */
+    font-weight: 500;
+}
+
+/* Dropdown select boxes */
+.filter select {
+    width: 100%;
+    padding: 5px; /* Reduced from 6px */
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--filter-bg-color);
+    font-family: inherit;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5H7z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 12px;
+}
+
+/* Reset filters button */
+button#reset-filters {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 7px 10px; /* Reduced from 8px 12px */
+    border-radius: 4px;
+    cursor: pointer;
+    width: calc(100% - 8px); /* Adjusted width to account for padding */
+    margin: 6px 4px; /* Added horizontal margin to match padding */
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Empty space below reset filters - making it match the image */
+.empty-space {
+    background-color: var(--secondary-color);
+    flex-grow: 1;
+    border-radius: 5px;
+    margin-top: 10px;
+    min-height: 200px; /* Make it taller to fill remaining space */
+}
+
+/* CHART LAYOUT SECTIONS */
+/* Top line chart container */
+.trend-chart-container {
+    grid-area: trend;
+    margin-bottom: 4px; /* Reduced from 5px */
+    height: 100%;
+}
+
+/* Middle row with two bar charts */
+.bar-charts-container {
+    grid-area: bars;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px; /* Reduced from 5px */
+    margin-bottom: 4px; /* Reduced from 5px */
+    height: 100%;
+}
+
+/* Bottom row with pie chart and bar chart */
+.bottom-charts-container {
+    grid-area: bottom;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px; /* Reduced from 5px */
+    height: 100%;
+}
+
+/* CHART STYLING */
+/* Individual chart containers */
+.chart-container {
+    background-color: var(--card-bg-color);
+    border-radius: 5px;
+    padding: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Chart headers - teal bars with titles */
+.chart-container h3 {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 5px 8px; /* Reduced from 7px */
+    font-size: 0.75rem; /* Reduced from 0.8rem */
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.2; /* Added to make text more compact */
+}
+
+/* Chart inner content area */
+.chart {
+    flex: 1;
+    width: 100%;
+    padding: 6px; /* Further reduced from 8px */
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Make SVG elements responsive with more precise sizing */
+.chart svg {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: calc(100% - 2px); /* Prevent touching edges */
+    max-width: calc(100% - 2px); /* Prevent touching edges */
+    display: block; /* Ensure no extra space */
+}
+
+/* General chart axis styling */
+.axis path,
+.axis line {
+    stroke: #ccc;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    font-size: 8px; /* Reduced from 9px */
+    fill: var(--filter-text-color);
+}
+
+/* Bar chart specific styling */
+.bar {
+    fill-opacity: 0.9;
+}
+
+/* Apply consistent colors to charts */
+.location-bar {
+    fill: var(--chart-color1); /* Purple for location */
+}
+
+.jurisdiction-bar {
+    fill: var(--chart-color2); /* Red for jurisdiction */
+}
+
+.age-bar {
+    fill: var(--chart-color5); /* Green for age groups */
+}
+
+/* Pie chart styling */
+.pie-slice {
+    stroke: white;
+    stroke-width: 1px;
+}
+
+/* Improved legend styling */
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2px; /* Reduced from 4px */
+    font-size: 9px; /* Slightly reduced */
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-right: 6px; /* Reduced from 8px */
+    margin-bottom: 2px; /* Reduced from 3px */
+}
+
+.legend-color {
+    width: 7px; /* Reduced from 8px */
+    height: 7px; /* Reduced from 8px */
+    margin-right: 3px;
+    border-radius: 2px;
+}
+
+/* Data labels for better visibility */
+.data-label {
+    font-size: 8px; /* Reduced from 9px */
+    font-weight: bold;
+    text-anchor: middle;
+}
+
+/* LINE CHART SPECIFIC STYLES */
+/* Line chart background */
+#monthly-trend-chart {
+    border: 1px solid #ddd;
+    background: white;
+    padding: 5px; /* Smaller padding */
+    overflow: hidden; /* Prevent overflow */
+}
+
+/* Line chart stroke styling */
+#monthly-trend-chart path.line {
+    stroke: var(--secondary-color);
+    stroke-width: 1.8; /* Slightly reduced from 2 */
+    fill: none;
+}
+
+/* Line chart data points */
+#monthly-trend-chart circle {
+    fill: var(--secondary-color);
+    stroke: white;
+    stroke-width: 1;
+    r: 4; /* Reduced radius attribute */
+}
+
+/* Tooltip styling */
+.tooltip {
+    position: absolute;
+    padding: 5px 7px; /* Reduced from 6px 8px */
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 4px;
+    pointer-events: none;
+    font-size: 10px; /* Reduced from 11px */
+    z-index: 100;
+    max-width: 170px; /* Reduced from 180px */
+    white-space: normal;
+}
+
+/* FOOTER STYLING */
+footer {
+    text-align: center;
+    padding: 4px; /* Reduced from 5px */
+    margin-top: 0;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 11px; /* Reduced from 12px */
+    height: 20px; /* Reduced from 25px */
+}
+
+/* RESPONSIVE DESIGN ADJUSTMENTS */
+/* For medium screens */
+@media (max-width: 1200px) {
+    /* Allow scrolling on smaller screens */
+    html, body {
+        overflow: auto;
+        height: auto;
+    }
+    
+    .dashboard-container {
+        height: auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "kpi"
+            "filters"
+            "trend"
+            "bars"
+            "bottom";
+        width: 95%; /* Reduced from full width to 95% */
+    }
+    
+    /* Convert filters to horizontal layout */
+    .filters-section {
+        max-width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px; /* Reduced from 10px */
+        padding: 8px; /* Increased from 5px for better spacing */
+        margin-bottom: 4px; /* Added margin-bottom */
+        background-color: var(--card-bg-color); /* Ensure white background is maintained */
+    }
+    
+    .filter-container {
+        flex: 1;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 0;
+        background-color: transparent; /* Ensure filter container background is transparent */
+        padding: 0; /* Remove padding */
+    }
+    
+    /* Filters header takes full width */
+    .filters-section h3 {
+        width: 100%;
+        margin-bottom: 4px; /* Reduced from 5px */
+    }
+    
+    /* Individual filters flex horizontally */
+    .filter {
+        flex: 1;
+        min-width: 150px;
+        margin-bottom: 4px; /* Reduced from 5px */
+        margin-right: 4px; /* Reduced from 5px */
+    }
+    
+    /* Reset button doesn't take full width */
+    button#reset-filters {
+        width: auto;
+        margin-top: 0;
+        margin: 0; /* Reset margin */
+        min-width: 120px; /* Set minimum width */
+    }
+    
+    /* Stack charts vertically */
+    .bar-charts-container,
+    .bottom-charts-container {
+        grid-template-columns: 1fr;
+        margin-bottom: 4px; /* Reduced from 5px */
+    }
+    
+    .chart-container {
+        margin-bottom: 4px; /* Reduced from 5px */
+        height: 250px;
+    }
+    
+    .empty-space {
+        display: none; /* Hide the empty space in responsive layouts */
+    }
+}
+
+/* For small screens */
+@media (max-width: 768px) {
+    .dashboard-container {
+        width: 92%;
+        padding: 3px;
+    }
+    
+    .kpi-section {
+        flex-direction: column;
+    }
+    
+    .kpi-card {
+        width: 100%;
+        margin-bottom: 4px; /* Reduced from 5px */
+    }
+    
+    .filter-container {
+        flex-direction: column;
+    }
+    
+    .filter {
+        width: 100%;
+    }
+}
+
+/* Ensure charts for specific sections fit properly */
+#location-chart,
+#jurisdiction-chart,
+#detection-method-chart,
+#age-groups-chart {
+    padding: 5px; /* Smaller padding */
+    overflow: hidden; /* Prevent overflow */
+} 
