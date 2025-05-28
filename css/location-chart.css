@@ -1,0 +1,68 @@
+/* =============================================
+ * LOCATION CHART CONFIGURATION
+ * ============================================= */
+
+/* ------ CHART SIZE SETTINGS ------ */
+:root {
+    --location-chart-height: 300px;       /* Chart height */
+    --location-chart-min-height: 250px;   /* Minimum chart height */
+    --location-chart-padding: 15px;       /* Internal padding */
+    --location-chart-margin: 10px;        /* External margin */
+}
+
+/* ------ CHART CONTAINER STYLING ------ */
+#location-chart-container {
+    height: auto;
+    margin-bottom: var(--location-chart-margin);
+}
+
+/* ------ CHART SPECIFIC STYLING ------ */
+#location-chart {
+    min-height: var(--location-chart-min-height) !important;
+    height: var(--location-chart-height);
+    padding: var(--location-chart-padding);
+    overflow: visible;    /* Change to 'hidden' if elements overflow */
+}
+
+/* ------ SVG ELEMENT STYLING ------ */
+#location-chart svg {
+    max-height: calc(var(--location-chart-height) - 10px);
+    width: auto !important;  /* Auto width to maintain aspect ratio */
+}
+
+/* ------ BARS STYLING ------ */
+#location-chart .bar {
+    fill: var(--chart-color3);     /* Bar color - using variable from base.css */
+    stroke: #ffffff;               /* Bar border color */
+    stroke-width: 1px;            /* Bar border width */
+    opacity: 0.9;                 /* Bar opacity */
+}
+
+#location-chart .bar:hover {
+    opacity: 1;                    /* Opacity on hover */
+    fill: var(--chart-color4);    /* Hover color */
+}
+
+/* ------ AXIS STYLING ------ */
+#location-chart .axis text {
+    font-size: 11px;              /* Axis label font size */
+    fill: #333;                   /* Axis label color */
+}
+
+#location-chart .axis-title {
+    font-size: 12px;              /* Axis title font size */
+    font-weight: bold;            /* Axis title font weight */
+}
+
+/* ------ TOOLTIP STYLING ------ */
+#location-chart .tooltip {
+    font-size: 12px;              /* Tooltip text size */
+    padding: 8px;                 /* Tooltip padding */
+}
+
+/* ------ DATA LABELS STYLING ------ */
+#location-chart .data-label {
+    font-size: 10px;              /* Data label size */
+    font-weight: bold;            /* Data label weight */
+    fill: #333;                   /* Data label color */
+}
