@@ -12,12 +12,32 @@ window.initDashboard = function() {
     // Check and prepare containers
     prepareContainers();
     
-    // Make sure the trend chart gets initialized
-    if (!window.dashboardInitialized && window.dashboardData && window.dashboardData.monthlyTrend) {
-        if (typeof initMonthlyTrendChart === 'function') {
+    // Initialize all charts if data is available
+    if (!window.dashboardInitialized && window.dashboardData) {
+        // Initialize monthly trend chart
+        if (typeof initMonthlyTrendChart === 'function' && window.dashboardData.monthlyTrend) {
             console.log('Calling initMonthlyTrendChart from dashboard');
-            setTimeout(initMonthlyTrendChart, 0); // Use setTimeout to ensure DOM is ready
+            setTimeout(initMonthlyTrendChart, 0);
         }
+        
+        // Initialize location chart
+        if (typeof initLocationChart === 'function' && window.dashboardData.location) {
+            console.log('Calling initLocationChart from dashboard');
+            setTimeout(initLocationChart, 100);
+        }
+        
+        // Initialize jurisdiction chart
+        if (typeof initJurisdictionChart === 'function' && window.dashboardData.jurisdiction) {
+            console.log('Calling initJurisdictionChart from dashboard');
+            setTimeout(initJurisdictionChart, 200);
+        }
+        
+        // Initialize age group chart
+        if (typeof initAgeGroupChart === 'function' && window.dashboardData.ageGroup) {
+            console.log('Calling initAgeGroupChart from dashboard');
+            setTimeout(initAgeGroupChart, 300);
+        }
+        
         window.dashboardInitialized = true;
     }
 };
