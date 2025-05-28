@@ -1,0 +1,17 @@
+/* Custom styles for detection method chart */
+
+/* Container size adjustments */
+#detection-method-chart-container {
+    height: auto;
+}
+
+/* Chart specific adjustments */
+#detection-method-chart {
+    min-height: 250px !important; /* Override the global min-height */
+    height: 250px;
+}
+
+/* SVG adjustments for the detection method chart */
+#detection-method-chart svg {
+    max-height: 250px;
+}

@@ -1,8 +1,8 @@
 /* CSS for the jurisdiction map chart */
 
 #jurisdiction-chart {
-    height: 100%;
-    width: 100%;
+    height: 80%;
+    width: 80%;
     position: relative;
     overflow: hidden; /* Prevent overflow */
 }
@@ -14,11 +14,11 @@
 
 /* Make state labels smaller and more compact */
 #jurisdiction-chart text.state-label {
-    font-size: 10px;
+    font-size: 12px;
 }
 
 /* Make percentage and value labels smaller */
 #jurisdiction-chart text.percentage-label,
 #jurisdiction-chart text.value-label {
-    font-size: 9px;
+    font-size: 12px;
 }

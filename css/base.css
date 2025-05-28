@@ -33,11 +33,12 @@
 /* Body styles */
 html, body {
     height: 100%;
-    overflow: hidden; /* Prevent scrolling on the body */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     background-color: var(--background-color);
     color: var(--filter-text-color);
+    margin: 0;
+    padding: 0;
 }
 
 /* Header styles */
@@ -59,7 +60,7 @@ header h1 {
 .dashboard-container {
     display: grid;
     grid-template-columns: 200px 1fr 1fr;
-    grid-template-rows: 70px minmax(205px, 26vh) minmax(300px, 34vh) minmax(180px, 20vh); /* Adjusted row heights */
+    grid-template-rows: 70px minmax(205px, auto) minmax(300px, auto) minmax(250px, auto); /* Changed to allow more space */
     grid-template-areas:
         "kpi kpi kpi"           /* KPI cards span full width */
         "filters trend trend"    /* Filters on left, trend chart spanning both columns */
@@ -68,8 +69,9 @@ header h1 {
     gap: 4px;
     padding: 4px;
     margin: 0 auto;
-    height: calc(100vh - 60px);
-    overflow: auto; /* Allow scrolling within the dashboard if needed */
+    min-height: calc(100vh - 60px);
+    height: auto;
+    overflow: visible; /* Allow content to flow and be scrollable */
     max-width: 1580px;
 }
 
@@ -270,22 +272,24 @@ button#reset-filters {
 .chart {
     flex: 1;
     width: 100%;
-    padding: 6px; /* Further reduced from 8px */
+    padding: 12px;
     background: white;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    min-height: 250px; /* Ensure enough height for charts */
 }
 
 /* Make SVG elements responsive with more precise sizing */
 .chart svg {
     width: 100% !important;
     height: 100% !important;
-    max-height: calc(100% - 2px); /* Prevent touching edges */
-    max-width: calc(100% - 2px); /* Prevent touching edges */
+    max-width: 100%;
+    max-height: 100%;
     display: block; /* Ensure no extra space */
+    aspect-ratio: auto; /* Allow natural proportions */
 }
 
 /* General chart axis styling */

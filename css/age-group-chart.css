@@ -1,0 +1,17 @@
+/* Custom styles for age group chart */
+
+/* Container size adjustments */
+#age-groups-chart-container {
+    height: auto;
+}
+
+/* Chart specific adjustments */
+#age-groups-chart {
+    min-height: 250px !important; /* Override the global min-height */
+    height: 250px;
+}
+
+/* SVG adjustments for the age group chart */
+#age-groups-chart svg {
+    max-height: 250px;
+}
