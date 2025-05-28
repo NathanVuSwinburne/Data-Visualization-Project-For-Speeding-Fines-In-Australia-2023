@@ -1,26 +1,36 @@
-document.addEventListener('DOMContentLoaded', async function() {
+// Initialize function for jurisdiction chart
+window.initJurisdictionChart = async function() {
     try {
+        console.log('Initializing jurisdiction chart...');
+        
         // Clear any existing content
         const container = d3.select("#jurisdiction-chart");
         container.html("");
         
-        // Load the data
-        const data = await loadData();
-        console.log("Loaded data for jurisdiction chart:", data);
-        
-        if (!data || !data.jurisdictionData || data.jurisdictionData.length === 0) {
-            throw new Error("No jurisdiction data available");
+        // Check if global dashboard data is available
+        if (!window.dashboardData || !window.dashboardData.jurisdiction || window.dashboardData.jurisdiction.length === 0) {
+            console.error("No jurisdiction data available in dashboardData");
+            container.append("div")
+                .attr("class", "error-message")
+                .text("No jurisdiction data available");
+            return;
         }
 
-        // Process the data into the format we need
+        const jurisdictionData = window.dashboardData.jurisdiction;
+        console.log("Using jurisdiction data from dashboardData:", jurisdictionData);
+        
+        // Calculate total fines for percentage calculation
+        const totalFines = jurisdictionData.reduce((sum, d) => sum + d.fines, 0);
+        
+        // Process the data into the format we need for the map
         const processedData = {};
-        data.jurisdictionData.forEach(row => {
-            processedData[row.Jurisdiction] = {
-                fines: parseInt(row.Fines),
-                percentage: parseFloat(row.Percentage)
+        jurisdictionData.forEach(row => {
+            processedData[row.jurisdiction] = {
+                fines: row.fines,
+                percentage: ((row.fines / totalFines) * 100).toFixed(1)
             };
         });
-
+        
         console.log("Processed jurisdiction data for map:", processedData);
         
         const margin = { top: 20, right: 20, bottom: 20, left: 20 };
@@ -51,16 +61,31 @@ document.addEventListener('DOMContentLoaded', async function() {
             throw new Error("Invalid GeoJSON data");
         }
 
-        // Create a color scale for the heatmap
+        // Create a color scale for the heatmap - using blues instead of reds
         const fineValues = Object.values(processedData).map(d => d.fines);
         const colorScale = d3.scaleSequential()
             .domain([0, d3.max(fineValues)])
-            .interpolator(d3.interpolateReds);
+            .interpolator(d3.interpolateBlues);
 
         // Create a group for the map
         const mapGroup = svg.append("g");
+        
+        // Create a div for the tooltip
+        const tooltip = d3.select("body").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0)
+            .style("position", "absolute")
+            .style("background-color", "#f9f9f9")
+            .style("border", "1px solid #d3d3d3")
+            .style("border-radius", "5px")
+            .style("padding", "10px")
+            .style("pointer-events", "none")
+            .style("font-family", "Arial, sans-serif")
+            .style("font-size", "14px")
+            .style("color", "#000000")
+            .style("box-shadow", "0 4px 8px rgba(0,0,0,0.1)");
 
-        // Draw states with heatmap colors
+        // Draw states with heatmap colors and add interactivity
         mapGroup.selectAll("path")
             .data(geojson.features)
             .join("path")
@@ -71,7 +96,43 @@ document.addEventListener('DOMContentLoaded', async function() {
                 return stateData ? colorScale(stateData.fines) : "#ccc";
             })
             .attr("stroke", "white")
-            .attr("stroke-width", 1);
+            .attr("stroke-width", 1)
+            .style("cursor", "pointer")
+            .on("mouseover", function(event, d) {
+                const stateCode = getStateCode(d.properties.STATE_NAME);
+                const stateData = processedData[stateCode];
+                
+                if (stateData) {
+                    // Highlight the state
+                    d3.select(this)
+                        .attr("stroke", "#333")
+                        .attr("stroke-width", 2);
+                    
+                    // Show tooltip
+                    tooltip.transition()
+                        .duration(200)
+                        .style("opacity", 0.9);
+                    
+                    tooltip.html(`
+                        <strong>${stateCode}</strong><br/>
+                        <strong>Fines:</strong> ${stateData.fines.toLocaleString()}<br/>
+                        <strong>Percentage:</strong> ${stateData.percentage}%
+                    `)
+                        .style("left", (event.pageX + 10) + "px")
+                        .style("top", (event.pageY - 28) + "px");
+                }
+            })
+            .on("mouseout", function() {
+                // Restore original appearance
+                d3.select(this)
+                    .attr("stroke", "white")
+                    .attr("stroke-width", 1);
+                
+                // Hide tooltip
+                tooltip.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            });
 
         // Create a group for labels
         const labelGroup = svg.append("g");
@@ -105,30 +166,30 @@ document.addEventListener('DOMContentLoaded', async function() {
 
                 const g = d3.select(this);
                 
-                // State name
+                // State name - changed from white to black text
                 g.append("text")
                     .attr("text-anchor", "middle")
                     .attr("dy", "-1em")
                     .style("font-size", "16px")
                     .style("font-weight", "bold")
-                    .style("fill", "white")
+                    .style("fill", "black")
                     .text(stateCode);
                 
-                // Percentage
+                // Percentage - changed from white to black text
                 g.append("text")
                     .attr("text-anchor", "middle")
                     .attr("dy", "1em")
                     .style("font-size", "20px")
                     .style("font-weight", "bold")
-                    .style("fill", "white")
+                    .style("fill", "black")
                     .text(stateData.percentage + "%");
                 
-                // Value in parentheses
+                // Value in parentheses - changed from white to black text
                 g.append("text")
                     .attr("text-anchor", "middle")
                     .attr("dy", "2.5em")
                     .style("font-size", "14px")
-                    .style("fill", "white")
+                    .style("fill", "black")
                     .text("(" + Math.round(stateData.fines/1000).toLocaleString() + "k)");
             });
 
@@ -148,7 +209,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                 .attr("y1", y1)
                 .attr("x2", x2)
                 .attr("y2", y2)
-                .attr("stroke", "white")
+                .attr("stroke", "#333")
                 .attr("stroke-width", 1);
         };
 
@@ -205,12 +266,12 @@ document.addEventListener('DOMContentLoaded', async function() {
             .attr("transform", `translate(0, ${legendHeight})`)
             .call(legendAxis);
 
-        // Add legend title
+        // Add legend title - changed from white to black text
         legend.append("text")
             .attr("x", 0)
             .attr("y", -5)
             .style("font-size", "12px")
-            .style("fill", "white")
+            .style("fill", "black")
             .text("Number of Fines");
 
     } catch (error) {
@@ -219,9 +280,28 @@ document.addEventListener('DOMContentLoaded', async function() {
         d3.select("#jurisdiction-chart")
             .html("<div style='color: red; text-align: center; padding: 20px;'>Error loading jurisdiction data</div>");
     }
-});
+}
 
 // Helper function to convert state names to codes
+// Initialize the chart when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, checking for jurisdiction data...');
+    if (window.dashboardData && window.dashboardData.jurisdiction) {
+        // Initialize the chart if data is already loaded
+        initJurisdictionChart();
+    } else {
+        console.log('Waiting for data to be loaded before initializing jurisdiction chart');
+        // Add the chart initialization to the dashboard init process
+        const originalInitDashboard = window.initDashboard || function() {};
+        window.initDashboard = function() {
+            originalInitDashboard();
+            if (window.dashboardData && window.dashboardData.jurisdiction) {
+                setTimeout(initJurisdictionChart, 100); // Slight delay to ensure DOM is ready
+            }
+        };
+    }
+});
+
 function getStateCode(stateName) {
     const stateMapping = {
         "New South Wales": "NSW",
