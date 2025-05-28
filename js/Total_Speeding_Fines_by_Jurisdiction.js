@@ -33,9 +33,15 @@ window.initJurisdictionChart = async function() {
         
         console.log("Processed jurisdiction data for map:", processedData);
         
-        const margin = { top: 20, right: 20, bottom: 20, left: 20 };
-        const width = 800;
-        const height = 600;
+        // Get container dimensions to make the chart responsive
+        const boundingRect = container.node().getBoundingClientRect();
+        const containerWidth = boundingRect.width;
+        const containerHeight = boundingRect.height;
+        
+        // Use smaller dimensions to prevent overflow
+        const margin = { top: 10, right: 10, bottom: 10, left: 10 };
+        const width = 550;  // Smaller fixed width
+        const height = 450; // Smaller fixed height
 
         const svg = container
             .append("svg")
@@ -45,11 +51,11 @@ window.initJurisdictionChart = async function() {
             .attr("preserveAspectRatio", "xMidYMid meet")
             .style("background-color", "white");
 
-        // Create a projection for Australia
+        // Create a projection for Australia with a smaller scale
         const projection = d3.geoMercator()
             .center([134, -28])
-            .scale(width * 1.3)
-            .translate([width / 2, height / 2]);
+            .scale(width)  // Reduced scale to fit in container
+            .translate([width / 2, height / 2 - 30]);  // Move map upward by adjusting y-translation
 
         const path = d3.geoPath().projection(projection);
 
@@ -234,7 +240,7 @@ window.initJurisdictionChart = async function() {
             .tickFormat(d => Math.round(d/1000) + "k");
 
         const legend = svg.append("g")
-            .attr("transform", `translate(${width - legendWidth - 20}, ${height - 50})`);
+            .attr("transform", `translate(${width/2 - legendWidth/2 - 60}, ${height - 40})`);
 
         // Create gradient for legend
         const defs = svg.append("defs");

@@ -38,6 +38,12 @@ window.initDashboard = function() {
             setTimeout(initAgeGroupChart, 300);
         }
         
+        // Initialize detection method chart
+        if (typeof initDetectionMethodChart === 'function' && window.dashboardData.detectionMethod) {
+            console.log('Calling initDetectionMethodChart from dashboard');
+            setTimeout(initDetectionMethodChart, 400);
+        }
+        
         window.dashboardInitialized = true;
     }
 };

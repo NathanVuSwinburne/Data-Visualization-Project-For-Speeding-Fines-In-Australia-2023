@@ -28,16 +28,25 @@ Promise.all([
             ageGroup: d.AGE_GROUP,
             fines: +d["Sum(FINES)"]
         };
+    }),
+    d3.csv("data/fines_detection_method.csv", d => {
+        console.log("Loading detection method data row:", d);
+        return {
+            method: d.DETECTION_METHOD_CLEAN,
+            count: +d.DETECTION_METHOD_count
+        };
     })
-]).then(([monthlyData, jurisdictionData, locationData, ageGroupData]) => {
+]).then(([monthlyData, jurisdictionData, locationData, ageGroupData, detectionMethodData]) => {
     // Store the data in a global variable
     console.log("Location data loaded:", locationData);
     console.log("Age group data loaded:", ageGroupData);
+    console.log("Detection method data loaded:", detectionMethodData);
     window.dashboardData = {
         monthlyTrend: monthlyData,
         jurisdiction: jurisdictionData,
         location: locationData,
-        ageGroup: ageGroupData
+        ageGroup: ageGroupData,
+        detectionMethod: detectionMethodData
     };
     console.log("Full dashboard data object:", window.dashboardData);
     
