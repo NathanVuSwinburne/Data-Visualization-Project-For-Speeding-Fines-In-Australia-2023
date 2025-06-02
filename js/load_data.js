@@ -117,15 +117,27 @@ function processMonthlyData(rawData) {
         percentageChange: 0 // Will calculate below
     }));
     
-    // Calculate month-over-month percentage changes
-    for (let i = 1; i < monthlyData.length; i++) {
-        const currentFines = monthlyData[i].totalFines;
-        const previousFines = monthlyData[i-1].totalFines;
+    // Filter out months with zero fines (which would be filtered out in the chart)
+    const filteredMonthlyData = monthlyData.filter(d => d.totalFines > 0);
+    
+    // Calculate month-over-month percentage changes based on filtered months
+    for (let i = 1; i < filteredMonthlyData.length; i++) {
+        const currentFines = filteredMonthlyData[i].totalFines;
+        const previousFines = filteredMonthlyData[i-1].totalFines;
         
         if (previousFines === 0) {
-            monthlyData[i].percentageChange = 100; // Avoid division by zero
+            filteredMonthlyData[i].percentageChange = 100; // Avoid division by zero
         } else {
-            monthlyData[i].percentageChange = ((currentFines - previousFines) / previousFines) * 100;
+            filteredMonthlyData[i].percentageChange = ((currentFines - previousFines) / previousFines) * 100;
+        }
+    }
+    
+    // Update the original array with calculated percentage changes
+    for (let i = 0; i < monthlyData.length; i++) {
+        const month = monthlyData[i].month;
+        const filteredMonth = filteredMonthlyData.find(d => d.month === month);
+        if (filteredMonth) {
+            monthlyData[i].percentageChange = filteredMonth.percentageChange;
         }
     }
     
