@@ -4,8 +4,8 @@ console.log('Starting to load data...');
 d3.csv("data/master_fine.csv").then(rawData => {
     console.log("Raw data loaded from master_fine.csv:", rawData.length, "rows");
     
-    // Process data into the needed formats
-    
+    // Store raw data globally for filtering
+    window.rawDashboardData = rawData;
     // 1. Monthly trend data
     const monthlyData = processMonthlyData(rawData);
     
@@ -152,14 +152,18 @@ function processJurisdictionData(rawData) {
     }));
 }
 
-// Process raw data into location format
-function processLocationData(rawData) {
+// Modify each processing function to accept filtered data
+function processLocationData(rawData, filteredMonths = null) {
     const locationFines = {};
     
+    // Filter by months if specified
+    const dataToProcess = filteredMonths && filteredMonths.length > 0 
+        ? rawData.filter(d => filteredMonths.includes(d["Month (Name)"]))
+        : rawData;
+    
     // Group fines by location, excluding "Unknown" locations
-    rawData.forEach(d => {
+    dataToProcess.forEach(d => {
         const location = d.LOCATION_TYPE;
-        // Skip Unknown locations
         if (location === "Unknown") return;
         
         if (!locationFines[location]) {
@@ -168,21 +172,22 @@ function processLocationData(rawData) {
         locationFines[location] += +d.FINES;
     });
     
-    // Convert to array of objects
     return Object.entries(locationFines).map(([location, fines]) => ({
         location: location,
         fines: fines
     }));
 }
 
-// Process raw data into age group format
-function processAgeGroupData(rawData) {
+function processAgeGroupData(rawData, filteredMonths = null) {
     const ageGroupFines = {};
     
-    // Group fines by age group
-    rawData.forEach(d => {
+    // Filter by months if specified
+    const dataToProcess = filteredMonths && filteredMonths.length > 0 
+        ? rawData.filter(d => filteredMonths.includes(d["Month (Name)"]))
+        : rawData;
+    
+    dataToProcess.forEach(d => {
         const ageGroup = d.AGE_GROUP;
-        // Skip Unknown and 0-16 age groups
         if (ageGroup === "Unknown" || ageGroup === "0-16") return;
 
         if (!ageGroupFines[ageGroup]) {
@@ -191,30 +196,30 @@ function processAgeGroupData(rawData) {
         ageGroupFines[ageGroup] += +d.FINES;
     });
     
-    // Convert to array of objects and sort by fines in descending order
     return Object.entries(ageGroupFines)
         .map(([ageGroup, fines]) => ({
             ageGroup: ageGroup,
             fines: fines
         }))
-        .sort((a, b) => b.fines - a.fines); // Sort in descending order
+        .sort((a, b) => b.fines - a.fines);
 }
 
-// Process raw data into detection method format
-function processDetectionMethodData(rawData) {
+function processDetectionMethodData(rawData, filteredMonths = null) {
     const detectionMethodCounts = {};
     
-    // Group by detection method
-    rawData.forEach(d => {
+    // Filter by months if specified
+    const dataToProcess = filteredMonths && filteredMonths.length > 0 
+        ? rawData.filter(d => filteredMonths.includes(d["Month (Name)"]))
+        : rawData;
+    
+    dataToProcess.forEach(d => {
         const method = d.DETECTION_METHOD_CLEAN;
         if (!detectionMethodCounts[method]) {
             detectionMethodCounts[method] = 0;
         }
-        // Use the FINES value as the count since the original method counted occurrences
         detectionMethodCounts[method] += +d.FINES;
     });
     
-    // Convert to array of objects
     return Object.entries(detectionMethodCounts).map(([method, count]) => ({
         method: method,
         count: count

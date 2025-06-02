@@ -133,53 +133,69 @@ function initMonthFilter() {
     }
 }
 
-// Apply month filter based on selected values
 function applyMonthFilter() {
     const selectedMonths = $('#month-filter').val() || [];
     
     console.log('Applying month filter with selected months:', selectedMonths);
     
-    // Get original data
-    const originalData = window.dashboardData.monthlyTrend;
+    // Check if raw data is available
+    if (!window.rawDashboardData) {
+        console.error('Raw data not available for filtering');
+        return;
+    }
     
-    // Process data: add monthNumber for sorting
+    // Get all available months if none selected (show all)
+    const allMonths = [...new Set(window.rawDashboardData.map(d => d["Month (Name)"]))];
+    const monthsToFilter = selectedMonths.length === 0 ? allMonths : selectedMonths;
+    
+    // Update Monthly Trend Chart (existing code)
+    const originalData = window.dashboardData.monthlyTrend;
     const processedData = originalData.map(d => ({
         ...d,
         monthNumber: monthNameToNumber[d.month]
     }));
     
-    // Sort by month number
     processedData.sort((a, b) => a.monthNumber - b.monthNumber);
     
-    let filteredData = [...processedData];
-    
-    // Apply filtering if any months are selected
+    let filteredMonthlyData = [...processedData];
     if (selectedMonths.length > 0) {
-        filteredData = processedData.filter(d => selectedMonths.includes(d.month));
+        filteredMonthlyData = processedData.filter(d => selectedMonths.includes(d.month));
     }
     
-    // Recalculate percentage changes
-    recalculatePercentageChanges(filteredData);
-    
-    // Remove monthNumber property - we don't need it anymore
-    filteredData = filteredData.map(d => {
+    recalculatePercentageChanges(filteredMonthlyData);
+    filteredMonthlyData = filteredMonthlyData.map(d => {
         const { monthNumber, ...rest } = d;
         return rest;
     });
     
-    // Update the chart with filtered data
-    updateMonthlyTrendChart(filteredData);
+    updateMonthlyTrendChart(filteredMonthlyData);
+    
+    // Update Location Chart
+    const filteredLocationData = processLocationData(window.rawDashboardData, monthsToFilter);
+    updateLocationChart(filteredLocationData);
+    
+    // Update Age Group Chart
+    const filteredAgeGroupData = processAgeGroupData(window.rawDashboardData, monthsToFilter);
+    updateAgeGroupChart(filteredAgeGroupData);
+    
+    // Update Detection Method Chart
+    const filteredDetectionData = processDetectionMethodData(window.rawDashboardData, monthsToFilter);
+    updateDetectionMethodChart(filteredDetectionData);
+    
+    // Update KPIs
+    updateKPIs(monthsToFilter);
 }
 
 // Reset all filters
 function resetAllFilters() {
     console.log('Resetting all filters');
     
-    // Reset month filter
-    $('#month-filter').val(null).trigger('change');
+    // Get all months
+    const allMonths = [...new Set(window.rawDashboardData.map(d => d["Month (Name)"]))];
+    const sortedMonths = allMonths.sort((a, b) => monthNameToNumber[a] - monthNameToNumber[b]);
     
-    // Reset monthly trend chart
-    resetMonthlyTrendChart();
+    // Reset month filter to select all
+    $('#month-filter').val(sortedMonths).trigger('change');
 }
 
 // Reset monthly trend chart to show all data
@@ -277,3 +293,88 @@ $(document).ready(function() {
         });
     });
 });
+
+// Update Location Chart
+function updateLocationChart(filteredData) {
+    // Temporarily override the global data
+    const originalData = window.dashboardData.location;
+    window.dashboardData.location = filteredData;
+    
+    // Re-initialize the chart with new data
+    if (typeof initLocationChart === 'function') {
+        initLocationChart();
+    }
+    
+    // Restore original data
+    window.dashboardData.location = originalData;
+}
+
+// Update Age Group Chart
+function updateAgeGroupChart(filteredData) {
+    // Temporarily override the global data
+    const originalData = window.dashboardData.ageGroup;
+    window.dashboardData.ageGroup = filteredData;
+    
+    // Re-initialize the chart with new data
+    if (typeof initAgeGroupChart === 'function') {
+        initAgeGroupChart();
+    }
+    
+    // Restore original data
+    window.dashboardData.ageGroup = originalData;
+}
+
+// Update Detection Method Chart
+function updateDetectionMethodChart(filteredData) {
+    // Temporarily override the global data
+    const originalData = window.dashboardData.detectionMethod;
+    window.dashboardData.detectionMethod = filteredData;
+    
+    // Re-initialize the chart with new data
+    if (typeof initDetectionMethodChart === 'function') {
+        initDetectionMethodChart();
+    }
+    
+    // Restore original data
+    window.dashboardData.detectionMethod = originalData;
+}
+
+// Update KPIs based on filtered data
+function updateKPIs(selectedMonths) {
+    const filteredData = selectedMonths.length > 0 
+        ? window.rawDashboardData.filter(d => selectedMonths.includes(d["Month (Name)"]))
+        : window.rawDashboardData;
+    
+    // Recalculate total fines
+    const totalFines = filteredData.reduce((sum, d) => sum + (+d.FINES), 0);
+    document.getElementById('total-fines').querySelector('.kpi-value').textContent = 
+        totalFines.toLocaleString();
+    
+    // Recalculate top jurisdiction
+    const jurisdictionFines = {};
+    filteredData.forEach(d => {
+        const jurisdiction = d.JURISDICTION;
+        if (!jurisdictionFines[jurisdiction]) {
+            jurisdictionFines[jurisdiction] = 0;
+        }
+        jurisdictionFines[jurisdiction] += +d.FINES;
+    });
+    
+    const sortedJurisdictions = Object.entries(jurisdictionFines)
+        .map(([jurisdiction, fines]) => ({ jurisdiction, fines }))
+        .sort((a, b) => b.fines - a.fines);
+    
+    if (sortedJurisdictions.length > 0) {
+        const topJurisdiction = sortedJurisdictions[0];
+        document.getElementById('highest-jurisdiction').querySelector('.kpi-value').textContent = 
+            `${topJurisdiction.jurisdiction} (${topJurisdiction.fines.toLocaleString()})`;
+    }
+    
+    // Update top age group
+    const ageGroupData = processAgeGroupData(filteredData);
+    if (ageGroupData.length > 0) {
+        const topAgeGroup = ageGroupData[0];
+        document.getElementById('top-age-group').querySelector('.kpi-value').textContent = 
+            `${topAgeGroup.ageGroup} (${topAgeGroup.fines.toLocaleString()})`;
+    }
+}

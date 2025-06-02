@@ -17,6 +17,7 @@ window.initDetectionMethodChart = function() {
                 .text("No detection method data available");
             return;
         }
+        d3.selectAll(".detection-method-tooltip").remove();
 
         const detectionMethodData = window.dashboardData.detectionMethod;
         console.log("Using detection method data from dashboardData:", detectionMethodData);

@@ -17,6 +17,7 @@ window.initAgeGroupChart = function() {
                 .text("No age group data available");
             return;
         }
+        d3.selectAll(".age-group-tooltip").remove();
 
         const ageGroupData = window.dashboardData.ageGroup;
         console.log("Using age group data from dashboardData:", ageGroupData);
