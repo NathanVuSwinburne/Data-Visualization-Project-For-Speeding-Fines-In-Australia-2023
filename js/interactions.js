@@ -256,43 +256,25 @@ function updateMonthlyTrendChart(filteredData) {
     const originalData = window.dashboardData.monthlyTrend;
     window.dashboardData.monthlyTrend = filteredData;
     
-    // Re-initialize the chart with new data
-    if (typeof initMonthlyTrendChart === 'function') {
-        initMonthlyTrendChart();
+    // Check if chart exists and apply transition if possible
+    const chartContainer = d3.select("#monthly-trend-chart");
+    const existingSvg = chartContainer.select("svg");
+    
+    if (!existingSvg.empty() && typeof window.updateMonthlyTrendChartWithTransition === 'function') {
+        // Apply transition to existing chart
+        window.updateMonthlyTrendChartWithTransition(filteredData);
     } else {
-        console.error('Monthly trend chart initialization function not found');
+        // Re-initialize the chart with new data if transition function not available
+        if (typeof initMonthlyTrendChart === 'function') {
+            initMonthlyTrendChart();
+        } else {
+            console.error('Monthly trend chart initialization function not found');
+        }
     }
     
     // Restore original data
     window.dashboardData.monthlyTrend = originalData;
 }
-
-// Initialize filters when the page loads
-$(document).ready(function() {
-    console.log('Document ready, checking for dashboard data');
-    
-    // If data is already loaded, initialize filters immediately
-    if (window.dashboardData) {
-        initFilters();
-    } else {
-        // Otherwise, wait for data to be loaded
-        const checkDataInterval = setInterval(() => {
-            if (window.dashboardData) {
-                clearInterval(checkDataInterval);
-                initFilters();
-            }
-        }, 100);
-    }
-    
-    // Initialize Select2 for all multi-select dropdowns
-    $('.filters-section select[multiple]').each(function() {
-        $(this).select2({
-            placeholder: 'Select options',
-            allowClear: true,
-            width: '100%'
-        });
-    });
-});
 
 // Update Location Chart
 function updateLocationChart(filteredData) {
@@ -300,9 +282,18 @@ function updateLocationChart(filteredData) {
     const originalData = window.dashboardData.location;
     window.dashboardData.location = filteredData;
     
-    // Re-initialize the chart with new data
-    if (typeof initLocationChart === 'function') {
-        initLocationChart();
+    // Check if chart exists and apply transition if possible
+    const chartContainer = d3.select("#location-chart");
+    const existingSvg = chartContainer.select("svg");
+    
+    if (!existingSvg.empty() && typeof window.updateLocationChartWithTransition === 'function') {
+        // Apply transition to existing chart
+        window.updateLocationChartWithTransition(filteredData);
+    } else {
+        // Re-initialize the chart with new data if transition function not available
+        if (typeof initLocationChart === 'function') {
+            initLocationChart();
+        }
     }
     
     // Restore original data
@@ -315,9 +306,18 @@ function updateAgeGroupChart(filteredData) {
     const originalData = window.dashboardData.ageGroup;
     window.dashboardData.ageGroup = filteredData;
     
-    // Re-initialize the chart with new data
-    if (typeof initAgeGroupChart === 'function') {
-        initAgeGroupChart();
+    // Check if chart exists and apply transition if possible
+    const chartContainer = d3.select("#age-groups-chart");
+    const existingSvg = chartContainer.select("svg");
+    
+    if (!existingSvg.empty() && typeof window.updateAgeGroupChartWithTransition === 'function') {
+        // Apply transition to existing chart
+        window.updateAgeGroupChartWithTransition(filteredData);
+    } else {
+        // Re-initialize the chart with new data if transition function not available
+        if (typeof initAgeGroupChart === 'function') {
+            initAgeGroupChart();
+        }
     }
     
     // Restore original data
@@ -330,9 +330,18 @@ function updateDetectionMethodChart(filteredData) {
     const originalData = window.dashboardData.detectionMethod;
     window.dashboardData.detectionMethod = filteredData;
     
-    // Re-initialize the chart with new data
-    if (typeof initDetectionMethodChart === 'function') {
-        initDetectionMethodChart();
+    // Check if chart exists and apply transition if possible
+    const chartContainer = d3.select("#detection-method-chart");
+    const existingSvg = chartContainer.select("svg");
+    
+    if (!existingSvg.empty() && typeof window.updateDetectionMethodChartWithTransition === 'function') {
+        // Apply transition to existing chart
+        window.updateDetectionMethodChartWithTransition(filteredData);
+    } else {
+        // Re-initialize the chart with new data if transition function not available
+        if (typeof initDetectionMethodChart === 'function') {
+            initDetectionMethodChart();
+        }
     }
     
     // Restore original data
@@ -378,3 +387,30 @@ function updateKPIs(selectedMonths) {
             `${topAgeGroup.ageGroup} (${topAgeGroup.fines.toLocaleString()})`;
     }
 }
+
+// Initialize filters when the page loads
+$(document).ready(function() {
+    console.log('Document ready, checking for dashboard data');
+    
+    // If data is already loaded, initialize filters immediately
+    if (window.dashboardData) {
+        initFilters();
+    } else {
+        // Otherwise, wait for data to be loaded
+        const checkDataInterval = setInterval(() => {
+            if (window.dashboardData) {
+                clearInterval(checkDataInterval);
+                initFilters();
+            }
+        }, 100);
+    }
+    
+    // Initialize Select2 for all multi-select dropdowns
+    $('.filters-section select[multiple]').each(function() {
+        $(this).select2({
+            placeholder: 'Select options',
+            allowClear: true,
+            width: '100%'
+        });
+    });
+});

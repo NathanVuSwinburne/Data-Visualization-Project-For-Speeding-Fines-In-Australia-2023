@@ -252,3 +252,210 @@ function initMonthlyTrendChart() {
         .style("fill", "#e15759")
         .text("Monthly Change");
 };
+
+// Function to update the monthly trend chart with transitions
+window.updateMonthlyTrendChartWithTransition = function(newData) {
+    try {
+        console.log('Updating monthly trend chart with transitions...');
+        
+        // Get the container and SVG
+        const container = d3.select("#monthly-trend-chart");
+        const svg = container.select("svg").select("g");
+        
+        if (svg.empty()) {
+            console.error("SVG not found for monthly trend chart, initializing instead");
+            initMonthlyTrendChart();
+            return;
+        }
+        
+        // Get container dimensions
+        const containerWidth = container.node().getBoundingClientRect().width;
+        const containerHeight = 400; // Fixed height, same as in initialization
+        
+        // Set up margins
+        const margin = {top: 20, right: 60, bottom: 60, left: 190};
+        const width = containerWidth - margin.left - margin.right;
+        const height = containerHeight - margin.top - margin.bottom;
+        
+        // Update scales with new data
+        const x = d3.scaleBand()
+            .domain(newData.map(d => d.month))
+            .range([0, width])
+            .padding(0.2);
+        
+        const y1 = d3.scaleLinear()
+            .domain([0, d3.max(newData, d => d.totalFines * 1.1)])
+            .range([height, 0]);
+        
+        // Calculate domain for percentage change (add some padding)
+        const minPct = Math.min(0, d3.min(newData, d => d.percentageChange || 0));
+        const maxPct = d3.max(newData, d => d.percentageChange || 0);
+        const pctPadding = (maxPct - minPct) * 0.2;
+        
+        const y2 = d3.scaleLinear()
+            .domain([minPct - pctPadding, maxPct + pctPadding])
+            .range([height, 0]);
+        
+        // Get tooltip
+        const tooltip = d3.select("body").select(".tooltip");
+        
+        // Update x-axis with transition
+        svg.select(".x-axis")
+            .transition()
+            .duration(750)
+            .call(d3.axisBottom(x))
+            .selectAll("text")
+            .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", ".15em")
+            .attr("transform", "rotate(-45)");
+        
+        // Update left y-axis with transition
+        svg.select(".y-axis")
+            .transition()
+            .duration(750)
+            .call(d3.axisLeft(y1).ticks(5).tickFormat(d => d3.format(",")(d)));
+        
+        // Update right y-axis with transition
+        svg.select(".y2-axis")
+            .transition()
+            .duration(750)
+            .call(d3.axisRight(y2).ticks(5).tickFormat(d => d3.format("+.1f")(d) + "%"));
+        
+        // Update bars with transition
+        svg.selectAll(".bar")
+            .data(newData)
+            .join(
+                enter => enter.append("rect")
+                    .attr("class", "bar")
+                    .attr("x", d => x(d.month))
+                    .attr("y", height)
+                    .attr("width", x.bandwidth())
+                    .attr("height", 0)
+                    .attr("fill", "#4e79a7")
+                    .style("cursor", "pointer"),
+                update => update,
+                exit => exit.transition()
+                    .duration(750)
+                    .attr("y", height)
+                    .attr("height", 0)
+                    .remove()
+            )
+            .transition()
+            .duration(750)
+            .attr("x", d => x(d.month))
+            .attr("y", d => y1(d.totalFines))
+            .attr("width", x.bandwidth())
+            .attr("height", d => height - y1(d.totalFines))
+            .attr("fill", "#4e79a7");
+        
+        // Update line for percentage change
+        const line = d3.line()
+            .x(d => x(d.month) + x.bandwidth() / 2)
+            .y(d => y2(d.percentageChange || 0));
+        
+        svg.select(".line")
+            .datum(newData)
+            .transition()
+            .duration(750)
+            .attr("d", line);
+        
+        // Update circles for data points
+        svg.selectAll(".dot")
+            .data(newData)
+            .join(
+                enter => enter.append("circle")
+                    .attr("class", "dot")
+                    .attr("cx", d => x(d.month) + x.bandwidth() / 2)
+                    .attr("cy", height)
+                    .attr("r", 0)
+                    .attr("fill", "#e15759")
+                    .style("cursor", "pointer"),
+                update => update,
+                exit => exit.transition()
+                    .duration(750)
+                    .attr("r", 0)
+                    .remove()
+            )
+            .transition()
+            .duration(750)
+            .attr("cx", d => x(d.month) + x.bandwidth() / 2)
+            .attr("cy", d => y2(d.percentageChange || 0))
+            .attr("r", 4)
+            .attr("fill", "#e15759");
+        
+        // Update event handlers for bars
+        svg.selectAll(".bar")
+            .on("mouseover", function(event, d) {
+                // Highlight the bar
+                d3.select(this)
+                    .transition()
+                    .duration(100)
+                    .attr("fill", "#375a80");
+                
+                // Show tooltip
+                tooltip.transition()
+                    .duration(200)
+                    .style("opacity", 0.9);
+                    
+                tooltip.html(`<strong>${d.month}</strong><br>Total Fines: ${d.totalFines.toLocaleString()}`)
+                    .style("left", (event.pageX + 10) + "px")
+                    .style("top", (event.pageY - 28) + "px");
+            })
+            .on("mouseout", function() {
+                // Restore bar color
+                d3.select(this)
+                    .transition()
+                    .duration(100)
+                    .attr("fill", "#4e79a7");
+                    
+                // Hide tooltip
+                tooltip.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            });
+        
+        // Update event handlers for dots
+        svg.selectAll(".dot")
+            .on("mouseover", function(event, d) {
+                // Enlarge the dot
+                d3.select(this)
+                    .transition()
+                    .duration(100)
+                    .attr("r", 6)
+                    .attr("fill", "#c73a3c");
+                
+                // Format the percentage with the correct sign
+                const formattedPct = d.percentageChange !== null 
+                    ? (d.percentageChange >= 0 ? '+' : '') + d.percentageChange.toFixed(2) + '%'
+                    : 'N/A';
+                
+                // Show tooltip
+                tooltip.transition()
+                    .duration(200)
+                    .style("opacity", 0.9);
+                    
+                tooltip.html(`<strong>${d.month}</strong><br>Change: ${formattedPct}`)
+                    .style("left", (event.pageX + 10) + "px")
+                    .style("top", (event.pageY - 28) + "px");
+            })
+            .on("mouseout", function() {
+                // Restore dot appearance
+                d3.select(this)
+                    .transition()
+                    .duration(100)
+                    .attr("r", 4)
+                    .attr("fill", "#e15759");
+                
+                // Hide tooltip
+                tooltip.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            });
+            
+    } catch (error) {
+        console.error("Error updating monthly trend chart with transitions:", error);
+        // Fallback to full initialization if transition fails
+        initMonthlyTrendChart();
+    }
+};

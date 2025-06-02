@@ -145,6 +145,148 @@ window.initLocationChart = function() {
     }
 };
 
+// Function to update the location chart with transitions
+window.updateLocationChartWithTransition = function(newData) {
+    try {
+        console.log('Updating location chart with transitions...');
+        
+        // Get the container and SVG
+        const container = d3.select("#location-chart");
+        const svg = container.select("svg");
+        
+        if (svg.empty()) {
+            console.error("SVG not found for location chart, initializing instead");
+            initLocationChart();
+            return;
+        }
+        
+        // Get the dimensions
+        const containerDiv = container.node();
+        const width = containerDiv.clientWidth * 1.3;
+        const height = containerDiv.clientHeight || 400;
+        const margin = { top: 30, right: 60, bottom: 30, left: 100 };
+        
+        // Update scales with new data
+        const x = d3.scaleLinear()
+            .domain([0, d3.max(newData, d => d.fines) * 1.1])
+            .range([margin.left, width - margin.right]);
+            
+        const y = d3.scaleBand()
+            .domain(newData.map(d => d.location))
+            .range([margin.top, height - margin.bottom])
+            .padding(0.04);
+            
+        const color = d3.scaleOrdinal()
+            .domain(["Urban", "Regional", "Remote"])
+            .range(["#20c7da", "#74beed", "#448aff"]);
+            
+        // Update x-axis with transition
+        svg.select("g")
+            .attr("transform", `translate(0,${height - margin.bottom})`)
+            .transition()
+            .duration(750)
+            .call(d3.axisBottom(x)
+                .ticks(5)
+                .tickFormat(d => d3.format(",")(d)));
+                
+        // Update y-axis with transition
+        svg.select("g:nth-child(5)")
+            .attr("transform", `translate(${margin.left},0)`)
+            .transition()
+            .duration(750)
+            .call(d3.axisLeft(y));
+            
+        // Update bars with transition
+        svg.selectAll("rect.bar")
+            .data(newData)
+            .join(
+                enter => enter.append("rect")
+                    .attr("class", "bar")
+                    .attr("x", margin.left)
+                    .attr("y", d => y(d.location))
+                    .attr("width", 0)
+                    .attr("height", y.bandwidth())
+                    .attr("fill", d => color(d.location))
+                    .style("cursor", "pointer"),
+                update => update,
+                exit => exit.transition()
+                    .duration(750)
+                    .attr("width", 0)
+                    .remove()
+            )
+            .transition()
+            .duration(750)
+            .attr("x", margin.left)
+            .attr("y", d => y(d.location))
+            .attr("width", d => x(d.fines) - margin.left)
+            .attr("height", y.bandwidth())
+            .attr("fill", d => color(d.location));
+            
+        // Update value labels with transition
+        svg.selectAll("text.value-label")
+            .data(newData)
+            .join(
+                enter => enter.append("text")
+                    .attr("class", "value-label")
+                    .attr("x", margin.left)
+                    .attr("y", d => y(d.location) + y.bandwidth() / 2)
+                    .attr("dy", ".35em")
+                    .style("font-size", "12px")
+                    .style("fill", "#333")
+                    .style("opacity", 0),
+                update => update,
+                exit => exit.transition()
+                    .duration(750)
+                    .style("opacity", 0)
+                    .remove()
+            )
+            .transition()
+            .duration(750)
+            .attr("x", d => x(d.fines) + 5)
+            .attr("y", d => y(d.location) + y.bandwidth() / 2)
+            .style("opacity", 1)
+            .text(d => d3.format(",")(d.fines));
+            
+        // Update tooltip behavior
+        const tooltip = d3.select("body").select(".location-tooltip");
+        
+        svg.selectAll("rect.bar")
+            .on("mouseover", function(event, d) {
+                // Highlight the bar
+                d3.select(this)
+                    .attr("stroke", "#333")
+                    .attr("stroke-width", 2);
+                
+                // Show tooltip
+                tooltip.transition()
+                    .duration(200)
+                    .style("opacity", 0.9);
+                
+                tooltip.html(`
+                    <strong>${d.location}</strong><br/>
+                    <strong>Fines:</strong> ${d.fines.toLocaleString()}
+                `)
+                    .style("left", (event.pageX + 10) + "px")
+                    .style("top", (event.pageY - 28) + "px");
+            })
+            .on("mouseout", function() {
+                // Restore original appearance
+                d3.select(this)
+                    .attr("stroke", "none");
+                
+                // Hide tooltip
+                tooltip.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            });
+            
+    } catch (error) {
+        console.error("Error updating location chart with transitions:", error);
+        // Fallback to full initialization if transition fails
+        initLocationChart();
+    }
+};
+
 // Initialize the chart when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, checking for location data...');

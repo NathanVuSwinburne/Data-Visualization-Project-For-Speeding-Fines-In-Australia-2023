@@ -161,6 +161,7 @@ window.initAgeGroupChart = function() {
 
         // Y Axis with custom ticks
         svg.append("g")
+            .attr("class", "y-axis")
             .attr("transform", `translate(${margin.left},0)`)
             .call(d3.axisLeft(y)
                 .tickValues(yTicks)
@@ -204,6 +205,163 @@ window.initAgeGroupChart = function() {
         // Display error message in the chart container
         d3.select("#age-groups-chart")
             .html("<div style='color: red; text-align: center; padding: 20px;'>Error loading age group data</div>");
+    }
+};
+
+// Function to update the age group chart with transitions
+window.updateAgeGroupChartWithTransition = function(newData) {
+    try {
+        console.log('Updating age group chart with transitions...');
+        
+        // Get the container and SVG
+        const container = d3.select("#age-groups-chart");
+        const svg = container.select("svg");
+        
+        if (svg.empty()) {
+            console.error("SVG not found for age group chart, initializing instead");
+            initAgeGroupChart();
+            return;
+        }
+        
+        // Get the dimensions
+        const containerDiv = container.node();
+        const width = containerDiv.clientWidth;
+        const height = containerDiv.clientHeight || 400;
+        const margin = { top: 30, right: 80, bottom: 60, left: 100 };
+        
+        // Update scales with new data
+        const x = d3.scaleBand()
+            .domain(newData.map(d => d.ageGroup))
+            .range([margin.left, width - margin.right])
+            .padding(0.4);
+            
+        const y = d3.scaleLinear()
+            .domain([0, d3.max(newData, d => d.fines) * 1.1])
+            .range([height - margin.bottom, margin.top]);
+            
+        // Create custom ticks for y-axis
+        const maxFines = d3.max(newData, d => d.fines);
+        const tickInterval = Math.ceil(maxFines / 5 / 100000) * 100000;
+        const yTicks = [];
+        for (let i = 0; i <= maxFines * 1.1; i += tickInterval) {
+            yTicks.push(i);
+        }
+        
+        const colors = ["#20c7da", "#ffa726", "#ffa4ce", "#9a57c2"];
+        const color = d3.scaleOrdinal()
+            .domain(newData.map(d => d.ageGroup))
+            .range(colors);
+            
+        // Update y-axis with transition
+        svg.select("g.y-axis")
+            .transition()
+            .duration(750)
+            .call(d3.axisLeft(y)
+                .tickValues(yTicks)
+                .tickFormat(d => d3.format(",")(d)));
+                
+        // Update grid lines with transition
+        svg.select("g.grid")
+            .transition()
+            .duration(750)
+            .call(d3.axisLeft(y)
+                .tickValues(yTicks)
+                .tickSize(-width + margin.left + margin.right)
+                .tickFormat(""))
+            .call(g => g.select(".domain").remove())
+            .selectAll("line")
+            .attr("stroke", "#e0e0e0")
+            .attr("stroke-dasharray", "2,2");
+            
+        // Update bars with transition
+        svg.selectAll("rect.bar")
+            .data(newData)
+            .join(
+                enter => enter.append("rect")
+                    .attr("class", "bar")
+                    .attr("x", d => x(d.ageGroup))
+                    .attr("y", height - margin.bottom)
+                    .attr("width", x.bandwidth())
+                    .attr("height", 0)
+                    .attr("fill", d => color(d.ageGroup))
+                    .style("cursor", "pointer"),
+                update => update,
+                exit => exit.transition()
+                    .duration(750)
+                    .attr("y", height - margin.bottom)
+                    .attr("height", 0)
+                    .remove()
+            )
+            .transition()
+            .duration(750)
+            .attr("x", d => x(d.ageGroup))
+            .attr("y", d => y(d.fines))
+            .attr("width", x.bandwidth())
+            .attr("height", d => height - margin.bottom - y(d.fines))
+            .attr("fill", d => color(d.ageGroup));
+            
+        // Update value labels with transition
+        svg.selectAll(".value-label")
+            .data(newData)
+            .join(
+                enter => enter.append("text")
+                    .attr("class", "value-label")
+                    .attr("x", d => x(d.ageGroup) + x.bandwidth() / 2)
+                    .attr("y", height - margin.bottom)
+                    .attr("text-anchor", "middle")
+                    .style("font-size", "12px")
+                    .style("fill", "#333")
+                    .style("opacity", 0),
+                update => update,
+                exit => exit.transition()
+                    .duration(750)
+                    .style("opacity", 0)
+                    .remove()
+            )
+            .transition()
+            .duration(750)
+            .attr("x", d => x(d.ageGroup) + x.bandwidth() / 2)
+            .attr("y", d => y(d.fines) - 5)
+            .style("opacity", 1)
+            .text(d => d3.format(",")(d.fines));
+            
+        // Update tooltip behavior
+        const tooltip = d3.select("body").select(".age-group-tooltip");
+        
+        svg.selectAll("rect.bar")
+            .on("mouseover", function(event, d) {
+                // Highlight the bar
+                d3.select(this)
+                    .attr("stroke", "#333")
+                    .attr("stroke-width", 2);
+                
+                // Show tooltip
+                tooltip.transition()
+                    .duration(200)
+                    .style("opacity", 0.9);
+                
+                tooltip.html(`
+                    <strong>${d.ageGroup}</strong><br/>
+                    <strong>Fines:</strong> ${d.fines.toLocaleString()}
+                `)
+                    .style("left", (event.pageX + 10) + "px")
+                    .style("top", (event.pageY - 28) + "px");
+            })
+            .on("mouseout", function() {
+                // Restore original appearance
+                d3.select(this)
+                    .attr("stroke", "none");
+                
+                // Hide tooltip
+                tooltip.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            });
+            
+    } catch (error) {
+        console.error("Error updating age group chart with transitions:", error);
+        // Fallback to full initialization if transition fails
+        initAgeGroupChart();
     }
 };
 

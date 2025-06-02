@@ -144,7 +144,7 @@ header h1 {
 }
 
 .filters-section:hover {
-    transform: translateY(-10px); /* Slight lift on hover, like the example */
+    transform: translateY(-6px); /* Slight lift on hover, like the example */
 }
 
 /* Filter container */
@@ -349,6 +349,27 @@ header h1 {
     position: relative;
     overflow: visible;
     min-height: 250px; /* Ensure enough height for charts */
+    transition: opacity 0.3s ease-in-out;
+}
+
+.chart-updating {
+    opacity: 0.7;
+    position: relative;
+}
+
+.chart-updating::after {
+    content: "Filtering...";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #333;
+    z-index: 100;
+    pointer-events: none;
 }
 
 /* Make SVG elements responsive with more precise sizing */
@@ -415,6 +436,11 @@ header h1 {
     text-anchor: middle;
 }
 
+/* Smooth transitions for chart elements */
+.bar, .line, .dot, .arc, .slice {
+    transition: all 0.6s ease-in-out;
+}
+
 /* Tooltip styling */
 .tooltip {
     position: absolute;
@@ -427,6 +453,7 @@ header h1 {
     z-index: 100;
     max-width: 170px; /* Reduced from 180px */
     white-space: normal;
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
 /* FOOTER STYLING */
