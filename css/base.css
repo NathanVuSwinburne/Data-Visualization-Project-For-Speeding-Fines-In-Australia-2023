@@ -62,13 +62,13 @@ header h1 {
 /* Dashboard grid layout */
 .dashboard-container {
     display: grid;
-    grid-template-columns: 200px 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 70px minmax(205px, auto) minmax(300px, auto) minmax(250px, auto); /* Changed to allow more space */
     grid-template-areas:
-        "kpi kpi kpi"           /* KPI cards span full width */
-        "filters trend trend"    /* Filters on left, trend chart spanning both columns */
-        "filters jurisdiction location"    /* Filters on left, jurisdiction and location charts */
-        "filters detection age";  /* Filters on left, detection method and age charts */
+        "kpi kpi"           /* KPI cards span full width */
+        "trend trend"    /* Filters on left, trend chart spanning both columns */
+        "jurisdiction location"    /* Filters on left, jurisdiction and location charts */
+        "detection age";  /* Filters on left, detection method and age charts */
     gap: 4px;
     padding: 4px;
     margin: 0 auto;
@@ -118,21 +118,33 @@ header h1 {
     font-weight: bold;
     color: var(--text-color);
     text-align: center;
-    width: 100%;
+    width: 200%;
 }
 
 /* Filters section */
 .filters-section {
-    grid-area: filters;
-    background-color: var(--card-bg-color); /* Changed from background-color to white */
-    border-radius: 5px;
-    padding: 6px;
+    position: fixed;
+    left: 35px; /* Fixed horizontal position, 20px from the left edge */
+    top: -50px; /* Initially off-screen (above the viewport). JS will change this. Assumes panel height won't exceed this. */
+    width: 280px; /* Fixed width for the floating panel */
+    height: auto; /* Height adjusts to content */
+    bottom: 50px;
+    
+    background-color: var(--card-bg-color); /* Or var(--filter-bg-color) if more suitable */
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* More pronounced shadow for floating element */
+    
     display: flex;
     flex-direction: column;
-    height: 100%;
-    width: 100%;
-    border: 1px solid var(--border-color); /* Added border to match other containers */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Added box-shadow to match other containers */
+    
+    z-index: 1020; /* Ensure it's above other content */
+    transition: top 0.4s ease-in-out, transform 0.3s ease; /* Animate 'top' for vertical slide */
+}
+
+.filters-section:hover {
+    transform: translateY(-10px); /* Slight lift on hover, like the example */
 }
 
 /* Filter container */
@@ -157,12 +169,12 @@ header h1 {
 /* Hamburger icon */
 .filters-section h3:after {
     content: "≡";
-    margin-left: 8px; /* Reduced from 10px */
+    margin-left: 169px; /* Reduced from 10px */
 }
 
 /* Filter group */
 .filter {
-    margin-bottom: 10px; 
+    margin-bottom: 4px; 
     padding: 0 4px; 
 }
 

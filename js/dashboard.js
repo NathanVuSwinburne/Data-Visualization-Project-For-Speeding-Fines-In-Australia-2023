@@ -149,7 +149,7 @@ function prepareContainers() {
     const chartContainers = document.querySelectorAll('.chart');
     chartContainers.forEach(container => {
         // Set minimum height to ensure visibility
-        container.style.minHeight = '300px';
+        container.style.minHeight = '200px';
         
         // Debug info
         const style = window.getComputedStyle(container);
@@ -179,5 +179,25 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Filters reset');
             applyFilters();
         });
+    }
+
+    // Floating filter panel scroll behavior
+    const filterPanel = document.querySelector('.filters-section');
+    if (filterPanel) {
+        const scrollThreshold = -5; // Pixels to scroll before panel slides in
+        const panelOnscreenTop = '45px'; // How far from the top edge when visible
+        const panelOffscreenTop = '-400px'; // Initial off-screen position (should match CSS)
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > scrollThreshold) {
+                filterPanel.style.top = panelOnscreenTop;
+            } else {
+                filterPanel.style.top = panelOffscreenTop;
+            }
+        });
+
+        // Trigger scroll event once on load to set initial position based on current scroll
+        // This ensures it's correctly positioned if page loads scrolled or threshold is 0 or negative
+        window.dispatchEvent(new Event('scroll'));
     }
 });
