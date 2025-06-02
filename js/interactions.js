@@ -89,8 +89,35 @@ function initMonthFilter() {
         monthFilter.select2({
             placeholder: 'Select months',
             allowClear: true,
-            width: '100%'
+            width: '100%',
+            minimumResultsForSearch: Infinity, // Hide search box
+            dropdownCssClass: 'month-filter-dropdown',
+            selectionCssClass: 'month-filter-selection',
+            templateSelection: function(data, container) {
+                // Replace multiple selections with a summary count
+                if (!data.id) return data.text;
+                return '';
+            },
+            templateResult: function(data) {
+                // Normal display for dropdown items
+                return data.text;
+            }
         });
+        
+        // Add custom display for selected months
+        monthFilter.on('change', function() {
+            const selected = $(this).val() || [];
+            const countText = selected.length === sortedMonths.length ? 
+                'Filter months' : 
+                selected.length + ' month(s) selected';
+            
+            // Update the select2 container to show selection summary
+            const filterContainer = $(this).siblings('.select2-container').find('.select2-selection__rendered');
+            filterContainer.text(countText);
+        });
+        
+        // Select all months by default
+        monthFilter.val(sortedMonths).trigger('change');
         
         // Add event listener for changes
         monthFilter.off('change').on('change', function() {
