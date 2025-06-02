@@ -1,46 +1,31 @@
 console.log('Starting to load data...');
 
-// Load data for the dashboard
-Promise.all([
-    d3.csv("data/fines_over_months.csv", d => {
-        return {
-            month: d.Month,
-            totalFines: +d["Total Fines"],
-            // Set January's percentageChange to 0 instead of null
-            percentageChange: d["Month-over-Month Percentage Change"] ? 
-                parseFloat(d["Month-over-Month Percentage Change"]) : 0
-        };
-    }),
-    d3.csv("data/fines_jurisdiction.csv", d => ({
-        jurisdiction: d.JURISDICTION,
-        fines: +d["Total Speeding Fines by Jurisdiction (2023)"]
-    })),
-    d3.csv("data/fines_location.csv", d => {
-        console.log("Loading location data row:", d);
-        return {
-            location: d.LOCATION_TYPE,
-            fines: +d.TOTAL_FINES
-        };
-    }),
-    d3.csv("data/fines_age_groups.csv", d => {
-        console.log("Loading age group data row:", d);
-        return {
-            ageGroup: d.AGE_GROUP,
-            fines: +d["Sum(FINES)"]
-        };
-    }),
-    d3.csv("data/fines_detection_method.csv", d => {
-        console.log("Loading detection method data row:", d);
-        return {
-            method: d.DETECTION_METHOD_CLEAN,
-            count: +d.DETECTION_METHOD_count
-        };
-    })
-]).then(([monthlyData, jurisdictionData, locationData, ageGroupData, detectionMethodData]) => {
+// Load data from master_fine.csv
+d3.csv("data/master_fine.csv").then(rawData => {
+    console.log("Raw data loaded from master_fine.csv:", rawData.length, "rows");
+    
+    // Process data into the needed formats
+    
+    // 1. Monthly trend data
+    const monthlyData = processMonthlyData(rawData);
+    
+    // 2. Jurisdiction data
+    const jurisdictionData = processJurisdictionData(rawData);
+    
+    // 3. Location data
+    const locationData = processLocationData(rawData);
+    
+    // 4. Age group data
+    const ageGroupData = processAgeGroupData(rawData);
+    
+    // 5. Detection method data
+    const detectionMethodData = processDetectionMethodData(rawData);
+    
     // Store the data in a global variable
-    console.log("Location data loaded:", locationData);
-    console.log("Age group data loaded:", ageGroupData);
-    console.log("Detection method data loaded:", detectionMethodData);
+    console.log("Location data processed:", locationData);
+    console.log("Age group data processed:", ageGroupData);
+    console.log("Detection method data processed:", detectionMethodData);
+    
     window.dashboardData = {
         monthlyTrend: monthlyData,
         jurisdiction: jurisdictionData,
@@ -103,3 +88,135 @@ Promise.all([
 }).catch(error => {
     console.error('Error loading data:', error);
 });
+
+// Process raw data into monthly trend format
+function processMonthlyData(rawData) {
+    const monthlyFines = {};
+    
+    // Group fines by month, excluding QLD data
+    rawData.forEach(d => {
+        // Skip QLD data for monthly trend
+        if (d.JURISDICTION === "QLD") return;
+        
+        const month = d["Month (Name)"];
+        if (!monthlyFines[month]) {
+            monthlyFines[month] = 0;
+        }
+        monthlyFines[month] += +d.FINES;
+    });
+    
+    // Convert to array of objects
+    const monthOrder = [
+        "January", "February", "March", "April", "May", "June", 
+        "July", "August", "September", "October", "November", "December"
+    ];
+    
+    const monthlyData = monthOrder.map(month => ({
+        month: month,
+        totalFines: monthlyFines[month] || 0,
+        percentageChange: 0 // Will calculate below
+    }));
+    
+    // Calculate month-over-month percentage changes
+    for (let i = 1; i < monthlyData.length; i++) {
+        const currentFines = monthlyData[i].totalFines;
+        const previousFines = monthlyData[i-1].totalFines;
+        
+        if (previousFines === 0) {
+            monthlyData[i].percentageChange = 100; // Avoid division by zero
+        } else {
+            monthlyData[i].percentageChange = ((currentFines - previousFines) / previousFines) * 100;
+        }
+    }
+    
+    return monthlyData;
+}
+
+// Process raw data into jurisdiction format
+function processJurisdictionData(rawData) {
+    const jurisdictionFines = {};
+    
+    // Group fines by jurisdiction
+    rawData.forEach(d => {
+        const jurisdiction = d.JURISDICTION;
+        if (!jurisdictionFines[jurisdiction]) {
+            jurisdictionFines[jurisdiction] = 0;
+        }
+        jurisdictionFines[jurisdiction] += +d.FINES;
+    });
+    
+    // Convert to array of objects
+    return Object.entries(jurisdictionFines).map(([jurisdiction, fines]) => ({
+        jurisdiction: jurisdiction,
+        fines: fines
+    }));
+}
+
+// Process raw data into location format
+function processLocationData(rawData) {
+    const locationFines = {};
+    
+    // Group fines by location, excluding "Unknown" locations
+    rawData.forEach(d => {
+        const location = d.LOCATION_TYPE;
+        // Skip Unknown locations
+        if (location === "Unknown") return;
+        
+        if (!locationFines[location]) {
+            locationFines[location] = 0;
+        }
+        locationFines[location] += +d.FINES;
+    });
+    
+    // Convert to array of objects
+    return Object.entries(locationFines).map(([location, fines]) => ({
+        location: location,
+        fines: fines
+    }));
+}
+
+// Process raw data into age group format
+function processAgeGroupData(rawData) {
+    const ageGroupFines = {};
+    
+    // Group fines by age group
+    rawData.forEach(d => {
+        const ageGroup = d.AGE_GROUP;
+        // Skip Unknown and 0-16 age groups
+        if (ageGroup === "Unknown" || ageGroup === "0-16") return;
+
+        if (!ageGroupFines[ageGroup]) {
+            ageGroupFines[ageGroup] = 0;
+        }
+        ageGroupFines[ageGroup] += +d.FINES;
+    });
+    
+    // Convert to array of objects and sort by fines in descending order
+    return Object.entries(ageGroupFines)
+        .map(([ageGroup, fines]) => ({
+            ageGroup: ageGroup,
+            fines: fines
+        }))
+        .sort((a, b) => b.fines - a.fines); // Sort in descending order
+}
+
+// Process raw data into detection method format
+function processDetectionMethodData(rawData) {
+    const detectionMethodCounts = {};
+    
+    // Group by detection method
+    rawData.forEach(d => {
+        const method = d.DETECTION_METHOD_CLEAN;
+        if (!detectionMethodCounts[method]) {
+            detectionMethodCounts[method] = 0;
+        }
+        // Use the FINES value as the count since the original method counted occurrences
+        detectionMethodCounts[method] += +d.FINES;
+    });
+    
+    // Convert to array of objects
+    return Object.entries(detectionMethodCounts).map(([method, count]) => ({
+        method: method,
+        count: count
+    }));
+}
