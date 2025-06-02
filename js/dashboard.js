@@ -33,8 +33,6 @@ function populateDropdown(selectId, data, placeholder) {
     // Add placeholder option
     $select.append(new Option('', '', false, false));
     
-    // Add "All" option as the first choice
-    $select.append(new Option('All', 'all', false, false));
     
     // Add data options
     data.forEach(item => {
