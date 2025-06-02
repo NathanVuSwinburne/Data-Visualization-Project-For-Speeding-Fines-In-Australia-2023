@@ -124,9 +124,9 @@ header h1 {
 /* Filters section */
 .filters-section {
     position: fixed;
-    left: 35px; /* Fixed horizontal position, 20px from the left edge */
+    left: calc(50% - 790px + 40px); /* Aligns with dashboard container */
     top: -50px; /* Initially off-screen (above the viewport). JS will change this. Assumes panel height won't exceed this. */
-    width: 280px; /* Fixed width for the floating panel */
+    width: 300px; /* Fixed width for the floating panel */
     height: auto; /* Height adjusts to content */
     bottom: 50px;
     

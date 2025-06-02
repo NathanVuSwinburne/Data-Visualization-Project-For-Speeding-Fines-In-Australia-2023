@@ -225,3 +225,10 @@ function processDetectionMethodData(rawData, filteredMonths = null) {
         count: count
     }));
 }
+
+// Make processing functions globally available
+window.processMonthlyData = processMonthlyData;
+window.processJurisdictionData = processJurisdictionData;
+window.processLocationData = processLocationData;
+window.processAgeGroupData = processAgeGroupData;
+window.processDetectionMethodData = processDetectionMethodData;
