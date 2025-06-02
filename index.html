@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speeding Dashboard</title>
     
-    <!-- Modular CSS files -->
+    <!-- Load Select2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/trend-chart.css">
     <link rel="stylesheet" href="css/location-chart.css">
@@ -19,6 +20,10 @@
     
     <!-- D3.js -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    
+    <!-- jQuery and Select2 JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 <body>
     <header>
@@ -51,23 +56,23 @@
             <h3>FILTERS</h3>
             <div class="filter">
                 <label for="month-filter">Month:</label>
-                <select id="month-filter">
-                    <option value="all">All Months</option>
+                <select id="month-filter" multiple="multiple" style="width: 100%;">
+                    <!-- Will be populated by JavaScript -->
                 </select>
             </div>
             <div class="filter">
-                <label for="jurisdiction-filter">Jurisdiction</label>
-                <select id="jurisdiction-filter">
-                    <option value="all">All Jurisdictions</option>
+                <label for="jurisdiction-filter">Jurisdiction:</label>
+                <select id="jurisdiction-filter" multiple="multiple" style="width: 100%;">
+                    <!-- Will be populated by JavaScript -->
                 </select>
             </div>
             <div class="filter">
                 <label for="age-group-filter">Age Group:</label>
-                <select id="age-group-filter">
-                    <option value="all">All Age Groups</option>
+                <select id="age-group-filter" multiple="multiple" style="width: 100%;">
+                    <!-- Will be populated by JavaScript -->
                 </select>
             </div>
-            <button id="reset-filters">RESET FILTERS</button>
+            <button id="reset-filters" class="btn">RESET FILTERS</button>
             <div class="empty-space"></div>
         </section>
         
@@ -129,4 +134,4 @@
     <!-- Then load dashboard that uses all the modules -->
     <script src="js/dashboard.js"></script>
 </body>
-</html> 
+</html>
