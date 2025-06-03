@@ -357,8 +357,11 @@ window.updateMonthlyTrendChartWithTransition = function(newData) {
         svg.select(".line")
             .datum(newData)
             .transition()
-            .duration(750)
-            .attr("d", line);
+            .duration(400)
+            .attr("d", line)
+            .end().then(() => {
+                svg.select(".line").raise();
+            });
         
         // Update circles for data points
         svg.selectAll(".dot")
@@ -378,12 +381,15 @@ window.updateMonthlyTrendChartWithTransition = function(newData) {
                     .remove()
             )
             .transition()
-            .duration(750)
+            .duration(400)
             .attr("cx", d => x(d.month) + x.bandwidth() / 2)
             .attr("cy", d => y2(d.percentageChange || 0))
             .attr("r", 4)
-            .attr("fill", "#e15759");
-        
+            .attr("fill", "#e15759")
+            .end().then(() => {
+                svg.selectAll(".dot").raise();
+            });
+
         // Update event handlers for bars
         svg.selectAll(".bar")
             .on("mouseover", function(event, d) {
