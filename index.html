@@ -14,6 +14,11 @@
     <link rel="stylesheet" href="css/detection-method-chart.css">
     <link rel="stylesheet" href="css/age-group-chart.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        body {
+            touch-action: none; /* Disables pinch-zoom on touchscreens */
+        }
+    </style>
     
     <!-- SheetJS (xlsx) for Excel file parsing - load before D3 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
@@ -79,7 +84,7 @@
         <!--Trend Chart -->
         <section class="trend-chart-container">
             <div class="chart-container">
-                <h3>TREND OF FINES OVER MONTHS IN 2023</h3>
+                <h3>TREND OF FINES OVER MONTHS</h3>
                 <div id="monthly-trend-chart" class="chart"></div>
             </div>
         </section>
@@ -136,5 +141,25 @@
 
     <!-- Then load dashboard that uses all the modules -->
     <script src="js/dashboard.js"></script>
+    <script>
+        // Disable mouse wheel zoom
+        document.addEventListener('wheel', (e) => {
+            if (e.ctrlKey || e.metaKey) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        // Disable keyboard zoom shortcuts (Ctrl/Cmd + +/-/0)
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && (e.key === '+' || e.key === '-' || e.key === '0')) {
+                e.preventDefault();
+            }
+        });
+
+        // Disable pinch-to-zoom on some browsers (older implementations)
+        document.addEventListener('gesturestart', (e) => {
+            e.preventDefault();
+        });
+    </script>
 </body>
 </html>
