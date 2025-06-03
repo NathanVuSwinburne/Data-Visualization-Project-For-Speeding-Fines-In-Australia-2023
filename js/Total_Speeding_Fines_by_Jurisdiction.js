@@ -40,8 +40,8 @@ window.initJurisdictionChart = async function() {
         
         // Use smaller dimensions to prevent overflow
         const margin = { top: 10, right: 10, bottom: 10, left: 10 };
-        const width = 590;  // Smaller fixed width
-        const height = 550; // Smaller fixed height
+        const width = 790;  // Increased from 590
+        const height = 650; // Increased from 550
 
         const svg = container
             .append("svg")
@@ -51,11 +51,11 @@ window.initJurisdictionChart = async function() {
             .attr("preserveAspectRatio", "xMidYMid meet")
             .style("background-color", "white");
 
-        // Create a projection for Australia with a smaller scale
+        // Create a projection for Australia
         const projection = d3.geoMercator()
-            .center([134, -28])
-            .scale(width)  // Reduced scale to fit in container
-            .translate([width / 2, height / 2 - 30]);  // Move map upward by adjusting y-translation
+            .center([134, -28]) // Australia's approximate center
+            .scale(width * 1.2)  // Scale adjusted relative to the new width
+            .translate([width / 2 + 50, height / 2 - 30]); // Translate adjusted to new width/height
 
         const path = d3.geoPath().projection(projection);
 
@@ -87,7 +87,7 @@ window.initJurisdictionChart = async function() {
             .style("padding", "10px")
             .style("pointer-events", "none")
             .style("font-family", "Arial, sans-serif")
-            .style("font-size", "14px")
+            .style("font-size", "18px")
             .style("color", "#000000")
             .style("box-shadow", "0 4px 8px rgba(0,0,0,0.1)");
 
@@ -176,7 +176,7 @@ window.initJurisdictionChart = async function() {
                 g.append("text")
                     .attr("text-anchor", "middle")
                     .attr("dy", "-1em")
-                    .style("font-size", "16px")
+                    .style("font-size", "20px")
                     .style("font-weight", "bold")
                     .style("fill", "black")
                     .text(stateCode);
@@ -185,7 +185,7 @@ window.initJurisdictionChart = async function() {
                 g.append("text")
                     .attr("text-anchor", "middle")
                     .attr("dy", "1em")
-                    .style("font-size", "20px")
+                    .style("font-size", "25px")
                     .style("font-weight", "bold")
                     .style("fill", "black")
                     .text(stateData.percentage + "%");
@@ -194,7 +194,7 @@ window.initJurisdictionChart = async function() {
                 g.append("text")
                     .attr("text-anchor", "middle")
                     .attr("dy", "2.5em")
-                    .style("font-size", "14px")
+                    .style("font-size", "20px")
                     .style("fill", "black")
                     .text("(" + Math.round(stateData.fines/1000).toLocaleString() + "k)");
             });
@@ -224,8 +224,8 @@ window.initJurisdictionChart = async function() {
         addConnectingLine("ACT", { x: 60, y: 0 });
 
         // Add a legend
-        const legendWidth = 200;
-        const legendHeight = 20;
+        const legendWidth = 400; 
+        const legendHeight = 40; 
         
         const legendScale = d3.scaleLinear()
             .domain([0, d3.max(fineValues)])
@@ -240,7 +240,7 @@ window.initJurisdictionChart = async function() {
             .tickFormat(d => Math.round(d/1000) + "k");
 
         const legend = svg.append("g")
-            .attr("transform", `translate(${width/2 - legendWidth/2 - 60}, ${height - 40})`);
+            .attr("transform", `translate(${width/2 - legendWidth/2 - 60}, ${height - 50})`); 
 
         // Create gradient for legend
         const defs = svg.append("defs");
@@ -270,13 +270,15 @@ window.initJurisdictionChart = async function() {
         // Add legend axis
         legend.append("g")
             .attr("transform", `translate(0, ${legendHeight})`)
-            .call(legendAxis);
+            .call(legendAxis)
+            .selectAll("text") 
+            .style("font-size", "22px"); 
 
         // Add legend title - changed from white to black text
         legend.append("text")
             .attr("x", 0)
-            .attr("y", -5)
-            .style("font-size", "12px")
+            .attr("y", -10) 
+            .style("font-size", "18px")
             .style("fill", "black")
             .text("Number of Fines");
 
