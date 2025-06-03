@@ -40,7 +40,7 @@ function initMonthlyTrendChart() {
     const containerHeight = 400;  // Reduced from 400
     
     // Set up margins
-    const margin = {top: 20, right: 60, bottom: 60, left: 95};  // Increased left margin from 60 to 150
+    const margin = {top: 30, right: 80, bottom: 60, left: 100};  // Matches Age Group chart
     const width = containerWidth - margin.left - margin.right;
     const height = containerHeight - margin.top - margin.bottom;
     
@@ -273,7 +273,7 @@ window.updateMonthlyTrendChartWithTransition = function(newData) {
         const containerHeight = 400; // Fixed height, same as in initialization
         
         // Set up margins
-        const margin = {top: 20, right: 60, bottom: 60, left: 190};
+        const margin = {top: 30, right: 80, bottom: 60, left: 100}; // Matches Age Group chart
         const width = containerWidth - margin.left - margin.right;
         const height = containerHeight - margin.top - margin.bottom;
         
