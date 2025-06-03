@@ -23,7 +23,7 @@ window.initLocationChart = function() {
         const containerDiv = container.node();
         const width = containerDiv.clientWidth * 1.3;
         const height = containerDiv.clientHeight || 400;
-        const margin = { top: 30, right: 60, bottom: 30, left: 100 };
+        const margin = { top: 30, right: 60, bottom: 30, left: 68 }; // Reduced left margin
 
         const svg = container
             .append("svg")
@@ -71,6 +71,7 @@ window.initLocationChart = function() {
 
         // X-axis
         svg.append("g")
+            .attr("class", "x-axis")
             .attr("transform", `translate(0,${height - margin.bottom})`)
             .call(d3.axisBottom(x)
                 .ticks(5)
@@ -85,7 +86,7 @@ window.initLocationChart = function() {
             .call(d3.axisLeft(y))
             .call(g => g.select(".domain").remove())
             .selectAll("text")
-            .style("font-size", "12px");
+            .style("font-size", "14px");
 
         // Bars with interactivity
         svg.selectAll("rect.bar")
@@ -166,7 +167,7 @@ window.updateLocationChartWithTransition = function(newData) {
         const containerDiv = container.node();
         const width = containerDiv.clientWidth * 1.3;
         const height = containerDiv.clientHeight || 400;
-        const margin = { top: 30, right: 60, bottom: 30, left: 100 };
+        const margin = { top: 30, right: 60, bottom: 30, left: 68 }; // Reduced left margin
         
         // Update scales with new data
         const x = d3.scaleLinear()
@@ -183,13 +184,14 @@ window.updateLocationChartWithTransition = function(newData) {
             .range(["#20c7da", "#74beed", "#448aff"]);
             
         // Update x-axis with transition
-        svg.select("g")
-            .attr("transform", `translate(0,${height - margin.bottom})`)
+        svg.select("g.x-axis")
             .transition()
             .duration(750)
             .call(d3.axisBottom(x)
                 .ticks(5)
-                .tickFormat(d => d3.format(",")(d)));
+                .tickFormat(d => d3.format(",")(d)))
+            .selectAll("text")
+            .style("font-size", "12px");
                 
         // Update y-axis with transition
         svg.select("g.location-y-axis")

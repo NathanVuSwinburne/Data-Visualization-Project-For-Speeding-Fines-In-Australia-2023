@@ -239,20 +239,19 @@ window.updateAgeGroupChartWithTransition = function(newData) {
 
         const y = d3.scaleLinear()
             .domain([0, yDomainMax])
+            .nice()
             .range([height - margin.bottom, margin.top]);
             
         // Create custom ticks for y-axis
-        const maxFinesForTicks = currentMaxFines > 0 ? currentMaxFines : yDomainMax / 1.1;
-        
         let tickInterval = 100000; // Default tick interval
-        if (maxFinesForTicks <= 1000) {
+        if (yDomainMax <= 1000) {
             tickInterval = 200; // Small numbers
-        } else if (maxFinesForTicks <= 10000) {
+        } else if (yDomainMax <= 10000) {
             tickInterval = 2000; // Medium numbers
-        } else if (maxFinesForTicks <= 100000) {
+        } else if (yDomainMax <= 100000) {
             tickInterval = 20000; // Large numbers
         } else {
-            tickInterval = Math.ceil(maxFinesForTicks / 5 / 100000) * 100000; // Very large numbers
+            tickInterval = Math.ceil(yDomainMax / 5 / 100000) * 100000; // Very large numbers
         }
 
         const yTicks = [];
@@ -268,15 +267,8 @@ window.updateAgeGroupChartWithTransition = function(newData) {
             }
         }
         
-        // Ensure at least 0 and max are included
+        // Ensure at least 0 is included
         if (!yTicks.includes(0)) yTicks.unshift(0);
-        if (yDomainMax > 0 && !yTicks.includes(yDomainMax) && yTicks[yTicks.length - 1] < yDomainMax) {
-            yTicks.push(yDomainMax);
-        }
-        
-        console.log('Age Group Chart - currentMaxFines:', currentMaxFines);
-        console.log('Age Group Chart - yDomainMax:', yDomainMax);
-        console.log('Age Group Chart - yTicks:', JSON.stringify(yTicks));
         
         // Use a consistent color function that always returns the same color for a given age group
         const color = d => colorMapping[d.ageGroup] || "#cccccc"; // Fallback to gray if age group not in mapping
@@ -292,6 +284,7 @@ window.updateAgeGroupChartWithTransition = function(newData) {
             
         // Update y-axis with transition
         svg.select("g.y-axis")
+            .attr("transform", `translate(${margin.left},0)`)
             .transition()
             .duration(750)
             .call(d3.axisLeft(y)

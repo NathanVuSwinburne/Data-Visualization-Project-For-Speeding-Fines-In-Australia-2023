@@ -40,8 +40,8 @@ window.initJurisdictionChart = async function() {
         
         // Use smaller dimensions to prevent overflow
         const margin = { top: 10, right: 10, bottom: 10, left: 10 };
-        const width = 550;  // Smaller fixed width
-        const height = 450; // Smaller fixed height
+        const width = 590;  // Smaller fixed width
+        const height = 550; // Smaller fixed height
 
         const svg = container
             .append("svg")
