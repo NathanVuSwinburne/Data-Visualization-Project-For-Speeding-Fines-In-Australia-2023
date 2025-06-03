@@ -138,6 +138,25 @@ function applyFilters() {
 
 // Dashboard initialization
 window.initDashboard = function() {
+    // Add notification style
+    $('head').append(`
+        <style>
+            .filter-notification {
+                position: absolute;
+                top: -30px;
+                left: 0;
+                background: #ffebee;
+                color: #c62828;
+                padding: 5px 10px;
+                border-radius: 4px;
+                font-size: 12px;
+                z-index: 100;
+                display: none;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+        </style>
+    `);
+
     console.log('Dashboard initialized');
     
     // Check and prepare containers
@@ -175,8 +194,12 @@ window.initDashboard = function() {
             
             // Prevent removing last element
             if (currentSelections.length === 0) {
-                alert('You cannot remove the last element');
-                // Revert to previous valid selection
+                // Show notification
+                const notification = $(`<div class='filter-notification'>You must keep at least one selection</div>`);
+                $(this).next('.select2-container').append(notification);
+                notification.fadeIn().delay(2000).fadeOut();
+                
+                // Prevent the change by reverting immediately
                 $(this).val(filterState[filterType]).trigger('change');
                 return;
             }
