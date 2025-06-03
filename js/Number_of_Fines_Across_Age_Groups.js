@@ -52,14 +52,6 @@ window.initAgeGroupChart = function() {
             .style("color", "#000000")
             .style("box-shadow", "0 4px 8px rgba(0,0,0,0.1)");
 
-        // Add a title to the chart
-        svg.append("text")
-            .attr("x", width / 2)
-            .attr("y", margin.top / 2)
-            .attr("text-anchor", "middle")
-            .style("font-size", "16px")
-            .style("font-weight", "bold")
-            .text("FINES BY AGE GROUP");
             
         const x = d3.scaleBand()
             .domain(ageGroupData.map(d => d.ageGroup))

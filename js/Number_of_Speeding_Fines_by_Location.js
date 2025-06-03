@@ -70,13 +70,14 @@ window.initLocationChart = function() {
             .selectAll("text")
             .style("font-size", "12px");
 
-        // Add X-axis label
+        
+        // X Axis Label
         svg.append("text")
-            .attr("class", "x-axis-label")
             .attr("x", width / 2)
-            .attr("y", height - 2)  // Moved label down
+            .attr("y", height - 5)
             .attr("text-anchor", "middle")
             .style("font-size", "14px")
+            .style("font-weight", "bold")
             .text("Total Fines");
 
         // Y-axis
