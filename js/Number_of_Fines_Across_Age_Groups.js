@@ -1,105 +1,423 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const container = d3.select("#age-groups-chart");
-    const containerDiv = container.node();
-    const width = containerDiv.clientWidth;
-    const height = containerDiv.clientHeight || 900;
+// Age Groups Bar Chart - Road Safety Dashboard - Team 8
 
-    const margin = { top: 10, right: 80, bottom: 20, left: 100 };
+// Initialize function for age group chart
+window.initAgeGroupChart = function() {
+    try {
+        console.log('Initializing age group chart...');
 
-    const innerWidth = width - margin.left - margin.right;
-    const innerHeight = height - margin.top - margin.bottom;
+        // Clear any existing content
+        const container = d3.select("#age-groups-chart");
+        container.html("");
+        
+        // Check if global dashboard data is available
+        if (!window.dashboardData || !window.dashboardData.ageGroup || window.dashboardData.ageGroup.length === 0) {
+            console.error("No age group data available in dashboardData");
+            container.append("div")
+                .attr("class", "error-message")
+                .text("No age group data available");
+            return;
+        }
+        d3.selectAll(".age-group-tooltip").remove();
 
-    const svg = container.append("svg")
-        .attr("width", "100%")
-        .attr("height", "100%")
-        .attr("viewBox", `0 0 ${width} ${height}`)
-        .attr("preserveAspectRatio", "xMidYMid meet");
+        const ageGroupData = window.dashboardData.ageGroup;
+        console.log("Using age group data from dashboardData:", ageGroupData);
+        
+        const containerDiv = container.node();
+        const width = containerDiv.clientWidth * 1.8;  // Keep the current width
+        const height = 500;  // Increased from 400 to 500
 
-    const data = [
-        { age_group: "17-25", value: 250000 },
-        { age_group: "65 and over", value: 280000 },
-        { age_group: "26-39", value: 700000 },
-        { age_group: "40-64", value: 1100000 }
-    ];
+        const margin = { top: 20, right: 120, bottom: 60, left: 150 };
 
-    const x = d3.scaleBand()
-        .domain(data.map(d => d.age_group))
-        .range([margin.left, width - margin.right])
-        .padding(0.4);
+        const innerWidth = width - margin.left - margin.right;
+        const innerHeight = height - margin.top - margin.bottom;
 
-    const y = d3.scaleLinear()
-        .domain([0, 1200000])
-        .range([height - margin.bottom, margin.top]);
+        const svg = container.append("svg")
+            .attr("width", "100%")
+            .attr("height", height)
+            .attr("viewBox", `0 0 ${width} ${height}`)
+            .attr("preserveAspectRatio", "xMidYMid meet");
+            
+        // Create tooltip div
+        const tooltip = d3.select("body").append("div")
+            .attr("class", "age-group-tooltip")
+            .style("opacity", 0)
+            .style("position", "absolute")
+            .style("background-color", "#f9f9f9")
+            .style("border", "1px solid #d3d3d3")
+            .style("border-radius", "5px")
+            .style("padding", "10px")
+            .style("pointer-events", "none")
+            .style("font-family", "Arial, sans-serif")
+            .style("font-size", "14px")
+            .style("color", "#000000")
+            .style("box-shadow", "0 4px 8px rgba(0,0,0,0.1)");
+            
+        const x = d3.scaleBand()
+            .domain(ageGroupData.map(d => d.ageGroup))
+            .range([margin.left, width - margin.right])
+            .padding(0.4);
 
-    // Create custom ticks for y-axis (increments of 200,000)
-    const yTicks = [];
-    for (let i = 0; i <= 1200000; i += 200000) {
-        yTicks.push(i);
-    }
+        const y = d3.scaleLinear()
+            .domain([0, d3.max(ageGroupData, d => d.fines) * 1.1])
+            .range([height - margin.bottom, margin.top]);
 
-    const colors = ["#20c7da", "#ffa726", "#ffa4ce", "#9a57c2"];
-    const color = d3.scaleOrdinal()
-        .domain(data.map(d => d.age_group))
-        .range(colors);
+        // Create custom ticks for y-axis
+        const maxFines = d3.max(ageGroupData, d => d.fines);
+        const tickInterval = Math.ceil(maxFines / 5 / 100000) * 100000;
+        const yTicks = [];
+        for (let i = 0; i <= maxFines * 1.1; i += tickInterval) {
+            yTicks.push(i);
+        }
 
-    // Gridlines
-    svg.append("g")
-        .attr("class", "grid")
-        .attr("transform", `translate(${margin.left},0)`)
-        .call(d3.axisLeft(y)
+        const colors = ["#20c7da", "#ffa726", "#ffa4ce", "#9a57c2"];
+        const color = d3.scaleOrdinal()
+            .domain(ageGroupData.map(d => d.ageGroup))
+            .range(colors);
+
+        // Gridlines - Add more lines
+        const yGridlines = d3.axisLeft(y)
             .tickValues(yTicks)
             .tickSize(-innerWidth)
-            .tickFormat("")
-        )
-        .call(g => g.select(".domain").remove())
-        .selectAll("line")
-        .attr("stroke", "#e0e0e0")
-        .attr("stroke-dasharray", "2,2");
+            .tickFormat("");
 
-    // Bars
-    svg.selectAll("rect.bar")
-        .data(data)
-        .join("rect")
-        .attr("class", "bar")
-        .attr("x", d => x(d.age_group))
-        .attr("y", d => y(d.value))
-        .attr("width", x.bandwidth())
-        .attr("height", d => height - margin.bottom - y(d.value))
-        .attr("fill", d => color(d.age_group));
+        svg.append("g")
+            .attr("class", "grid")
+            .attr("transform", `translate(${margin.left},0)`)
+            .call(yGridlines)
+            .call(g => g.select(".domain").remove())
+            .selectAll("line")
+            .attr("stroke", "#e0e0e0")
+            .attr("stroke-dasharray", "2,2");
 
-    // X Axis
-    svg.append("g")
-        .attr("transform", `translate(0,${height - margin.bottom})`)
-        .call(d3.axisBottom(x))
-        .selectAll("text")
-        .style("text-anchor", "middle")
-        .style("font-size", "12px");
+        // Bars with interactivity
+        svg.selectAll("rect.bar")
+            .data(ageGroupData)
+            .join("rect")
+            .attr("class", "bar")
+            .attr("x", d => x(d.ageGroup))
+            .attr("y", d => y(d.fines))
+            .attr("width", x.bandwidth())
+            .attr("height", d => height - margin.bottom - y(d.fines))
+            .attr("fill", d => color(d.ageGroup))
+            .style("cursor", "pointer")
+            .on("mouseover", function(event, d) {
+                // Highlight the bar
+                d3.select(this)
+                    .attr("stroke", "#333")
+                    .attr("stroke-width", 2);
+                
+                // Show tooltip
+                tooltip.transition()
+                    .duration(200)
+                    .style("opacity", 0.9);
+                
+                tooltip.html(`
+                    <strong>${d.ageGroup}</strong><br/>
+                    <strong>Fines:</strong> ${d.fines.toLocaleString()}
+                `)
+                    .style("left", (event.pageX + 10) + "px")
+                    .style("top", (event.pageY - 28) + "px");
+            })
+            .on("mouseout", function() {
+                // Restore original appearance
+                d3.select(this)
+                    .attr("stroke", "none");
+                
+                // Hide tooltip
+                tooltip.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            });
 
-    // Y Axis with custom ticks
-    svg.append("g")
-        .attr("transform", `translate(${margin.left},0)`)
-        .call(d3.axisLeft(y)
-            .tickValues(yTicks)
-            .tickFormat(d => d.toLocaleString()))
-        .selectAll("text")
-        .style("font-size", "12px");
+        // X Axis - ADD CLASS NAME HERE
+        svg.append("g")
+            .attr("class", "x-axis")  // <-- Added class name
+            .attr("transform", `translate(0,${height - margin.bottom})`)
+            .call(d3.axisBottom(x))
+            .selectAll("text")
+            .style("text-anchor", "middle")
+            .style("font-size", "14px");
 
-    // X Axis Label
-    svg.append("text")
-        .attr("x", width - -10)
-        .attr("y", height - 3)
-        .attr("text-anchor", "end")
-        .style("font-size", "14px")
-        .style("font-weight", "bold")
-        .text("Age Group");
+        // Y Axis with custom ticks - CLASS NAME ALREADY EXISTS
+        svg.append("g")
+            .attr("class", "y-axis")
+            .attr("transform", `translate(${margin.left},0)`)
+            .call(d3.axisLeft(y)
+                .tickValues(yTicks)
+                .tickFormat(d => d3.format(",")(d)))
+            .selectAll("text")
+            .style("font-size", "12px");
 
-    // Y Axis Label
-    svg.append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("x", -height / 2)
-        .attr("y", 10)
-        .attr("text-anchor", "middle")
-        .style("font-size", "14px")
-        .style("font-weight", "bold")
-        .text("Number of Fines");
+        // X Axis Label
+        svg.append("text")
+            .attr("x", width / 2)
+            .attr("y", height - 1)
+            .attr("text-anchor", "middle")
+            .style("font-size", "20px")
+            .style("font-weight", "normal")
+            .text("Age Group");
+
+        // Y Axis Label
+        svg.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("x", -height / 2)
+            .attr("y", 50)
+            .attr("text-anchor", "middle")
+            .style("font-size", "20px")
+            .style("font-weight", "normal")
+            .text("TotalFines");
+            
+        // Add value labels on top of bars
+        svg.selectAll(".value-label")
+            .data(ageGroupData)
+            .join("text")
+            .attr("class", "value-label")
+            .attr("x", d => x(d.ageGroup) + x.bandwidth() / 2)
+            .attr("y", d => y(d.fines) - 5)
+            .attr("text-anchor", "middle")
+            .style("font-size", "12px")
+            .style("font-weight", "normal")  // Changed from bold to normal
+            .style("fill", "#333")
+            .text(d => d3.format(",")(d.fines));
+            
+        // Also increase axis tick labels
+        svg.selectAll(".x-axis text")
+            .style("font-size", "14px");
+
+        svg.selectAll(".y-axis text")
+            .style("font-size", "14px");
+            
+    } catch (error) {
+        console.error("Error creating age group visualization:", error);
+        // Display error message in the chart container
+        d3.select("#age-groups-chart")
+            .html("<div style='color: red; text-align: center; padding: 20px;'>Error loading age group data</div>");
+    }
+};
+
+// Function to update the age group chart with transitions
+window.updateAgeGroupChartWithTransition = function(newData) {
+    try {
+        console.log('Updating age group chart with transitions...');
+        console.log('Received newData for age group transition:', newData);
+        // Get the container and SVG
+        const container = d3.select("#age-groups-chart");
+        const svg = container.select("svg");
+        
+        if (svg.empty()) {
+            console.error("SVG not found for age group chart, initializing instead");
+            initAgeGroupChart();
+            return;
+        }
+        
+        // Get the dimensions
+        const containerDiv = container.node();
+        const width = containerDiv.clientWidth * 1.3;  // Increased multiplier
+        const height = containerDiv.clientHeight || 450;  // Increased height
+        const margin = { top: 20, right: 120, bottom: 60, left: 150 };
+        
+        // Define all possible age groups in a fixed order for consistent visualization
+        const allAgeGroups = ["17-25", "26-39", "40-64", "65 and over"];
+        
+        // Fixed color mapping for consistent colors regardless of filtering
+        const colorMapping = {
+            "17-25": "#9a57c2",  // Purple
+            "26-39": "#ffa726",  // Orange
+            "40-64": "#20c7da",  // Cyan
+            "65 and over": "#ffa4ce"  // Pink
+        };
+        
+        // Update scales with new data
+        const x = d3.scaleBand()
+            .domain(newData.map(d => d.ageGroup)) // Only include age groups present in the data
+            .range([margin.left, width - margin.right])
+            .padding(0.4);
+            
+        // Ensure maxFines is valid, provide a default if newData is empty or has no fines
+        const currentMaxFines = d3.max(newData, d => d.fines) || 0;
+        const yDomainMax = (newData.length > 0 && currentMaxFines > 0) ? currentMaxFines * 1.1 : 100; // Default to 100 if no data or max is 0
+
+        const y = d3.scaleLinear()
+            .domain([0, yDomainMax])
+            .nice()
+            .range([height - margin.bottom, margin.top]);
+            
+        // Create custom ticks for y-axis
+        let tickInterval = 100000; // Default tick interval
+        if (yDomainMax <= 1000) {
+            tickInterval = 200; // Small numbers
+        } else if (yDomainMax <= 10000) {
+            tickInterval = 2000; // Medium numbers
+        } else if (yDomainMax <= 100000) {
+            tickInterval = 20000; // Large numbers
+        } else {
+            tickInterval = Math.ceil(yDomainMax / 5 / 100000) * 100000; // Very large numbers
+        }
+
+        const yTicks = [];
+        if (tickInterval > 0) {
+            for (let i = 0; i <= yDomainMax; i += tickInterval) {
+                yTicks.push(i);
+            }
+            // Ensure we don't have too many ticks
+            if (yTicks.length > 10) {
+                // Reduce number of ticks
+                const step = Math.ceil(yTicks.length / 5);
+                yTicks = yTicks.filter((v, i) => i % step === 0);
+            }
+        }
+        
+        // Ensure at least 0 is included
+        if (!yTicks.includes(0)) yTicks.unshift(0);
+        
+        // Use a consistent color function that always returns the same color for a given age group
+        const color = d => colorMapping[d.ageGroup] || "#cccccc"; // Fallback to gray if age group not in mapping
+            
+        // Update x-axis with transition
+        svg.select("g.x-axis")
+            .transition()
+            .duration(750)
+            .call(d3.axisBottom(x))
+            .selectAll("text")
+            .style("text-anchor", "middle")
+            .style("font-size", "14px");
+            
+        // Update y-axis with transition
+        svg.select("g.y-axis")
+            .attr("transform", `translate(${margin.left},0)`)
+            .transition()
+            .duration(750)
+            .call(d3.axisLeft(y)
+                .tickValues(yTicks)
+                .tickFormat(d => d3.format(",")(d)))
+            .selectAll("text")
+            .style("font-size", "12px");
+                
+        // Remove ALL existing grid lines and recreate them
+        svg.selectAll("g.grid").remove();
+        
+        // Create new grid with updated scale
+        svg.insert("g", ":first-child") // Insert at the beginning so it's behind everything
+            .attr("class", "grid")
+            .attr("transform", `translate(${margin.left},0)`)
+            .call(d3.axisLeft(y)
+                .tickValues(yTicks)
+                .tickSize(-width + margin.left + margin.right)
+                .tickFormat(""))
+            .call(g => g.select(".domain").remove())
+            .selectAll("line")
+            .attr("stroke", "#e0e0e0")
+            .attr("stroke-dasharray", "2,2");
+            
+        // Update bars with transition - using key function for proper data binding
+        svg.selectAll("rect.bar")
+            .data(newData, d => d.ageGroup) // Key function ensures proper data binding by age group
+            .join(
+                enter => enter.append("rect")
+                    .attr("class", "bar")
+                    .attr("x", d => x(d.ageGroup))
+                    .attr("y", height - margin.bottom)
+                    .attr("width", x.bandwidth())
+                    .attr("height", 0)
+                    .attr("fill", d => color(d))
+                    .style("cursor", "pointer"),
+                update => update,
+                exit => exit.transition()
+                    .duration(750)
+                    .attr("y", height - margin.bottom)
+                    .attr("height", 0)
+                    .remove()
+            )
+            .transition()
+            .duration(750)
+            .attr("x", d => x(d.ageGroup))
+            .attr("y", d => y(d.fines))
+            .attr("width", x.bandwidth())
+            .attr("height", d => Math.max(0, height - margin.bottom - y(d.fines))) // Ensure non-negative height
+            .attr("fill", d => color(d));
+            
+        // Update value labels with transition - using key function for proper data binding
+        svg.selectAll(".value-label")
+            .data(newData, d => d.ageGroup) // Key function ensures proper data binding by age group
+            .join(
+                enter => enter.append("text")
+                    .attr("class", "value-label")
+                    .attr("x", d => x(d.ageGroup) + x.bandwidth() / 2)
+                    .attr("y", height - margin.bottom)
+                    .attr("text-anchor", "middle")
+                    .style("font-size", "14px")
+                    .style("fill", "#333")
+                    .style("opacity", 0),
+                update => update,
+                exit => exit.transition()
+                    .duration(750)
+                    .style("opacity", 0)
+                    .remove()
+            )
+            .transition()
+            .duration(750)
+            .attr("x", d => x(d.ageGroup) + x.bandwidth() / 2)
+            .attr("y", d => y(d.fines) - 5)
+            .style("opacity", 1)
+            .text(d => d3.format(",")(d.fines));
+            
+        // Re-attach event handlers after transition
+        setTimeout(() => {
+            const tooltip = d3.select("body").select(".age-group-tooltip");
+            
+            svg.selectAll("rect.bar")
+                .on("mouseover", function(event, d) {
+                    // Highlight the bar
+                    d3.select(this)
+                        .attr("stroke", "#333")
+                        .attr("stroke-width", 2);
+                    
+                    // Show tooltip
+                    tooltip.transition()
+                        .duration(200)
+                        .style("opacity", 0.9);
+                    
+                    tooltip.html(`
+                        <strong>${d.ageGroup}</strong><br/>
+                        <strong>Fines:</strong> ${d.fines.toLocaleString()}
+                    `)
+                        .style("left", (event.pageX + 10) + "px")
+                        .style("top", (event.pageY - 28) + "px");
+                })
+                .on("mouseout", function() {
+                    // Restore original appearance
+                    d3.select(this)
+                        .attr("stroke", "none");
+                    
+                    // Hide tooltip
+                    tooltip.transition()
+                        .duration(500)
+                        .style("opacity", 0);
+                });
+        }, 800); // Wait for transition to complete
+            
+    } catch (error) {
+        console.error("Error updating age group chart with transitions:", error);
+        // Fallback to full initialization if transition fails
+        initAgeGroupChart();
+    }
+};
+
+// Initialize the chart when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, checking for age group data...');
+    if (window.dashboardData && window.dashboardData.ageGroup) {
+        // Initialize the chart if data is already loaded
+        initAgeGroupChart();
+    } else {
+        console.log('Waiting for data to be loaded before initializing age group chart');
+        // Add the chart initialization to the dashboard init process
+        const originalInitDashboard = window.initDashboard || function() {};
+        window.initDashboard = function() {
+            originalInitDashboard();
+            if (window.dashboardData && window.dashboardData.ageGroup) {
+                setTimeout(initAgeGroupChart, 100); // Slight delay to ensure DOM is ready
+            }
+        };
+    }
 });

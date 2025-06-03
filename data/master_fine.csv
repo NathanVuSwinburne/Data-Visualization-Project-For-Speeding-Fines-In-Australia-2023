@@ -1,0 +1,2299 @@
+"JURISDICTION","AGE_GROUP","FINES","DETECTION_METHOD_CLEAN","LOCATION_TYPE","PERIOD_LENGTH","Month (Name)","Month (Number)"
+"ACT","0-16",1,"Fixed camera systems","Urban",30,"January",1
+"ACT","0-16",2,"Police issued","Urban",30,"January",1
+"ACT","17-25",559,"Fixed camera systems","Urban",30,"January",1
+"ACT","17-25",143,"Mobile camera","Urban",30,"January",1
+"ACT","17-25",59,"Police issued","Urban",30,"January",1
+"ACT","26-39",1550,"Fixed camera systems","Urban",30,"January",1
+"ACT","26-39",313,"Mobile camera","Urban",30,"January",1
+"ACT","26-39",98,"Police issued","Urban",30,"January",1
+"ACT","40-64",2722,"Fixed camera systems","Urban",30,"January",1
+"ACT","40-64",476,"Mobile camera","Urban",30,"January",1
+"ACT","40-64",47,"Police issued","Urban",30,"January",1
+"ACT","65 and over",836,"Fixed camera systems","Urban",30,"January",1
+"ACT","65 and over",148,"Mobile camera","Urban",30,"January",1
+"ACT","65 and over",5,"Police issued","Urban",30,"January",1
+"ACT","Unknown",92,"Fixed camera systems","Urban",30,"January",1
+"ACT","Unknown",12,"Mobile camera","Urban",30,"January",1
+"ACT","0-16",1,"Fixed camera systems","Urban",27,"February",2
+"ACT","0-16",1,"Police issued","Urban",27,"February",2
+"ACT","17-25",508,"Fixed camera systems","Urban",27,"February",2
+"ACT","17-25",220,"Mobile camera","Urban",27,"February",2
+"ACT","17-25",27,"Police issued","Urban",27,"February",2
+"ACT","26-39",1149,"Fixed camera systems","Urban",27,"February",2
+"ACT","26-39",463,"Mobile camera","Urban",27,"February",2
+"ACT","26-39",52,"Police issued","Urban",27,"February",2
+"ACT","40-64",2115,"Fixed camera systems","Urban",27,"February",2
+"ACT","40-64",582,"Mobile camera","Urban",27,"February",2
+"ACT","40-64",33,"Police issued","Urban",27,"February",2
+"ACT","65 and over",735,"Fixed camera systems","Urban",27,"February",2
+"ACT","65 and over",243,"Mobile camera","Urban",27,"February",2
+"ACT","65 and over",4,"Police issued","Urban",27,"February",2
+"ACT","Unknown",91,"Fixed camera systems","Urban",27,"February",2
+"ACT","Unknown",13,"Mobile camera","Urban",27,"February",2
+"ACT","0-16",1,"Fixed camera systems","Urban",30,"March",3
+"ACT","0-16",1,"Mobile camera","Urban",30,"March",3
+"ACT","0-16",7,"Police issued","Urban",30,"March",3
+"ACT","17-25",538,"Fixed camera systems","Urban",30,"March",3
+"ACT","17-25",222,"Mobile camera","Urban",30,"March",3
+"ACT","17-25",52,"Police issued","Urban",30,"March",3
+"ACT","26-39",1172,"Fixed camera systems","Urban",30,"March",3
+"ACT","26-39",532,"Mobile camera","Urban",30,"March",3
+"ACT","26-39",55,"Police issued","Urban",30,"March",3
+"ACT","40-64",2126,"Fixed camera systems","Urban",30,"March",3
+"ACT","40-64",725,"Mobile camera","Urban",30,"March",3
+"ACT","40-64",46,"Police issued","Urban",30,"March",3
+"ACT","65 and over",697,"Fixed camera systems","Urban",30,"March",3
+"ACT","65 and over",244,"Mobile camera","Urban",30,"March",3
+"ACT","Unknown",61,"Fixed camera systems","Urban",30,"March",3
+"ACT","Unknown",30,"Mobile camera","Urban",30,"March",3
+"ACT","0-16",1,"Fixed camera systems","Urban",29,"April",4
+"ACT","0-16",1,"Mobile camera","Urban",29,"April",4
+"ACT","0-16",2,"Police issued","Urban",29,"April",4
+"ACT","17-25",582,"Fixed camera systems","Urban",29,"April",4
+"ACT","17-25",157,"Mobile camera","Urban",29,"April",4
+"ACT","17-25",99,"Police issued","Urban",29,"April",4
+"ACT","26-39",1317,"Fixed camera systems","Urban",29,"April",4
+"ACT","26-39",295,"Mobile camera","Urban",29,"April",4
+"ACT","26-39",126,"Police issued","Urban",29,"April",4
+"ACT","40-64",2313,"Fixed camera systems","Urban",29,"April",4
+"ACT","40-64",468,"Mobile camera","Urban",29,"April",4
+"ACT","40-64",107,"Police issued","Urban",29,"April",4
+"ACT","65 and over",704,"Fixed camera systems","Urban",29,"April",4
+"ACT","65 and over",155,"Mobile camera","Urban",29,"April",4
+"ACT","65 and over",8,"Police issued","Urban",29,"April",4
+"ACT","Unknown",64,"Fixed camera systems","Urban",29,"April",4
+"ACT","Unknown",14,"Mobile camera","Urban",29,"April",4
+"ACT","0-16",1,"Fixed camera systems","Urban",30,"May",5
+"ACT","0-16",1,"Mobile camera","Urban",30,"May",5
+"ACT","0-16",3,"Police issued","Urban",30,"May",5
+"ACT","17-25",510,"Fixed camera systems","Urban",30,"May",5
+"ACT","17-25",178,"Mobile camera","Urban",30,"May",5
+"ACT","17-25",55,"Police issued","Urban",30,"May",5
+"ACT","26-39",1196,"Fixed camera systems","Urban",30,"May",5
+"ACT","26-39",352,"Mobile camera","Urban",30,"May",5
+"ACT","26-39",52,"Police issued","Urban",30,"May",5
+"ACT","40-64",2112,"Fixed camera systems","Urban",30,"May",5
+"ACT","40-64",532,"Mobile camera","Urban",30,"May",5
+"ACT","40-64",47,"Police issued","Urban",30,"May",5
+"ACT","65 and over",679,"Fixed camera systems","Urban",30,"May",5
+"ACT","65 and over",175,"Mobile camera","Urban",30,"May",5
+"ACT","65 and over",4,"Police issued","Urban",30,"May",5
+"ACT","Unknown",71,"Fixed camera systems","Urban",30,"May",5
+"ACT","Unknown",23,"Mobile camera","Urban",30,"May",5
+"ACT","0-16",1,"Fixed camera systems","Urban",29,"June",6
+"ACT","0-16",2,"Police issued","Urban",29,"June",6
+"ACT","17-25",452,"Fixed camera systems","Urban",29,"June",6
+"ACT","17-25",176,"Mobile camera","Urban",29,"June",6
+"ACT","17-25",42,"Police issued","Urban",29,"June",6
+"ACT","26-39",1108,"Fixed camera systems","Urban",29,"June",6
+"ACT","26-39",404,"Mobile camera","Urban",29,"June",6
+"ACT","26-39",47,"Police issued","Urban",29,"June",6
+"ACT","40-64",1805,"Fixed camera systems","Urban",29,"June",6
+"ACT","40-64",558,"Mobile camera","Urban",29,"June",6
+"ACT","40-64",47,"Police issued","Urban",29,"June",6
+"ACT","65 and over",527,"Fixed camera systems","Urban",29,"June",6
+"ACT","65 and over",203,"Mobile camera","Urban",29,"June",6
+"ACT","65 and over",4,"Police issued","Urban",29,"June",6
+"ACT","Unknown",72,"Fixed camera systems","Urban",29,"June",6
+"ACT","Unknown",21,"Mobile camera","Urban",29,"June",6
+"ACT","0-16",2,"Fixed camera systems","Urban",30,"July",7
+"ACT","0-16",2,"Police issued","Urban",30,"July",7
+"ACT","17-25",407,"Fixed camera systems","Urban",30,"July",7
+"ACT","17-25",204,"Mobile camera","Urban",30,"July",7
+"ACT","17-25",83,"Police issued","Urban",30,"July",7
+"ACT","26-39",1005,"Fixed camera systems","Urban",30,"July",7
+"ACT","26-39",545,"Mobile camera","Urban",30,"July",7
+"ACT","26-39",86,"Police issued","Urban",30,"July",7
+"ACT","40-64",1682,"Fixed camera systems","Urban",30,"July",7
+"ACT","40-64",770,"Mobile camera","Urban",30,"July",7
+"ACT","40-64",64,"Police issued","Urban",30,"July",7
+"ACT","65 and over",444,"Fixed camera systems","Urban",30,"July",7
+"ACT","65 and over",205,"Mobile camera","Urban",30,"July",7
+"ACT","65 and over",6,"Police issued","Urban",30,"July",7
+"ACT","Unknown",69,"Fixed camera systems","Urban",30,"July",7
+"ACT","Unknown",31,"Mobile camera","Urban",30,"July",7
+"ACT","0-16",2,"Fixed camera systems","Urban",30,"August",8
+"ACT","0-16",1,"Mobile camera","Urban",30,"August",8
+"ACT","0-16",4,"Police issued","Urban",30,"August",8
+"ACT","17-25",473,"Fixed camera systems","Urban",30,"August",8
+"ACT","17-25",194,"Mobile camera","Urban",30,"August",8
+"ACT","17-25",61,"Police issued","Urban",30,"August",8
+"ACT","26-39",893,"Fixed camera systems","Urban",30,"August",8
+"ACT","26-39",504,"Mobile camera","Urban",30,"August",8
+"ACT","26-39",63,"Police issued","Urban",30,"August",8
+"ACT","40-64",1520,"Fixed camera systems","Urban",30,"August",8
+"ACT","40-64",631,"Mobile camera","Urban",30,"August",8
+"ACT","40-64",40,"Police issued","Urban",30,"August",8
+"ACT","65 and over",431,"Fixed camera systems","Urban",30,"August",8
+"ACT","65 and over",237,"Mobile camera","Urban",30,"August",8
+"ACT","65 and over",7,"Police issued","Urban",30,"August",8
+"ACT","Unknown",66,"Fixed camera systems","Urban",30,"August",8
+"ACT","Unknown",24,"Mobile camera","Urban",30,"August",8
+"ACT","0-16",2,"Fixed camera systems","Urban",29,"September",9
+"ACT","0-16",1,"Mobile camera","Urban",29,"September",9
+"ACT","0-16",3,"Police issued","Urban",29,"September",9
+"ACT","17-25",462,"Fixed camera systems","Urban",29,"September",9
+"ACT","17-25",207,"Mobile camera","Urban",29,"September",9
+"ACT","17-25",70,"Police issued","Urban",29,"September",9
+"ACT","26-39",1090,"Fixed camera systems","Urban",29,"September",9
+"ACT","26-39",426,"Mobile camera","Urban",29,"September",9
+"ACT","26-39",75,"Police issued","Urban",29,"September",9
+"ACT","40-64",1863,"Fixed camera systems","Urban",29,"September",9
+"ACT","40-64",618,"Mobile camera","Urban",29,"September",9
+"ACT","40-64",60,"Police issued","Urban",29,"September",9
+"ACT","65 and over",570,"Fixed camera systems","Urban",29,"September",9
+"ACT","65 and over",214,"Mobile camera","Urban",29,"September",9
+"ACT","65 and over",7,"Police issued","Urban",29,"September",9
+"ACT","Unknown",81,"Fixed camera systems","Urban",29,"September",9
+"ACT","Unknown",20,"Mobile camera","Urban",29,"September",9
+"ACT","0-16",1,"Fixed camera systems","Urban",30,"October",10
+"ACT","0-16",2,"Mobile camera","Urban",30,"October",10
+"ACT","0-16",1,"Police issued","Urban",30,"October",10
+"ACT","17-25",491,"Fixed camera systems","Urban",30,"October",10
+"ACT","17-25",224,"Mobile camera","Urban",30,"October",10
+"ACT","17-25",38,"Police issued","Urban",30,"October",10
+"ACT","26-39",1102,"Fixed camera systems","Urban",30,"October",10
+"ACT","26-39",507,"Mobile camera","Urban",30,"October",10
+"ACT","26-39",57,"Police issued","Urban",30,"October",10
+"ACT","40-64",1809,"Fixed camera systems","Urban",30,"October",10
+"ACT","40-64",618,"Mobile camera","Urban",30,"October",10
+"ACT","40-64",44,"Police issued","Urban",30,"October",10
+"ACT","65 and over",615,"Fixed camera systems","Urban",30,"October",10
+"ACT","65 and over",242,"Mobile camera","Urban",30,"October",10
+"ACT","65 and over",2,"Police issued","Urban",30,"October",10
+"ACT","Unknown",68,"Fixed camera systems","Urban",30,"October",10
+"ACT","Unknown",30,"Mobile camera","Urban",30,"October",10
+"ACT","0-16",4,"Police issued","Urban",29,"November",11
+"ACT","17-25",473,"Fixed camera systems","Urban",29,"November",11
+"ACT","17-25",223,"Mobile camera","Urban",29,"November",11
+"ACT","17-25",55,"Police issued","Urban",29,"November",11
+"ACT","26-39",1001,"Fixed camera systems","Urban",29,"November",11
+"ACT","26-39",515,"Mobile camera","Urban",29,"November",11
+"ACT","26-39",59,"Police issued","Urban",29,"November",11
+"ACT","40-64",1796,"Fixed camera systems","Urban",29,"November",11
+"ACT","40-64",700,"Mobile camera","Urban",29,"November",11
+"ACT","40-64",38,"Police issued","Urban",29,"November",11
+"ACT","65 and over",524,"Fixed camera systems","Urban",29,"November",11
+"ACT","65 and over",257,"Mobile camera","Urban",29,"November",11
+"ACT","65 and over",6,"Police issued","Urban",29,"November",11
+"ACT","Unknown",82,"Fixed camera systems","Urban",29,"November",11
+"ACT","Unknown",29,"Mobile camera","Urban",29,"November",11
+"ACT","0-16",2,"Fixed camera systems","Urban",30,"December",12
+"ACT","0-16",1,"Mobile camera","Urban",30,"December",12
+"ACT","0-16",4,"Police issued","Urban",30,"December",12
+"ACT","17-25",524,"Fixed camera systems","Urban",30,"December",12
+"ACT","17-25",177,"Mobile camera","Urban",30,"December",12
+"ACT","17-25",62,"Police issued","Urban",30,"December",12
+"ACT","26-39",1202,"Fixed camera systems","Urban",30,"December",12
+"ACT","26-39",480,"Mobile camera","Urban",30,"December",12
+"ACT","26-39",59,"Police issued","Urban",30,"December",12
+"ACT","40-64",2074,"Fixed camera systems","Urban",30,"December",12
+"ACT","40-64",608,"Mobile camera","Urban",30,"December",12
+"ACT","40-64",40,"Police issued","Urban",30,"December",12
+"ACT","65 and over",590,"Fixed camera systems","Urban",30,"December",12
+"ACT","65 and over",195,"Mobile camera","Urban",30,"December",12
+"ACT","65 and over",2,"Police issued","Urban",30,"December",12
+"ACT","Unknown",90,"Fixed camera systems","Urban",30,"December",12
+"ACT","Unknown",31,"Mobile camera","Urban",30,"December",12
+"NSW","0-16",5,"Police issued","Regional",30,"January",1
+"NSW","17-25",1508,"Police issued","Regional",30,"January",1
+"NSW","26-39",2428,"Police issued","Regional",30,"January",1
+"NSW","40-64",2435,"Police issued","Regional",30,"January",1
+"NSW","65 and over",485,"Police issued","Regional",30,"January",1
+"NSW","0-16",4,"Police issued","Urban",30,"January",1
+"NSW","17-25",1655,"Police issued","Urban",30,"January",1
+"NSW","26-39",1989,"Police issued","Urban",30,"January",1
+"NSW","40-64",1746,"Police issued","Urban",30,"January",1
+"NSW","65 and over",252,"Police issued","Urban",30,"January",1
+"NSW","0-16",1,"Police issued","Regional",30,"January",1
+"NSW","17-25",394,"Police issued","Regional",30,"January",1
+"NSW","26-39",711,"Police issued","Regional",30,"January",1
+"NSW","40-64",794,"Police issued","Regional",30,"January",1
+"NSW","65 and over",221,"Police issued","Regional",30,"January",1
+"NSW","17-25",27,"Police issued","Remote",30,"January",1
+"NSW","26-39",61,"Police issued","Remote",30,"January",1
+"NSW","40-64",70,"Police issued","Remote",30,"January",1
+"NSW","65 and over",21,"Police issued","Remote",30,"January",1
+"NSW","17-25",2,"Police issued","Unknown",30,"January",1
+"NSW","26-39",1,"Police issued","Unknown",30,"January",1
+"NSW","40-64",2,"Police issued","Unknown",30,"January",1
+"NSW","65 and over",1,"Police issued","Unknown",30,"January",1
+"NSW","Unknown",27788,"Fixed camera systems","Unknown",30,"January",1
+"NSW","Unknown",1413,"Mobile camera","Unknown",30,"January",1
+"NSW","Unknown",18873,"Fixed camera systems","Unknown",30,"January",1
+"NSW","17-25",2,"Police issued","Remote",30,"January",1
+"NSW","26-39",10,"Police issued","Remote",30,"January",1
+"NSW","40-64",5,"Police issued","Remote",30,"January",1
+"NSW","65 and over",1,"Police issued","Remote",30,"January",1
+"NSW","0-16",2,"Police issued","Regional",27,"February",2
+"NSW","17-25",1213,"Police issued","Regional",27,"February",2
+"NSW","26-39",1894,"Police issued","Regional",27,"February",2
+"NSW","40-64",2047,"Police issued","Regional",27,"February",2
+"NSW","65 and over",522,"Police issued","Regional",27,"February",2
+"NSW","0-16",3,"Police issued","Urban",27,"February",2
+"NSW","17-25",1387,"Police issued","Urban",27,"February",2
+"NSW","26-39",1694,"Police issued","Urban",27,"February",2
+"NSW","40-64",1503,"Police issued","Urban",27,"February",2
+"NSW","65 and over",202,"Police issued","Urban",27,"February",2
+"NSW","0-16",0,"Police issued","Regional",27,"February",2
+"NSW","17-25",297,"Police issued","Regional",27,"February",2
+"NSW","26-39",553,"Police issued","Regional",27,"February",2
+"NSW","40-64",675,"Police issued","Regional",27,"February",2
+"NSW","65 and over",146,"Police issued","Regional",27,"February",2
+"NSW","17-25",12,"Police issued","Remote",27,"February",2
+"NSW","26-39",29,"Police issued","Remote",27,"February",2
+"NSW","40-64",29,"Police issued","Remote",27,"February",2
+"NSW","65 and over",6,"Police issued","Remote",27,"February",2
+"NSW","17-25",13,"Police issued","Unknown",27,"February",2
+"NSW","26-39",6,"Police issued","Unknown",27,"February",2
+"NSW","40-64",6,"Police issued","Unknown",27,"February",2
+"NSW","Unknown",32476,"Fixed camera systems","Unknown",27,"February",2
+"NSW","Unknown",2069,"Mobile camera","Unknown",27,"February",2
+"NSW","Unknown",18135,"Fixed camera systems","Unknown",27,"February",2
+"NSW","17-25",1,"Police issued","Remote",27,"February",2
+"NSW","40-64",3,"Police issued","Remote",27,"February",2
+"NSW","65 and over",1,"Police issued","Remote",27,"February",2
+"NSW","0-16",4,"Police issued","Regional",30,"March",3
+"NSW","17-25",1341,"Police issued","Regional",30,"March",3
+"NSW","26-39",2088,"Police issued","Regional",30,"March",3
+"NSW","40-64",2203,"Police issued","Regional",30,"March",3
+"NSW","65 and over",557,"Police issued","Regional",30,"March",3
+"NSW","0-16",2,"Police issued","Urban",30,"March",3
+"NSW","17-25",1624,"Police issued","Urban",30,"March",3
+"NSW","26-39",1835,"Police issued","Urban",30,"March",3
+"NSW","40-64",1646,"Police issued","Urban",30,"March",3
+"NSW","65 and over",207,"Police issued","Urban",30,"March",3
+"NSW","0-16",2,"Police issued","Regional",30,"March",3
+"NSW","17-25",306,"Police issued","Regional",30,"March",3
+"NSW","26-39",575,"Police issued","Regional",30,"March",3
+"NSW","40-64",712,"Police issued","Regional",30,"March",3
+"NSW","65 and over",201,"Police issued","Regional",30,"March",3
+"NSW","17-25",27,"Police issued","Remote",30,"March",3
+"NSW","26-39",38,"Police issued","Remote",30,"March",3
+"NSW","40-64",74,"Police issued","Remote",30,"March",3
+"NSW","65 and over",15,"Police issued","Remote",30,"March",3
+"NSW","17-25",3,"Police issued","Unknown",30,"March",3
+"NSW","26-39",6,"Police issued","Unknown",30,"March",3
+"NSW","40-64",3,"Police issued","Unknown",30,"March",3
+"NSW","65 and over",1,"Police issued","Unknown",30,"March",3
+"NSW","Unknown",43006,"Fixed camera systems","Unknown",30,"March",3
+"NSW","Unknown",2996,"Mobile camera","Unknown",30,"March",3
+"NSW","Unknown",21667,"Fixed camera systems","Unknown",30,"March",3
+"NSW","17-25",6,"Police issued","Remote",30,"March",3
+"NSW","26-39",9,"Police issued","Remote",30,"March",3
+"NSW","40-64",6,"Police issued","Remote",30,"March",3
+"NSW","65 and over",3,"Police issued","Remote",30,"March",3
+"NSW","0-16",13,"Police issued","Regional",29,"April",4
+"NSW","17-25",1505,"Police issued","Regional",29,"April",4
+"NSW","26-39",2329,"Police issued","Regional",29,"April",4
+"NSW","40-64",2330,"Police issued","Regional",29,"April",4
+"NSW","65 and over",498,"Police issued","Regional",29,"April",4
+"NSW","0-16",5,"Police issued","Urban",29,"April",4
+"NSW","17-25",1858,"Police issued","Urban",29,"April",4
+"NSW","26-39",2231,"Police issued","Urban",29,"April",4
+"NSW","40-64",1845,"Police issued","Urban",29,"April",4
+"NSW","65 and over",229,"Police issued","Urban",29,"April",4
+"NSW","0-16",3,"Police issued","Regional",29,"April",4
+"NSW","17-25",462,"Police issued","Regional",29,"April",4
+"NSW","26-39",710,"Police issued","Regional",29,"April",4
+"NSW","40-64",863,"Police issued","Regional",29,"April",4
+"NSW","65 and over",209,"Police issued","Regional",29,"April",4
+"NSW","17-25",48,"Police issued","Remote",29,"April",4
+"NSW","26-39",93,"Police issued","Remote",29,"April",4
+"NSW","40-64",124,"Police issued","Remote",29,"April",4
+"NSW","65 and over",38,"Police issued","Remote",29,"April",4
+"NSW","17-25",7,"Police issued","Unknown",29,"April",4
+"NSW","26-39",2,"Police issued","Unknown",29,"April",4
+"NSW","40-64",12,"Police issued","Unknown",29,"April",4
+"NSW","65 and over",2,"Police issued","Unknown",29,"April",4
+"NSW","Unknown",28762,"Fixed camera systems","Unknown",29,"April",4
+"NSW","Unknown",3736,"Mobile camera","Unknown",29,"April",4
+"NSW","Unknown",17047,"Fixed camera systems","Unknown",29,"April",4
+"NSW","17-25",8,"Police issued","Remote",29,"April",4
+"NSW","26-39",22,"Police issued","Remote",29,"April",4
+"NSW","40-64",19,"Police issued","Remote",29,"April",4
+"NSW","65 and over",3,"Police issued","Remote",29,"April",4
+"NSW","0-16",5,"Police issued","Regional",30,"May",5
+"NSW","17-25",1242,"Police issued","Regional",30,"May",5
+"NSW","26-39",1892,"Police issued","Regional",30,"May",5
+"NSW","40-64",2093,"Police issued","Regional",30,"May",5
+"NSW","65 and over",518,"Police issued","Regional",30,"May",5
+"NSW","0-16",5,"Police issued","Urban",30,"May",5
+"NSW","17-25",1606,"Police issued","Urban",30,"May",5
+"NSW","26-39",1940,"Police issued","Urban",30,"May",5
+"NSW","40-64",1698,"Police issued","Urban",30,"May",5
+"NSW","65 and over",239,"Police issued","Urban",30,"May",5
+"NSW","0-16",2,"Police issued","Regional",30,"May",5
+"NSW","17-25",314,"Police issued","Regional",30,"May",5
+"NSW","26-39",505,"Police issued","Regional",30,"May",5
+"NSW","40-64",655,"Police issued","Regional",30,"May",5
+"NSW","65 and over",189,"Police issued","Regional",30,"May",5
+"NSW","17-25",13,"Police issued","Remote",30,"May",5
+"NSW","26-39",24,"Police issued","Remote",30,"May",5
+"NSW","40-64",38,"Police issued","Remote",30,"May",5
+"NSW","65 and over",15,"Police issued","Remote",30,"May",5
+"NSW","17-25",7,"Police issued","Unknown",30,"May",5
+"NSW","26-39",6,"Police issued","Unknown",30,"May",5
+"NSW","40-64",4,"Police issued","Unknown",30,"May",5
+"NSW","Unknown",37527,"Fixed camera systems","Unknown",30,"May",5
+"NSW","Unknown",3680,"Mobile camera","Unknown",30,"May",5
+"NSW","Unknown",19530,"Fixed camera systems","Unknown",30,"May",5
+"NSW","17-25",1,"Police issued","Remote",30,"May",5
+"NSW","26-39",4,"Police issued","Remote",30,"May",5
+"NSW","40-64",1,"Police issued","Remote",30,"May",5
+"NSW","65 and over",2,"Police issued","Remote",30,"May",5
+"NSW","0-16",2,"Police issued","Regional",29,"June",6
+"NSW","17-25",1586,"Police issued","Regional",29,"June",6
+"NSW","26-39",2494,"Police issued","Regional",29,"June",6
+"NSW","40-64",2557,"Police issued","Regional",29,"June",6
+"NSW","65 and over",577,"Police issued","Regional",29,"June",6
+"NSW","0-16",4,"Police issued","Urban",29,"June",6
+"NSW","17-25",2304,"Police issued","Urban",29,"June",6
+"NSW","26-39",2791,"Police issued","Urban",29,"June",6
+"NSW","40-64",2416,"Police issued","Urban",29,"June",6
+"NSW","65 and over",390,"Police issued","Urban",29,"June",6
+"NSW","0-16",1,"Police issued","Regional",29,"June",6
+"NSW","17-25",480,"Police issued","Regional",29,"June",6
+"NSW","26-39",763,"Police issued","Regional",29,"June",6
+"NSW","40-64",821,"Police issued","Regional",29,"June",6
+"NSW","65 and over",198,"Police issued","Regional",29,"June",6
+"NSW","17-25",17,"Police issued","Remote",29,"June",6
+"NSW","26-39",45,"Police issued","Remote",29,"June",6
+"NSW","40-64",34,"Police issued","Remote",29,"June",6
+"NSW","65 and over",12,"Police issued","Remote",29,"June",6
+"NSW","17-25",10,"Police issued","Unknown",29,"June",6
+"NSW","26-39",10,"Police issued","Unknown",29,"June",6
+"NSW","40-64",10,"Police issued","Unknown",29,"June",6
+"NSW","65 and over",2,"Police issued","Unknown",29,"June",6
+"NSW","Unknown",32191,"Fixed camera systems","Unknown",29,"June",6
+"NSW","Unknown",3212,"Mobile camera","Unknown",29,"June",6
+"NSW","Unknown",19142,"Fixed camera systems","Unknown",29,"June",6
+"NSW","17-25",2,"Police issued","Remote",29,"June",6
+"NSW","26-39",5,"Police issued","Remote",29,"June",6
+"NSW","40-64",3,"Police issued","Remote",29,"June",6
+"NSW","0-16",4,"Police issued","Regional",30,"July",7
+"NSW","17-25",1369,"Police issued","Regional",30,"July",7
+"NSW","26-39",2112,"Police issued","Regional",30,"July",7
+"NSW","40-64",2099,"Police issued","Regional",30,"July",7
+"NSW","65 and over",415,"Police issued","Regional",30,"July",7
+"NSW","0-16",5,"Police issued","Urban",30,"July",7
+"NSW","17-25",1569,"Police issued","Urban",30,"July",7
+"NSW","26-39",1819,"Police issued","Urban",30,"July",7
+"NSW","40-64",1584,"Police issued","Urban",30,"July",7
+"NSW","65 and over",226,"Police issued","Urban",30,"July",7
+"NSW","0-16",1,"Police issued","Regional",30,"July",7
+"NSW","17-25",335,"Police issued","Regional",30,"July",7
+"NSW","26-39",540,"Police issued","Regional",30,"July",7
+"NSW","40-64",624,"Police issued","Regional",30,"July",7
+"NSW","65 and over",144,"Police issued","Regional",30,"July",7
+"NSW","17-25",26,"Police issued","Remote",30,"July",7
+"NSW","26-39",36,"Police issued","Remote",30,"July",7
+"NSW","40-64",26,"Police issued","Remote",30,"July",7
+"NSW","65 and over",3,"Police issued","Remote",30,"July",7
+"NSW","17-25",1,"Police issued","Unknown",30,"July",7
+"NSW","26-39",2,"Police issued","Unknown",30,"July",7
+"NSW","40-64",4,"Police issued","Unknown",30,"July",7
+"NSW","Unknown",30257,"Fixed camera systems","Unknown",30,"July",7
+"NSW","Unknown",3349,"Mobile camera","Unknown",30,"July",7
+"NSW","Unknown",20950,"Fixed camera systems","Unknown",30,"July",7
+"NSW","17-25",2,"Police issued","Remote",30,"July",7
+"NSW","26-39",3,"Police issued","Remote",30,"July",7
+"NSW","40-64",2,"Police issued","Remote",30,"July",7
+"NSW","0-16",7,"Police issued","Regional",30,"August",8
+"NSW","17-25",1529,"Police issued","Regional",30,"August",8
+"NSW","26-39",2345,"Police issued","Regional",30,"August",8
+"NSW","40-64",2341,"Police issued","Regional",30,"August",8
+"NSW","65 and over",569,"Police issued","Regional",30,"August",8
+"NSW","0-16",3,"Police issued","Urban",30,"August",8
+"NSW","17-25",1749,"Police issued","Urban",30,"August",8
+"NSW","26-39",1974,"Police issued","Urban",30,"August",8
+"NSW","40-64",1730,"Police issued","Urban",30,"August",8
+"NSW","65 and over",252,"Police issued","Urban",30,"August",8
+"NSW","0-16",1,"Police issued","Regional",30,"August",8
+"NSW","17-25",312,"Police issued","Regional",30,"August",8
+"NSW","26-39",576,"Police issued","Regional",30,"August",8
+"NSW","40-64",759,"Police issued","Regional",30,"August",8
+"NSW","65 and over",197,"Police issued","Regional",30,"August",8
+"NSW","17-25",21,"Police issued","Remote",30,"August",8
+"NSW","26-39",45,"Police issued","Remote",30,"August",8
+"NSW","40-64",55,"Police issued","Remote",30,"August",8
+"NSW","65 and over",10,"Police issued","Remote",30,"August",8
+"NSW","17-25",6,"Police issued","Unknown",30,"August",8
+"NSW","26-39",9,"Police issued","Unknown",30,"August",8
+"NSW","40-64",8,"Police issued","Unknown",30,"August",8
+"NSW","65 and over",2,"Police issued","Unknown",30,"August",8
+"NSW","Unknown",36480,"Fixed camera systems","Unknown",30,"August",8
+"NSW","Unknown",3397,"Mobile camera","Unknown",30,"August",8
+"NSW","Unknown",22829,"Fixed camera systems","Unknown",30,"August",8
+"NSW","17-25",10,"Police issued","Remote",30,"August",8
+"NSW","26-39",9,"Police issued","Remote",30,"August",8
+"NSW","40-64",15,"Police issued","Remote",30,"August",8
+"NSW","65 and over",4,"Police issued","Remote",30,"August",8
+"NSW","0-16",2,"Police issued","Regional",29,"September",9
+"NSW","17-25",1556,"Police issued","Regional",29,"September",9
+"NSW","26-39",2448,"Police issued","Regional",29,"September",9
+"NSW","40-64",2485,"Police issued","Regional",29,"September",9
+"NSW","65 and over",544,"Police issued","Regional",29,"September",9
+"NSW","0-16",3,"Police issued","Urban",29,"September",9
+"NSW","17-25",1979,"Police issued","Urban",29,"September",9
+"NSW","26-39",2153,"Police issued","Urban",29,"September",9
+"NSW","40-64",1812,"Police issued","Urban",29,"September",9
+"NSW","65 and over",249,"Police issued","Urban",29,"September",9
+"NSW","17-25",381,"Police issued","Regional",29,"September",9
+"NSW","26-39",692,"Police issued","Regional",29,"September",9
+"NSW","40-64",812,"Police issued","Regional",29,"September",9
+"NSW","65 and over",229,"Police issued","Regional",29,"September",9
+"NSW","17-25",24,"Police issued","Remote",29,"September",9
+"NSW","26-39",69,"Police issued","Remote",29,"September",9
+"NSW","40-64",73,"Police issued","Remote",29,"September",9
+"NSW","65 and over",18,"Police issued","Remote",29,"September",9
+"NSW","17-25",11,"Police issued","Unknown",29,"September",9
+"NSW","26-39",5,"Police issued","Unknown",29,"September",9
+"NSW","40-64",7,"Police issued","Unknown",29,"September",9
+"NSW","Unknown",35372,"Fixed camera systems","Unknown",29,"September",9
+"NSW","Unknown",3518,"Mobile camera","Unknown",29,"September",9
+"NSW","Unknown",21650,"Fixed camera systems","Unknown",29,"September",9
+"NSW","0-16",1,"Police issued","Remote",29,"September",9
+"NSW","17-25",6,"Police issued","Remote",29,"September",9
+"NSW","26-39",12,"Police issued","Remote",29,"September",9
+"NSW","40-64",12,"Police issued","Remote",29,"September",9
+"NSW","65 and over",3,"Police issued","Remote",29,"September",9
+"NSW","0-16",7,"Police issued","Regional",30,"October",10
+"NSW","17-25",1468,"Police issued","Regional",30,"October",10
+"NSW","26-39",2247,"Police issued","Regional",30,"October",10
+"NSW","40-64",2433,"Police issued","Regional",30,"October",10
+"NSW","65 and over",572,"Police issued","Regional",30,"October",10
+"NSW","0-16",5,"Police issued","Urban",30,"October",10
+"NSW","17-25",1776,"Police issued","Urban",30,"October",10
+"NSW","26-39",1994,"Police issued","Urban",30,"October",10
+"NSW","40-64",1752,"Police issued","Urban",30,"October",10
+"NSW","65 and over",231,"Police issued","Urban",30,"October",10
+"NSW","0-16",1,"Police issued","Regional",30,"October",10
+"NSW","17-25",381,"Police issued","Regional",30,"October",10
+"NSW","26-39",657,"Police issued","Regional",30,"October",10
+"NSW","40-64",779,"Police issued","Regional",30,"October",10
+"NSW","65 and over",227,"Police issued","Regional",30,"October",10
+"NSW","17-25",14,"Police issued","Remote",30,"October",10
+"NSW","26-39",26,"Police issued","Remote",30,"October",10
+"NSW","40-64",36,"Police issued","Remote",30,"October",10
+"NSW","65 and over",11,"Police issued","Remote",30,"October",10
+"NSW","0-16",1,"Police issued","Unknown",30,"October",10
+"NSW","17-25",21,"Police issued","Unknown",30,"October",10
+"NSW","26-39",41,"Police issued","Unknown",30,"October",10
+"NSW","40-64",30,"Police issued","Unknown",30,"October",10
+"NSW","65 and over",6,"Police issued","Unknown",30,"October",10
+"NSW","Unknown",36067,"Fixed camera systems","Unknown",30,"October",10
+"NSW","Unknown",3340,"Mobile camera","Unknown",30,"October",10
+"NSW","Unknown",21624,"Fixed camera systems","Unknown",30,"October",10
+"NSW","26-39",4,"Police issued","Remote",30,"October",10
+"NSW","40-64",2,"Police issued","Remote",30,"October",10
+"NSW","65 and over",1,"Police issued","Remote",30,"October",10
+"NSW","0-16",5,"Police issued","Regional",29,"November",11
+"NSW","17-25",1363,"Police issued","Regional",29,"November",11
+"NSW","26-39",2051,"Police issued","Regional",29,"November",11
+"NSW","40-64",2129,"Police issued","Regional",29,"November",11
+"NSW","65 and over",477,"Police issued","Regional",29,"November",11
+"NSW","0-16",2,"Police issued","Urban",29,"November",11
+"NSW","17-25",1688,"Police issued","Urban",29,"November",11
+"NSW","26-39",1769,"Police issued","Urban",29,"November",11
+"NSW","40-64",1589,"Police issued","Urban",29,"November",11
+"NSW","65 and over",243,"Police issued","Urban",29,"November",11
+"NSW","0-16",1,"Police issued","Regional",29,"November",11
+"NSW","17-25",313,"Police issued","Regional",29,"November",11
+"NSW","26-39",562,"Police issued","Regional",29,"November",11
+"NSW","40-64",662,"Police issued","Regional",29,"November",11
+"NSW","65 and over",187,"Police issued","Regional",29,"November",11
+"NSW","17-25",31,"Police issued","Remote",29,"November",11
+"NSW","26-39",41,"Police issued","Remote",29,"November",11
+"NSW","40-64",51,"Police issued","Remote",29,"November",11
+"NSW","65 and over",14,"Police issued","Remote",29,"November",11
+"NSW","0-16",1,"Police issued","Unknown",29,"November",11
+"NSW","17-25",7,"Police issued","Unknown",29,"November",11
+"NSW","26-39",6,"Police issued","Unknown",29,"November",11
+"NSW","40-64",5,"Police issued","Unknown",29,"November",11
+"NSW","65 and over",1,"Police issued","Unknown",29,"November",11
+"NSW","Unknown",41595,"Fixed camera systems","Unknown",29,"November",11
+"NSW","Unknown",2757,"Mobile camera","Unknown",29,"November",11
+"NSW","Unknown",23219,"Fixed camera systems","Unknown",29,"November",11
+"NSW","17-25",4,"Police issued","Remote",29,"November",11
+"NSW","26-39",6,"Police issued","Remote",29,"November",11
+"NSW","40-64",8,"Police issued","Remote",29,"November",11
+"NSW","65 and over",2,"Police issued","Remote",29,"November",11
+"NSW","0-16",5,"Police issued","Regional",30,"December",12
+"NSW","17-25",1535,"Police issued","Regional",30,"December",12
+"NSW","26-39",2386,"Police issued","Regional",30,"December",12
+"NSW","40-64",2376,"Police issued","Regional",30,"December",12
+"NSW","65 and over",560,"Police issued","Regional",30,"December",12
+"NSW","0-16",8,"Police issued","Urban",30,"December",12
+"NSW","17-25",2158,"Police issued","Urban",30,"December",12
+"NSW","26-39",2618,"Police issued","Urban",30,"December",12
+"NSW","40-64",2315,"Police issued","Urban",30,"December",12
+"NSW","65 and over",350,"Police issued","Urban",30,"December",12
+"NSW","0-16",1,"Police issued","Regional",30,"December",12
+"NSW","17-25",399,"Police issued","Regional",30,"December",12
+"NSW","26-39",605,"Police issued","Regional",30,"December",12
+"NSW","40-64",715,"Police issued","Regional",30,"December",12
+"NSW","65 and over",198,"Police issued","Regional",30,"December",12
+"NSW","17-25",22,"Police issued","Remote",30,"December",12
+"NSW","26-39",48,"Police issued","Remote",30,"December",12
+"NSW","40-64",54,"Police issued","Remote",30,"December",12
+"NSW","65 and over",12,"Police issued","Remote",30,"December",12
+"NSW","17-25",422,"Police issued","Unknown",30,"December",12
+"NSW","26-39",570,"Police issued","Unknown",30,"December",12
+"NSW","40-64",553,"Police issued","Unknown",30,"December",12
+"NSW","65 and over",115,"Police issued","Unknown",30,"December",12
+"NSW","Unknown",39578,"Fixed camera systems","Unknown",30,"December",12
+"NSW","Unknown",3039,"Mobile camera","Unknown",30,"December",12
+"NSW","Unknown",23563,"Fixed camera systems","Unknown",30,"December",12
+"NSW","17-25",4,"Police issued","Remote",30,"December",12
+"NSW","26-39",7,"Police issued","Remote",30,"December",12
+"NSW","40-64",7,"Police issued","Remote",30,"December",12
+"NSW","65 and over",1,"Police issued","Remote",30,"December",12
+"NT","0-16",4,"Mobile camera","Unknown",30,"January",1
+"NT","0-16",2,"Police issued","Unknown",30,"January",1
+"NT","17-25",307,"Mobile camera","Unknown",30,"January",1
+"NT","17-25",98,"Police issued","Unknown",30,"January",1
+"NT","17-25",55,"Fixed camera systems","Unknown",30,"January",1
+"NT","26-39",649,"Mobile camera","Unknown",30,"January",1
+"NT","26-39",141,"Police issued","Unknown",30,"January",1
+"NT","26-39",207,"Fixed camera systems","Unknown",30,"January",1
+"NT","40-64",710,"Mobile camera","Unknown",30,"January",1
+"NT","40-64",126,"Police issued","Unknown",30,"January",1
+"NT","40-64",301,"Fixed camera systems","Unknown",30,"January",1
+"NT","65 and over",159,"Mobile camera","Unknown",30,"January",1
+"NT","65 and over",20,"Police issued","Unknown",30,"January",1
+"NT","65 and over",70,"Fixed camera systems","Unknown",30,"January",1
+"NT","Unknown",56,"Mobile camera","Unknown",30,"January",1
+"NT","Unknown",20,"Fixed camera systems","Unknown",30,"January",1
+"NT","0-16",3,"Mobile camera","Unknown",27,"February",2
+"NT","0-16",1,"Police issued","Unknown",27,"February",2
+"NT","17-25",251,"Mobile camera","Unknown",27,"February",2
+"NT","17-25",40,"Police issued","Unknown",27,"February",2
+"NT","17-25",85,"Fixed camera systems","Unknown",27,"February",2
+"NT","26-39",639,"Mobile camera","Unknown",27,"February",2
+"NT","26-39",121,"Police issued","Unknown",27,"February",2
+"NT","26-39",228,"Fixed camera systems","Unknown",27,"February",2
+"NT","40-64",702,"Mobile camera","Unknown",27,"February",2
+"NT","40-64",100,"Police issued","Unknown",27,"February",2
+"NT","40-64",381,"Fixed camera systems","Unknown",27,"February",2
+"NT","65 and over",154,"Mobile camera","Unknown",27,"February",2
+"NT","65 and over",19,"Police issued","Unknown",27,"February",2
+"NT","65 and over",74,"Fixed camera systems","Unknown",27,"February",2
+"NT","Unknown",61,"Mobile camera","Unknown",27,"February",2
+"NT","Unknown",25,"Fixed camera systems","Unknown",27,"February",2
+"NT","0-16",2,"Mobile camera","Unknown",30,"March",3
+"NT","0-16",2,"Fixed camera systems","Unknown",30,"March",3
+"NT","17-25",294,"Mobile camera","Unknown",30,"March",3
+"NT","17-25",51,"Police issued","Unknown",30,"March",3
+"NT","17-25",61,"Fixed camera systems","Unknown",30,"March",3
+"NT","26-39",665,"Mobile camera","Unknown",30,"March",3
+"NT","26-39",73,"Police issued","Unknown",30,"March",3
+"NT","26-39",241,"Fixed camera systems","Unknown",30,"March",3
+"NT","40-64",794,"Mobile camera","Unknown",30,"March",3
+"NT","40-64",72,"Police issued","Unknown",30,"March",3
+"NT","40-64",382,"Fixed camera systems","Unknown",30,"March",3
+"NT","65 and over",199,"Mobile camera","Unknown",30,"March",3
+"NT","65 and over",14,"Police issued","Unknown",30,"March",3
+"NT","65 and over",70,"Fixed camera systems","Unknown",30,"March",3
+"NT","Unknown",63,"Mobile camera","Unknown",30,"March",3
+"NT","Unknown",25,"Fixed camera systems","Unknown",30,"March",3
+"NT","0-16",3,"Police issued","Unknown",29,"April",4
+"NT","0-16",2,"Fixed camera systems","Unknown",29,"April",4
+"NT","17-25",260,"Mobile camera","Unknown",29,"April",4
+"NT","17-25",85,"Police issued","Unknown",29,"April",4
+"NT","17-25",81,"Fixed camera systems","Unknown",29,"April",4
+"NT","26-39",592,"Mobile camera","Unknown",29,"April",4
+"NT","26-39",156,"Police issued","Unknown",29,"April",4
+"NT","26-39",231,"Fixed camera systems","Unknown",29,"April",4
+"NT","40-64",746,"Mobile camera","Unknown",29,"April",4
+"NT","40-64",179,"Police issued","Unknown",29,"April",4
+"NT","40-64",342,"Fixed camera systems","Unknown",29,"April",4
+"NT","65 and over",196,"Mobile camera","Unknown",29,"April",4
+"NT","65 and over",23,"Police issued","Unknown",29,"April",4
+"NT","65 and over",68,"Fixed camera systems","Unknown",29,"April",4
+"NT","Unknown",58,"Mobile camera","Unknown",29,"April",4
+"NT","Unknown",30,"Fixed camera systems","Unknown",29,"April",4
+"NT","0-16",1,"Mobile camera","Unknown",30,"May",5
+"NT","0-16",2,"Police issued","Unknown",30,"May",5
+"NT","0-16",1,"Fixed camera systems","Unknown",30,"May",5
+"NT","17-25",311,"Mobile camera","Unknown",30,"May",5
+"NT","17-25",42,"Police issued","Unknown",30,"May",5
+"NT","17-25",104,"Fixed camera systems","Unknown",30,"May",5
+"NT","26-39",830,"Mobile camera","Unknown",30,"May",5
+"NT","26-39",103,"Police issued","Unknown",30,"May",5
+"NT","26-39",419,"Fixed camera systems","Unknown",30,"May",5
+"NT","40-64",1067,"Mobile camera","Unknown",30,"May",5
+"NT","40-64",82,"Police issued","Unknown",30,"May",5
+"NT","40-64",532,"Fixed camera systems","Unknown",30,"May",5
+"NT","65 and over",297,"Mobile camera","Unknown",30,"May",5
+"NT","65 and over",10,"Police issued","Unknown",30,"May",5
+"NT","65 and over",120,"Fixed camera systems","Unknown",30,"May",5
+"NT","Unknown",100,"Mobile camera","Unknown",30,"May",5
+"NT","Unknown",35,"Fixed camera systems","Unknown",30,"May",5
+"NT","0-16",2,"Mobile camera","Unknown",29,"June",6
+"NT","0-16",3,"Fixed camera systems","Unknown",29,"June",6
+"NT","17-25",327,"Mobile camera","Unknown",29,"June",6
+"NT","17-25",56,"Police issued","Unknown",29,"June",6
+"NT","17-25",90,"Fixed camera systems","Unknown",29,"June",6
+"NT","26-39",818,"Mobile camera","Unknown",29,"June",6
+"NT","26-39",114,"Police issued","Unknown",29,"June",6
+"NT","26-39",346,"Fixed camera systems","Unknown",29,"June",6
+"NT","40-64",981,"Mobile camera","Unknown",29,"June",6
+"NT","40-64",100,"Police issued","Unknown",29,"June",6
+"NT","40-64",468,"Fixed camera systems","Unknown",29,"June",6
+"NT","65 and over",303,"Mobile camera","Unknown",29,"June",6
+"NT","65 and over",26,"Police issued","Unknown",29,"June",6
+"NT","65 and over",105,"Fixed camera systems","Unknown",29,"June",6
+"NT","Unknown",84,"Mobile camera","Unknown",29,"June",6
+"NT","Unknown",38,"Fixed camera systems","Unknown",29,"June",6
+"NT","0-16",5,"Mobile camera","Unknown",30,"July",7
+"NT","0-16",1,"Police issued","Unknown",30,"July",7
+"NT","17-25",394,"Mobile camera","Unknown",30,"July",7
+"NT","17-25",57,"Police issued","Unknown",30,"July",7
+"NT","17-25",81,"Fixed camera systems","Unknown",30,"July",7
+"NT","26-39",982,"Mobile camera","Unknown",30,"July",7
+"NT","26-39",115,"Police issued","Unknown",30,"July",7
+"NT","26-39",260,"Fixed camera systems","Unknown",30,"July",7
+"NT","40-64",1222,"Mobile camera","Unknown",30,"July",7
+"NT","40-64",132,"Police issued","Unknown",30,"July",7
+"NT","40-64",397,"Fixed camera systems","Unknown",30,"July",7
+"NT","65 and over",316,"Mobile camera","Unknown",30,"July",7
+"NT","65 and over",17,"Police issued","Unknown",30,"July",7
+"NT","65 and over",76,"Fixed camera systems","Unknown",30,"July",7
+"NT","Unknown",109,"Mobile camera","Unknown",30,"July",7
+"NT","Unknown",31,"Fixed camera systems","Unknown",30,"July",7
+"NT","0-16",4,"Mobile camera","Unknown",30,"August",8
+"NT","0-16",1,"Police issued","Unknown",30,"August",8
+"NT","0-16",1,"Fixed camera systems","Unknown",30,"August",8
+"NT","17-25",425,"Mobile camera","Unknown",30,"August",8
+"NT","17-25",45,"Police issued","Unknown",30,"August",8
+"NT","17-25",49,"Fixed camera systems","Unknown",30,"August",8
+"NT","26-39",972,"Mobile camera","Unknown",30,"August",8
+"NT","26-39",100,"Police issued","Unknown",30,"August",8
+"NT","26-39",148,"Fixed camera systems","Unknown",30,"August",8
+"NT","40-64",1175,"Mobile camera","Unknown",30,"August",8
+"NT","40-64",103,"Police issued","Unknown",30,"August",8
+"NT","40-64",245,"Fixed camera systems","Unknown",30,"August",8
+"NT","65 and over",327,"Mobile camera","Unknown",30,"August",8
+"NT","65 and over",12,"Police issued","Unknown",30,"August",8
+"NT","65 and over",40,"Fixed camera systems","Unknown",30,"August",8
+"NT","Unknown",94,"Mobile camera","Unknown",30,"August",8
+"NT","Unknown",13,"Fixed camera systems","Unknown",30,"August",8
+"NT","0-16",3,"Mobile camera","Unknown",29,"September",9
+"NT","0-16",1,"Police issued","Unknown",29,"September",9
+"NT","17-25",411,"Mobile camera","Unknown",29,"September",9
+"NT","17-25",73,"Police issued","Unknown",29,"September",9
+"NT","17-25",28,"Fixed camera systems","Unknown",29,"September",9
+"NT","26-39",1077,"Mobile camera","Unknown",29,"September",9
+"NT","26-39",114,"Police issued","Unknown",29,"September",9
+"NT","26-39",49,"Fixed camera systems","Unknown",29,"September",9
+"NT","40-64",1344,"Mobile camera","Unknown",29,"September",9
+"NT","40-64",102,"Police issued","Unknown",29,"September",9
+"NT","40-64",98,"Fixed camera systems","Unknown",29,"September",9
+"NT","65 and over",334,"Mobile camera","Unknown",29,"September",9
+"NT","65 and over",19,"Police issued","Unknown",29,"September",9
+"NT","65 and over",22,"Fixed camera systems","Unknown",29,"September",9
+"NT","Unknown",160,"Mobile camera","Unknown",29,"September",9
+"NT","Unknown",5,"Fixed camera systems","Unknown",29,"September",9
+"NT","0-16",3,"Mobile camera","Unknown",30,"October",10
+"NT","0-16",2,"Police issued","Unknown",30,"October",10
+"NT","17-25",329,"Mobile camera","Unknown",30,"October",10
+"NT","17-25",51,"Police issued","Unknown",30,"October",10
+"NT","17-25",49,"Fixed camera systems","Unknown",30,"October",10
+"NT","26-39",885,"Mobile camera","Unknown",30,"October",10
+"NT","26-39",98,"Police issued","Unknown",30,"October",10
+"NT","26-39",121,"Fixed camera systems","Unknown",30,"October",10
+"NT","40-64",1082,"Mobile camera","Unknown",30,"October",10
+"NT","40-64",106,"Police issued","Unknown",30,"October",10
+"NT","40-64",160,"Fixed camera systems","Unknown",30,"October",10
+"NT","65 and over",262,"Mobile camera","Unknown",30,"October",10
+"NT","65 and over",11,"Police issued","Unknown",30,"October",10
+"NT","65 and over",33,"Fixed camera systems","Unknown",30,"October",10
+"NT","Unknown",122,"Mobile camera","Unknown",30,"October",10
+"NT","Unknown",11,"Fixed camera systems","Unknown",30,"October",10
+"NT","0-16",2,"Police issued","Unknown",29,"November",11
+"NT","0-16",2,"Fixed camera systems","Unknown",29,"November",11
+"NT","17-25",250,"Mobile camera","Unknown",29,"November",11
+"NT","17-25",47,"Police issued","Unknown",29,"November",11
+"NT","17-25",59,"Fixed camera systems","Unknown",29,"November",11
+"NT","26-39",661,"Mobile camera","Unknown",29,"November",11
+"NT","26-39",95,"Police issued","Unknown",29,"November",11
+"NT","26-39",133,"Fixed camera systems","Unknown",29,"November",11
+"NT","40-64",809,"Mobile camera","Unknown",29,"November",11
+"NT","40-64",79,"Police issued","Unknown",29,"November",11
+"NT","40-64",206,"Fixed camera systems","Unknown",29,"November",11
+"NT","65 and over",220,"Mobile camera","Unknown",29,"November",11
+"NT","65 and over",15,"Police issued","Unknown",29,"November",11
+"NT","65 and over",37,"Fixed camera systems","Unknown",29,"November",11
+"NT","Unknown",101,"Mobile camera","Unknown",29,"November",11
+"NT","Unknown",1,"Police issued","Unknown",29,"November",11
+"NT","Unknown",18,"Fixed camera systems","Unknown",29,"November",11
+"NT","0-16",3,"Mobile camera","Unknown",30,"December",12
+"NT","0-16",0,"Police issued","Unknown",30,"December",12
+"NT","0-16",1,"Fixed camera systems","Unknown",30,"December",12
+"NT","17-25",607,"Mobile camera","Unknown",30,"December",12
+"NT","17-25",28,"Police issued","Unknown",30,"December",12
+"NT","17-25",68,"Fixed camera systems","Unknown",30,"December",12
+"NT","26-39",1598,"Mobile camera","Unknown",30,"December",12
+"NT","26-39",78,"Police issued","Unknown",30,"December",12
+"NT","26-39",224,"Fixed camera systems","Unknown",30,"December",12
+"NT","40-64",1978,"Mobile camera","Unknown",30,"December",12
+"NT","40-64",65,"Police issued","Unknown",30,"December",12
+"NT","40-64",291,"Fixed camera systems","Unknown",30,"December",12
+"NT","65 and over",456,"Mobile camera","Unknown",30,"December",12
+"NT","65 and over",14,"Police issued","Unknown",30,"December",12
+"NT","65 and over",50,"Fixed camera systems","Unknown",30,"December",12
+"NT","Unknown",180,"Mobile camera","Unknown",30,"December",12
+"NT","Unknown",0,"Police issued","Unknown",30,"December",12
+"NT","Unknown",30,"Fixed camera systems","Unknown",30,"December",12
+"QLD","Unknown",9790,"Fixed camera systems","Unknown",364,"January",1
+"QLD","Unknown",263939,"Fixed camera systems","Unknown",364,"January",1
+"QLD","Unknown",469785,"Mobile camera","Unknown",364,"January",1
+"QLD","Unknown",117112,"Police issued","Unknown",364,"January",1
+"SA","0-16",0,"Fixed camera systems","Unknown",30,"January",1
+"SA","0-16",0,"Mobile camera","Unknown",30,"January",1
+"SA","0-16",0,"Other","Unknown",30,"January",1
+"SA","0-16",0,"Police issued","Unknown",30,"January",1
+"SA","17-25",483,"Fixed camera systems","Unknown",30,"January",1
+"SA","17-25",885,"Mobile camera","Unknown",30,"January",1
+"SA","17-25",0,"Other","Unknown",30,"January",1
+"SA","17-25",710,"Police issued","Unknown",30,"January",1
+"SA","26-39",1229,"Fixed camera systems","Unknown",30,"January",1
+"SA","26-39",2462,"Mobile camera","Unknown",30,"January",1
+"SA","26-39",0,"Other","Unknown",30,"January",1
+"SA","26-39",1230,"Police issued","Unknown",30,"January",1
+"SA","40-64",2426,"Fixed camera systems","Unknown",30,"January",1
+"SA","40-64",4161,"Mobile camera","Unknown",30,"January",1
+"SA","40-64",0,"Other","Unknown",30,"January",1
+"SA","40-64",1428,"Police issued","Unknown",30,"January",1
+"SA","65 and over",996,"Fixed camera systems","Unknown",30,"January",1
+"SA","65 and over",1310,"Mobile camera","Unknown",30,"January",1
+"SA","65 and over",0,"Other","Unknown",30,"January",1
+"SA","65 and over",355,"Police issued","Unknown",30,"January",1
+"SA","Unknown",184,"Fixed camera systems","Unknown",30,"January",1
+"SA","Unknown",204,"Mobile camera","Unknown",30,"January",1
+"SA","Unknown",0,"Other","Unknown",30,"January",1
+"SA","Unknown",3,"Police issued","Unknown",30,"January",1
+"SA","0-16",0,"Fixed camera systems","Unknown",27,"February",2
+"SA","0-16",0,"Mobile camera","Unknown",27,"February",2
+"SA","0-16",0,"Other","Unknown",27,"February",2
+"SA","0-16",0,"Police issued","Unknown",27,"February",2
+"SA","17-25",482,"Fixed camera systems","Unknown",27,"February",2
+"SA","17-25",886,"Mobile camera","Unknown",27,"February",2
+"SA","17-25",0,"Other","Unknown",27,"February",2
+"SA","17-25",609,"Police issued","Unknown",27,"February",2
+"SA","26-39",1083,"Fixed camera systems","Unknown",27,"February",2
+"SA","26-39",2458,"Mobile camera","Unknown",27,"February",2
+"SA","26-39",0,"Other","Unknown",27,"February",2
+"SA","26-39",1131,"Police issued","Unknown",27,"February",2
+"SA","40-64",2287,"Fixed camera systems","Unknown",27,"February",2
+"SA","40-64",4066,"Mobile camera","Unknown",27,"February",2
+"SA","40-64",0,"Other","Unknown",27,"February",2
+"SA","40-64",1408,"Police issued","Unknown",27,"February",2
+"SA","65 and over",880,"Fixed camera systems","Unknown",27,"February",2
+"SA","65 and over",1074,"Mobile camera","Unknown",27,"February",2
+"SA","65 and over",0,"Other","Unknown",27,"February",2
+"SA","65 and over",356,"Police issued","Unknown",27,"February",2
+"SA","Unknown",195,"Fixed camera systems","Unknown",27,"February",2
+"SA","Unknown",219,"Mobile camera","Unknown",27,"February",2
+"SA","Unknown",0,"Other","Unknown",27,"February",2
+"SA","Unknown",3,"Police issued","Unknown",27,"February",2
+"SA","0-16",0,"Fixed camera systems","Unknown",30,"March",3
+"SA","0-16",0,"Mobile camera","Unknown",30,"March",3
+"SA","0-16",0,"Other","Unknown",30,"March",3
+"SA","0-16",0,"Police issued","Unknown",30,"March",3
+"SA","17-25",592,"Fixed camera systems","Unknown",30,"March",3
+"SA","17-25",882,"Mobile camera","Unknown",30,"March",3
+"SA","17-25",0,"Other","Unknown",30,"March",3
+"SA","17-25",771,"Police issued","Unknown",30,"March",3
+"SA","26-39",1585,"Fixed camera systems","Unknown",30,"March",3
+"SA","26-39",2410,"Mobile camera","Unknown",30,"March",3
+"SA","26-39",0,"Other","Unknown",30,"March",3
+"SA","26-39",1425,"Police issued","Unknown",30,"March",3
+"SA","40-64",2808,"Fixed camera systems","Unknown",30,"March",3
+"SA","40-64",4072,"Mobile camera","Unknown",30,"March",3
+"SA","40-64",1,"Other","Unknown",30,"March",3
+"SA","40-64",1725,"Police issued","Unknown",30,"March",3
+"SA","65 and over",1118,"Fixed camera systems","Unknown",30,"March",3
+"SA","65 and over",1104,"Mobile camera","Unknown",30,"March",3
+"SA","65 and over",0,"Other","Unknown",30,"March",3
+"SA","65 and over",447,"Police issued","Unknown",30,"March",3
+"SA","Unknown",266,"Fixed camera systems","Unknown",30,"March",3
+"SA","Unknown",228,"Mobile camera","Unknown",30,"March",3
+"SA","Unknown",0,"Other","Unknown",30,"March",3
+"SA","Unknown",4,"Police issued","Unknown",30,"March",3
+"SA","0-16",0,"Fixed camera systems","Unknown",29,"April",4
+"SA","0-16",0,"Mobile camera","Unknown",29,"April",4
+"SA","0-16",0,"Other","Unknown",29,"April",4
+"SA","0-16",0,"Police issued","Unknown",29,"April",4
+"SA","17-25",411,"Fixed camera systems","Unknown",29,"April",4
+"SA","17-25",694,"Mobile camera","Unknown",29,"April",4
+"SA","17-25",0,"Other","Unknown",29,"April",4
+"SA","17-25",729,"Police issued","Unknown",29,"April",4
+"SA","26-39",1059,"Fixed camera systems","Unknown",29,"April",4
+"SA","26-39",1836,"Mobile camera","Unknown",29,"April",4
+"SA","26-39",0,"Other","Unknown",29,"April",4
+"SA","26-39",1252,"Police issued","Unknown",29,"April",4
+"SA","40-64",1982,"Fixed camera systems","Unknown",29,"April",4
+"SA","40-64",3095,"Mobile camera","Unknown",29,"April",4
+"SA","40-64",0,"Other","Unknown",29,"April",4
+"SA","40-64",1709,"Police issued","Unknown",29,"April",4
+"SA","65 and over",768,"Fixed camera systems","Unknown",29,"April",4
+"SA","65 and over",1016,"Mobile camera","Unknown",29,"April",4
+"SA","65 and over",0,"Other","Unknown",29,"April",4
+"SA","65 and over",426,"Police issued","Unknown",29,"April",4
+"SA","Unknown",176,"Fixed camera systems","Unknown",29,"April",4
+"SA","Unknown",154,"Mobile camera","Unknown",29,"April",4
+"SA","Unknown",0,"Other","Unknown",29,"April",4
+"SA","Unknown",3,"Police issued","Unknown",29,"April",4
+"SA","0-16",0,"Fixed camera systems","Unknown",30,"May",5
+"SA","0-16",0,"Mobile camera","Unknown",30,"May",5
+"SA","0-16",0,"Other","Unknown",30,"May",5
+"SA","0-16",0,"Police issued","Unknown",30,"May",5
+"SA","17-25",487,"Fixed camera systems","Unknown",30,"May",5
+"SA","17-25",910,"Mobile camera","Unknown",30,"May",5
+"SA","17-25",0,"Other","Unknown",30,"May",5
+"SA","17-25",601,"Police issued","Unknown",30,"May",5
+"SA","26-39",1311,"Fixed camera systems","Unknown",30,"May",5
+"SA","26-39",2279,"Mobile camera","Unknown",30,"May",5
+"SA","26-39",0,"Other","Unknown",30,"May",5
+"SA","26-39",1115,"Police issued","Unknown",30,"May",5
+"SA","40-64",2506,"Fixed camera systems","Unknown",30,"May",5
+"SA","40-64",3762,"Mobile camera","Unknown",30,"May",5
+"SA","40-64",0,"Other","Unknown",30,"May",5
+"SA","40-64",1441,"Police issued","Unknown",30,"May",5
+"SA","65 and over",941,"Fixed camera systems","Unknown",30,"May",5
+"SA","65 and over",1024,"Mobile camera","Unknown",30,"May",5
+"SA","65 and over",0,"Other","Unknown",30,"May",5
+"SA","65 and over",416,"Police issued","Unknown",30,"May",5
+"SA","Unknown",207,"Fixed camera systems","Unknown",30,"May",5
+"SA","Unknown",178,"Mobile camera","Unknown",30,"May",5
+"SA","Unknown",0,"Other","Unknown",30,"May",5
+"SA","Unknown",1,"Police issued","Unknown",30,"May",5
+"SA","0-16",1,"Fixed camera systems","Unknown",29,"June",6
+"SA","0-16",3,"Mobile camera","Unknown",29,"June",6
+"SA","0-16",0,"Other","Unknown",29,"June",6
+"SA","0-16",2,"Police issued","Unknown",29,"June",6
+"SA","17-25",523,"Fixed camera systems","Unknown",29,"June",6
+"SA","17-25",946,"Mobile camera","Unknown",29,"June",6
+"SA","17-25",0,"Other","Unknown",29,"June",6
+"SA","17-25",696,"Police issued","Unknown",29,"June",6
+"SA","26-39",1245,"Fixed camera systems","Unknown",29,"June",6
+"SA","26-39",2291,"Mobile camera","Unknown",29,"June",6
+"SA","26-39",0,"Other","Unknown",29,"June",6
+"SA","26-39",1172,"Police issued","Unknown",29,"June",6
+"SA","40-64",2205,"Fixed camera systems","Unknown",29,"June",6
+"SA","40-64",4028,"Mobile camera","Unknown",29,"June",6
+"SA","40-64",0,"Other","Unknown",29,"June",6
+"SA","40-64",1505,"Police issued","Unknown",29,"June",6
+"SA","65 and over",806,"Fixed camera systems","Unknown",29,"June",6
+"SA","65 and over",1120,"Mobile camera","Unknown",29,"June",6
+"SA","65 and over",0,"Other","Unknown",29,"June",6
+"SA","65 and over",362,"Police issued","Unknown",29,"June",6
+"SA","Unknown",164,"Fixed camera systems","Unknown",29,"June",6
+"SA","Unknown",202,"Mobile camera","Unknown",29,"June",6
+"SA","Unknown",0,"Other","Unknown",29,"June",6
+"SA","Unknown",1,"Police issued","Unknown",29,"June",6
+"SA","0-16",0,"Fixed camera systems","Unknown",30,"July",7
+"SA","0-16",0,"Mobile camera","Unknown",30,"July",7
+"SA","0-16",0,"Other","Unknown",30,"July",7
+"SA","0-16",4,"Police issued","Unknown",30,"July",7
+"SA","17-25",493,"Fixed camera systems","Unknown",30,"July",7
+"SA","17-25",860,"Mobile camera","Unknown",30,"July",7
+"SA","17-25",1,"Other","Unknown",30,"July",7
+"SA","17-25",766,"Police issued","Unknown",30,"July",7
+"SA","26-39",1154,"Fixed camera systems","Unknown",30,"July",7
+"SA","26-39",2155,"Mobile camera","Unknown",30,"July",7
+"SA","26-39",0,"Other","Unknown",30,"July",7
+"SA","26-39",1270,"Police issued","Unknown",30,"July",7
+"SA","40-64",2046,"Fixed camera systems","Unknown",30,"July",7
+"SA","40-64",3455,"Mobile camera","Unknown",30,"July",7
+"SA","40-64",0,"Other","Unknown",30,"July",7
+"SA","40-64",1646,"Police issued","Unknown",30,"July",7
+"SA","65 and over",719,"Fixed camera systems","Unknown",30,"July",7
+"SA","65 and over",953,"Mobile camera","Unknown",30,"July",7
+"SA","65 and over",0,"Other","Unknown",30,"July",7
+"SA","65 and over",407,"Police issued","Unknown",30,"July",7
+"SA","Unknown",135,"Fixed camera systems","Unknown",30,"July",7
+"SA","Unknown",158,"Mobile camera","Unknown",30,"July",7
+"SA","Unknown",0,"Other","Unknown",30,"July",7
+"SA","Unknown",3,"Police issued","Unknown",30,"July",7
+"SA","0-16",0,"Fixed camera systems","Unknown",30,"August",8
+"SA","0-16",0,"Mobile camera","Unknown",30,"August",8
+"SA","0-16",0,"Other","Unknown",30,"August",8
+"SA","0-16",0,"Police issued","Unknown",30,"August",8
+"SA","17-25",491,"Fixed camera systems","Unknown",30,"August",8
+"SA","17-25",871,"Mobile camera","Unknown",30,"August",8
+"SA","17-25",0,"Other","Unknown",30,"August",8
+"SA","17-25",719,"Police issued","Unknown",30,"August",8
+"SA","26-39",1155,"Fixed camera systems","Unknown",30,"August",8
+"SA","26-39",2501,"Mobile camera","Unknown",30,"August",8
+"SA","26-39",0,"Other","Unknown",30,"August",8
+"SA","26-39",1311,"Police issued","Unknown",30,"August",8
+"SA","40-64",2191,"Fixed camera systems","Unknown",30,"August",8
+"SA","40-64",3960,"Mobile camera","Unknown",30,"August",8
+"SA","40-64",0,"Other","Unknown",30,"August",8
+"SA","40-64",1711,"Police issued","Unknown",30,"August",8
+"SA","65 and over",808,"Fixed camera systems","Unknown",30,"August",8
+"SA","65 and over",1099,"Mobile camera","Unknown",30,"August",8
+"SA","65 and over",0,"Other","Unknown",30,"August",8
+"SA","65 and over",456,"Police issued","Unknown",30,"August",8
+"SA","Unknown",171,"Fixed camera systems","Unknown",30,"August",8
+"SA","Unknown",198,"Mobile camera","Unknown",30,"August",8
+"SA","Unknown",0,"Other","Unknown",30,"August",8
+"SA","Unknown",2,"Police issued","Unknown",30,"August",8
+"SA","0-16",0,"Fixed camera systems","Unknown",29,"September",9
+"SA","0-16",0,"Mobile camera","Unknown",29,"September",9
+"SA","0-16",0,"Other","Unknown",29,"September",9
+"SA","0-16",0,"Police issued","Unknown",29,"September",9
+"SA","17-25",476,"Fixed camera systems","Unknown",29,"September",9
+"SA","17-25",860,"Mobile camera","Unknown",29,"September",9
+"SA","17-25",0,"Other","Unknown",29,"September",9
+"SA","17-25",755,"Police issued","Unknown",29,"September",9
+"SA","26-39",1140,"Fixed camera systems","Unknown",29,"September",9
+"SA","26-39",2305,"Mobile camera","Unknown",29,"September",9
+"SA","26-39",0,"Other","Unknown",29,"September",9
+"SA","26-39",1380,"Police issued","Unknown",29,"September",9
+"SA","40-64",2030,"Fixed camera systems","Unknown",29,"September",9
+"SA","40-64",3651,"Mobile camera","Unknown",29,"September",9
+"SA","40-64",0,"Other","Unknown",29,"September",9
+"SA","40-64",1717,"Police issued","Unknown",29,"September",9
+"SA","65 and over",822,"Fixed camera systems","Unknown",29,"September",9
+"SA","65 and over",1052,"Mobile camera","Unknown",29,"September",9
+"SA","65 and over",0,"Other","Unknown",29,"September",9
+"SA","65 and over",465,"Police issued","Unknown",29,"September",9
+"SA","Unknown",150,"Fixed camera systems","Unknown",29,"September",9
+"SA","Unknown",185,"Mobile camera","Unknown",29,"September",9
+"SA","Unknown",0,"Other","Unknown",29,"September",9
+"SA","Unknown",6,"Police issued","Unknown",29,"September",9
+"SA","0-16",0,"Fixed camera systems","Unknown",30,"October",10
+"SA","0-16",2,"Mobile camera","Unknown",30,"October",10
+"SA","0-16",0,"Other","Unknown",30,"October",10
+"SA","0-16",1,"Police issued","Unknown",30,"October",10
+"SA","17-25",429,"Fixed camera systems","Unknown",30,"October",10
+"SA","17-25",799,"Mobile camera","Unknown",30,"October",10
+"SA","17-25",0,"Other","Unknown",30,"October",10
+"SA","17-25",719,"Police issued","Unknown",30,"October",10
+"SA","26-39",1247,"Fixed camera systems","Unknown",30,"October",10
+"SA","26-39",2223,"Mobile camera","Unknown",30,"October",10
+"SA","26-39",1,"Other","Unknown",30,"October",10
+"SA","26-39",1328,"Police issued","Unknown",30,"October",10
+"SA","40-64",2098,"Fixed camera systems","Unknown",30,"October",10
+"SA","40-64",3458,"Mobile camera","Unknown",30,"October",10
+"SA","40-64",0,"Other","Unknown",30,"October",10
+"SA","40-64",1617,"Police issued","Unknown",30,"October",10
+"SA","65 and over",909,"Fixed camera systems","Unknown",30,"October",10
+"SA","65 and over",1113,"Mobile camera","Unknown",30,"October",10
+"SA","65 and over",0,"Other","Unknown",30,"October",10
+"SA","65 and over",436,"Police issued","Unknown",30,"October",10
+"SA","Unknown",196,"Fixed camera systems","Unknown",30,"October",10
+"SA","Unknown",181,"Mobile camera","Unknown",30,"October",10
+"SA","Unknown",0,"Other","Unknown",30,"October",10
+"SA","Unknown",8,"Police issued","Unknown",30,"October",10
+"SA","0-16",1,"Fixed camera systems","Unknown",29,"November",11
+"SA","0-16",1,"Mobile camera","Unknown",29,"November",11
+"SA","0-16",0,"Other","Unknown",29,"November",11
+"SA","0-16",2,"Police issued","Unknown",29,"November",11
+"SA","17-25",488,"Fixed camera systems","Unknown",29,"November",11
+"SA","17-25",903,"Mobile camera","Unknown",29,"November",11
+"SA","17-25",0,"Other","Unknown",29,"November",11
+"SA","17-25",759,"Police issued","Unknown",29,"November",11
+"SA","26-39",1189,"Fixed camera systems","Unknown",29,"November",11
+"SA","26-39",2343,"Mobile camera","Unknown",29,"November",11
+"SA","26-39",0,"Other","Unknown",29,"November",11
+"SA","26-39",1330,"Police issued","Unknown",29,"November",11
+"SA","40-64",2103,"Fixed camera systems","Unknown",29,"November",11
+"SA","40-64",3945,"Mobile camera","Unknown",29,"November",11
+"SA","40-64",0,"Other","Unknown",29,"November",11
+"SA","40-64",1817,"Police issued","Unknown",29,"November",11
+"SA","65 and over",742,"Fixed camera systems","Unknown",29,"November",11
+"SA","65 and over",1329,"Mobile camera","Unknown",29,"November",11
+"SA","65 and over",0,"Other","Unknown",29,"November",11
+"SA","65 and over",543,"Police issued","Unknown",29,"November",11
+"SA","Unknown",166,"Fixed camera systems","Unknown",29,"November",11
+"SA","Unknown",212,"Mobile camera","Unknown",29,"November",11
+"SA","Unknown",0,"Other","Unknown",29,"November",11
+"SA","Unknown",2,"Police issued","Unknown",29,"November",11
+"SA","0-16",2,"Fixed camera systems","Unknown",30,"December",12
+"SA","0-16",0,"Mobile camera","Unknown",30,"December",12
+"SA","0-16",0,"Other","Unknown",30,"December",12
+"SA","0-16",2,"Police issued","Unknown",30,"December",12
+"SA","17-25",370,"Fixed camera systems","Unknown",30,"December",12
+"SA","17-25",599,"Mobile camera","Unknown",30,"December",12
+"SA","17-25",0,"Other","Unknown",30,"December",12
+"SA","17-25",709,"Police issued","Unknown",30,"December",12
+"SA","26-39",876,"Fixed camera systems","Unknown",30,"December",12
+"SA","26-39",1581,"Mobile camera","Unknown",30,"December",12
+"SA","26-39",1,"Other","Unknown",30,"December",12
+"SA","26-39",1287,"Police issued","Unknown",30,"December",12
+"SA","40-64",1773,"Fixed camera systems","Unknown",30,"December",12
+"SA","40-64",2638,"Mobile camera","Unknown",30,"December",12
+"SA","40-64",0,"Other","Unknown",30,"December",12
+"SA","40-64",1566,"Police issued","Unknown",30,"December",12
+"SA","65 and over",709,"Fixed camera systems","Unknown",30,"December",12
+"SA","65 and over",847,"Mobile camera","Unknown",30,"December",12
+"SA","65 and over",0,"Other","Unknown",30,"December",12
+"SA","65 and over",452,"Police issued","Unknown",30,"December",12
+"SA","Unknown",151,"Fixed camera systems","Unknown",30,"December",12
+"SA","Unknown",130,"Mobile camera","Unknown",30,"December",12
+"SA","Unknown",0,"Other","Unknown",30,"December",12
+"SA","Unknown",4,"Police issued","Unknown",30,"December",12
+"TAS","17-25",577,"Fixed or mobile camera","Unknown",30,"January",1
+"TAS","17-25",447,"Police issued","Unknown",30,"January",1
+"TAS","26-39",1568,"Fixed or mobile camera","Unknown",30,"January",1
+"TAS","26-39",736,"Police issued","Unknown",30,"January",1
+"TAS","40-64",1903,"Fixed or mobile camera","Unknown",30,"January",1
+"TAS","40-64",834,"Police issued","Unknown",30,"January",1
+"TAS","65 and over",623,"Fixed or mobile camera","Unknown",30,"January",1
+"TAS","65 and over",239,"Police issued","Unknown",30,"January",1
+"TAS","Unknown",5,"Fixed or mobile camera","Unknown",30,"January",1
+"TAS","Unknown",1,"Police issued","Unknown",30,"January",1
+"TAS","0-16",0,"Police issued","Unknown",27,"February",2
+"TAS","17-25",389,"Fixed or mobile camera","Unknown",27,"February",2
+"TAS","17-25",319,"Police issued","Unknown",27,"February",2
+"TAS","26-39",1001,"Fixed or mobile camera","Unknown",27,"February",2
+"TAS","26-39",562,"Police issued","Unknown",27,"February",2
+"TAS","40-64",1193,"Fixed or mobile camera","Unknown",27,"February",2
+"TAS","40-64",642,"Police issued","Unknown",27,"February",2
+"TAS","65 and over",419,"Fixed or mobile camera","Unknown",27,"February",2
+"TAS","65 and over",207,"Police issued","Unknown",27,"February",2
+"TAS","Unknown",3,"Fixed or mobile camera","Unknown",27,"February",2
+"TAS","Unknown",1,"Police issued","Unknown",27,"February",2
+"TAS","0-16",0,"Police issued","Unknown",30,"March",3
+"TAS","17-25",319,"Fixed or mobile camera","Unknown",30,"March",3
+"TAS","17-25",301,"Police issued","Unknown",30,"March",3
+"TAS","26-39",860,"Fixed or mobile camera","Unknown",30,"March",3
+"TAS","26-39",517,"Police issued","Unknown",30,"March",3
+"TAS","40-64",1118,"Fixed or mobile camera","Unknown",30,"March",3
+"TAS","40-64",640,"Police issued","Unknown",30,"March",3
+"TAS","65 and over",434,"Fixed or mobile camera","Unknown",30,"March",3
+"TAS","65 and over",181,"Police issued","Unknown",30,"March",3
+"TAS","Unknown",2,"Police issued","Unknown",30,"March",3
+"TAS","0-16",1,"Fixed or mobile camera","Unknown",29,"April",4
+"TAS","17-25",370,"Fixed or mobile camera","Unknown",29,"April",4
+"TAS","17-25",321,"Police issued","Unknown",29,"April",4
+"TAS","26-39",903,"Fixed or mobile camera","Unknown",29,"April",4
+"TAS","26-39",523,"Police issued","Unknown",29,"April",4
+"TAS","40-64",1246,"Fixed or mobile camera","Unknown",29,"April",4
+"TAS","40-64",539,"Police issued","Unknown",29,"April",4
+"TAS","65 and over",458,"Fixed or mobile camera","Unknown",29,"April",4
+"TAS","65 and over",158,"Police issued","Unknown",29,"April",4
+"TAS","Unknown",1,"Fixed or mobile camera","Unknown",29,"April",4
+"TAS","Unknown",1,"Police issued","Unknown",29,"April",4
+"TAS","0-16",3,"Fixed or mobile camera","Unknown",30,"May",5
+"TAS","17-25",427,"Fixed or mobile camera","Unknown",30,"May",5
+"TAS","17-25",324,"Police issued","Unknown",30,"May",5
+"TAS","26-39",1188,"Fixed or mobile camera","Unknown",30,"May",5
+"TAS","26-39",539,"Police issued","Unknown",30,"May",5
+"TAS","40-64",1624,"Fixed or mobile camera","Unknown",30,"May",5
+"TAS","40-64",656,"Police issued","Unknown",30,"May",5
+"TAS","65 and over",548,"Fixed or mobile camera","Unknown",30,"May",5
+"TAS","65 and over",181,"Police issued","Unknown",30,"May",5
+"TAS","Unknown",8,"Fixed or mobile camera","Unknown",30,"May",5
+"TAS","Unknown",1,"Police issued","Unknown",30,"May",5
+"TAS","0-16",2,"Fixed or mobile camera","Unknown",29,"June",6
+"TAS","0-16",1,"Police issued","Unknown",29,"June",6
+"TAS","17-25",488,"Fixed or mobile camera","Unknown",29,"June",6
+"TAS","17-25",265,"Police issued","Unknown",29,"June",6
+"TAS","26-39",1158,"Fixed or mobile camera","Unknown",29,"June",6
+"TAS","26-39",427,"Police issued","Unknown",29,"June",6
+"TAS","40-64",1614,"Fixed or mobile camera","Unknown",29,"June",6
+"TAS","40-64",469,"Police issued","Unknown",29,"June",6
+"TAS","65 and over",613,"Fixed or mobile camera","Unknown",29,"June",6
+"TAS","65 and over",134,"Police issued","Unknown",29,"June",6
+"TAS","Unknown",1,"Police issued","Unknown",29,"June",6
+"TAS","0-16",1,"Fixed or mobile camera","Unknown",30,"July",7
+"TAS","17-25",509,"Fixed or mobile camera","Unknown",30,"July",7
+"TAS","17-25",316,"Police issued","Unknown",30,"July",7
+"TAS","26-39",1200,"Fixed or mobile camera","Unknown",30,"July",7
+"TAS","26-39",489,"Police issued","Unknown",30,"July",7
+"TAS","40-64",1660,"Fixed or mobile camera","Unknown",30,"July",7
+"TAS","40-64",598,"Police issued","Unknown",30,"July",7
+"TAS","65 and over",585,"Fixed or mobile camera","Unknown",30,"July",7
+"TAS","65 and over",175,"Police issued","Unknown",30,"July",7
+"TAS","0-16",3,"Fixed or mobile camera","Unknown",30,"August",8
+"TAS","17-25",474,"Fixed or mobile camera","Unknown",30,"August",8
+"TAS","17-25",294,"Police issued","Unknown",30,"August",8
+"TAS","26-39",1128,"Fixed or mobile camera","Unknown",30,"August",8
+"TAS","26-39",504,"Police issued","Unknown",30,"August",8
+"TAS","40-64",1692,"Fixed or mobile camera","Unknown",30,"August",8
+"TAS","40-64",536,"Police issued","Unknown",30,"August",8
+"TAS","65 and over",561,"Fixed or mobile camera","Unknown",30,"August",8
+"TAS","65 and over",168,"Police issued","Unknown",30,"August",8
+"TAS","Unknown",1,"Fixed or mobile camera","Unknown",30,"August",8
+"TAS","0-16",3,"Fixed or mobile camera","Unknown",29,"September",9
+"TAS","0-16",0,"Police issued","Unknown",29,"September",9
+"TAS","17-25",371,"Fixed or mobile camera","Unknown",29,"September",9
+"TAS","17-25",384,"Police issued","Unknown",29,"September",9
+"TAS","26-39",854,"Fixed or mobile camera","Unknown",29,"September",9
+"TAS","26-39",580,"Police issued","Unknown",29,"September",9
+"TAS","40-64",1180,"Fixed or mobile camera","Unknown",29,"September",9
+"TAS","40-64",675,"Police issued","Unknown",29,"September",9
+"TAS","65 and over",393,"Fixed or mobile camera","Unknown",29,"September",9
+"TAS","65 and over",181,"Police issued","Unknown",29,"September",9
+"TAS","Unknown",1,"Police issued","Unknown",29,"September",9
+"TAS","0-16",1,"Police issued","Unknown",30,"October",10
+"TAS","17-25",509,"Fixed or mobile camera","Unknown",30,"October",10
+"TAS","17-25",322,"Police issued","Unknown",30,"October",10
+"TAS","26-39",1360,"Fixed or mobile camera","Unknown",30,"October",10
+"TAS","26-39",520,"Police issued","Unknown",30,"October",10
+"TAS","40-64",1916,"Fixed or mobile camera","Unknown",30,"October",10
+"TAS","40-64",630,"Police issued","Unknown",30,"October",10
+"TAS","65 and over",761,"Fixed or mobile camera","Unknown",30,"October",10
+"TAS","65 and over",184,"Police issued","Unknown",30,"October",10
+"TAS","Unknown",2,"Fixed or mobile camera","Unknown",30,"October",10
+"TAS","Unknown",1,"Police issued","Unknown",30,"October",10
+"TAS","0-16",1,"Fixed or mobile camera","Unknown",29,"November",11
+"TAS","0-16",0,"Police issued","Unknown",29,"November",11
+"TAS","17-25",636,"Fixed or mobile camera","Unknown",29,"November",11
+"TAS","17-25",295,"Police issued","Unknown",29,"November",11
+"TAS","26-39",1549,"Fixed or mobile camera","Unknown",29,"November",11
+"TAS","26-39",469,"Police issued","Unknown",29,"November",11
+"TAS","40-64",2159,"Fixed or mobile camera","Unknown",29,"November",11
+"TAS","40-64",537,"Police issued","Unknown",29,"November",11
+"TAS","65 and over",784,"Fixed or mobile camera","Unknown",29,"November",11
+"TAS","65 and over",161,"Police issued","Unknown",29,"November",11
+"TAS","Unknown",2,"Fixed or mobile camera","Unknown",29,"November",11
+"TAS","Unknown",3,"Police issued","Unknown",29,"November",11
+"TAS","0-16",1,"Fixed or mobile camera","Unknown",30,"December",12
+"TAS","0-16",1,"Police issued","Unknown",30,"December",12
+"TAS","17-25",456,"Fixed or mobile camera","Unknown",30,"December",12
+"TAS","17-25",294,"Police issued","Unknown",30,"December",12
+"TAS","26-39",1209,"Fixed or mobile camera","Unknown",30,"December",12
+"TAS","26-39",442,"Police issued","Unknown",30,"December",12
+"TAS","40-64",1740,"Fixed or mobile camera","Unknown",30,"December",12
+"TAS","40-64",525,"Police issued","Unknown",30,"December",12
+"TAS","65 and over",641,"Fixed or mobile camera","Unknown",30,"December",12
+"TAS","65 and over",179,"Police issued","Unknown",30,"December",12
+"TAS","Unknown",1,"Fixed or mobile camera","Unknown",30,"December",12
+"VIC","17-25",180,"Fixed camera systems","Regional",30,"January",1
+"VIC","17-25",2125,"Mobile camera","Regional",30,"January",1
+"VIC","17-25",820,"Police issued","Regional",30,"January",1
+"VIC","26-39",708,"Fixed camera systems","Regional",30,"January",1
+"VIC","26-39",10144,"Mobile camera","Regional",30,"January",1
+"VIC","26-39",1524,"Police issued","Regional",30,"January",1
+"VIC","40-64",1015,"Fixed camera systems","Regional",30,"January",1
+"VIC","40-64",16192,"Mobile camera","Regional",30,"January",1
+"VIC","40-64",1943,"Police issued","Regional",30,"January",1
+"VIC","65 and over",303,"Fixed camera systems","Regional",30,"January",1
+"VIC","65 and over",5052,"Mobile camera","Regional",30,"January",1
+"VIC","65 and over",437,"Police issued","Regional",30,"January",1
+"VIC","Unknown",725,"Fixed camera systems","Regional",30,"January",1
+"VIC","Unknown",7544,"Mobile camera","Regional",30,"January",1
+"VIC","17-25",2784,"Fixed camera systems","Urban",30,"January",1
+"VIC","17-25",466,"Mobile camera","Urban",30,"January",1
+"VIC","17-25",1050,"Police issued","Urban",30,"January",1
+"VIC","26-39",11589,"Fixed camera systems","Urban",30,"January",1
+"VIC","26-39",1827,"Mobile camera","Urban",30,"January",1
+"VIC","26-39",1863,"Police issued","Urban",30,"January",1
+"VIC","40-64",19952,"Fixed camera systems","Urban",30,"January",1
+"VIC","40-64",3350,"Mobile camera","Urban",30,"January",1
+"VIC","40-64",1966,"Police issued","Urban",30,"January",1
+"VIC","65 and over",5764,"Fixed camera systems","Urban",30,"January",1
+"VIC","65 and over",1434,"Mobile camera","Urban",30,"January",1
+"VIC","65 and over",381,"Police issued","Urban",30,"January",1
+"VIC","Unknown",11839,"Fixed camera systems","Urban",30,"January",1
+"VIC","Unknown",1600,"Mobile camera","Urban",30,"January",1
+"VIC","17-25",1,"Fixed camera systems","Regional",30,"January",1
+"VIC","17-25",74,"Mobile camera","Regional",30,"January",1
+"VIC","17-25",200,"Police issued","Regional",30,"January",1
+"VIC","26-39",10,"Fixed camera systems","Regional",30,"January",1
+"VIC","26-39",306,"Mobile camera","Regional",30,"January",1
+"VIC","26-39",379,"Police issued","Regional",30,"January",1
+"VIC","40-64",17,"Fixed camera systems","Regional",30,"January",1
+"VIC","40-64",596,"Mobile camera","Regional",30,"January",1
+"VIC","40-64",450,"Police issued","Regional",30,"January",1
+"VIC","65 and over",6,"Fixed camera systems","Regional",30,"January",1
+"VIC","65 and over",283,"Mobile camera","Regional",30,"January",1
+"VIC","65 and over",97,"Police issued","Regional",30,"January",1
+"VIC","Unknown",11,"Fixed camera systems","Regional",30,"January",1
+"VIC","Unknown",327,"Mobile camera","Regional",30,"January",1
+"VIC","17-25",1,"Mobile camera","Remote",30,"January",1
+"VIC","17-25",6,"Police issued","Remote",30,"January",1
+"VIC","26-39",1,"Mobile camera","Remote",30,"January",1
+"VIC","26-39",16,"Police issued","Remote",30,"January",1
+"VIC","40-64",2,"Mobile camera","Remote",30,"January",1
+"VIC","40-64",38,"Police issued","Remote",30,"January",1
+"VIC","65 and over",8,"Police issued","Remote",30,"January",1
+"VIC","17-25",63,"Fixed camera systems","Unknown",30,"January",1
+"VIC","17-25",68,"Mobile camera","Unknown",30,"January",1
+"VIC","17-25",9,"Police issued","Unknown",30,"January",1
+"VIC","26-39",218,"Fixed camera systems","Unknown",30,"January",1
+"VIC","26-39",252,"Mobile camera","Unknown",30,"January",1
+"VIC","26-39",23,"Police issued","Unknown",30,"January",1
+"VIC","40-64",288,"Fixed camera systems","Unknown",30,"January",1
+"VIC","40-64",364,"Mobile camera","Unknown",30,"January",1
+"VIC","40-64",18,"Police issued","Unknown",30,"January",1
+"VIC","65 and over",62,"Fixed camera systems","Unknown",30,"January",1
+"VIC","65 and over",117,"Mobile camera","Unknown",30,"January",1
+"VIC","65 and over",1,"Police issued","Unknown",30,"January",1
+"VIC","Unknown",205,"Fixed camera systems","Unknown",30,"January",1
+"VIC","Unknown",126,"Mobile camera","Unknown",30,"January",1
+"VIC","Unknown",1,"Police issued","Unknown",30,"January",1
+"VIC","17-25",152,"Fixed camera systems","Regional",27,"February",2
+"VIC","17-25",471,"Mobile camera","Regional",27,"February",2
+"VIC","17-25",669,"Police issued","Regional",27,"February",2
+"VIC","26-39",649,"Fixed camera systems","Regional",27,"February",2
+"VIC","26-39",1853,"Mobile camera","Regional",27,"February",2
+"VIC","26-39",1215,"Police issued","Regional",27,"February",2
+"VIC","40-64",954,"Fixed camera systems","Regional",27,"February",2
+"VIC","40-64",3158,"Mobile camera","Regional",27,"February",2
+"VIC","40-64",1587,"Police issued","Regional",27,"February",2
+"VIC","65 and over",295,"Fixed camera systems","Regional",27,"February",2
+"VIC","65 and over",1492,"Mobile camera","Regional",27,"February",2
+"VIC","65 and over",405,"Police issued","Regional",27,"February",2
+"VIC","Unknown",820,"Fixed camera systems","Regional",27,"February",2
+"VIC","Unknown",1665,"Mobile camera","Regional",27,"February",2
+"VIC","Unknown",3,"Police issued","Regional",27,"February",2
+"VIC","0-16",2,"Police issued","Urban",27,"February",2
+"VIC","17-25",2051,"Fixed camera systems","Urban",27,"February",2
+"VIC","17-25",1926,"Mobile camera","Urban",27,"February",2
+"VIC","17-25",762,"Police issued","Urban",27,"February",2
+"VIC","26-39",8561,"Fixed camera systems","Urban",27,"February",2
+"VIC","26-39",8726,"Mobile camera","Urban",27,"February",2
+"VIC","26-39",1464,"Police issued","Urban",27,"February",2
+"VIC","40-64",14791,"Fixed camera systems","Urban",27,"February",2
+"VIC","40-64",14530,"Mobile camera","Urban",27,"February",2
+"VIC","40-64",1695,"Police issued","Urban",27,"February",2
+"VIC","65 and over",4488,"Fixed camera systems","Urban",27,"February",2
+"VIC","65 and over",4294,"Mobile camera","Urban",27,"February",2
+"VIC","65 and over",325,"Police issued","Urban",27,"February",2
+"VIC","Unknown",9373,"Fixed camera systems","Urban",27,"February",2
+"VIC","Unknown",7165,"Mobile camera","Urban",27,"February",2
+"VIC","Unknown",2,"Police issued","Urban",27,"February",2
+"VIC","17-25",1,"Fixed camera systems","Regional",27,"February",2
+"VIC","17-25",53,"Mobile camera","Regional",27,"February",2
+"VIC","17-25",131,"Police issued","Regional",27,"February",2
+"VIC","26-39",5,"Fixed camera systems","Regional",27,"February",2
+"VIC","26-39",251,"Mobile camera","Regional",27,"February",2
+"VIC","26-39",295,"Police issued","Regional",27,"February",2
+"VIC","40-64",16,"Fixed camera systems","Regional",27,"February",2
+"VIC","40-64",417,"Mobile camera","Regional",27,"February",2
+"VIC","40-64",322,"Police issued","Regional",27,"February",2
+"VIC","65 and over",5,"Fixed camera systems","Regional",27,"February",2
+"VIC","65 and over",268,"Mobile camera","Regional",27,"February",2
+"VIC","65 and over",90,"Police issued","Regional",27,"February",2
+"VIC","Unknown",11,"Fixed camera systems","Regional",27,"February",2
+"VIC","Unknown",263,"Mobile camera","Regional",27,"February",2
+"VIC","Unknown",1,"Police issued","Regional",27,"February",2
+"VIC","17-25",6,"Police issued","Remote",27,"February",2
+"VIC","26-39",18,"Police issued","Remote",27,"February",2
+"VIC","40-64",1,"Mobile camera","Remote",27,"February",2
+"VIC","40-64",19,"Police issued","Remote",27,"February",2
+"VIC","65 and over",13,"Police issued","Remote",27,"February",2
+"VIC","17-25",46,"Fixed camera systems","Unknown",27,"February",2
+"VIC","17-25",76,"Mobile camera","Unknown",27,"February",2
+"VIC","17-25",8,"Police issued","Unknown",27,"February",2
+"VIC","26-39",87,"Fixed camera systems","Unknown",27,"February",2
+"VIC","26-39",206,"Mobile camera","Unknown",27,"February",2
+"VIC","26-39",24,"Police issued","Unknown",27,"February",2
+"VIC","40-64",111,"Fixed camera systems","Unknown",27,"February",2
+"VIC","40-64",292,"Mobile camera","Unknown",27,"February",2
+"VIC","40-64",26,"Police issued","Unknown",27,"February",2
+"VIC","65 and over",38,"Fixed camera systems","Unknown",27,"February",2
+"VIC","65 and over",113,"Mobile camera","Unknown",27,"February",2
+"VIC","65 and over",3,"Police issued","Unknown",27,"February",2
+"VIC","Unknown",69,"Fixed camera systems","Unknown",27,"February",2
+"VIC","Unknown",110,"Mobile camera","Unknown",27,"February",2
+"VIC","17-25",157,"Fixed camera systems","Regional",30,"March",3
+"VIC","17-25",582,"Mobile camera","Regional",30,"March",3
+"VIC","17-25",731,"Police issued","Regional",30,"March",3
+"VIC","26-39",741,"Fixed camera systems","Regional",30,"March",3
+"VIC","26-39",2056,"Mobile camera","Regional",30,"March",3
+"VIC","26-39",1408,"Police issued","Regional",30,"March",3
+"VIC","40-64",1171,"Fixed camera systems","Regional",30,"March",3
+"VIC","40-64",3505,"Mobile camera","Regional",30,"March",3
+"VIC","40-64",1764,"Police issued","Regional",30,"March",3
+"VIC","65 and over",546,"Fixed camera systems","Regional",30,"March",3
+"VIC","65 and over",1632,"Mobile camera","Regional",30,"March",3
+"VIC","65 and over",474,"Police issued","Regional",30,"March",3
+"VIC","Unknown",899,"Fixed camera systems","Regional",30,"March",3
+"VIC","Unknown",1923,"Mobile camera","Regional",30,"March",3
+"VIC","Unknown",1,"Police issued","Regional",30,"March",3
+"VIC","0-16",1,"Police issued","Urban",30,"March",3
+"VIC","17-25",2302,"Fixed camera systems","Urban",30,"March",3
+"VIC","17-25",2060,"Mobile camera","Urban",30,"March",3
+"VIC","17-25",932,"Police issued","Urban",30,"March",3
+"VIC","26-39",9321,"Fixed camera systems","Urban",30,"March",3
+"VIC","26-39",9294,"Mobile camera","Urban",30,"March",3
+"VIC","26-39",1740,"Police issued","Urban",30,"March",3
+"VIC","40-64",16204,"Fixed camera systems","Urban",30,"March",3
+"VIC","40-64",15282,"Mobile camera","Urban",30,"March",3
+"VIC","40-64",2072,"Police issued","Urban",30,"March",3
+"VIC","65 and over",4903,"Fixed camera systems","Urban",30,"March",3
+"VIC","65 and over",4603,"Mobile camera","Urban",30,"March",3
+"VIC","65 and over",367,"Police issued","Urban",30,"March",3
+"VIC","Unknown",10282,"Fixed camera systems","Urban",30,"March",3
+"VIC","Unknown",7568,"Mobile camera","Urban",30,"March",3
+"VIC","Unknown",2,"Police issued","Urban",30,"March",3
+"VIC","17-25",1,"Fixed camera systems","Regional",30,"March",3
+"VIC","17-25",77,"Mobile camera","Regional",30,"March",3
+"VIC","17-25",186,"Police issued","Regional",30,"March",3
+"VIC","26-39",17,"Fixed camera systems","Regional",30,"March",3
+"VIC","26-39",326,"Mobile camera","Regional",30,"March",3
+"VIC","26-39",405,"Police issued","Regional",30,"March",3
+"VIC","40-64",22,"Fixed camera systems","Regional",30,"March",3
+"VIC","40-64",579,"Mobile camera","Regional",30,"March",3
+"VIC","40-64",469,"Police issued","Regional",30,"March",3
+"VIC","65 and over",9,"Fixed camera systems","Regional",30,"March",3
+"VIC","65 and over",345,"Mobile camera","Regional",30,"March",3
+"VIC","65 and over",123,"Police issued","Regional",30,"March",3
+"VIC","Unknown",18,"Fixed camera systems","Regional",30,"March",3
+"VIC","Unknown",360,"Mobile camera","Regional",30,"March",3
+"VIC","Unknown",1,"Police issued","Regional",30,"March",3
+"VIC","17-25",3,"Police issued","Remote",30,"March",3
+"VIC","26-39",8,"Police issued","Remote",30,"March",3
+"VIC","40-64",4,"Police issued","Remote",30,"March",3
+"VIC","65 and over",2,"Police issued","Remote",30,"March",3
+"VIC","17-25",58,"Fixed camera systems","Unknown",30,"March",3
+"VIC","17-25",54,"Mobile camera","Unknown",30,"March",3
+"VIC","17-25",4,"Police issued","Unknown",30,"March",3
+"VIC","26-39",203,"Fixed camera systems","Unknown",30,"March",3
+"VIC","26-39",169,"Mobile camera","Unknown",30,"March",3
+"VIC","26-39",19,"Police issued","Unknown",30,"March",3
+"VIC","40-64",333,"Fixed camera systems","Unknown",30,"March",3
+"VIC","40-64",244,"Mobile camera","Unknown",30,"March",3
+"VIC","40-64",26,"Police issued","Unknown",30,"March",3
+"VIC","65 and over",99,"Fixed camera systems","Unknown",30,"March",3
+"VIC","65 and over",98,"Mobile camera","Unknown",30,"March",3
+"VIC","65 and over",6,"Police issued","Unknown",30,"March",3
+"VIC","Unknown",182,"Fixed camera systems","Unknown",30,"March",3
+"VIC","Unknown",115,"Mobile camera","Unknown",30,"March",3
+"VIC","0-16",1,"Police issued","Regional",29,"April",4
+"VIC","17-25",188,"Fixed camera systems","Regional",29,"April",4
+"VIC","17-25",575,"Mobile camera","Regional",29,"April",4
+"VIC","17-25",770,"Police issued","Regional",29,"April",4
+"VIC","26-39",753,"Fixed camera systems","Regional",29,"April",4
+"VIC","26-39",2153,"Mobile camera","Regional",29,"April",4
+"VIC","26-39",1379,"Police issued","Regional",29,"April",4
+"VIC","40-64",1321,"Fixed camera systems","Regional",29,"April",4
+"VIC","40-64",3463,"Mobile camera","Regional",29,"April",4
+"VIC","40-64",1688,"Police issued","Regional",29,"April",4
+"VIC","65 and over",534,"Fixed camera systems","Regional",29,"April",4
+"VIC","65 and over",1489,"Mobile camera","Regional",29,"April",4
+"VIC","65 and over",416,"Police issued","Regional",29,"April",4
+"VIC","Unknown",970,"Fixed camera systems","Regional",29,"April",4
+"VIC","Unknown",1724,"Mobile camera","Regional",29,"April",4
+"VIC","Unknown",4,"Police issued","Regional",29,"April",4
+"VIC","17-25",2127,"Fixed camera systems","Urban",29,"April",4
+"VIC","17-25",1945,"Mobile camera","Urban",29,"April",4
+"VIC","17-25",875,"Police issued","Urban",29,"April",4
+"VIC","26-39",8718,"Fixed camera systems","Urban",29,"April",4
+"VIC","26-39",8560,"Mobile camera","Urban",29,"April",4
+"VIC","26-39",1536,"Police issued","Urban",29,"April",4
+"VIC","40-64",14749,"Fixed camera systems","Urban",29,"April",4
+"VIC","40-64",13962,"Mobile camera","Urban",29,"April",4
+"VIC","40-64",1677,"Police issued","Urban",29,"April",4
+"VIC","65 and over",4455,"Fixed camera systems","Urban",29,"April",4
+"VIC","65 and over",4175,"Mobile camera","Urban",29,"April",4
+"VIC","65 and over",306,"Police issued","Urban",29,"April",4
+"VIC","Unknown",9551,"Fixed camera systems","Urban",29,"April",4
+"VIC","Unknown",6799,"Mobile camera","Urban",29,"April",4
+"VIC","Unknown",8,"Police issued","Urban",29,"April",4
+"VIC","17-25",4,"Fixed camera systems","Regional",29,"April",4
+"VIC","17-25",102,"Mobile camera","Regional",29,"April",4
+"VIC","17-25",161,"Police issued","Regional",29,"April",4
+"VIC","26-39",16,"Fixed camera systems","Regional",29,"April",4
+"VIC","26-39",393,"Mobile camera","Regional",29,"April",4
+"VIC","26-39",328,"Police issued","Regional",29,"April",4
+"VIC","40-64",18,"Fixed camera systems","Regional",29,"April",4
+"VIC","40-64",671,"Mobile camera","Regional",29,"April",4
+"VIC","40-64",403,"Police issued","Regional",29,"April",4
+"VIC","65 and over",3,"Fixed camera systems","Regional",29,"April",4
+"VIC","65 and over",261,"Mobile camera","Regional",29,"April",4
+"VIC","65 and over",85,"Police issued","Regional",29,"April",4
+"VIC","Unknown",15,"Fixed camera systems","Regional",29,"April",4
+"VIC","Unknown",312,"Mobile camera","Regional",29,"April",4
+"VIC","17-25",1,"Mobile camera","Remote",29,"April",4
+"VIC","17-25",5,"Police issued","Remote",29,"April",4
+"VIC","26-39",1,"Mobile camera","Remote",29,"April",4
+"VIC","26-39",12,"Police issued","Remote",29,"April",4
+"VIC","40-64",2,"Mobile camera","Remote",29,"April",4
+"VIC","40-64",15,"Police issued","Remote",29,"April",4
+"VIC","65 and over",1,"Mobile camera","Remote",29,"April",4
+"VIC","65 and over",8,"Police issued","Remote",29,"April",4
+"VIC","17-25",59,"Fixed camera systems","Unknown",29,"April",4
+"VIC","17-25",43,"Mobile camera","Unknown",29,"April",4
+"VIC","17-25",3,"Police issued","Unknown",29,"April",4
+"VIC","26-39",246,"Fixed camera systems","Unknown",29,"April",4
+"VIC","26-39",173,"Mobile camera","Unknown",29,"April",4
+"VIC","26-39",13,"Police issued","Unknown",29,"April",4
+"VIC","40-64",360,"Fixed camera systems","Unknown",29,"April",4
+"VIC","40-64",250,"Mobile camera","Unknown",29,"April",4
+"VIC","40-64",17,"Police issued","Unknown",29,"April",4
+"VIC","65 and over",123,"Fixed camera systems","Unknown",29,"April",4
+"VIC","65 and over",101,"Mobile camera","Unknown",29,"April",4
+"VIC","65 and over",6,"Police issued","Unknown",29,"April",4
+"VIC","Unknown",217,"Fixed camera systems","Unknown",29,"April",4
+"VIC","Unknown",122,"Mobile camera","Unknown",29,"April",4
+"VIC","17-25",105,"Fixed camera systems","Regional",30,"May",5
+"VIC","17-25",497,"Mobile camera","Regional",30,"May",5
+"VIC","17-25",611,"Police issued","Regional",30,"May",5
+"VIC","26-39",432,"Fixed camera systems","Regional",30,"May",5
+"VIC","26-39",1829,"Mobile camera","Regional",30,"May",5
+"VIC","26-39",1213,"Police issued","Regional",30,"May",5
+"VIC","40-64",814,"Fixed camera systems","Regional",30,"May",5
+"VIC","40-64",2971,"Mobile camera","Regional",30,"May",5
+"VIC","40-64",1523,"Police issued","Regional",30,"May",5
+"VIC","65 and over",350,"Fixed camera systems","Regional",30,"May",5
+"VIC","65 and over",1364,"Mobile camera","Regional",30,"May",5
+"VIC","65 and over",397,"Police issued","Regional",30,"May",5
+"VIC","Unknown",585,"Fixed camera systems","Regional",30,"May",5
+"VIC","Unknown",1578,"Mobile camera","Regional",30,"May",5
+"VIC","Unknown",3,"Police issued","Regional",30,"May",5
+"VIC","17-25",2469,"Fixed camera systems","Urban",30,"May",5
+"VIC","17-25",1946,"Mobile camera","Urban",30,"May",5
+"VIC","17-25",873,"Police issued","Urban",30,"May",5
+"VIC","26-39",9869,"Fixed camera systems","Urban",30,"May",5
+"VIC","26-39",8041,"Mobile camera","Urban",30,"May",5
+"VIC","26-39",1609,"Police issued","Urban",30,"May",5
+"VIC","40-64",16348,"Fixed camera systems","Urban",30,"May",5
+"VIC","40-64",13688,"Mobile camera","Urban",30,"May",5
+"VIC","40-64",1749,"Police issued","Urban",30,"May",5
+"VIC","65 and over",4888,"Fixed camera systems","Urban",30,"May",5
+"VIC","65 and over",3967,"Mobile camera","Urban",30,"May",5
+"VIC","65 and over",326,"Police issued","Urban",30,"May",5
+"VIC","Unknown",10639,"Fixed camera systems","Urban",30,"May",5
+"VIC","Unknown",6921,"Mobile camera","Urban",30,"May",5
+"VIC","Unknown",4,"Police issued","Urban",30,"May",5
+"VIC","17-25",75,"Mobile camera","Regional",30,"May",5
+"VIC","17-25",107,"Police issued","Regional",30,"May",5
+"VIC","26-39",6,"Fixed camera systems","Regional",30,"May",5
+"VIC","26-39",299,"Mobile camera","Regional",30,"May",5
+"VIC","26-39",187,"Police issued","Regional",30,"May",5
+"VIC","40-64",18,"Fixed camera systems","Regional",30,"May",5
+"VIC","40-64",556,"Mobile camera","Regional",30,"May",5
+"VIC","40-64",238,"Police issued","Regional",30,"May",5
+"VIC","65 and over",7,"Fixed camera systems","Regional",30,"May",5
+"VIC","65 and over",287,"Mobile camera","Regional",30,"May",5
+"VIC","65 and over",64,"Police issued","Regional",30,"May",5
+"VIC","Unknown",19,"Fixed camera systems","Regional",30,"May",5
+"VIC","Unknown",331,"Mobile camera","Regional",30,"May",5
+"VIC","17-25",1,"Police issued","Remote",30,"May",5
+"VIC","26-39",6,"Police issued","Remote",30,"May",5
+"VIC","40-64",4,"Police issued","Remote",30,"May",5
+"VIC","65 and over",2,"Police issued","Remote",30,"May",5
+"VIC","17-25",46,"Fixed camera systems","Unknown",30,"May",5
+"VIC","17-25",51,"Mobile camera","Unknown",30,"May",5
+"VIC","17-25",5,"Police issued","Unknown",30,"May",5
+"VIC","26-39",180,"Fixed camera systems","Unknown",30,"May",5
+"VIC","26-39",152,"Mobile camera","Unknown",30,"May",5
+"VIC","26-39",14,"Police issued","Unknown",30,"May",5
+"VIC","40-64",258,"Fixed camera systems","Unknown",30,"May",5
+"VIC","40-64",207,"Mobile camera","Unknown",30,"May",5
+"VIC","40-64",20,"Police issued","Unknown",30,"May",5
+"VIC","65 and over",72,"Fixed camera systems","Unknown",30,"May",5
+"VIC","65 and over",106,"Mobile camera","Unknown",30,"May",5
+"VIC","65 and over",2,"Police issued","Unknown",30,"May",5
+"VIC","Unknown",147,"Fixed camera systems","Unknown",30,"May",5
+"VIC","Unknown",93,"Mobile camera","Unknown",30,"May",5
+"VIC","0-16",3,"Police issued","Regional",29,"June",6
+"VIC","17-25",38,"Fixed camera systems","Regional",29,"June",6
+"VIC","17-25",571,"Mobile camera","Regional",29,"June",6
+"VIC","17-25",676,"Police issued","Regional",29,"June",6
+"VIC","26-39",139,"Fixed camera systems","Regional",29,"June",6
+"VIC","26-39",1944,"Mobile camera","Regional",29,"June",6
+"VIC","26-39",1304,"Police issued","Regional",29,"June",6
+"VIC","40-64",318,"Fixed camera systems","Regional",29,"June",6
+"VIC","40-64",3340,"Mobile camera","Regional",29,"June",6
+"VIC","40-64",1675,"Police issued","Regional",29,"June",6
+"VIC","65 and over",160,"Fixed camera systems","Regional",29,"June",6
+"VIC","65 and over",1284,"Mobile camera","Regional",29,"June",6
+"VIC","65 and over",397,"Police issued","Regional",29,"June",6
+"VIC","Unknown",180,"Fixed camera systems","Regional",29,"June",6
+"VIC","Unknown",1775,"Mobile camera","Regional",29,"June",6
+"VIC","17-25",2907,"Fixed camera systems","Urban",29,"June",6
+"VIC","17-25",2024,"Mobile camera","Urban",29,"June",6
+"VIC","17-25",949,"Police issued","Urban",29,"June",6
+"VIC","26-39",10464,"Fixed camera systems","Urban",29,"June",6
+"VIC","26-39",8418,"Mobile camera","Urban",29,"June",6
+"VIC","26-39",1669,"Police issued","Urban",29,"June",6
+"VIC","40-64",16073,"Fixed camera systems","Urban",29,"June",6
+"VIC","40-64",13468,"Mobile camera","Urban",29,"June",6
+"VIC","40-64",1941,"Police issued","Urban",29,"June",6
+"VIC","65 and over",4334,"Fixed camera systems","Urban",29,"June",6
+"VIC","65 and over",3784,"Mobile camera","Urban",29,"June",6
+"VIC","65 and over",335,"Police issued","Urban",29,"June",6
+"VIC","Unknown",10968,"Fixed camera systems","Urban",29,"June",6
+"VIC","Unknown",7008,"Mobile camera","Urban",29,"June",6
+"VIC","Unknown",2,"Police issued","Urban",29,"June",6
+"VIC","0-16",1,"Police issued","Regional",29,"June",6
+"VIC","17-25",4,"Fixed camera systems","Regional",29,"June",6
+"VIC","17-25",97,"Mobile camera","Regional",29,"June",6
+"VIC","17-25",127,"Police issued","Regional",29,"June",6
+"VIC","26-39",10,"Fixed camera systems","Regional",29,"June",6
+"VIC","26-39",337,"Mobile camera","Regional",29,"June",6
+"VIC","26-39",316,"Police issued","Regional",29,"June",6
+"VIC","40-64",17,"Fixed camera systems","Regional",29,"June",6
+"VIC","40-64",554,"Mobile camera","Regional",29,"June",6
+"VIC","40-64",329,"Police issued","Regional",29,"June",6
+"VIC","65 and over",4,"Fixed camera systems","Regional",29,"June",6
+"VIC","65 and over",255,"Mobile camera","Regional",29,"June",6
+"VIC","65 and over",81,"Police issued","Regional",29,"June",6
+"VIC","Unknown",7,"Fixed camera systems","Regional",29,"June",6
+"VIC","Unknown",337,"Mobile camera","Regional",29,"June",6
+"VIC","17-25",1,"Police issued","Remote",29,"June",6
+"VIC","26-39",3,"Police issued","Remote",29,"June",6
+"VIC","40-64",13,"Police issued","Remote",29,"June",6
+"VIC","65 and over",6,"Police issued","Remote",29,"June",6
+"VIC","17-25",40,"Fixed camera systems","Unknown",29,"June",6
+"VIC","17-25",51,"Mobile camera","Unknown",29,"June",6
+"VIC","17-25",54,"Police issued","Unknown",29,"June",6
+"VIC","26-39",170,"Fixed camera systems","Unknown",29,"June",6
+"VIC","26-39",177,"Mobile camera","Unknown",29,"June",6
+"VIC","26-39",87,"Police issued","Unknown",29,"June",6
+"VIC","40-64",247,"Fixed camera systems","Unknown",29,"June",6
+"VIC","40-64",296,"Mobile camera","Unknown",29,"June",6
+"VIC","40-64",95,"Police issued","Unknown",29,"June",6
+"VIC","65 and over",58,"Fixed camera systems","Unknown",29,"June",6
+"VIC","65 and over",97,"Mobile camera","Unknown",29,"June",6
+"VIC","65 and over",24,"Police issued","Unknown",29,"June",6
+"VIC","Unknown",130,"Fixed camera systems","Unknown",29,"June",6
+"VIC","Unknown",138,"Mobile camera","Unknown",29,"June",6
+"VIC","17-25",55,"Fixed camera systems","Regional",30,"July",7
+"VIC","17-25",584,"Mobile camera","Regional",30,"July",7
+"VIC","17-25",719,"Police issued","Regional",30,"July",7
+"VIC","26-39",209,"Fixed camera systems","Regional",30,"July",7
+"VIC","26-39",1971,"Mobile camera","Regional",30,"July",7
+"VIC","26-39",1389,"Police issued","Regional",30,"July",7
+"VIC","40-64",438,"Fixed camera systems","Regional",30,"July",7
+"VIC","40-64",3150,"Mobile camera","Regional",30,"July",7
+"VIC","40-64",1597,"Police issued","Regional",30,"July",7
+"VIC","65 and over",237,"Fixed camera systems","Regional",30,"July",7
+"VIC","65 and over",1281,"Mobile camera","Regional",30,"July",7
+"VIC","65 and over",427,"Police issued","Regional",30,"July",7
+"VIC","Unknown",259,"Fixed camera systems","Regional",30,"July",7
+"VIC","Unknown",1678,"Mobile camera","Regional",30,"July",7
+"VIC","Unknown",1,"Police issued","Regional",30,"July",7
+"VIC","0-16",2,"Police issued","Urban",30,"July",7
+"VIC","17-25",2779,"Fixed camera systems","Urban",30,"July",7
+"VIC","17-25",2161,"Mobile camera","Urban",30,"July",7
+"VIC","17-25",1046,"Police issued","Urban",30,"July",7
+"VIC","26-39",9515,"Fixed camera systems","Urban",30,"July",7
+"VIC","26-39",9376,"Mobile camera","Urban",30,"July",7
+"VIC","26-39",1885,"Police issued","Urban",30,"July",7
+"VIC","40-64",15372,"Fixed camera systems","Urban",30,"July",7
+"VIC","40-64",15228,"Mobile camera","Urban",30,"July",7
+"VIC","40-64",2131,"Police issued","Urban",30,"July",7
+"VIC","65 and over",4298,"Fixed camera systems","Urban",30,"July",7
+"VIC","65 and over",4325,"Mobile camera","Urban",30,"July",7
+"VIC","65 and over",359,"Police issued","Urban",30,"July",7
+"VIC","Unknown",10208,"Fixed camera systems","Urban",30,"July",7
+"VIC","Unknown",7431,"Mobile camera","Urban",30,"July",7
+"VIC","17-25",3,"Fixed camera systems","Regional",30,"July",7
+"VIC","17-25",109,"Mobile camera","Regional",30,"July",7
+"VIC","17-25",141,"Police issued","Regional",30,"July",7
+"VIC","26-39",4,"Fixed camera systems","Regional",30,"July",7
+"VIC","26-39",384,"Mobile camera","Regional",30,"July",7
+"VIC","26-39",315,"Police issued","Regional",30,"July",7
+"VIC","40-64",18,"Fixed camera systems","Regional",30,"July",7
+"VIC","40-64",647,"Mobile camera","Regional",30,"July",7
+"VIC","40-64",381,"Police issued","Regional",30,"July",7
+"VIC","65 and over",5,"Fixed camera systems","Regional",30,"July",7
+"VIC","65 and over",268,"Mobile camera","Regional",30,"July",7
+"VIC","65 and over",73,"Police issued","Regional",30,"July",7
+"VIC","Unknown",11,"Fixed camera systems","Regional",30,"July",7
+"VIC","Unknown",371,"Mobile camera","Regional",30,"July",7
+"VIC","17-25",2,"Police issued","Remote",30,"July",7
+"VIC","26-39",1,"Mobile camera","Remote",30,"July",7
+"VIC","26-39",2,"Police issued","Remote",30,"July",7
+"VIC","40-64",5,"Police issued","Remote",30,"July",7
+"VIC","65 and over",10,"Police issued","Remote",30,"July",7
+"VIC","17-25",23,"Fixed camera systems","Unknown",30,"July",7
+"VIC","17-25",60,"Mobile camera","Unknown",30,"July",7
+"VIC","17-25",42,"Police issued","Unknown",30,"July",7
+"VIC","26-39",160,"Fixed camera systems","Unknown",30,"July",7
+"VIC","26-39",270,"Mobile camera","Unknown",30,"July",7
+"VIC","26-39",102,"Police issued","Unknown",30,"July",7
+"VIC","40-64",261,"Fixed camera systems","Unknown",30,"July",7
+"VIC","40-64",397,"Mobile camera","Unknown",30,"July",7
+"VIC","40-64",81,"Police issued","Unknown",30,"July",7
+"VIC","65 and over",80,"Fixed camera systems","Unknown",30,"July",7
+"VIC","65 and over",157,"Mobile camera","Unknown",30,"July",7
+"VIC","65 and over",25,"Police issued","Unknown",30,"July",7
+"VIC","Unknown",146,"Fixed camera systems","Unknown",30,"July",7
+"VIC","Unknown",195,"Mobile camera","Unknown",30,"July",7
+"VIC","17-25",85,"Fixed camera systems","Regional",30,"August",8
+"VIC","17-25",529,"Mobile camera","Regional",30,"August",8
+"VIC","17-25",706,"Police issued","Regional",30,"August",8
+"VIC","26-39",349,"Fixed camera systems","Regional",30,"August",8
+"VIC","26-39",1752,"Mobile camera","Regional",30,"August",8
+"VIC","26-39",1515,"Police issued","Regional",30,"August",8
+"VIC","40-64",673,"Fixed camera systems","Regional",30,"August",8
+"VIC","40-64",2695,"Mobile camera","Regional",30,"August",8
+"VIC","40-64",1943,"Police issued","Regional",30,"August",8
+"VIC","65 and over",327,"Fixed camera systems","Regional",30,"August",8
+"VIC","65 and over",1056,"Mobile camera","Regional",30,"August",8
+"VIC","65 and over",539,"Police issued","Regional",30,"August",8
+"VIC","Unknown",514,"Fixed camera systems","Regional",30,"August",8
+"VIC","Unknown",1555,"Mobile camera","Regional",30,"August",8
+"VIC","Unknown",1,"Police issued","Regional",30,"August",8
+"VIC","17-25",3011,"Fixed camera systems","Urban",30,"August",8
+"VIC","17-25",2190,"Mobile camera","Urban",30,"August",8
+"VIC","17-25",1061,"Police issued","Urban",30,"August",8
+"VIC","26-39",10596,"Fixed camera systems","Urban",30,"August",8
+"VIC","26-39",8854,"Mobile camera","Urban",30,"August",8
+"VIC","26-39",2022,"Police issued","Urban",30,"August",8
+"VIC","40-64",17654,"Fixed camera systems","Urban",30,"August",8
+"VIC","40-64",14350,"Mobile camera","Urban",30,"August",8
+"VIC","40-64",2386,"Police issued","Urban",30,"August",8
+"VIC","65 and over",4860,"Fixed camera systems","Urban",30,"August",8
+"VIC","65 and over",3777,"Mobile camera","Urban",30,"August",8
+"VIC","65 and over",461,"Police issued","Urban",30,"August",8
+"VIC","Unknown",11578,"Fixed camera systems","Urban",30,"August",8
+"VIC","Unknown",7057,"Mobile camera","Urban",30,"August",8
+"VIC","Unknown",4,"Police issued","Urban",30,"August",8
+"VIC","0-16",1,"Police issued","Regional",30,"August",8
+"VIC","17-25",2,"Fixed camera systems","Regional",30,"August",8
+"VIC","17-25",101,"Mobile camera","Regional",30,"August",8
+"VIC","17-25",161,"Police issued","Regional",30,"August",8
+"VIC","26-39",12,"Fixed camera systems","Regional",30,"August",8
+"VIC","26-39",293,"Mobile camera","Regional",30,"August",8
+"VIC","26-39",301,"Police issued","Regional",30,"August",8
+"VIC","40-64",14,"Fixed camera systems","Regional",30,"August",8
+"VIC","40-64",490,"Mobile camera","Regional",30,"August",8
+"VIC","40-64",380,"Police issued","Regional",30,"August",8
+"VIC","65 and over",8,"Fixed camera systems","Regional",30,"August",8
+"VIC","65 and over",218,"Mobile camera","Regional",30,"August",8
+"VIC","65 and over",88,"Police issued","Regional",30,"August",8
+"VIC","Unknown",6,"Fixed camera systems","Regional",30,"August",8
+"VIC","Unknown",302,"Mobile camera","Regional",30,"August",8
+"VIC","Unknown",1,"Police issued","Regional",30,"August",8
+"VIC","17-25",3,"Police issued","Remote",30,"August",8
+"VIC","26-39",1,"Police issued","Remote",30,"August",8
+"VIC","40-64",12,"Police issued","Remote",30,"August",8
+"VIC","65 and over",11,"Police issued","Remote",30,"August",8
+"VIC","17-25",52,"Fixed camera systems","Unknown",30,"August",8
+"VIC","17-25",84,"Mobile camera","Unknown",30,"August",8
+"VIC","17-25",33,"Police issued","Unknown",30,"August",8
+"VIC","26-39",142,"Fixed camera systems","Unknown",30,"August",8
+"VIC","26-39",221,"Mobile camera","Unknown",30,"August",8
+"VIC","26-39",65,"Police issued","Unknown",30,"August",8
+"VIC","40-64",259,"Fixed camera systems","Unknown",30,"August",8
+"VIC","40-64",365,"Mobile camera","Unknown",30,"August",8
+"VIC","40-64",99,"Police issued","Unknown",30,"August",8
+"VIC","65 and over",70,"Fixed camera systems","Unknown",30,"August",8
+"VIC","65 and over",146,"Mobile camera","Unknown",30,"August",8
+"VIC","65 and over",26,"Police issued","Unknown",30,"August",8
+"VIC","Unknown",186,"Fixed camera systems","Unknown",30,"August",8
+"VIC","Unknown",166,"Mobile camera","Unknown",30,"August",8
+"VIC","0-16",1,"Police issued","Regional",29,"September",9
+"VIC","17-25",132,"Fixed camera systems","Regional",29,"September",9
+"VIC","17-25",635,"Mobile camera","Regional",29,"September",9
+"VIC","17-25",712,"Police issued","Regional",29,"September",9
+"VIC","26-39",528,"Fixed camera systems","Regional",29,"September",9
+"VIC","26-39",2071,"Mobile camera","Regional",29,"September",9
+"VIC","26-39",1386,"Police issued","Regional",29,"September",9
+"VIC","40-64",904,"Fixed camera systems","Regional",29,"September",9
+"VIC","40-64",3351,"Mobile camera","Regional",29,"September",9
+"VIC","40-64",1764,"Police issued","Regional",29,"September",9
+"VIC","65 and over",432,"Fixed camera systems","Regional",29,"September",9
+"VIC","65 and over",1202,"Mobile camera","Regional",29,"September",9
+"VIC","65 and over",428,"Police issued","Regional",29,"September",9
+"VIC","Unknown",621,"Fixed camera systems","Regional",29,"September",9
+"VIC","Unknown",1723,"Mobile camera","Regional",29,"September",9
+"VIC","Unknown",4,"Police issued","Regional",29,"September",9
+"VIC","17-25",2842,"Fixed camera systems","Urban",29,"September",9
+"VIC","17-25",2289,"Mobile camera","Urban",29,"September",9
+"VIC","17-25",1012,"Police issued","Urban",29,"September",9
+"VIC","26-39",10154,"Fixed camera systems","Urban",29,"September",9
+"VIC","26-39",8754,"Mobile camera","Urban",29,"September",9
+"VIC","26-39",1889,"Police issued","Urban",29,"September",9
+"VIC","40-64",17210,"Fixed camera systems","Urban",29,"September",9
+"VIC","40-64",13235,"Mobile camera","Urban",29,"September",9
+"VIC","40-64",2112,"Police issued","Urban",29,"September",9
+"VIC","65 and over",4889,"Fixed camera systems","Urban",29,"September",9
+"VIC","65 and over",3723,"Mobile camera","Urban",29,"September",9
+"VIC","65 and over",351,"Police issued","Urban",29,"September",9
+"VIC","Unknown",11040,"Fixed camera systems","Urban",29,"September",9
+"VIC","Unknown",6547,"Mobile camera","Urban",29,"September",9
+"VIC","Unknown",1,"Police issued","Urban",29,"September",9
+"VIC","17-25",4,"Fixed camera systems","Regional",29,"September",9
+"VIC","17-25",100,"Mobile camera","Regional",29,"September",9
+"VIC","17-25",124,"Police issued","Regional",29,"September",9
+"VIC","26-39",6,"Fixed camera systems","Regional",29,"September",9
+"VIC","26-39",400,"Mobile camera","Regional",29,"September",9
+"VIC","26-39",280,"Police issued","Regional",29,"September",9
+"VIC","40-64",14,"Fixed camera systems","Regional",29,"September",9
+"VIC","40-64",618,"Mobile camera","Regional",29,"September",9
+"VIC","40-64",325,"Police issued","Regional",29,"September",9
+"VIC","65 and over",6,"Fixed camera systems","Regional",29,"September",9
+"VIC","65 and over",269,"Mobile camera","Regional",29,"September",9
+"VIC","65 and over",65,"Police issued","Regional",29,"September",9
+"VIC","Unknown",11,"Fixed camera systems","Regional",29,"September",9
+"VIC","Unknown",376,"Mobile camera","Regional",29,"September",9
+"VIC","17-25",2,"Police issued","Remote",29,"September",9
+"VIC","26-39",11,"Police issued","Remote",29,"September",9
+"VIC","40-64",12,"Police issued","Remote",29,"September",9
+"VIC","65 and over",4,"Police issued","Remote",29,"September",9
+"VIC","Unknown",1,"Mobile camera","Remote",29,"September",9
+"VIC","17-25",61,"Fixed camera systems","Unknown",29,"September",9
+"VIC","17-25",73,"Mobile camera","Unknown",29,"September",9
+"VIC","17-25",25,"Police issued","Unknown",29,"September",9
+"VIC","26-39",197,"Fixed camera systems","Unknown",29,"September",9
+"VIC","26-39",266,"Mobile camera","Unknown",29,"September",9
+"VIC","26-39",60,"Police issued","Unknown",29,"September",9
+"VIC","40-64",315,"Fixed camera systems","Unknown",29,"September",9
+"VIC","40-64",417,"Mobile camera","Unknown",29,"September",9
+"VIC","40-64",82,"Police issued","Unknown",29,"September",9
+"VIC","65 and over",99,"Fixed camera systems","Unknown",29,"September",9
+"VIC","65 and over",136,"Mobile camera","Unknown",29,"September",9
+"VIC","65 and over",16,"Police issued","Unknown",29,"September",9
+"VIC","Unknown",208,"Fixed camera systems","Unknown",29,"September",9
+"VIC","Unknown",191,"Mobile camera","Unknown",29,"September",9
+"VIC","17-25",272,"Fixed camera systems","Regional",30,"October",10
+"VIC","17-25",496,"Mobile camera","Regional",30,"October",10
+"VIC","17-25",674,"Police issued","Regional",30,"October",10
+"VIC","26-39",892,"Fixed camera systems","Regional",30,"October",10
+"VIC","26-39",1676,"Mobile camera","Regional",30,"October",10
+"VIC","26-39",1432,"Police issued","Regional",30,"October",10
+"VIC","40-64",1263,"Fixed camera systems","Regional",30,"October",10
+"VIC","40-64",2791,"Mobile camera","Regional",30,"October",10
+"VIC","40-64",1836,"Police issued","Regional",30,"October",10
+"VIC","65 and over",581,"Fixed camera systems","Regional",30,"October",10
+"VIC","65 and over",1300,"Mobile camera","Regional",30,"October",10
+"VIC","65 and over",539,"Police issued","Regional",30,"October",10
+"VIC","Unknown",956,"Fixed camera systems","Regional",30,"October",10
+"VIC","Unknown",1589,"Mobile camera","Regional",30,"October",10
+"VIC","Unknown",3,"Police issued","Regional",30,"October",10
+"VIC","17-25",3033,"Fixed camera systems","Urban",30,"October",10
+"VIC","17-25",2213,"Mobile camera","Urban",30,"October",10
+"VIC","17-25",847,"Police issued","Urban",30,"October",10
+"VIC","26-39",10486,"Fixed camera systems","Urban",30,"October",10
+"VIC","26-39",8446,"Mobile camera","Urban",30,"October",10
+"VIC","26-39",1672,"Police issued","Urban",30,"October",10
+"VIC","40-64",17925,"Fixed camera systems","Urban",30,"October",10
+"VIC","40-64",13279,"Mobile camera","Urban",30,"October",10
+"VIC","40-64",1854,"Police issued","Urban",30,"October",10
+"VIC","65 and over",5337,"Fixed camera systems","Urban",30,"October",10
+"VIC","65 and over",3836,"Mobile camera","Urban",30,"October",10
+"VIC","65 and over",362,"Police issued","Urban",30,"October",10
+"VIC","Unknown",12217,"Fixed camera systems","Urban",30,"October",10
+"VIC","Unknown",6763,"Mobile camera","Urban",30,"October",10
+"VIC","Unknown",3,"Police issued","Urban",30,"October",10
+"VIC","17-25",2,"Fixed camera systems","Regional",30,"October",10
+"VIC","17-25",89,"Mobile camera","Regional",30,"October",10
+"VIC","17-25",112,"Police issued","Regional",30,"October",10
+"VIC","26-39",6,"Fixed camera systems","Regional",30,"October",10
+"VIC","26-39",302,"Mobile camera","Regional",30,"October",10
+"VIC","26-39",288,"Police issued","Regional",30,"October",10
+"VIC","40-64",24,"Fixed camera systems","Regional",30,"October",10
+"VIC","40-64",498,"Mobile camera","Regional",30,"October",10
+"VIC","40-64",333,"Police issued","Regional",30,"October",10
+"VIC","65 and over",4,"Fixed camera systems","Regional",30,"October",10
+"VIC","65 and over",247,"Mobile camera","Regional",30,"October",10
+"VIC","65 and over",103,"Police issued","Regional",30,"October",10
+"VIC","Unknown",5,"Fixed camera systems","Regional",30,"October",10
+"VIC","Unknown",314,"Mobile camera","Regional",30,"October",10
+"VIC","26-39",5,"Police issued","Remote",30,"October",10
+"VIC","40-64",3,"Police issued","Remote",30,"October",10
+"VIC","65 and over",3,"Police issued","Remote",30,"October",10
+"VIC","17-25",78,"Fixed camera systems","Unknown",30,"October",10
+"VIC","17-25",72,"Mobile camera","Unknown",30,"October",10
+"VIC","17-25",21,"Police issued","Unknown",30,"October",10
+"VIC","26-39",225,"Fixed camera systems","Unknown",30,"October",10
+"VIC","26-39",219,"Mobile camera","Unknown",30,"October",10
+"VIC","26-39",33,"Police issued","Unknown",30,"October",10
+"VIC","40-64",372,"Fixed camera systems","Unknown",30,"October",10
+"VIC","40-64",329,"Mobile camera","Unknown",30,"October",10
+"VIC","40-64",44,"Police issued","Unknown",30,"October",10
+"VIC","65 and over",131,"Fixed camera systems","Unknown",30,"October",10
+"VIC","65 and over",113,"Mobile camera","Unknown",30,"October",10
+"VIC","65 and over",10,"Police issued","Unknown",30,"October",10
+"VIC","Unknown",237,"Fixed camera systems","Unknown",30,"October",10
+"VIC","Unknown",168,"Mobile camera","Unknown",30,"October",10
+"VIC","Unknown",1,"Police issued","Unknown",30,"October",10
+"VIC","0-16",1,"Police issued","Regional",29,"November",11
+"VIC","17-25",279,"Fixed camera systems","Regional",29,"November",11
+"VIC","17-25",562,"Mobile camera","Regional",29,"November",11
+"VIC","17-25",748,"Police issued","Regional",29,"November",11
+"VIC","26-39",875,"Fixed camera systems","Regional",29,"November",11
+"VIC","26-39",1768,"Mobile camera","Regional",29,"November",11
+"VIC","26-39",1575,"Police issued","Regional",29,"November",11
+"VIC","40-64",1330,"Fixed camera systems","Regional",29,"November",11
+"VIC","40-64",3033,"Mobile camera","Regional",29,"November",11
+"VIC","40-64",2059,"Police issued","Regional",29,"November",11
+"VIC","65 and over",510,"Fixed camera systems","Regional",29,"November",11
+"VIC","65 and over",1270,"Mobile camera","Regional",29,"November",11
+"VIC","65 and over",546,"Police issued","Regional",29,"November",11
+"VIC","Unknown",1020,"Fixed camera systems","Regional",29,"November",11
+"VIC","Unknown",1767,"Mobile camera","Regional",29,"November",11
+"VIC","Unknown",1,"Police issued","Regional",29,"November",11
+"VIC","0-16",1,"Police issued","Urban",29,"November",11
+"VIC","17-25",3632,"Fixed camera systems","Urban",29,"November",11
+"VIC","17-25",2567,"Mobile camera","Urban",29,"November",11
+"VIC","17-25",1075,"Police issued","Urban",29,"November",11
+"VIC","26-39",11843,"Fixed camera systems","Urban",29,"November",11
+"VIC","26-39",8967,"Mobile camera","Urban",29,"November",11
+"VIC","26-39",1836,"Police issued","Urban",29,"November",11
+"VIC","40-64",19526,"Fixed camera systems","Urban",29,"November",11
+"VIC","40-64",14497,"Mobile camera","Urban",29,"November",11
+"VIC","40-64",2030,"Police issued","Urban",29,"November",11
+"VIC","65 and over",5840,"Fixed camera systems","Urban",29,"November",11
+"VIC","65 and over",4074,"Mobile camera","Urban",29,"November",11
+"VIC","65 and over",385,"Police issued","Urban",29,"November",11
+"VIC","Unknown",13208,"Fixed camera systems","Urban",29,"November",11
+"VIC","Unknown",7242,"Mobile camera","Urban",29,"November",11
+"VIC","Unknown",1,"Police issued","Urban",29,"November",11
+"VIC","17-25",2,"Fixed camera systems","Regional",29,"November",11
+"VIC","17-25",84,"Mobile camera","Regional",29,"November",11
+"VIC","17-25",142,"Police issued","Regional",29,"November",11
+"VIC","26-39",5,"Fixed camera systems","Regional",29,"November",11
+"VIC","26-39",276,"Mobile camera","Regional",29,"November",11
+"VIC","26-39",276,"Police issued","Regional",29,"November",11
+"VIC","40-64",9,"Fixed camera systems","Regional",29,"November",11
+"VIC","40-64",505,"Mobile camera","Regional",29,"November",11
+"VIC","40-64",342,"Police issued","Regional",29,"November",11
+"VIC","65 and over",2,"Fixed camera systems","Regional",29,"November",11
+"VIC","65 and over",207,"Mobile camera","Regional",29,"November",11
+"VIC","65 and over",112,"Police issued","Regional",29,"November",11
+"VIC","Unknown",2,"Fixed camera systems","Regional",29,"November",11
+"VIC","Unknown",321,"Mobile camera","Regional",29,"November",11
+"VIC","Unknown",2,"Police issued","Regional",29,"November",11
+"VIC","17-25",1,"Mobile camera","Remote",29,"November",11
+"VIC","17-25",3,"Police issued","Remote",29,"November",11
+"VIC","26-39",3,"Police issued","Remote",29,"November",11
+"VIC","40-64",5,"Police issued","Remote",29,"November",11
+"VIC","65 and over",3,"Police issued","Remote",29,"November",11
+"VIC","Unknown",1,"Mobile camera","Remote",29,"November",11
+"VIC","17-25",74,"Fixed camera systems","Unknown",29,"November",11
+"VIC","17-25",88,"Mobile camera","Unknown",29,"November",11
+"VIC","17-25",19,"Police issued","Unknown",29,"November",11
+"VIC","26-39",229,"Fixed camera systems","Unknown",29,"November",11
+"VIC","26-39",275,"Mobile camera","Unknown",29,"November",11
+"VIC","26-39",47,"Police issued","Unknown",29,"November",11
+"VIC","40-64",392,"Fixed camera systems","Unknown",29,"November",11
+"VIC","40-64",378,"Mobile camera","Unknown",29,"November",11
+"VIC","40-64",64,"Police issued","Unknown",29,"November",11
+"VIC","65 and over",126,"Fixed camera systems","Unknown",29,"November",11
+"VIC","65 and over",184,"Mobile camera","Unknown",29,"November",11
+"VIC","65 and over",15,"Police issued","Unknown",29,"November",11
+"VIC","Unknown",253,"Fixed camera systems","Unknown",29,"November",11
+"VIC","Unknown",185,"Mobile camera","Unknown",29,"November",11
+"VIC","17-25",320,"Fixed camera systems","Regional",30,"December",12
+"VIC","17-25",506,"Mobile camera","Regional",30,"December",12
+"VIC","17-25",967,"Police issued","Regional",30,"December",12
+"VIC","26-39",881,"Fixed camera systems","Regional",30,"December",12
+"VIC","26-39",1953,"Mobile camera","Regional",30,"December",12
+"VIC","26-39",1704,"Police issued","Regional",30,"December",12
+"VIC","40-64",1343,"Fixed camera systems","Regional",30,"December",12
+"VIC","40-64",2856,"Mobile camera","Regional",30,"December",12
+"VIC","40-64",2052,"Police issued","Regional",30,"December",12
+"VIC","65 and over",448,"Fixed camera systems","Regional",30,"December",12
+"VIC","65 and over",1244,"Mobile camera","Regional",30,"December",12
+"VIC","65 and over",519,"Police issued","Regional",30,"December",12
+"VIC","Unknown",916,"Fixed camera systems","Regional",30,"December",12
+"VIC","Unknown",1614,"Mobile camera","Regional",30,"December",12
+"VIC","Unknown",2,"Police issued","Regional",30,"December",12
+"VIC","0-16",1,"Police issued","Urban",30,"December",12
+"VIC","17-25",3801,"Fixed camera systems","Urban",30,"December",12
+"VIC","17-25",2502,"Mobile camera","Urban",30,"December",12
+"VIC","17-25",1186,"Police issued","Urban",30,"December",12
+"VIC","26-39",12743,"Fixed camera systems","Urban",30,"December",12
+"VIC","26-39",9500,"Mobile camera","Urban",30,"December",12
+"VIC","26-39",2024,"Police issued","Urban",30,"December",12
+"VIC","40-64",21120,"Fixed camera systems","Urban",30,"December",12
+"VIC","40-64",14316,"Mobile camera","Urban",30,"December",12
+"VIC","40-64",1964,"Police issued","Urban",30,"December",12
+"VIC","65 and over",6203,"Fixed camera systems","Urban",30,"December",12
+"VIC","65 and over",4145,"Mobile camera","Urban",30,"December",12
+"VIC","65 and over",386,"Police issued","Urban",30,"December",12
+"VIC","Unknown",13780,"Fixed camera systems","Urban",30,"December",12
+"VIC","Unknown",7222,"Mobile camera","Urban",30,"December",12
+"VIC","Unknown",4,"Police issued","Urban",30,"December",12
+"VIC","17-25",2,"Fixed camera systems","Regional",30,"December",12
+"VIC","17-25",81,"Mobile camera","Regional",30,"December",12
+"VIC","17-25",159,"Police issued","Regional",30,"December",12
+"VIC","26-39",6,"Fixed camera systems","Regional",30,"December",12
+"VIC","26-39",297,"Mobile camera","Regional",30,"December",12
+"VIC","26-39",347,"Police issued","Regional",30,"December",12
+"VIC","40-64",14,"Fixed camera systems","Regional",30,"December",12
+"VIC","40-64",489,"Mobile camera","Regional",30,"December",12
+"VIC","40-64",390,"Police issued","Regional",30,"December",12
+"VIC","65 and over",2,"Fixed camera systems","Regional",30,"December",12
+"VIC","65 and over",231,"Mobile camera","Regional",30,"December",12
+"VIC","65 and over",72,"Police issued","Regional",30,"December",12
+"VIC","Unknown",4,"Fixed camera systems","Regional",30,"December",12
+"VIC","Unknown",308,"Mobile camera","Regional",30,"December",12
+"VIC","Unknown",2,"Police issued","Regional",30,"December",12
+"VIC","17-25",6,"Police issued","Remote",30,"December",12
+"VIC","26-39",12,"Police issued","Remote",30,"December",12
+"VIC","40-64",18,"Police issued","Remote",30,"December",12
+"VIC","65 and over",2,"Police issued","Remote",30,"December",12
+"VIC","17-25",56,"Fixed camera systems","Unknown",30,"December",12
+"VIC","17-25",73,"Mobile camera","Unknown",30,"December",12
+"VIC","17-25",31,"Police issued","Unknown",30,"December",12
+"VIC","26-39",248,"Fixed camera systems","Unknown",30,"December",12
+"VIC","26-39",207,"Mobile camera","Unknown",30,"December",12
+"VIC","26-39",44,"Police issued","Unknown",30,"December",12
+"VIC","40-64",435,"Fixed camera systems","Unknown",30,"December",12
+"VIC","40-64",351,"Mobile camera","Unknown",30,"December",12
+"VIC","40-64",34,"Police issued","Unknown",30,"December",12
+"VIC","65 and over",125,"Fixed camera systems","Unknown",30,"December",12
+"VIC","65 and over",122,"Mobile camera","Unknown",30,"December",12
+"VIC","65 and over",19,"Police issued","Unknown",30,"December",12
+"VIC","Unknown",257,"Fixed camera systems","Unknown",30,"December",12
+"VIC","Unknown",155,"Mobile camera","Unknown",30,"December",12
+"WA","0-16",1,"Mobile camera","Unknown",30,"January",1
+"WA","17-25",229,"Fixed camera systems","Unknown",30,"January",1
+"WA","17-25",1325,"Fixed camera systems","Unknown",30,"January",1
+"WA","17-25",3685,"Mobile camera","Unknown",30,"January",1
+"WA","17-25",916,"Police issued","Unknown",30,"January",1
+"WA","17-25",893,"Fixed camera systems","Unknown",30,"January",1
+"WA","17-25",0,"Other","Unknown",30,"January",1
+"WA","26-39",471,"Fixed camera systems","Unknown",30,"January",1
+"WA","26-39",4272,"Fixed camera systems","Unknown",30,"January",1
+"WA","26-39",9352,"Mobile camera","Unknown",30,"January",1
+"WA","26-39",1913,"Police issued","Unknown",30,"January",1
+"WA","26-39",3494,"Fixed camera systems","Unknown",30,"January",1
+"WA","26-39",0,"Other","Unknown",30,"January",1
+"WA","40-64",546,"Fixed camera systems","Unknown",30,"January",1
+"WA","40-64",6412,"Fixed camera systems","Unknown",30,"January",1
+"WA","40-64",13530,"Mobile camera","Unknown",30,"January",1
+"WA","40-64",2201,"Police issued","Unknown",30,"January",1
+"WA","40-64",7450,"Fixed camera systems","Unknown",30,"January",1
+"WA","40-64",0,"Other","Unknown",30,"January",1
+"WA","65 and over",85,"Fixed camera systems","Unknown",30,"January",1
+"WA","65 and over",1618,"Fixed camera systems","Unknown",30,"January",1
+"WA","65 and over",3317,"Mobile camera","Unknown",30,"January",1
+"WA","65 and over",401,"Police issued","Unknown",30,"January",1
+"WA","65 and over",2027,"Fixed camera systems","Unknown",30,"January",1
+"WA","65 and over",0,"Other","Unknown",30,"January",1
+"WA","Unknown",11,"Fixed camera systems","Unknown",30,"January",1
+"WA","Unknown",17,"Mobile camera","Unknown",30,"January",1
+"WA","Unknown",12,"Fixed camera systems","Unknown",30,"January",1
+"WA","17-25",251,"Fixed camera systems","Unknown",27,"February",2
+"WA","17-25",1052,"Fixed camera systems","Unknown",27,"February",2
+"WA","17-25",5145,"Mobile camera","Unknown",27,"February",2
+"WA","17-25",839,"Police issued","Unknown",27,"February",2
+"WA","17-25",801,"Fixed camera systems","Unknown",27,"February",2
+"WA","17-25",0,"Other","Unknown",27,"February",2
+"WA","26-39",604,"Fixed camera systems","Unknown",27,"February",2
+"WA","26-39",3597,"Fixed camera systems","Unknown",27,"February",2
+"WA","26-39",13069,"Mobile camera","Unknown",27,"February",2
+"WA","26-39",1511,"Police issued","Unknown",27,"February",2
+"WA","26-39",2795,"Fixed camera systems","Unknown",27,"February",2
+"WA","26-39",0,"Other","Unknown",27,"February",2
+"WA","40-64",609,"Fixed camera systems","Unknown",27,"February",2
+"WA","40-64",5241,"Fixed camera systems","Unknown",27,"February",2
+"WA","40-64",19349,"Mobile camera","Unknown",27,"February",2
+"WA","40-64",1808,"Police issued","Unknown",27,"February",2
+"WA","40-64",5845,"Fixed camera systems","Unknown",27,"February",2
+"WA","40-64",0,"Other","Unknown",27,"February",2
+"WA","65 and over",112,"Fixed camera systems","Unknown",27,"February",2
+"WA","65 and over",1323,"Fixed camera systems","Unknown",27,"February",2
+"WA","65 and over",4878,"Mobile camera","Unknown",27,"February",2
+"WA","65 and over",348,"Police issued","Unknown",27,"February",2
+"WA","65 and over",1464,"Fixed camera systems","Unknown",27,"February",2
+"WA","65 and over",0,"Other","Unknown",27,"February",2
+"WA","Unknown",3,"Fixed camera systems","Unknown",27,"February",2
+"WA","Unknown",11,"Fixed camera systems","Unknown",27,"February",2
+"WA","Unknown",29,"Mobile camera","Unknown",27,"February",2
+"WA","Unknown",3,"Fixed camera systems","Unknown",27,"February",2
+"WA","0-16",0,"Other","Unknown",30,"March",3
+"WA","17-25",266,"Fixed camera systems","Unknown",30,"March",3
+"WA","17-25",1178,"Fixed camera systems","Unknown",30,"March",3
+"WA","17-25",4505,"Mobile camera","Unknown",30,"March",3
+"WA","17-25",695,"Police issued","Unknown",30,"March",3
+"WA","17-25",915,"Fixed camera systems","Unknown",30,"March",3
+"WA","17-25",0,"Other","Unknown",30,"March",3
+"WA","26-39",631,"Fixed camera systems","Unknown",30,"March",3
+"WA","26-39",3463,"Fixed camera systems","Unknown",30,"March",3
+"WA","26-39",11506,"Mobile camera","Unknown",30,"March",3
+"WA","26-39",1495,"Police issued","Unknown",30,"March",3
+"WA","26-39",3087,"Fixed camera systems","Unknown",30,"March",3
+"WA","26-39",0,"Other","Unknown",30,"March",3
+"WA","40-64",673,"Fixed camera systems","Unknown",30,"March",3
+"WA","40-64",5077,"Fixed camera systems","Unknown",30,"March",3
+"WA","40-64",16622,"Mobile camera","Unknown",30,"March",3
+"WA","40-64",1719,"Police issued","Unknown",30,"March",3
+"WA","40-64",6471,"Fixed camera systems","Unknown",30,"March",3
+"WA","40-64",0,"Other","Unknown",30,"March",3
+"WA","65 and over",123,"Fixed camera systems","Unknown",30,"March",3
+"WA","65 and over",1210,"Fixed camera systems","Unknown",30,"March",3
+"WA","65 and over",4273,"Mobile camera","Unknown",30,"March",3
+"WA","65 and over",333,"Police issued","Unknown",30,"March",3
+"WA","65 and over",1685,"Fixed camera systems","Unknown",30,"March",3
+"WA","65 and over",0,"Other","Unknown",30,"March",3
+"WA","Unknown",1,"Fixed camera systems","Unknown",30,"March",3
+"WA","Unknown",13,"Fixed camera systems","Unknown",30,"March",3
+"WA","Unknown",16,"Mobile camera","Unknown",30,"March",3
+"WA","Unknown",7,"Fixed camera systems","Unknown",30,"March",3
+"WA","0-16",2,"Mobile camera","Unknown",29,"April",4
+"WA","0-16",0,"Other","Unknown",29,"April",4
+"WA","17-25",228,"Fixed camera systems","Unknown",29,"April",4
+"WA","17-25",1103,"Fixed camera systems","Unknown",29,"April",4
+"WA","17-25",4984,"Mobile camera","Unknown",29,"April",4
+"WA","17-25",713,"Police issued","Unknown",29,"April",4
+"WA","17-25",853,"Fixed camera systems","Unknown",29,"April",4
+"WA","17-25",0,"Other","Unknown",29,"April",4
+"WA","26-39",550,"Fixed camera systems","Unknown",29,"April",4
+"WA","26-39",3564,"Fixed camera systems","Unknown",29,"April",4
+"WA","26-39",12026,"Mobile camera","Unknown",29,"April",4
+"WA","26-39",1497,"Police issued","Unknown",29,"April",4
+"WA","26-39",3212,"Fixed camera systems","Unknown",29,"April",4
+"WA","26-39",0,"Other","Unknown",29,"April",4
+"WA","40-64",589,"Fixed camera systems","Unknown",29,"April",4
+"WA","40-64",5067,"Fixed camera systems","Unknown",29,"April",4
+"WA","40-64",17048,"Mobile camera","Unknown",29,"April",4
+"WA","40-64",1728,"Police issued","Unknown",29,"April",4
+"WA","40-64",6593,"Fixed camera systems","Unknown",29,"April",4
+"WA","40-64",0,"Other","Unknown",29,"April",4
+"WA","65 and over",104,"Fixed camera systems","Unknown",29,"April",4
+"WA","65 and over",1152,"Fixed camera systems","Unknown",29,"April",4
+"WA","65 and over",4021,"Mobile camera","Unknown",29,"April",4
+"WA","65 and over",329,"Police issued","Unknown",29,"April",4
+"WA","65 and over",1745,"Fixed camera systems","Unknown",29,"April",4
+"WA","65 and over",0,"Other","Unknown",29,"April",4
+"WA","Unknown",1,"Fixed camera systems","Unknown",29,"April",4
+"WA","Unknown",7,"Fixed camera systems","Unknown",29,"April",4
+"WA","Unknown",21,"Mobile camera","Unknown",29,"April",4
+"WA","Unknown",5,"Fixed camera systems","Unknown",29,"April",4
+"WA","0-16",1,"Fixed camera systems","Unknown",30,"May",5
+"WA","0-16",0,"Other","Unknown",30,"May",5
+"WA","17-25",218,"Fixed camera systems","Unknown",30,"May",5
+"WA","17-25",866,"Fixed camera systems","Unknown",30,"May",5
+"WA","17-25",4485,"Mobile camera","Unknown",30,"May",5
+"WA","17-25",787,"Police issued","Unknown",30,"May",5
+"WA","17-25",871,"Fixed camera systems","Unknown",30,"May",5
+"WA","17-25",0,"Other","Unknown",30,"May",5
+"WA","26-39",409,"Fixed camera systems","Unknown",30,"May",5
+"WA","26-39",2950,"Fixed camera systems","Unknown",30,"May",5
+"WA","26-39",10393,"Mobile camera","Unknown",30,"May",5
+"WA","26-39",1524,"Police issued","Unknown",30,"May",5
+"WA","26-39",3091,"Fixed camera systems","Unknown",30,"May",5
+"WA","26-39",0,"Other","Unknown",30,"May",5
+"WA","40-64",504,"Fixed camera systems","Unknown",30,"May",5
+"WA","40-64",4226,"Fixed camera systems","Unknown",30,"May",5
+"WA","40-64",15404,"Mobile camera","Unknown",30,"May",5
+"WA","40-64",1756,"Police issued","Unknown",30,"May",5
+"WA","40-64",6253,"Fixed camera systems","Unknown",30,"May",5
+"WA","40-64",0,"Other","Unknown",30,"May",5
+"WA","65 and over",95,"Fixed camera systems","Unknown",30,"May",5
+"WA","65 and over",1038,"Fixed camera systems","Unknown",30,"May",5
+"WA","65 and over",3762,"Mobile camera","Unknown",30,"May",5
+"WA","65 and over",351,"Police issued","Unknown",30,"May",5
+"WA","65 and over",1630,"Fixed camera systems","Unknown",30,"May",5
+"WA","65 and over",0,"Other","Unknown",30,"May",5
+"WA","Unknown",5,"Fixed camera systems","Unknown",30,"May",5
+"WA","Unknown",9,"Fixed camera systems","Unknown",30,"May",5
+"WA","Unknown",17,"Mobile camera","Unknown",30,"May",5
+"WA","Unknown",10,"Fixed camera systems","Unknown",30,"May",5
+"WA","0-16",1,"Fixed camera systems","Unknown",29,"June",6
+"WA","0-16",2,"Mobile camera","Unknown",29,"June",6
+"WA","17-25",180,"Fixed camera systems","Unknown",29,"June",6
+"WA","17-25",842,"Fixed camera systems","Unknown",29,"June",6
+"WA","17-25",3888,"Mobile camera","Unknown",29,"June",6
+"WA","17-25",787,"Police issued","Unknown",29,"June",6
+"WA","17-25",678,"Fixed camera systems","Unknown",29,"June",6
+"WA","17-25",0,"Other","Unknown",29,"June",6
+"WA","26-39",440,"Fixed camera systems","Unknown",29,"June",6
+"WA","26-39",2652,"Fixed camera systems","Unknown",29,"June",6
+"WA","26-39",9339,"Mobile camera","Unknown",29,"June",6
+"WA","26-39",1449,"Police issued","Unknown",29,"June",6
+"WA","26-39",2290,"Fixed camera systems","Unknown",29,"June",6
+"WA","26-39",0,"Other","Unknown",29,"June",6
+"WA","40-64",498,"Fixed camera systems","Unknown",29,"June",6
+"WA","40-64",4038,"Fixed camera systems","Unknown",29,"June",6
+"WA","40-64",13549,"Mobile camera","Unknown",29,"June",6
+"WA","40-64",1647,"Police issued","Unknown",29,"June",6
+"WA","40-64",4600,"Fixed camera systems","Unknown",29,"June",6
+"WA","40-64",0,"Other","Unknown",29,"June",6
+"WA","65 and over",100,"Fixed camera systems","Unknown",29,"June",6
+"WA","65 and over",916,"Fixed camera systems","Unknown",29,"June",6
+"WA","65 and over",3301,"Mobile camera","Unknown",29,"June",6
+"WA","65 and over",322,"Police issued","Unknown",29,"June",6
+"WA","65 and over",1176,"Fixed camera systems","Unknown",29,"June",6
+"WA","65 and over",0,"Other","Unknown",29,"June",6
+"WA","Unknown",5,"Fixed camera systems","Unknown",29,"June",6
+"WA","Unknown",14,"Mobile camera","Unknown",29,"June",6
+"WA","Unknown",5,"Fixed camera systems","Unknown",29,"June",6
+"WA","0-16",1,"Fixed camera systems","Unknown",30,"July",7
+"WA","0-16",1,"Mobile camera","Unknown",30,"July",7
+"WA","0-16",1,"Fixed camera systems","Unknown",30,"July",7
+"WA","0-16",0,"Other","Unknown",30,"July",7
+"WA","17-25",205,"Fixed camera systems","Unknown",30,"July",7
+"WA","17-25",969,"Fixed camera systems","Unknown",30,"July",7
+"WA","17-25",5380,"Mobile camera","Unknown",30,"July",7
+"WA","17-25",625,"Police issued","Unknown",30,"July",7
+"WA","17-25",1069,"Fixed camera systems","Unknown",30,"July",7
+"WA","17-25",0,"Other","Unknown",30,"July",7
+"WA","26-39",502,"Fixed camera systems","Unknown",30,"July",7
+"WA","26-39",2879,"Fixed camera systems","Unknown",30,"July",7
+"WA","26-39",12534,"Mobile camera","Unknown",30,"July",7
+"WA","26-39",1217,"Police issued","Unknown",30,"July",7
+"WA","26-39",3611,"Fixed camera systems","Unknown",30,"July",7
+"WA","26-39",0,"Other","Unknown",30,"July",7
+"WA","40-64",551,"Fixed camera systems","Unknown",30,"July",7
+"WA","40-64",4582,"Fixed camera systems","Unknown",30,"July",7
+"WA","40-64",18163,"Mobile camera","Unknown",30,"July",7
+"WA","40-64",1460,"Police issued","Unknown",30,"July",7
+"WA","40-64",7979,"Fixed camera systems","Unknown",30,"July",7
+"WA","40-64",0,"Other","Unknown",30,"July",7
+"WA","65 and over",118,"Fixed camera systems","Unknown",30,"July",7
+"WA","65 and over",1072,"Fixed camera systems","Unknown",30,"July",7
+"WA","65 and over",4116,"Mobile camera","Unknown",30,"July",7
+"WA","65 and over",284,"Police issued","Unknown",30,"July",7
+"WA","65 and over",2512,"Fixed camera systems","Unknown",30,"July",7
+"WA","65 and over",0,"Other","Unknown",30,"July",7
+"WA","Unknown",4,"Fixed camera systems","Unknown",30,"July",7
+"WA","Unknown",19,"Mobile camera","Unknown",30,"July",7
+"WA","Unknown",5,"Fixed camera systems","Unknown",30,"July",7
+"WA","0-16",2,"Fixed camera systems","Unknown",30,"August",8
+"WA","0-16",1,"Mobile camera","Unknown",30,"August",8
+"WA","0-16",1,"Fixed camera systems","Unknown",30,"August",8
+"WA","0-16",0,"Other","Unknown",30,"August",8
+"WA","17-25",243,"Fixed camera systems","Unknown",30,"August",8
+"WA","17-25",1055,"Fixed camera systems","Unknown",30,"August",8
+"WA","17-25",5751,"Mobile camera","Unknown",30,"August",8
+"WA","17-25",848,"Police issued","Unknown",30,"August",8
+"WA","17-25",963,"Fixed camera systems","Unknown",30,"August",8
+"WA","17-25",0,"Other","Unknown",30,"August",8
+"WA","26-39",581,"Fixed camera systems","Unknown",30,"August",8
+"WA","26-39",2970,"Fixed camera systems","Unknown",30,"August",8
+"WA","26-39",13870,"Mobile camera","Unknown",30,"August",8
+"WA","26-39",1591,"Police issued","Unknown",30,"August",8
+"WA","26-39",3479,"Fixed camera systems","Unknown",30,"August",8
+"WA","26-39",0,"Other","Unknown",30,"August",8
+"WA","40-64",623,"Fixed camera systems","Unknown",30,"August",8
+"WA","40-64",4809,"Fixed camera systems","Unknown",30,"August",8
+"WA","40-64",19806,"Mobile camera","Unknown",30,"August",8
+"WA","40-64",1909,"Police issued","Unknown",30,"August",8
+"WA","40-64",7557,"Fixed camera systems","Unknown",30,"August",8
+"WA","40-64",0,"Other","Unknown",30,"August",8
+"WA","65 and over",97,"Fixed camera systems","Unknown",30,"August",8
+"WA","65 and over",1191,"Fixed camera systems","Unknown",30,"August",8
+"WA","65 and over",4523,"Mobile camera","Unknown",30,"August",8
+"WA","65 and over",360,"Police issued","Unknown",30,"August",8
+"WA","65 and over",2251,"Fixed camera systems","Unknown",30,"August",8
+"WA","65 and over",0,"Other","Unknown",30,"August",8
+"WA","Unknown",1,"Fixed camera systems","Unknown",30,"August",8
+"WA","Unknown",4,"Fixed camera systems","Unknown",30,"August",8
+"WA","Unknown",12,"Mobile camera","Unknown",30,"August",8
+"WA","Unknown",2,"Police issued","Unknown",30,"August",8
+"WA","Unknown",5,"Fixed camera systems","Unknown",30,"August",8
+"WA","0-16",2,"Mobile camera","Unknown",29,"September",9
+"WA","0-16",1,"Fixed camera systems","Unknown",29,"September",9
+"WA","0-16",0,"Other","Unknown",29,"September",9
+"WA","17-25",159,"Fixed camera systems","Unknown",29,"September",9
+"WA","17-25",802,"Fixed camera systems","Unknown",29,"September",9
+"WA","17-25",6221,"Mobile camera","Unknown",29,"September",9
+"WA","17-25",765,"Police issued","Unknown",29,"September",9
+"WA","17-25",1069,"Fixed camera systems","Unknown",29,"September",9
+"WA","17-25",0,"Other","Unknown",29,"September",9
+"WA","26-39",385,"Fixed camera systems","Unknown",29,"September",9
+"WA","26-39",2514,"Fixed camera systems","Unknown",29,"September",9
+"WA","26-39",14314,"Mobile camera","Unknown",29,"September",9
+"WA","26-39",1234,"Police issued","Unknown",29,"September",9
+"WA","26-39",3557,"Fixed camera systems","Unknown",29,"September",9
+"WA","26-39",0,"Other","Unknown",29,"September",9
+"WA","40-64",418,"Fixed camera systems","Unknown",29,"September",9
+"WA","40-64",3824,"Fixed camera systems","Unknown",29,"September",9
+"WA","40-64",19385,"Mobile camera","Unknown",29,"September",9
+"WA","40-64",1541,"Police issued","Unknown",29,"September",9
+"WA","40-64",7520,"Fixed camera systems","Unknown",29,"September",9
+"WA","40-64",0,"Other","Unknown",29,"September",9
+"WA","65 and over",90,"Fixed camera systems","Unknown",29,"September",9
+"WA","65 and over",940,"Fixed camera systems","Unknown",29,"September",9
+"WA","65 and over",4267,"Mobile camera","Unknown",29,"September",9
+"WA","65 and over",295,"Police issued","Unknown",29,"September",9
+"WA","65 and over",2202,"Fixed camera systems","Unknown",29,"September",9
+"WA","65 and over",0,"Other","Unknown",29,"September",9
+"WA","Unknown",1,"Fixed camera systems","Unknown",29,"September",9
+"WA","Unknown",2,"Fixed camera systems","Unknown",29,"September",9
+"WA","Unknown",11,"Mobile camera","Unknown",29,"September",9
+"WA","Unknown",4,"Fixed camera systems","Unknown",29,"September",9
+"WA","0-16",1,"Fixed camera systems","Unknown",30,"October",10
+"WA","0-16",5,"Mobile camera","Unknown",30,"October",10
+"WA","0-16",2,"Police issued","Unknown",30,"October",10
+"WA","0-16",1,"Fixed camera systems","Unknown",30,"October",10
+"WA","0-16",0,"Other","Unknown",30,"October",10
+"WA","17-25",213,"Fixed camera systems","Unknown",30,"October",10
+"WA","17-25",947,"Fixed camera systems","Unknown",30,"October",10
+"WA","17-25",6665,"Mobile camera","Unknown",30,"October",10
+"WA","17-25",799,"Police issued","Unknown",30,"October",10
+"WA","17-25",1091,"Fixed camera systems","Unknown",30,"October",10
+"WA","17-25",0,"Other","Unknown",30,"October",10
+"WA","26-39",423,"Fixed camera systems","Unknown",30,"October",10
+"WA","26-39",2876,"Fixed camera systems","Unknown",30,"October",10
+"WA","26-39",15185,"Mobile camera","Unknown",30,"October",10
+"WA","26-39",1423,"Police issued","Unknown",30,"October",10
+"WA","26-39",3511,"Fixed camera systems","Unknown",30,"October",10
+"WA","26-39",0,"Other","Unknown",30,"October",10
+"WA","40-64",544,"Fixed camera systems","Unknown",30,"October",10
+"WA","40-64",4227,"Fixed camera systems","Unknown",30,"October",10
+"WA","40-64",20374,"Mobile camera","Unknown",30,"October",10
+"WA","40-64",1685,"Police issued","Unknown",30,"October",10
+"WA","40-64",7845,"Fixed camera systems","Unknown",30,"October",10
+"WA","40-64",0,"Other","Unknown",30,"October",10
+"WA","65 and over",113,"Fixed camera systems","Unknown",30,"October",10
+"WA","65 and over",1084,"Fixed camera systems","Unknown",30,"October",10
+"WA","65 and over",4457,"Mobile camera","Unknown",30,"October",10
+"WA","65 and over",340,"Police issued","Unknown",30,"October",10
+"WA","65 and over",2378,"Fixed camera systems","Unknown",30,"October",10
+"WA","65 and over",0,"Other","Unknown",30,"October",10
+"WA","Unknown",5,"Fixed camera systems","Unknown",30,"October",10
+"WA","Unknown",19,"Mobile camera","Unknown",30,"October",10
+"WA","Unknown",4,"Fixed camera systems","Unknown",30,"October",10
+"WA","0-16",1,"Fixed camera systems","Unknown",29,"November",11
+"WA","0-16",1,"Mobile camera","Unknown",29,"November",11
+"WA","0-16",1,"Police issued","Unknown",29,"November",11
+"WA","0-16",1,"Fixed camera systems","Unknown",29,"November",11
+"WA","17-25",340,"Fixed camera systems","Unknown",29,"November",11
+"WA","17-25",940,"Fixed camera systems","Unknown",29,"November",11
+"WA","17-25",4980,"Mobile camera","Unknown",29,"November",11
+"WA","17-25",818,"Police issued","Unknown",29,"November",11
+"WA","17-25",1030,"Fixed camera systems","Unknown",29,"November",11
+"WA","17-25",0,"Other","Unknown",29,"November",11
+"WA","26-39",584,"Fixed camera systems","Unknown",29,"November",11
+"WA","26-39",2682,"Fixed camera systems","Unknown",29,"November",11
+"WA","26-39",11613,"Mobile camera","Unknown",29,"November",11
+"WA","26-39",1484,"Police issued","Unknown",29,"November",11
+"WA","26-39",3579,"Fixed camera systems","Unknown",29,"November",11
+"WA","26-39",0,"Other","Unknown",29,"November",11
+"WA","40-64",740,"Fixed camera systems","Unknown",29,"November",11
+"WA","40-64",3846,"Fixed camera systems","Unknown",29,"November",11
+"WA","40-64",16146,"Mobile camera","Unknown",29,"November",11
+"WA","40-64",1652,"Police issued","Unknown",29,"November",11
+"WA","40-64",7383,"Fixed camera systems","Unknown",29,"November",11
+"WA","40-64",0,"Other","Unknown",29,"November",11
+"WA","65 and over",97,"Fixed camera systems","Unknown",29,"November",11
+"WA","65 and over",942,"Fixed camera systems","Unknown",29,"November",11
+"WA","65 and over",3567,"Mobile camera","Unknown",29,"November",11
+"WA","65 and over",343,"Police issued","Unknown",29,"November",11
+"WA","65 and over",2304,"Fixed camera systems","Unknown",29,"November",11
+"WA","65 and over",0,"Other","Unknown",29,"November",11
+"WA","Unknown",2,"Fixed camera systems","Unknown",29,"November",11
+"WA","Unknown",7,"Fixed camera systems","Unknown",29,"November",11
+"WA","Unknown",13,"Mobile camera","Unknown",29,"November",11
+"WA","Unknown",7,"Fixed camera systems","Unknown",29,"November",11
+"WA","0-16",4,"Mobile camera","Unknown",30,"December",12
+"WA","17-25",264,"Fixed camera systems","Unknown",30,"December",12
+"WA","17-25",1065,"Fixed camera systems","Unknown",30,"December",12
+"WA","17-25",4822,"Mobile camera","Unknown",30,"December",12
+"WA","17-25",562,"Police issued","Unknown",30,"December",12
+"WA","17-25",1071,"Fixed camera systems","Unknown",30,"December",12
+"WA","17-25",0,"Other","Unknown",30,"December",12
+"WA","26-39",505,"Fixed camera systems","Unknown",30,"December",12
+"WA","26-39",3353,"Fixed camera systems","Unknown",30,"December",12
+"WA","26-39",12015,"Mobile camera","Unknown",30,"December",12
+"WA","26-39",1124,"Police issued","Unknown",30,"December",12
+"WA","26-39",3840,"Fixed camera systems","Unknown",30,"December",12
+"WA","26-39",0,"Other","Unknown",30,"December",12
+"WA","40-64",592,"Fixed camera systems","Unknown",30,"December",12
+"WA","40-64",5074,"Fixed camera systems","Unknown",30,"December",12
+"WA","40-64",16724,"Mobile camera","Unknown",30,"December",12
+"WA","40-64",1260,"Police issued","Unknown",30,"December",12
+"WA","40-64",8220,"Fixed camera systems","Unknown",30,"December",12
+"WA","40-64",0,"Other","Unknown",30,"December",12
+"WA","65 and over",104,"Fixed camera systems","Unknown",30,"December",12
+"WA","65 and over",1347,"Fixed camera systems","Unknown",30,"December",12
+"WA","65 and over",4121,"Mobile camera","Unknown",30,"December",12
+"WA","65 and over",235,"Police issued","Unknown",30,"December",12
+"WA","65 and over",2610,"Fixed camera systems","Unknown",30,"December",12
+"WA","65 and over",0,"Other","Unknown",30,"December",12
+"WA","Unknown",6,"Fixed camera systems","Unknown",30,"December",12
+"WA","Unknown",9,"Mobile camera","Unknown",30,"December",12
+"WA","Unknown",2,"Police issued","Unknown",30,"December",12
+"WA","Unknown",6,"Fixed camera systems","Unknown",30,"December",12

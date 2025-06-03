@@ -1,37 +1,35 @@
+/* Custom styles for age group chart */
+
+/* Container size adjustments */
+#age-groups-chart-container {
+    height: auto;
+    min-width: 100%;
+}
+
+/* Chart specific adjustments */
 #age-groups-chart {
-    width: 100%;
-    max-width: 1000px; /* Increase max width */
-    margin: 0 auto; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+    min-height: 300px !important;
+    height: 300px;
+}
+
+/* SVG adjustments for the age group chart */
+#age-groups-chart svg {
+    max-height: 300px;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Legend styles */
+.legend text {
+    fill: #333;
     font-family: Arial, sans-serif;
 }
 
-#age-groups-chart svg {
-    width: 100%;
-    height: 100%;
+.legend rect {
+    stroke: none;
 }
 
-.bar {
-    transition: opacity 0.2s;
-}
-
-.bar:hover {
-    opacity: 0.8;
-}
-
-.grid line {
-    stroke: #e0e0e0;
-    stroke-dasharray: 2,2;
-}
-
-.axis text {
-    fill: #555;
-}
-
-.axis path,
-.axis line {
-    stroke: #ccc;
+/* Value label styles */
+.value-label {
+    font-weight: normal;
 }

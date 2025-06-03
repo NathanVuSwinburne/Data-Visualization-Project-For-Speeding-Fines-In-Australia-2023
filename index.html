@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speeding Dashboard</title>
     
-    <!-- Modular CSS files -->
+    <!-- Load Select2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/trend-chart.css">
     <link rel="stylesheet" href="css/location-chart.css">
@@ -19,10 +20,14 @@
     
     <!-- D3.js -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    
+    <!-- jQuery and Select2 JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 <body>
     <header>
-        <h1>Speeding Dashboard</h1>
+        <h1>2023 Speeding Dashboard</h1>
     </header>
     
     <div class="dashboard-container">
@@ -30,19 +35,19 @@
         <section class="kpi-section">
             <div class="kpi-card" id="total-fines">
                 <h3>Total fines</h3>
-                <div class="kpi-value">4,236,133</div>
+                <div class="kpi-value">Null</div>
             </div>
             <div class="kpi-card" id="highest-month">
                 <h3>Peak month</h3>
-                <div class="kpi-value">January</div>
+                <div class="kpi-value">Null</div>
             </div>
             <div class="kpi-card" id="highest-jurisdiction">
                 <h3>Top Jurisdiction</h3>
-                <div class="kpi-value">VIC</div>
+                <div class="kpi-value">Null</div>
             </div>
             <div class="kpi-card" id="top-age-group">
                 <h3>Top Age Group</h3>
-                <div class="kpi-value">40-64</div>
+                <div class="kpi-value">Null</div>
             </div>
         </section>
         
@@ -51,58 +56,60 @@
             <h3>FILTERS</h3>
             <div class="filter">
                 <label for="month-filter">Month:</label>
-                <select id="month-filter">
-                    <option value="all">All Months</option>
+                <select id="month-filter" multiple="multiple" style="width: 100%;">
+                    <!-- Will be populated by JavaScript -->
                 </select>
             </div>
             <div class="filter">
-                <label for="jurisdiction-filter">Jurisdiction</label>
-                <select id="jurisdiction-filter">
-                    <option value="all">All Jurisdictions</option>
+                <label for="jurisdiction-filter">Jurisdiction:</label>
+                <select id="jurisdiction-filter" multiple="multiple" style="width: 100%;">
+                    <!-- Will be populated by JavaScript -->
                 </select>
             </div>
             <div class="filter">
                 <label for="age-group-filter">Age Group:</label>
-                <select id="age-group-filter">
-                    <option value="all">All Age Groups</option>
+                <select id="age-group-filter" multiple="multiple" style="width: 100%;">
+                    <!-- Will be populated by JavaScript -->
                 </select>
             </div>
-            <button id="reset-filters">RESET FILTERS</button>
-            <div class="empty-space"></div>
+            <button id="reset-filters" class="btn">RESET FILTERS</button>
+            
         </section>
         
-        <!-- Line Chart (Trend) -->
+        <!--Trend Chart -->
         <section class="trend-chart-container">
             <div class="chart-container">
-                <h3>TREND OF FINES OVER MONTH</h3>
+                <h3>TREND OF FINES OVER MONTHS IN 2023</h3>
                 <div id="monthly-trend-chart" class="chart"></div>
             </div>
         </section>
         
-        <!-- Middle Row - Bar Charts -->
-        <section class="bar-charts-container">
-            <!-- Location Chart - Left -->
-            <div class="chart-container">
-                <h3>FINES BY LOCATION</h3>
-                <div id="location-chart" class="chart"></div>
-            </div>
-            
-            <!-- Jurisdictions Chart - Right -->
+        <!-- Jurisdictions Chart -->
+        <section id="jurisdiction-chart-container">
             <div class="chart-container">
                 <h3>TOTAL SPEEDING FINES BY JURISDICTION</h3>
                 <div id="jurisdiction-chart" class="chart"></div>
             </div>
         </section>
         
-        <!-- Bottom Row - Pie Chart and Bar Chart -->
-        <section class="bottom-charts-container">
-            <!-- Detection Method Chart - Left (Pie) -->
+        <!-- Location Chart -->
+        <section id="location-chart-container">
+            <div class="chart-container">
+                <h3>TOTAL FINES BY LOCATION</h3>
+                <div id="location-chart" class="chart"></div>
+            </div>
+        </section>
+        
+        <!-- Detection Method Chart -->
+        <section id="detection-method-chart-container">
             <div class="chart-container">
                 <h3>DETECTION METHODS</h3>
                 <div id="detection-method-chart" class="chart"></div>
             </div>
-            
-            <!-- Age Groups Chart - Right (Bar) -->
+        </section>
+        
+        <!-- Age Groups Chart -->
+        <section id="age-groups-chart-container">
             <div class="chart-container">
                 <h3>FINE BY AGE GROUP</h3>
                 <div id="age-groups-chart" class="chart"></div>
@@ -116,15 +123,18 @@
 
     <!-- Load data module first -->
     <script src="js/load_data.js"></script>
-    
+
     <!-- Load visualization modules -->
     <script src="js/Trend_of_Speeding_Fines_Over_Months.js"></script>
     <script src="js/Total_Speeding_Fines_by_Jurisdiction.js"></script>
     <script src="js/Speeding_Fines_by_Detection_Method.js"></script>
     <script src="js/Number_of_Fines_Across_Age_Groups.js"></script>
     <script src="js/Number_of_Speeding_Fines_by_Location.js"></script>
-    
+
+    <!-- Load interactions (simplified) -->
+    <script src="js/interactions.js"></script>
+
     <!-- Then load dashboard that uses all the modules -->
     <script src="js/dashboard.js"></script>
 </body>
-</html> 
+</html>

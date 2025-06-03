@@ -26,16 +26,24 @@
     --chart-color5: #2ecc71; /* Green */
     --chart-color6: #e056fd; /* Pink */
     --chart-color7: #95a5a6; /* Gray */
+    --tooltip-bg: rgba(0, 0, 0, 0.8);
+    --tooltip-text: #ffffff;
 }
 
 /* Body styles */
 html, body {
     height: 100%;
-    overflow: hidden; /* Prevent scrolling on the body */
+    min-height: 100vh; /* Ensure full viewport height */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     background-color: var(--background-color);
     color: var(--filter-text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    width: 100%;
 }
 
 /* Header styles */
@@ -56,20 +64,23 @@ header h1 {
 /* Dashboard grid layout */
 .dashboard-container {
     display: grid;
-    grid-template-columns: 200px 1fr;
-    grid-template-rows: 70px minmax(205px, 26vh) minmax(208px, 26vh) minmax(208px, 26vh); /* Adjusted row heights */
-    /*grid-template-rows: 70px minmax(250px, 28vh) minmax(220px, 28vh) minmax(220px, 28vh); /* Increased row heights for charts */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 70px minmax(205px, auto) minmax(300px, auto) minmax(250px, auto);
     grid-template-areas:
-        "kpi kpi"         /* KPI cards span full width */
-        "filters trend"    /* Filters on left, trend chart on right */
-        "filters bars"     /* Filters on left, bar charts on right */
-        "filters bottom";  /* Filters on left, bottom charts on right */
+        "kpi kpi"
+        "trend trend"
+        "jurisdiction location"
+        "detection age";
     gap: 4px;
     padding: 4px;
     margin: 0 auto;
-    height: calc(100vh - 60px);
-    overflow: auto; /* Allow scrolling within the dashboard if needed */
-    max-width: 1580px;
+    min-height: calc(100vh - 60px);
+    height: auto;
+    overflow: visible;
+    max-width: 1600px;  /* Reduced max-width */
+    flex: 1 0 auto;
+    margin-left: 340px;
+    width: calc(100vw - 380px); /* Account for left margin and some padding */
 }
 
 /* KPI section */
@@ -107,25 +118,37 @@ header h1 {
 
 /* KPI card value */
 .kpi-value {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: bold;
     color: var(--text-color);
     text-align: center;
-    width: 100%;
+    width: 200%;
 }
 
 /* Filters section */
 .filters-section {
-    grid-area: filters;
-    background-color: var(--card-bg-color); /* Changed from background-color to white */
-    border-radius: 5px;
-    padding: 6px;
+    position: fixed;
+    left: 0;
+    top: -50px; /* Initially off-screen (above the viewport). JS will change this. Assumes panel height won't exceed this. */
+    width: 300px; /* Fixed width for the floating panel */
+    height: auto; /* Height adjusts to content */
+    bottom: 50px;
+    
+    background-color: var(--card-bg-color); /* Or var(--filter-bg-color) if more suitable */
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* More pronounced shadow for floating element */
+    
     display: flex;
     flex-direction: column;
-    height: 100%;
-    width: 100%;
-    border: 1px solid var(--border-color); /* Added border to match other containers */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Added box-shadow to match other containers */
+    
+    z-index: 1020; /* Ensure it's above other content */
+    transition: top 0.4s ease-in-out, transform 0.3s ease; /* Animate 'top' for vertical slide */
+}
+
+.filters-section:hover {
+    transform: translateY(-6px); /* Slight lift on hover, like the example */
 }
 
 /* Filter container */
@@ -150,12 +173,12 @@ header h1 {
 /* Hamburger icon */
 .filters-section h3:after {
     content: "≡";
-    margin-left: 8px; /* Reduced from 10px */
+    margin-left: 169px; /* Reduced from 10px */
 }
 
 /* Filter group */
 .filter {
-    margin-bottom: 10px; 
+    margin-bottom: 4px; 
     padding: 0 4px; 
 }
 
@@ -181,18 +204,71 @@ header h1 {
     background-size: 12px;
 }
 
-/* Reset filters button */
-button#reset-filters {
+/* Select2 Dropdown Styling */
+.select2-container {
+    width: 100% !important;
+    margin-bottom: 10px;
+}
+
+.select2-container--default .select2-selection--multiple {
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    min-height: 38px;
+    padding: 2px 5px;
+    background-color: var(--filter-bg-color);
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 0.2rem rgba(22, 181, 189, 0.25);
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+    color: white;
+    border-radius: 4px;
+    padding: 0 8px;
+    margin-top: 4px;
+    margin-right: 5px;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    color: white;
+    margin-right: 5px;
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    padding-right: 5px;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover {
+    color: #e0e0e0;
+    background-color: transparent;
+}
+
+.select2-container--default .select2-search--inline .select2-search__field {
+    margin-top: 6px;
+}
+
+/* Reset button */
+#reset-filters {
     background-color: var(--secondary-color);
     color: white;
     border: none;
-    padding: 7px 10px;
     border-radius: 4px;
+    padding: 8px 16px;
     cursor: pointer;
-    width: calc(100% - 8px); /* Adjusted width to account for padding */
-    margin: 6px 4px;
-    text-transform: uppercase;
     font-weight: bold;
+    width: 100%;
+    margin-top: 5px;
+    transition: background-color 0.2s;
+}
+
+#reset-filters:hover {
+    background-color: #0d9aa0;
+}
+
+#reset-filters:active {
+    transform: translateY(1px);
 }
 
 /* Empty space */
@@ -212,23 +288,31 @@ button#reset-filters {
     height: 100%;
 }
 
-/* Middle row with two bar charts */
-.bar-charts-container {
-    grid-area: bars;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4px; /* Reduced from 5px */
-    margin-bottom: 4px; /* Reduced from 5px */
-    height: 100%;
+/* Individual chart containers */
+#jurisdiction-chart-container {
+    grid-area: jurisdiction;
+    margin-bottom: 4px;
+    min-height: 370px;
+    height: 200px;
 }
 
-/* Bottom row with pie chart and bar chart */
-.bottom-charts-container {
-    grid-area: bottom;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4px; /* Reduced from 5px */
-    height: 100%;
+#location-chart-container {
+    grid-area: location;
+    margin-bottom: 4px;
+    min-height: 370px;
+    height: 200px;
+}
+
+#detection-method-chart-container {
+    grid-area: detection;
+    min-height: 300px;  /* Decreased from default */
+    height: 300px;
+}
+
+#age-groups-chart-container {
+    grid-area: age;
+    min-height: 300px;  /* Decreased from default */
+    height: 300px;
 }
 
 /* CHART STYLING */
@@ -237,35 +321,14 @@ button#reset-filters {
     background-color: var(--card-bg-color);
     border-radius: 5px;
     padding: 0;
-    box-shadow: 0 2px 8px rgba(27, 21, 21, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border: 1px solid var(--border-color);
     overflow: hidden;
     height: 100%;
     display: flex;
     flex-direction: column;
-    min-height: 0;
-    position: relative;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    transform-origin: center;
-}
-
-.chart-container:hover {
-    transform: scale(1.02);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-    z-index: 10;
-}
-
-/* Responsive hover effects for different screen sizes */
-@media screen and (max-width: 768px) {
-    .chart-container:hover {
-        transform: scale(1.01); /* Smaller scale on mobile */
-    }
-}
-
-@media screen and (min-width: 1200px) {
-    .chart-container:hover {
-        transform: scale(1.03); /* Larger scale on bigger screens */
-    }
+    min-height: 0; /* Allow charts to shrink when needed */
+    position: relative; /* Ensure proper positioning context */
 }
 
 /* Chart headers - teal bars with titles */
@@ -286,22 +349,45 @@ button#reset-filters {
 .chart {
     flex: 1;
     width: 100%;
-    padding: 6px; /* Further reduced from 8px */
+    padding: 12px;
     background: white;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    min-height: 250px; /* Ensure enough height for charts */
+    transition: opacity 0.3s ease-in-out;
+}
+
+.chart-updating {
+    opacity: 0.7;
+    position: relative;
+}
+
+.chart-updating::after {
+    content: "Filtering...";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #333;
+    z-index: 100;
+    pointer-events: none;
 }
 
 /* Make SVG elements responsive with more precise sizing */
 .chart svg {
     width: 100% !important;
     height: 100% !important;
-    max-height: calc(100% - 2px); /* Prevent touching edges */
-    max-width: calc(100% - 2px); /* Prevent touching edges */
+    max-width: 100%;
+    max-height: 100%;
     display: block; /* Ensure no extra space */
+    aspect-ratio: auto; /* Allow natural proportions */
 }
 
 /* General chart axis styling */
@@ -358,6 +444,11 @@ button#reset-filters {
     text-anchor: middle;
 }
 
+/* Smooth transitions for chart elements */
+.bar, .line, .dot, .arc, .slice {
+    transition: all 0.6s ease-in-out;
+}
+
 /* Tooltip styling */
 .tooltip {
     position: absolute;
@@ -370,15 +461,35 @@ button#reset-filters {
     z-index: 100;
     max-width: 170px; /* Reduced from 180px */
     white-space: normal;
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
 /* FOOTER STYLING */
 footer {
     text-align: center;
-    padding: 4px; /* Reduced from 5px */
-    margin-top: 0;
+    padding: 10px;
+    margin-top: auto; /* Push footer to bottom */
     background-color: var(--primary-color);
     color: white;
-    font-size: 11px; /* Reduced from 12px */
-    height: 20px; /* Reduced from 25px */
+    font-size: 16px;
+    min-height: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Prevent footer from shrinking */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 1600px) {
+  .filters-section {
+    left: 0 !important;
+    margin-left: 8px !important;
+    max-width: calc(100vw - 16px) !important;
+    width: 320px !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    right: auto !important;
+    overflow-x: auto !important;
+  }
 } 
