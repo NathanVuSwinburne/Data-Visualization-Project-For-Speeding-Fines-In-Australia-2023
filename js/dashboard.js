@@ -5,11 +5,36 @@ if (typeof d3 === 'undefined') {
     throw new Error('D3.js is not loaded');
 }
 
-// Store filter state
+// Store filter state with validation methods
 const filterState = {
     month: [],
     jurisdiction: [],
-    ageGroup: []
+    ageGroup: [],
+    
+    // Validate if any filter is empty
+    isValid: function() {
+        return this.month.length > 0 && 
+               this.jurisdiction.length > 0 && 
+               this.ageGroup.length > 0;
+    },
+    
+    // Get default values from raw data
+    getDefaults: function() {
+        return {
+            month: [...new Set(window.rawDashboardData?.map(d => d["Month (Name)"]) || [])],
+            jurisdiction: [...new Set(window.rawDashboardData?.map(d => d.JURISDICTION) || [])],
+            ageGroup: [...new Set(window.rawDashboardData?.map(d => d.AGE_GROUP) || [])]
+                .filter(ag => ag !== "Unknown" && ag !== "0-16")
+        };
+    },
+    
+    // Reset to default values
+    reset: function() {
+        const defaults = this.getDefaults();
+        this.month = defaults.month;
+        this.jurisdiction = defaults.jurisdiction;
+        this.ageGroup = defaults.ageGroup;
+    }
 };
 
 // Initialize Select2 with consistent styling
@@ -143,6 +168,20 @@ window.initDashboard = function() {
         // Add change event listeners - use single listener to avoid conflicts
         $('#month-filter, #jurisdiction-filter, #age-group-filter').on('change', function() {
             console.log('Filter changed:', this.id);
+            
+            // Get current selections
+            const currentSelections = $(this).val() || [];
+            const filterType = this.id.replace('-filter', '');
+            
+            // Prevent removing last element
+            if (currentSelections.length === 0) {
+                alert('You cannot remove the last element');
+                // Revert to previous valid selection
+                $(this).val(filterState[filterType]).trigger('change');
+                return;
+            }
+            
+            // Only apply filters if selection is valid
             applyFilters();
         });
         

@@ -228,10 +228,20 @@ function processDetectionMethodData(rawData, filteredMonths = null) {
     
     dataToProcess.forEach(d => {
         const method = d.DETECTION_METHOD_CLEAN;
-        if (!detectionMethodCounts[method]) {
-            detectionMethodCounts[method] = 0;
+        const fines = +d.FINES;
+
+        if (method === "Other") {
+            return; // Skip "Other" values
+        } else if (method === "Fixed or mobile camera") {
+            const halfFines = fines / 2;
+            detectionMethodCounts["Mobile camera"] = (detectionMethodCounts["Mobile camera"] || 0) + halfFines;
+            detectionMethodCounts["Fixed camera systems"] = (detectionMethodCounts["Fixed camera systems"] || 0) + halfFines;
+        } else {
+            if (!detectionMethodCounts[method]) {
+                detectionMethodCounts[method] = 0;
+            }
+            detectionMethodCounts[method] += fines;
         }
-        detectionMethodCounts[method] += +d.FINES;
     });
     
     return Object.entries(detectionMethodCounts).map(([method, count]) => ({
