@@ -23,17 +23,17 @@ window.initAgeGroupChart = function() {
         console.log("Using age group data from dashboardData:", ageGroupData);
         
         const containerDiv = container.node();
-        const width = containerDiv.clientWidth * 1.8;  // Keep the current width
-        const height = 500;  // Increased from 400 to 500
+        const width = containerDiv.clientWidth;
+        const height = containerDiv.clientHeight || 400;
 
-        const margin = { top: 20, right: 120, bottom: 60, left: 150 };
+        const margin = { top: 30, right: 80, bottom: 60, left: 100 };
 
         const innerWidth = width - margin.left - margin.right;
         const innerHeight = height - margin.top - margin.bottom;
 
         const svg = container.append("svg")
             .attr("width", "100%")
-            .attr("height", height)
+            .attr("height", "100%")
             .attr("viewBox", `0 0 ${width} ${height}`)
             .attr("preserveAspectRatio", "xMidYMid meet");
             
@@ -51,6 +51,15 @@ window.initAgeGroupChart = function() {
             .style("font-size", "14px")
             .style("color", "#000000")
             .style("box-shadow", "0 4px 8px rgba(0,0,0,0.1)");
+
+        // Add a title to the chart
+        svg.append("text")
+            .attr("x", width / 2)
+            .attr("y", margin.top / 2)
+            .attr("text-anchor", "middle")
+            .style("font-size", "16px")
+            .style("font-weight", "bold")
+            .text("FINES BY AGE GROUP");
             
         const x = d3.scaleBand()
             .domain(ageGroupData.map(d => d.ageGroup))
@@ -74,16 +83,15 @@ window.initAgeGroupChart = function() {
             .domain(ageGroupData.map(d => d.ageGroup))
             .range(colors);
 
-        // Gridlines - Add more lines
-        const yGridlines = d3.axisLeft(y)
-            .tickValues(yTicks)
-            .tickSize(-innerWidth)
-            .tickFormat("");
-
+        // Gridlines
         svg.append("g")
             .attr("class", "grid")
             .attr("transform", `translate(${margin.left},0)`)
-            .call(yGridlines)
+            .call(d3.axisLeft(y)
+                .tickValues(yTicks)
+                .tickSize(-innerWidth)
+                .tickFormat("")
+            )
             .call(g => g.select(".domain").remove())
             .selectAll("line")
             .attr("stroke", "#e0e0e0")
@@ -136,7 +144,7 @@ window.initAgeGroupChart = function() {
             .call(d3.axisBottom(x))
             .selectAll("text")
             .style("text-anchor", "middle")
-            .style("font-size", "14px");
+            .style("font-size", "12px");
 
         // Y Axis with custom ticks - CLASS NAME ALREADY EXISTS
         svg.append("g")
@@ -151,21 +159,21 @@ window.initAgeGroupChart = function() {
         // X Axis Label
         svg.append("text")
             .attr("x", width / 2)
-            .attr("y", height - 1)
+            .attr("y", height - 5)
             .attr("text-anchor", "middle")
-            .style("font-size", "20px")
-            .style("font-weight", "normal")
+            .style("font-size", "14px")
+            .style("font-weight", "bold")
             .text("Age Group");
 
         // Y Axis Label
         svg.append("text")
             .attr("transform", "rotate(-90)")
             .attr("x", -height / 2)
-            .attr("y", 50)
+            .attr("y", 20)
             .attr("text-anchor", "middle")
-            .style("font-size", "20px")
-            .style("font-weight", "normal")
-            .text("TotalFines");
+            .style("font-size", "14px")
+            .style("font-weight", "bold")
+            .text("Number of Fines");
             
         // Add value labels on top of bars
         svg.selectAll(".value-label")
@@ -176,16 +184,8 @@ window.initAgeGroupChart = function() {
             .attr("y", d => y(d.fines) - 5)
             .attr("text-anchor", "middle")
             .style("font-size", "12px")
-            .style("font-weight", "normal")  // Changed from bold to normal
             .style("fill", "#333")
             .text(d => d3.format(",")(d.fines));
-            
-        // Also increase axis tick labels
-        svg.selectAll(".x-axis text")
-            .style("font-size", "14px");
-
-        svg.selectAll(".y-axis text")
-            .style("font-size", "14px");
             
     } catch (error) {
         console.error("Error creating age group visualization:", error);
@@ -212,9 +212,9 @@ window.updateAgeGroupChartWithTransition = function(newData) {
         
         // Get the dimensions
         const containerDiv = container.node();
-        const width = containerDiv.clientWidth * 1.3;  // Increased multiplier
-        const height = containerDiv.clientHeight || 450;  // Increased height
-        const margin = { top: 20, right: 120, bottom: 60, left: 150 };
+        const width = containerDiv.clientWidth;
+        const height = containerDiv.clientHeight || 400;
+        const margin = { top: 30, right: 80, bottom: 60, left: 100 };
         
         // Define all possible age groups in a fixed order for consistent visualization
         const allAgeGroups = ["17-25", "26-39", "40-64", "65 and over"];
@@ -280,7 +280,7 @@ window.updateAgeGroupChartWithTransition = function(newData) {
             .call(d3.axisBottom(x))
             .selectAll("text")
             .style("text-anchor", "middle")
-            .style("font-size", "14px");
+            .style("font-size", "12px");
             
         // Update y-axis with transition
         svg.select("g.y-axis")
@@ -345,7 +345,7 @@ window.updateAgeGroupChartWithTransition = function(newData) {
                     .attr("x", d => x(d.ageGroup) + x.bandwidth() / 2)
                     .attr("y", height - margin.bottom)
                     .attr("text-anchor", "middle")
-                    .style("font-size", "14px")
+                    .style("font-size", "12px")
                     .style("fill", "#333")
                     .style("opacity", 0),
                 update => update,

@@ -23,7 +23,7 @@ window.initLocationChart = function() {
         const containerDiv = container.node();
         const width = containerDiv.clientWidth * 1.2;  // Adjusted to match age group chart
         const height = containerDiv.clientHeight || 350;  // Adjusted height
-        const margin = { top: 10, right: 40, bottom: 60, left: 68 }; // Reduced top margin, increased bottom margin
+        const margin = { top: 20, right: 40, bottom: 60, left: 68 }; // Standardized margins
 
         const svg = container
             .append("svg")
@@ -167,7 +167,7 @@ window.updateLocationChartWithTransition = function(newData) {
         const containerDiv = container.node();
         const width = containerDiv.clientWidth * 1.2;
         const height = containerDiv.clientHeight || 350;
-        const margin = { top: 20, right: 40, bottom: 30, left: 68 }; // Adjusted margins
+        const margin = { top: 20, right: 40, bottom: 60, left: 68 }; // Using same values as initialization
         
         // Update scales with new data
         const x = d3.scaleLinear()
