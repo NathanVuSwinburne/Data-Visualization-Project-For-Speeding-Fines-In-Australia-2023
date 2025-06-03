@@ -1,24 +1,45 @@
-/* CSS for the jurisdiction map chart */
-
 #jurisdiction-chart {
-    height: 80%;
-    width: 80%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    width: 100%;
+    height: 600px;
+    margin: 0 auto;
     position: relative;
-    overflow: hidden; /* Prevent overflow */
 }
 
 #jurisdiction-chart svg {
     max-width: 100%;
-    max-height: 100%;
+    height: auto;
 }
 
-/* Make state labels smaller and more compact */
-#jurisdiction-chart text.state-label {
-    font-size: 12px;
+#jurisdiction-chart path {
+    transition: opacity 0.2s ease;
 }
 
-/* Make percentage and value labels smaller */
-#jurisdiction-chart text.percentage-label,
-#jurisdiction-chart text.value-label {
-    font-size: 12px;
+#jurisdiction-chart path:hover {
+    opacity: 0.8;
+}
+
+#jurisdiction-chart text {
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.bar {
+    transition: opacity 0.2s ease;
+}
+
+.bar:hover {
+    opacity: 0.8;
+}
+
+.value-label {
+    font-weight: 500;
+}
+
+.domain,
+.tick line {
+    stroke: #ccc;
+}
+
+.tick text {
+    fill: #666;
 }

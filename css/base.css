@@ -26,22 +26,16 @@
     --chart-color5: #2ecc71; /* Green */
     --chart-color6: #e056fd; /* Pink */
     --chart-color7: #95a5a6; /* Gray */
-    --tooltip-bg: rgba(0, 0, 0, 0.8);
-    --tooltip-text: #ffffff;
 }
 
 /* Body styles */
 html, body {
     height: 100%;
-    min-height: 100vh; /* Ensure full viewport height */
+    overflow: hidden; /* Prevent scrolling on the body */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     background-color: var(--background-color);
     color: var(--filter-text-color);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
 }
 
 /* Header styles */
@@ -62,21 +56,20 @@ header h1 {
 /* Dashboard grid layout */
 .dashboard-container {
     display: grid;
-    grid-template-columns: 200px 1fr 1fr;
-    grid-template-rows: 70px minmax(205px, auto) minmax(300px, auto) minmax(250px, auto); /* Changed to allow more space */
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 70px minmax(205px, 26vh) minmax(208px, 26vh) minmax(208px, 26vh); /* Adjusted row heights */
+    /*grid-template-rows: 70px minmax(250px, 28vh) minmax(220px, 28vh) minmax(220px, 28vh); /* Increased row heights for charts */
     grid-template-areas:
-        "kpi kpi kpi"           /* KPI cards span full width */
-        "filters trend trend"    /* Filters on left, trend chart spanning both columns */
-        "filters jurisdiction location"    /* Filters on left, jurisdiction and location charts */
-        "filters detection age";  /* Filters on left, detection method and age charts */
+        "kpi kpi"         /* KPI cards span full width */
+        "filters trend"    /* Filters on left, trend chart on right */
+        "filters bars"     /* Filters on left, bar charts on right */
+        "filters bottom";  /* Filters on left, bottom charts on right */
     gap: 4px;
     padding: 4px;
     margin: 0 auto;
-    min-height: calc(100vh - 60px);
-    height: auto;
-    overflow: visible; /* Allow content to flow and be scrollable */
+    height: calc(100vh - 60px);
+    overflow: auto; /* Allow scrolling within the dashboard if needed */
     max-width: 1580px;
-    flex: 1 0 auto; /* Allow the container to grow and fill available space */
 }
 
 /* KPI section */
@@ -219,26 +212,22 @@ button#reset-filters {
     height: 100%;
 }
 
-/* Individual chart containers */
-#jurisdiction-chart-container {
-    grid-area: jurisdiction;
-    height: 100%;
-    margin-bottom: 4px;
-}
-
-#location-chart-container {
-    grid-area: location;
-    height: 100%;
-    margin-bottom: 4px;
-}
-
-#detection-method-chart-container {
-    grid-area: detection;
+/* Middle row with two bar charts */
+.bar-charts-container {
+    grid-area: bars;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px; /* Reduced from 5px */
+    margin-bottom: 4px; /* Reduced from 5px */
     height: 100%;
 }
 
-#age-groups-chart-container {
-    grid-area: age;
+/* Bottom row with pie chart and bar chart */
+.bottom-charts-container {
+    grid-area: bottom;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px; /* Reduced from 5px */
     height: 100%;
 }
 
@@ -248,14 +237,35 @@ button#reset-filters {
     background-color: var(--card-bg-color);
     border-radius: 5px;
     padding: 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(27, 21, 21, 0.1);
     border: 1px solid var(--border-color);
     overflow: hidden;
     height: 100%;
     display: flex;
     flex-direction: column;
-    min-height: 0; /* Allow charts to shrink when needed */
-    position: relative; /* Ensure proper positioning context */
+    min-height: 0;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+}
+
+.chart-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+/* Responsive hover effects for different screen sizes */
+@media screen and (max-width: 768px) {
+    .chart-container:hover {
+        transform: scale(1.01); /* Smaller scale on mobile */
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .chart-container:hover {
+        transform: scale(1.03); /* Larger scale on bigger screens */
+    }
 }
 
 /* Chart headers - teal bars with titles */
@@ -276,24 +286,22 @@ button#reset-filters {
 .chart {
     flex: 1;
     width: 100%;
-    padding: 12px;
+    padding: 6px; /* Further reduced from 8px */
     background: white;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    overflow: visible;
-    min-height: 250px; /* Ensure enough height for charts */
+    overflow: hidden;
 }
 
 /* Make SVG elements responsive with more precise sizing */
 .chart svg {
     width: 100% !important;
     height: 100% !important;
-    max-width: 100%;
-    max-height: 100%;
+    max-height: calc(100% - 2px); /* Prevent touching edges */
+    max-width: calc(100% - 2px); /* Prevent touching edges */
     display: block; /* Ensure no extra space */
-    aspect-ratio: auto; /* Allow natural proportions */
 }
 
 /* General chart axis styling */
@@ -367,16 +375,10 @@ button#reset-filters {
 /* FOOTER STYLING */
 footer {
     text-align: center;
-    padding: 10px;
-    margin-top: auto; /* Push footer to bottom */
+    padding: 4px; /* Reduced from 5px */
+    margin-top: 0;
     background-color: var(--primary-color);
     color: white;
-    font-size: 16px;
-    min-height: 40px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0; /* Prevent footer from shrinking */
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 11px; /* Reduced from 12px */
+    height: 20px; /* Reduced from 25px */
 } 

@@ -1,86 +1,46 @@
-// Age Groups Bar Chart - Road Safety Dashboard - Team 8
+document.addEventListener('DOMContentLoaded', function () {
+    const container = d3.select("#age-groups-chart");
+    const containerDiv = container.node();
+    const width = containerDiv.clientWidth;
+    const height = containerDiv.clientHeight || 900;
 
-// Initialize function for age group chart
-window.initAgeGroupChart = function() {
-    try {
-        console.log('Initializing age group chart...');
+    const margin = { top: 10, right: 80, bottom: 20, left: 100 };
 
-        // Clear any existing content
-        const container = d3.select("#age-groups-chart");
-        container.html("");
-        
-        // Check if global dashboard data is available
-        if (!window.dashboardData || !window.dashboardData.ageGroup || window.dashboardData.ageGroup.length === 0) {
-            console.error("No age group data available in dashboardData");
-            container.append("div")
-                .attr("class", "error-message")
-                .text("No age group data available");
-            return;
-        }
+    const innerWidth = width - margin.left - margin.right;
+    const innerHeight = height - margin.top - margin.bottom;
 
-        const ageGroupData = window.dashboardData.ageGroup;
-        console.log("Using age group data from dashboardData:", ageGroupData);
-        
-        const containerDiv = container.node();
-        const width = containerDiv.clientWidth;
-        const height = containerDiv.clientHeight || 400;
+    const svg = container.append("svg")
+        .attr("width", "100%")
+        .attr("height", "100%")
+        .attr("viewBox", `0 0 ${width} ${height}`)
+        .attr("preserveAspectRatio", "xMidYMid meet");
 
-        const margin = { top: 30, right: 80, bottom: 60, left: 100 };
+    const data = [
+        { age_group: "17-25", value: 250000 },
+        { age_group: "65 and over", value: 280000 },
+        { age_group: "26-39", value: 700000 },
+        { age_group: "40-64", value: 1100000 }
+    ];
 
-        const innerWidth = width - margin.left - margin.right;
-        const innerHeight = height - margin.top - margin.bottom;
+    const x = d3.scaleBand()
+        .domain(data.map(d => d.age_group))
+        .range([margin.left, width - margin.right])
+        .padding(0.4);
 
-        const svg = container.append("svg")
-            .attr("width", "100%")
-            .attr("height", "100%")
-            .attr("viewBox", `0 0 ${width} ${height}`)
-            .attr("preserveAspectRatio", "xMidYMid meet");
-            
-        // Create tooltip div
-        const tooltip = d3.select("body").append("div")
-            .attr("class", "age-group-tooltip")
-            .style("opacity", 0)
-            .style("position", "absolute")
-            .style("background-color", "#f9f9f9")
-            .style("border", "1px solid #d3d3d3")
-            .style("border-radius", "5px")
-            .style("padding", "10px")
-            .style("pointer-events", "none")
-            .style("font-family", "Arial, sans-serif")
-            .style("font-size", "14px")
-            .style("color", "#000000")
-            .style("box-shadow", "0 4px 8px rgba(0,0,0,0.1)");
+    const y = d3.scaleLinear()
+        .domain([0, 1200000])
+        .range([height - margin.bottom, margin.top]);
 
-        // Add a title to the chart
-        svg.append("text")
-            .attr("x", width / 2)
-            .attr("y", margin.top / 2)
-            .attr("text-anchor", "middle")
-            .style("font-size", "16px")
-            .style("font-weight", "bold")
-            .text("FINES BY AGE GROUP");
-            
-        const x = d3.scaleBand()
-            .domain(ageGroupData.map(d => d.ageGroup))
-            .range([margin.left, width - margin.right])
-            .padding(0.4);
+    // Create custom ticks for y-axis (increments of 200,000)
+    const yTicks = [];
+    for (let i = 0; i <= 1200000; i += 200000) {
+        yTicks.push(i);
+    }
 
-        const y = d3.scaleLinear()
-            .domain([0, d3.max(ageGroupData, d => d.fines) * 1.1])
-            .range([height - margin.bottom, margin.top]);
-
-        // Create custom ticks for y-axis
-        const maxFines = d3.max(ageGroupData, d => d.fines);
-        const tickInterval = Math.ceil(maxFines / 5 / 100000) * 100000;
-        const yTicks = [];
-        for (let i = 0; i <= maxFines * 1.1; i += tickInterval) {
-            yTicks.push(i);
-        }
-
-        const colors = ["#20c7da", "#ffa726", "#ffa4ce", "#9a57c2"];
-        const color = d3.scaleOrdinal()
-            .domain(ageGroupData.map(d => d.ageGroup))
-            .range(colors);
+    const colors = ["#20c7da", "#ffa726", "#ffa4ce", "#9a57c2"];
+    const color = d3.scaleOrdinal()
+        .domain(data.map(d => d.age_group))
+        .range(colors);
 
     // Gridlines
     svg.append("g")
@@ -96,131 +56,50 @@ window.initAgeGroupChart = function() {
         .attr("stroke", "#e0e0e0")
         .attr("stroke-dasharray", "2,2");
 
-        // Gridlines
-        svg.append("g")
-            .attr("class", "grid")
-            .attr("transform", `translate(${margin.left},0)`)
-            .call(d3.axisLeft(y)
-                .tickValues(yTicks)
-                .tickSize(-innerWidth)
-                .tickFormat("")
-            )
-            .call(g => g.select(".domain").remove())
-            .selectAll("line")
-            .attr("stroke", "#e0e0e0")
-            .attr("stroke-dasharray", "2,2");
+    // Bars
+    svg.selectAll("rect.bar")
+        .data(data)
+        .join("rect")
+        .attr("class", "bar")
+        .attr("x", d => x(d.age_group))
+        .attr("y", d => y(d.value))
+        .attr("width", x.bandwidth())
+        .attr("height", d => height - margin.bottom - y(d.value))
+        .attr("fill", d => color(d.age_group));
 
-        // Bars with interactivity
-        svg.selectAll("rect.bar")
-            .data(ageGroupData)
-            .join("rect")
-            .attr("class", "bar")
-            .attr("x", d => x(d.ageGroup))
-            .attr("y", d => y(d.fines))
-            .attr("width", x.bandwidth())
-            .attr("height", d => height - margin.bottom - y(d.fines))
-            .attr("fill", d => color(d.ageGroup))
-            .style("cursor", "pointer")
-            .on("mouseover", function(event, d) {
-                // Highlight the bar
-                d3.select(this)
-                    .attr("stroke", "#333")
-                    .attr("stroke-width", 2);
-                
-                // Show tooltip
-                tooltip.transition()
-                    .duration(200)
-                    .style("opacity", 0.9);
-                
-                tooltip.html(`
-                    <strong>${d.ageGroup}</strong><br/>
-                    <strong>Fines:</strong> ${d.fines.toLocaleString()}
-                `)
-                    .style("left", (event.pageX + 10) + "px")
-                    .style("top", (event.pageY - 28) + "px");
-            })
-            .on("mouseout", function() {
-                // Restore original appearance
-                d3.select(this)
-                    .attr("stroke", "none");
-                
-                // Hide tooltip
-                tooltip.transition()
-                    .duration(500)
-                    .style("opacity", 0);
-            });
+    // X Axis
+    svg.append("g")
+        .attr("transform", `translate(0,${height - margin.bottom})`)
+        .call(d3.axisBottom(x))
+        .selectAll("text")
+        .style("text-anchor", "middle")
+        .style("font-size", "12px");
 
-        // X Axis
-        svg.append("g")
-            .attr("transform", `translate(0,${height - margin.bottom})`)
-            .call(d3.axisBottom(x))
-            .selectAll("text")
-            .style("text-anchor", "middle")
-            .style("font-size", "12px");
+    // Y Axis with custom ticks
+    svg.append("g")
+        .attr("transform", `translate(${margin.left},0)`)
+        .call(d3.axisLeft(y)
+            .tickValues(yTicks)
+            .tickFormat(d => d.toLocaleString()))
+        .selectAll("text")
+        .style("font-size", "12px");
 
-        // Y Axis with custom ticks
-        svg.append("g")
-            .attr("transform", `translate(${margin.left},0)`)
-            .call(d3.axisLeft(y)
-                .tickValues(yTicks)
-                .tickFormat(d => d3.format(",")(d)))
-            .selectAll("text")
-            .style("font-size", "12px");
+    // X Axis Label
+    svg.append("text")
+        .attr("x", width - -10)
+        .attr("y", height - 3)
+        .attr("text-anchor", "end")
+        .style("font-size", "14px")
+        .style("font-weight", "bold")
+        .text("Age Group");
 
-        // X Axis Label
-        svg.append("text")
-            .attr("x", width / 2)
-            .attr("y", height - 5)
-            .attr("text-anchor", "middle")
-            .style("font-size", "14px")
-            .style("font-weight", "bold")
-            .text("Age Group");
-
-        // Y Axis Label
-        svg.append("text")
-            .attr("transform", "rotate(-90)")
-            .attr("x", -height / 2)
-            .attr("y", 20)
-            .attr("text-anchor", "middle")
-            .style("font-size", "14px")
-            .style("font-weight", "bold")
-            .text("Number of Fines");
-            
-        // Add value labels on top of bars
-        svg.selectAll(".value-label")
-            .data(ageGroupData)
-            .join("text")
-            .attr("class", "value-label")
-            .attr("x", d => x(d.ageGroup) + x.bandwidth() / 2)
-            .attr("y", d => y(d.fines) - 5)
-            .attr("text-anchor", "middle")
-            .style("font-size", "12px")
-            .style("fill", "#333")
-            .text(d => d3.format(",")(d.fines));
-            
-    } catch (error) {
-        console.error("Error creating age group visualization:", error);
-        // Display error message in the chart container
-        d3.select("#age-groups-chart")
-            .html("<div style='color: red; text-align: center; padding: 20px;'>Error loading age group data</div>");
-    }
-};
-
-// Initialize the chart when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded, checking for age group data...');
-    if (window.dashboardData && window.dashboardData.ageGroup) {
-        // Initialize the chart if data is already loaded
-        initAgeGroupChart();
-    } else {
-        console.log('Waiting for data to be loaded before initializing age group chart');
-        // Add the chart initialization to the dashboard init process
-        const originalInitDashboard = window.initDashboard || function() {};
-        window.initDashboard = function() {
-            originalInitDashboard();
-            if (window.dashboardData && window.dashboardData.ageGroup) {
-                setTimeout(initAgeGroupChart, 100); // Slight delay to ensure DOM is ready
-            }
-        };
-    }
+    // Y Axis Label
+    svg.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("x", -height / 2)
+        .attr("y", 10)
+        .attr("text-anchor", "middle")
+        .style("font-size", "14px")
+        .style("font-weight", "bold")
+        .text("Number of Fines");
 });

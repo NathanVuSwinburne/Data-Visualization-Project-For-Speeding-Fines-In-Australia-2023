@@ -1,17 +1,31 @@
-/* Custom styles for detection method chart */
+#detection-method-chart {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
 
-/* Container size adjustments */
-#detection-method-chart-container {
+#detection-method-chart svg {
+    max-width: 100%;
     height: auto;
 }
 
-/* Chart specific adjustments */
-#detection-method-chart {
-    min-height: 250px !important; /* Override the global min-height */
-    height: 250px;
+#detection-method-chart path {
+    transition: opacity 0.3s;
 }
 
-/* SVG adjustments for the detection method chart */
-#detection-method-chart svg {
-    max-height: 250px;
+#detection-method-chart path:hover {
+    opacity: 0.8;
+    cursor: pointer;
 }
+
+#detection-method-chart text {
+    fill: #333;
+}
+
+#detection-method-chart tspan {
+    font-family: Arial, sans-serif;
+}
+

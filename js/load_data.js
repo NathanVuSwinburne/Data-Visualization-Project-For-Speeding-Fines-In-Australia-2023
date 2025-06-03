@@ -1,105 +1,193 @@
-console.log('Starting to load data...');
+// Monthly Trend Data Loader
 
-// Load data for the dashboard
-Promise.all([
-    d3.csv("data/fines_over_months.csv", d => {
-        return {
-            month: d.Month,
-            totalFines: +d["Total Fines"],
-            // Set January's percentageChange to 0 instead of null
-            percentageChange: d["Month-over-Month Percentage Change"] ? 
-                parseFloat(d["Month-over-Month Percentage Change"]) : 0
-        };
-    }),
-    d3.csv("data/fines_jurisdiction.csv", d => ({
-        jurisdiction: d.JURISDICTION,
-        fines: +d["Total Speeding Fines by Jurisdiction (2023)"]
-    })),
-    d3.csv("data/fines_location.csv", d => {
-        console.log("Loading location data row:", d);
-        return {
-            location: d.LOCATION_TYPE,
-            fines: +d.TOTAL_FINES
-        };
-    }),
-    d3.csv("data/fines_age_groups.csv", d => {
-        console.log("Loading age group data row:", d);
-        return {
-            ageGroup: d.AGE_GROUP,
-            fines: +d["Sum(FINES)"]
-        };
-    }),
-    d3.csv("data/fines_detection_method.csv", d => {
-        console.log("Loading detection method data row:", d);
-        return {
-            method: d.DETECTION_METHOD_CLEAN,
-            count: +d.DETECTION_METHOD_count
-        };
-    })
-]).then(([monthlyData, jurisdictionData, locationData, ageGroupData, detectionMethodData]) => {
-    // Store the data in a global variable
-    console.log("Location data loaded:", locationData);
-    console.log("Age group data loaded:", ageGroupData);
-    console.log("Detection method data loaded:", detectionMethodData);
-    window.dashboardData = {
-        monthlyTrend: monthlyData,
-        jurisdiction: jurisdictionData,
-        location: locationData,
-        ageGroup: ageGroupData,
-        detectionMethod: detectionMethodData
-    };
-    console.log("Full dashboard data object:", window.dashboardData);
-    
-    // Sort jurisdiction data by fines (descending)
-    const sortedJurisdictionData = [...jurisdictionData].sort((a, b) => b.fines - a.fines);
-    
-    // Calculate total fines (sum of all jurisdiction fines)
-    const totalFines = jurisdictionData.reduce((sum, item) => sum + item.fines, 0);
-    
-    // Update the KPI for total fines
-    document.getElementById('total-fines').querySelector('.kpi-value').textContent = 
-        totalFines.toLocaleString();
-    
-    // Find the jurisdiction with the most fines
-    const topJurisdiction = sortedJurisdictionData[0];
-    
-    // Update the KPI for top jurisdiction
-    if (topJurisdiction) {
-        document.getElementById('highest-jurisdiction').querySelector('.kpi-value').textContent = 
-            `${topJurisdiction.jurisdiction} (${topJurisdiction.fines.toLocaleString()})`;
-    }
-    
-    // Find the peak month
-    const peakMonthData = monthlyData.reduce((max, item) => 
-        item.totalFines > max.totalFines ? item : max, monthlyData[0]);
-    
-    // Update the KPI for peak month
-    document.getElementById('highest-month').querySelector('.kpi-value').textContent = 
-        `${peakMonthData.month} (${peakMonthData.totalFines.toLocaleString()})`;
-        
-    // Find the top age group
-    const sortedAgeGroupData = [...ageGroupData].sort((a, b) => b.fines - a.fines);
-    const topAgeGroup = sortedAgeGroupData[0];
-    
-    // Update the KPI for top age group
-    if (topAgeGroup) {
-        document.getElementById('top-age-group').querySelector('.kpi-value').textContent = 
-            `${topAgeGroup.ageGroup} (${topAgeGroup.fines.toLocaleString()})`;  
-    }
-    
-    // Initialize the dashboard
-    if (window.initDashboard) {
-        window.initDashboard();
-    }
-    
-    // Initialize the monthly trend chart (with a slight delay to ensure DOM is ready)
-    setTimeout(() => {
-        if (typeof initMonthlyTrendChart === 'function') {
-            initMonthlyTrendChart();
-        } else {
-            console.error('Monthly trend chart initialization function not found');
+// Data storage for monthly trend data
+const monthlyTrendData = [];
+
+// Jurisdiction Data Loader
+let jurisdictionData = [];
+
+// Data Loading Utilities
+
+/**
+ * Load Excel file from the data folder
+ * @param {string} fileName - Name of Excel file to load
+ * @returns {Promise<Array>} Array of data from the Excel file
+ */
+async function loadExcelFile(fileName) {
+    try {
+        const response = await fetch(`data/${fileName}`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
-    }, 100);
-}).catch(error => {
-    console.error('Error loading data:', error);
-});
+        const arrayBuffer = await response.arrayBuffer();
+        const data = XLSX.read(new Uint8Array(arrayBuffer), { type: 'array' });
+        const firstSheetName = data.SheetNames[0];
+        const worksheet = data.Sheets[firstSheetName];
+        const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+        
+        // Get headers from first row
+        const headers = jsonData[0];
+        
+        // Convert data to array of objects
+        const result = jsonData.slice(1).map(row => {
+            const obj = {};
+            headers.forEach((header, index) => {
+                obj[header] = row[index];
+            });
+            return obj;
+        });
+
+        console.log(`Loaded data from ${fileName}:`, result);
+        return result;
+    } catch (error) {
+        console.error(`Error loading Excel file ${fileName}:`, error);
+        throw error;
+    }
+}
+
+/**
+ * Load monthly trend data
+ * @returns {Promise<Array>} Processed monthly trend data
+ */
+async function loadMonthlyTrendData() {
+    try {
+        console.log("Attempting to load monthly trend data");
+        const data = await loadExcelFile('Trend_of_Speed_Fines_Over_Months_in_2023.xlsx');
+        
+        return data.map(row => ({
+            month: row.Month,
+            fines: parseInt(row.Fines) || 0
+        }));
+    } catch (error) {
+        console.error("Error loading monthly trend data:", error);
+        return [];
+    }
+}
+
+/**
+ * Load jurisdiction data
+ * @returns {Promise<Array>} Processed jurisdiction data
+ */
+async function loadJurisdictionData() {
+    try {
+        console.log("Attempting to load jurisdiction data");
+        const data = await loadExcelFile('Total_Speeding_Fines_by_Jurisdiction_2023.xlsx');
+        
+        const processedData = data.map(row => ({
+            Jurisdiction: row.Jurisdiction,
+            Fines: parseInt(row.Fines) || 0,
+            Percentage: parseFloat(row.Percentage) || 0
+        }));
+
+        console.log("Processed jurisdiction data:", processedData);
+        return processedData;
+    } catch (error) {
+        console.error("Error loading jurisdiction data:", error);
+        return [];
+    }
+}
+
+/**
+ * Load detection method data
+ * @returns {Promise<Array>} Processed detection method data
+ */
+async function loadDetectionMethodData() {
+    try {
+        console.log("Attempting to load detection method data");
+        const data = await loadExcelFile('Speeding_Fine_by_Detection_Method_2023.xlsx');
+        
+        return data.map(row => ({
+            method: row['Detection Method'],
+            count: parseInt(row.Count) || 0,
+            percentage: parseFloat(row.Percentage) || 0
+        }));
+    } catch (error) {
+        console.error("Error loading detection method data:", error);
+        return [];
+    }
+}
+
+/**
+ * Load location type data
+ * @returns {Promise<Array>} Processed location type data
+ */
+async function loadLocationData() {
+    try {
+        console.log("Attempting to load location data");
+        const data = await loadExcelFile('Number_of_Speeding_Fines_by_Location_in_2023.xlsx');
+        
+        return data.map(row => ({
+            location: row.Location,
+            count: parseInt(row.Count) || 0
+        }));
+    } catch (error) {
+        console.error("Error loading location data:", error);
+        return [];
+    }
+}
+
+/**
+ * Load age group data
+ * @returns {Promise<Array>} Processed age group data
+ */
+async function loadAgeGroupData() {
+    try {
+        console.log("Attempting to load age group data");
+        const data = await loadExcelFile('number_of_fines_across_all_age_groups_in_2023.xlsx');
+        
+        return data.map(row => ({
+            ageGroup: row['Age Group'],
+            count: parseInt(row.Count) || 0
+        }));
+    } catch (error) {
+        console.error("Error loading age group data:", error);
+        return [];
+    }
+}
+
+/**
+ * Main data loading function that loads all required data
+ * @returns {Promise<Object>} Object containing all loaded data
+ */
+async function loadData() {
+    try {
+        const [
+            monthlyData,
+            jurisdictionData,
+            detectionData,
+            locationData,
+            ageData
+        ] = await Promise.all([
+            loadMonthlyTrendData(),
+            loadJurisdictionData(),
+            loadDetectionMethodData(),
+            loadLocationData(),
+            loadAgeGroupData()
+        ]);
+
+        console.log("All data loaded successfully:", {
+            monthlyTrendData: monthlyData,
+            jurisdictionData: jurisdictionData,
+            detectionMethodData: detectionData,
+            locationData: locationData,
+            ageGroupData: ageData
+        });
+
+        return {
+            monthlyTrendData: monthlyData,
+            jurisdictionData: jurisdictionData,
+            detectionMethodData: detectionData,
+            locationData: locationData,
+            ageGroupData: ageData
+        };
+    } catch (error) {
+        console.error("Error in loadData:", error);
+        return {
+            monthlyTrendData: [],
+            jurisdictionData: [],
+            detectionMethodData: [],
+            locationData: [],
+            ageGroupData: []
+        };
+    }
+}
