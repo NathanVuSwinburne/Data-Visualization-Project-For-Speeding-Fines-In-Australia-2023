@@ -92,56 +92,58 @@ d3.csv("data/master_fine.csv").then(rawData => {
 // Process raw data into monthly trend format
 function processMonthlyData(rawData) {
     const monthlyFines = {};
-    
+    const presentInRawDataMonths = new Set(); // Keep track of months actually in rawData
+
     // Group fines by month, excluding QLD data
     rawData.forEach(d => {
         // Skip QLD data for monthly trend
         if (d.JURISDICTION === "QLD") return;
         
         const month = d["Month (Name)"];
+        presentInRawDataMonths.add(month); // Record that this month has data from the filter
         if (!monthlyFines[month]) {
             monthlyFines[month] = 0;
         }
         monthlyFines[month] += +d.FINES;
     });
     
-    // Convert to array of objects
     const monthOrder = [
         "January", "February", "March", "April", "May", "June", 
         "July", "August", "September", "October", "November", "December"
     ];
     
-    const monthlyData = monthOrder.map(month => ({
-        month: month,
-        totalFines: monthlyFines[month] || 0,
-        percentageChange: 0 // Will calculate below
-    }));
+    // Create an array of month objects, ONLY for months that were present in rawData 
+    // AND have aggregated fines > 0. Maintain chronological order.
+    let processedData = monthOrder
+        .filter(month => presentInRawDataMonths.has(month) && monthlyFines[month] > 0)
+        .map(month => ({
+            month: month,
+            totalFines: monthlyFines[month], // Will be > 0 due to the filter
+            percentageChange: 0 // Initialize, will calculate next
+        }));
     
-    // Filter out months with zero fines (which would be filtered out in the chart)
-    const filteredMonthlyData = monthlyData.filter(d => d.totalFines > 0);
-    
-    // Calculate month-over-month percentage changes based on filtered months
-    for (let i = 1; i < filteredMonthlyData.length; i++) {
-        const currentFines = filteredMonthlyData[i].totalFines;
-        const previousFines = filteredMonthlyData[i-1].totalFines;
-        
-        if (previousFines === 0) {
-            filteredMonthlyData[i].percentageChange = 100; // Avoid division by zero
+    // Calculate month-over-month percentage changes based on the sequence in processedData.
+    // This loop now correctly operates on the sequence of *actually present and displayed* months.
+    for (let i = 0; i < processedData.length; i++) {
+        if (i === 0) {
+            // First month in the current sequence. No prior month in this view to compare against.
+            processedData[i].percentageChange = null; // Or 0, depending on desired display for the first point
         } else {
-            filteredMonthlyData[i].percentageChange = ((currentFines - previousFines) / previousFines) * 100;
+            const currentFines = processedData[i].totalFines;
+            const previousFines = processedData[i-1].totalFines; // Previous month in the *sequence*
+            
+            // previousFines should not be 0 here because of the earlier filter: monthlyFines[month] > 0
+            if (previousFines === 0) { 
+                 // This case should ideally not be hit if months with zero fines are already filtered out.
+                 // If it can be hit, decide on a representation (e.g., 100% if current is >0, or null/0)
+                processedData[i].percentageChange = (currentFines > 0) ? 100 : 0; 
+            } else {
+                processedData[i].percentageChange = ((currentFines - previousFines) / previousFines) * 100;
+            }
         }
     }
     
-    // Update the original array with calculated percentage changes
-    for (let i = 0; i < monthlyData.length; i++) {
-        const month = monthlyData[i].month;
-        const filteredMonth = filteredMonthlyData.find(d => d.month === month);
-        if (filteredMonth) {
-            monthlyData[i].percentageChange = filteredMonth.percentageChange;
-        }
-    }
-    
-    return monthlyData;
+    return processedData; // Return the array of only relevant, processed months
 }
 
 // Process raw data into jurisdiction format

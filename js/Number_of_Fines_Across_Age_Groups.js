@@ -212,7 +212,7 @@ window.initAgeGroupChart = function() {
 window.updateAgeGroupChartWithTransition = function(newData) {
     try {
         console.log('Updating age group chart with transitions...');
-        
+        console.log('Received newData for age group transition:', newData);
         // Get the container and SVG
         const container = d3.select("#age-groups-chart");
         const svg = container.select("svg");

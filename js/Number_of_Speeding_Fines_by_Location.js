@@ -80,8 +80,10 @@ window.initLocationChart = function() {
 
         // Y-axis
         svg.append("g")
+            .attr("class", "y-axis location-y-axis")
             .attr("transform", `translate(${margin.left},0)`)
             .call(d3.axisLeft(y))
+            .call(g => g.select(".domain").remove())
             .selectAll("text")
             .style("font-size", "12px");
 
@@ -190,11 +192,11 @@ window.updateLocationChartWithTransition = function(newData) {
                 .tickFormat(d => d3.format(",")(d)));
                 
         // Update y-axis with transition
-        svg.select("g:nth-child(5)")
-            .attr("transform", `translate(${margin.left},0)`)
+        svg.select("g.location-y-axis")
             .transition()
             .duration(750)
-            .call(d3.axisLeft(y));
+            .call(d3.axisLeft(y))
+            .call(g => g.select(".domain").remove());
             
         // Update bars with transition
         svg.selectAll("rect.bar")

@@ -214,7 +214,7 @@ function prepareContainers() {
     const chartContainers = document.querySelectorAll('.chart');
     chartContainers.forEach(container => {
         // Set minimum height to ensure visibility
-        container.style.minHeight = '200px';
+        container.style.minHeight = '350px';
         
         // Debug info
         const style = window.getComputedStyle(container);
@@ -387,7 +387,7 @@ function updateAllCharts(filteredRawData) {
     // Update Age Group Chart with transition if available
     if (typeof updateAgeGroupChartWithTransition === 'function') {
         console.log('Updating age group chart with transition');
-        const container = d3.select("#age-group-chart");
+        const container = d3.select("#age-groups-chart");
         const svg = container.select("svg").select("g");
         
         if (!svg.empty()) {
