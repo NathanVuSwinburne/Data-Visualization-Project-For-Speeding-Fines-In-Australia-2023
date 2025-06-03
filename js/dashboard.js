@@ -388,7 +388,7 @@ function updateAllCharts(filteredRawData) {
     if (typeof updateAgeGroupChartWithTransition === 'function') {
         console.log('Updating age group chart with transition');
         const container = d3.select("#age-groups-chart");
-        const svg = container.select("svg").select("g");
+        const svg = container.select("svg"); // Remove .select("g") since the SVG doesn't have a nested group
         
         if (!svg.empty()) {
             updateAgeGroupChartWithTransition(ageGroupData);

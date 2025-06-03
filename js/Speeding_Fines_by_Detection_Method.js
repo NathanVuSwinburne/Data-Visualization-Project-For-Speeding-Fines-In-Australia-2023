@@ -101,9 +101,10 @@ window.initDetectionMethodChart = function() {
             .outerRadius(radius * 0.9);
 
         // Pie slices with interactivity
-        svg.selectAll('path')
+        svg.selectAll('path.slice') // Added .slice class for specific selection in update
             .data(data_ready)
             .join('path')
+            .attr('class', 'slice') // Add class for selection
             .attr('d', arc)
             .attr('fill', d => color(d.data.detection_method))
             .style('stroke-width', '2px')
@@ -122,14 +123,14 @@ window.initDetectionMethodChart = function() {
                 
                 tooltip.html(`
                     <strong>${d.data.detection_method}</strong><br/>
-                    <strong>Count:</strong> ${d.data.count.toLocaleString()}<br/>
-                    <strong>Percentage:</strong> ${d.data.percentage}%
-                `)
-                    .style("left", (event.pageX + 10) + "px")
-                    .style("top", (event.pageY - 28) + "px");
+                    Percentage: ${d.data.percentage}%<br/>
+                    Count: ${d.data.count}
+                `) // Updated tooltip content
+                .style("left", (event.pageX + 10) + "px")
+                .style("top", (event.pageY - 28) + "px");
             })
-            .on('mouseout', function() {
-                // Restore original appearance
+            .on('mouseout', function(event, d) {
+                // Restore slice appearance
                 d3.select(this)
                     .style('stroke', 'white')
                     .style('stroke-width', '2px');
@@ -140,91 +141,281 @@ window.initDetectionMethodChart = function() {
                     .style("opacity", 0);
             });
 
-        // Process slices to handle potential overlap
-        // Sort slices so smaller ones get special treatment
-        const sortedSlices = [...data_ready].sort((a, b) => a.data.percentage - b.data.percentage);
-        
-        // Identify the smallest slices (those with percentage < 5%)
-        const smallSlices = sortedSlices.filter(d => parseFloat(d.data.percentage) < 5);
-        
-        // Calculate positions for avoiding overlap
-        const labelPositions = {};
-        data_ready.forEach(d => {
-            const slice = d.data.detection_method;
-            const angle = midAngle(d);
-            const isSmallSlice = parseFloat(d.data.percentage) < 5;
-            
-            const pos = outerArc.centroid(d);
-            
-            // For small slices, position differently
-            if (isSmallSlice) {
-                // Move labels farther out for small slices
-                pos[0] = (angle < Math.PI ? 1 : -1) * (radius + 35);
-                
-                // Adjust vertical position to avoid overlap
-                const smallSliceIndex = smallSlices.findIndex(s => s.data.detection_method === slice);
-                if (smallSliceIndex > 0) {
-                    // Add vertical offset for successive small slices
-                    pos[1] += (smallSliceIndex * 15);
-                }
-            } else {
-                // Regular positioning for larger slices
-                pos[0] = (angle < Math.PI ? 1 : -1) * (radius + 25);
-            }
-            
-            labelPositions[slice] = pos;
-        });
-        
-        // Polylines with adjusted endpoints to match label positions
-        svg.selectAll('polyline')
-            .data(data_ready)
+        // Add polylines for labels (only for slices larger than a threshold)
+        svg.selectAll('polyline.label-line')
+            .data(data_ready.filter(d => (d.endAngle - d.startAngle) > 0.1)) // Filter small slices
             .join('polyline')
-            .attr('stroke', 'black')
-            .style('fill', 'none')
-            .style('stroke-width', '0.8px') // Thinner lines
-            .attr('points', d => {
-                const posA = arc.centroid(d);
-                const posB = outerArc.centroid(d);
-                const posC = labelPositions[d.data.detection_method].slice(0); // Use the same position as the label
-                
-                // Adjust the endpoint to be just before the text
-                posC[0] = midAngle(d) < Math.PI ? posC[0] - 5 : posC[0] + 5;
-                
+            .attr('class', 'label-line')
+            .attr("stroke", "black")
+            .style("fill", "none")
+            .attr("stroke-width", 1)
+            .attr('points', function(d) {
+                const posA = arc.centroid(d); // line insertion in the slice
+                const posB = outerArc.centroid(d); // line break: we use the other arc generator that has been defined only for the labels
+                const posC = outerArc.centroid(d); // Label position = almost the same as posB
+                const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2;
+                posC[0] = radius * 0.95 * (midangle < Math.PI ? 1 : -1); // extend line further for label
                 return [posA, posB, posC];
             });
-        
-        // Labels with adjusted positioning to avoid overlap
-        svg.selectAll('text.slice-label')
-            .data(data_ready)
+
+        // Add text labels (only for slices larger than a threshold)
+        svg.selectAll('text.label-text')
+            .data(data_ready.filter(d => (d.endAngle - d.startAngle) > 0.1)) // Filter small slices
             .join('text')
-            .attr('class', 'slice-label')
-            .attr('transform', d => {
-                const pos = labelPositions[d.data.detection_method];
+            .attr('class', 'label-text')
+            .text(d => `${d.data.detection_method} (${d.data.percentage}%)`)
+            .attr('transform', function(d) {
+                const pos = outerArc.centroid(d);
+                const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2;
+                pos[0] = radius * 0.99 * (midangle < Math.PI ? 1 : -1); // Adjust label position
                 return `translate(${pos})`;
             })
-            .style('text-anchor', d => midAngle(d) < Math.PI ? 'start' : 'end')
-            .style('font-size', `${width * 0.04}px`) // Slightly smaller text
-            .style('font-family', 'Arial')
-            .selectAll('tspan')
-            .data(d => [
-                { text: d.data.detection_method, dy: '0em' },
-                { text: d.data.percentage + '%', dy: '1.2em' }
-            ])
-            .join('tspan')
-            .text(d => d.text)
-            .attr('x', 0)
-            .attr('dy', d => d.dy);
+            .style('text-anchor', function(d) {
+                const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2;
+                return (midangle < Math.PI ? 'start' : 'end');
+            })
+            .style("font-size", "10px");
 
-        // Mid-angle helper
-        function midAngle(d) {
-            return d.startAngle + (d.endAngle - d.startAngle) / 2;
-        }
-            
     } catch (error) {
-        console.error("Error creating detection method visualization:", error);
-        // Display error message in the chart container
-        d3.select("#detection-method-chart")
-            .html("<div style='color: red; text-align: center; padding: 20px;'>Error loading detection method data</div>");
+        console.error("Error initializing detection method chart:", error);
+        const container = d3.select("#detection-method-chart");
+        container.html(""); // Clear previous content on error
+        container.append("div")
+            .attr("class", "error-message")
+            .text("Error initializing chart.");
+    }
+};
+
+window.updateDetectionMethodChartWithTransition = function(newData) {
+    try {
+        console.log('Updating detection method chart with transition. New data:', newData);
+
+        const container = d3.select("#detection-method-chart");
+        const svg = container.select("svg g"); // Select the existing group
+
+        if (svg.empty()) {
+            console.error("Detection method chart SVG group not found. Initializing.");
+            window.initDetectionMethodChart(); // Fallback to init if SVG is not there
+            return;
+        }
+
+        // --- Dimensions and Radius (should match init or be dynamic) ---
+        const boundingRect = container.node().getBoundingClientRect();
+        const width = Math.min(boundingRect.width, 300);
+        const height = Math.min(width, 300);
+        const margin = 30;
+        const radius = Math.min(width, height) / 2 - margin;
+
+        // --- Data Preparation ---
+        if (!newData || newData.length === 0) {
+            console.warn("No new detection method data provided for update. Clearing chart.");
+            svg.selectAll("*").remove(); // Clear slices, labels, etc.
+            svg.append("text")
+                .attr("text-anchor", "middle")
+                .attr("dy", "0.35em")
+                .text("No data available");
+            return;
+        }
+        
+        const totalCount = newData.reduce((sum, d) => sum + d.count, 0);
+        const dataWithPercentage = newData.map(d => ({
+            detection_method: d.method,
+            count: d.count,
+            percentage: totalCount > 0 ? ((d.count / totalCount) * 100) : 0 
+        }));
+
+        // --- Color Scale (same as init) ---
+        const color = d3.scaleOrdinal()
+            .domain(["Police issued", "Fixed camera systems", "Mobile camera", "Fixed or mobile camera", "Other"])
+            .range(["#ffd08e", "rgb(168,166,243)", "#ffa4ce", "#9a57c2", "rgb(32,199,218)"]);
+
+        // --- Pie Layout (same as init) ---
+        const pie = d3.pie()
+            .value(d => d.percentage)
+            .sort(null); 
+
+        const data_ready = pie(dataWithPercentage);
+
+        // --- Arc Generators (same as init) ---
+        const arcGenerator = d3.arc()
+            .innerRadius(0)
+            .outerRadius(radius);
+
+        const outerArcForLabels = d3.arc()
+            .innerRadius(radius * 0.9)
+            .outerRadius(radius * 0.9);
+
+        // --- Store old angles for tweening ---
+        svg.selectAll("path.slice")
+            .each(function(d) { this._current = d; });
+
+
+        // --- SLICES (Paths) ---
+        const slices = svg.selectAll("path.slice")
+            .data(data_ready, d => d.data.detection_method); 
+
+        slices.join(
+            enter => enter.append("path")
+                .attr("class", "slice")
+                .attr("fill", d => color(d.data.detection_method))
+                .style("stroke-width", "2px")
+                .style("stroke", "white")
+                .style("cursor", "pointer")
+                .each(function(d) { 
+                    this._current = { startAngle: d.startAngle, endAngle: d.startAngle }; 
+                })
+                .call(path => path.transition().duration(750)
+                    .attrTween("d", function(d) {
+                        const interpolate = d3.interpolate(this._current, d);
+                        this._current = interpolate(0); 
+                        return function(t) {
+                            return arcGenerator(interpolate(t));
+                        };
+                    })),
+            update => update
+                .call(path => path.transition().duration(750)
+                    .attrTween("d", function(d) {
+                        const interpolate = d3.interpolate(this._current, d);
+                        this._current = interpolate(0); 
+                        return function(t) {
+                            return arcGenerator(interpolate(t));
+                        };
+                    })),
+            exit => exit
+                .call(path => path.transition().duration(750)
+                    .attrTween("d", function(d) {
+                        const end = { startAngle: d.startAngle, endAngle: d.startAngle };
+                        const interpolate = d3.interpolate(this._current, end);
+                        return function(t) {
+                            return arcGenerator(interpolate(t));
+                        };
+                    })
+                    .remove())
+        );
+        
+         svg.selectAll("path.slice")
+            .on('mouseover', function(event, d) {
+                d3.select(this)
+                    .style('stroke', '#333')
+                    .style('stroke-width', '3px');
+                
+                const tooltip = d3.select(".detection-method-tooltip"); 
+                tooltip.transition().duration(200).style("opacity", 0.9);
+                tooltip.html(`<strong>${d.data.detection_method}</strong><br/>Percentage: ${d.data.percentage.toFixed(1)}%<br/>Count: ${d.data.count}`)
+                    .style("left", (event.pageX + 10) + "px")
+                    .style("top", (event.pageY - 28) + "px");
+            })
+            .on('mouseout', function(event, d) {
+                d3.select(this)
+                    .style('stroke', 'white')
+                    .style('stroke-width', '2px');
+                
+                const tooltip = d3.select(".detection-method-tooltip");
+                tooltip.transition().duration(500).style("opacity", 0);
+            });
+
+        // --- POLYLINES for LABELS ---
+        const polylines = svg.selectAll("polyline.label-line")
+            .data(data_ready.filter(d => (d.endAngle - d.startAngle) > 0.1), d => d.data.detection_method); 
+
+        polylines.join(
+            enter => enter.append("polyline")
+                .attr("class", "label-line")
+                .style("fill", "none")
+                .attr("stroke", "black")
+                .style("opacity", 0) 
+                .attr("stroke-width", 1)
+                .attr("points", function(d) {
+                    const posA = arcGenerator.centroid(d); 
+                    const posB = outerArcForLabels.centroid(d); 
+                    const posC = outerArcForLabels.centroid(d); 
+                    return [posA, posB, posC];
+                })
+                .call(line => line.transition().duration(750)
+                    .style("opacity", 1)
+                    .attr("points", function(d) {
+                        const posA = arcGenerator.centroid(d);
+                        const posB = outerArcForLabels.centroid(d);
+                        const posC = outerArcForLabels.centroid(d);
+                        const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2;
+                        posC[0] = radius * 0.95 * (midangle < Math.PI ? 1 : -1);
+                        return [posA, posB, posC];
+                    })),
+            update => update
+                .call(line => line.transition().duration(750)
+                    .style("opacity", 1) 
+                    .attr("points", function(d) {
+                        const posA = arcGenerator.centroid(d);
+                        const posB = outerArcForLabels.centroid(d);
+                        const posC = outerArcForLabels.centroid(d);
+                        const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2;
+                        posC[0] = radius * 0.95 * (midangle < Math.PI ? 1 : -1);
+                        return [posA, posB, posC];
+                    })),
+            exit => exit
+                .call(line => line.transition().duration(750)
+                    .style("opacity", 0)
+                    .attr("points", function(d) { 
+                        const posA = arcGenerator.centroid(d);
+                        return [posA, posA, posA];
+                    })
+                    .remove())
+        );
+
+        // --- TEXT LABELS ---
+        const labels = svg.selectAll("text.label-text")
+            .data(data_ready.filter(d => (d.endAngle - d.startAngle) > 0.1), d => d.data.detection_method);
+
+        labels.join(
+            enter => enter.append("text")
+                .attr("class", "label-text")
+                .style("opacity", 0)
+                .text(d => `${d.data.detection_method} (${d.data.percentage.toFixed(1)}%)`)
+                .attr("transform", function(d) {
+                    const pos = outerArcForLabels.centroid(d);
+                    const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2;
+                    pos[0] = radius * 0.99 * (midangle < Math.PI ? 1 : -1); 
+                    return `translate(${pos})`;
+                })
+                .style("text-anchor", function(d) {
+                    const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2;
+                    return (midangle < Math.PI ? "start" : "end");
+                })
+                .style("font-size", "10px") 
+                .call(text => text.transition().duration(750)
+                    .style("opacity", 1)
+                    .attr("transform", function(d) {
+                        const pos = outerArcForLabels.centroid(d);
+                        const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2;
+                        pos[0] = radius * 0.99 * (midangle < Math.PI ? 1 : -1);
+                        return `translate(${pos})`;
+                    })),
+            update => update
+                .text(d => `${d.data.detection_method} (${d.data.percentage.toFixed(1)}%)`) 
+                .call(text => text.transition().duration(750)
+                    .style("opacity", 1)
+                    .attr("transform", function(d) {
+                        const pos = outerArcForLabels.centroid(d);
+                        const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2;
+                        pos[0] = radius * 0.99 * (midangle < Math.PI ? 1 : -1);
+                        return `translate(${pos})`;
+                    })
+                    .style("text-anchor", function(d) {
+                        const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2;
+                        return (midangle < Math.PI ? "start" : "end");
+                    })),
+            exit => exit
+                .call(text => text.transition().duration(750)
+                    .style("opacity", 0)
+                    .attr("transform", function(d) { 
+                        const pos = outerArcForLabels.centroid(d);
+                        return `translate(${pos[0]*0.1}, ${pos[1]*0.1})`; 
+                    })
+                    .remove())
+        );
+
+    } catch (error) {
+        console.error("Error updating detection method chart with transitions:", error);
     }
 };
 
