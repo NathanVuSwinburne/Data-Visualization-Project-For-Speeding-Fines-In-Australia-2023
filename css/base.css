@@ -55,6 +55,20 @@ header {
     height: 40px;
 }
 
+/* Header content with icon and title */
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Government icon in header */
+.gov-icon {
+    height: 28px;
+    margin-right: 15px;
+    border-radius: 3px;
+}
+
 /* Header title */
 header h1 {
     font-size: 1.5rem;
@@ -259,7 +273,8 @@ header h1 {
     cursor: pointer;
     font-weight: bold;
     width: 100%;
-    margin-top: 5px;
+    margin-top: 10px;
+    margin-bottom: 15px;
     transition: background-color 0.2s;
 }
 
@@ -269,6 +284,25 @@ header h1 {
 
 #reset-filters:active {
     transform: translateY(1px);
+}
+
+/* Contextual notes section */
+.contextual-notes {
+    margin-top: 5px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    border-left: 3px solid var(--secondary-color);
+    font-size: 0.85rem;
+}
+
+.contextual-notes p {
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.contextual-notes strong {
+    color: var(--primary-color);
 }
 
 /* Empty space */

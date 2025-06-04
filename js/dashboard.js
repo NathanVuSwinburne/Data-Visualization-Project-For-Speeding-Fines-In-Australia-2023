@@ -314,7 +314,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (filterPanel) {
         const scrollThreshold = -5; // Pixels to scroll before panel slides in
         const panelOnscreenTop = '45px'; // How far from the top edge when visible
-        const panelOffscreenTop = '-400px'; // Initial off-screen position (should match CSS)
+        const panelOffscreenTop = '-50px'; // Match the CSS value
+
+        // Set initial position to ensure it's visible on page load
+        filterPanel.style.top = panelOnscreenTop;
 
         window.addEventListener('scroll', () => {
             if (window.scrollY > scrollThreshold) {
