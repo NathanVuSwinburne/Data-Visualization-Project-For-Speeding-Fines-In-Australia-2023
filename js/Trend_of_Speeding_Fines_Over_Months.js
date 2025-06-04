@@ -148,7 +148,7 @@ function initMonthlyTrendChart() {
             // Format the percentage with the correct sign
             const formattedPct = d.percentageChange !== null 
                 ? (d.percentageChange >= 0 ? '+' : '') + d.percentageChange.toFixed(2) + '%'
-                : 'N/A';
+                : '0%';
             
             // Show tooltip
             tooltip.transition()
@@ -434,14 +434,14 @@ window.updateMonthlyTrendChartWithTransition = function(newData) {
                 // Format the percentage with the correct sign
                 const formattedPct = d.percentageChange !== null 
                     ? (d.percentageChange >= 0 ? '+' : '') + d.percentageChange.toFixed(2) + '%'
-                    : 'N/A';
+                    : '0%';    
                 
                 // Show tooltip
                 tooltip.transition()
                     .duration(200)
                     .style("opacity", 0.9);
                     
-                tooltip.html(`<strong>${d.month}</strong><br>Change: ${formattedPct}`)
+                    tooltip.html(`<strong>${d.month}</strong><br>Month-over-Month Change: <span style="color: ${d.percentageChange >= 0 ? '#2ecc71' : '#e74c3c'}">${formattedPct}</span>`)
                     .style("left", (event.pageX + 10) + "px")
                     .style("top", (event.pageY - 28) + "px");
             })
