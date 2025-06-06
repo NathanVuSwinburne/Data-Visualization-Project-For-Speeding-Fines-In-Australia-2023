@@ -336,18 +336,18 @@ header h1 {
     min-height: 370px;
     height: 200px;
 }
-
-#detection-method-chart-container {
+#age-groups-chart-container {
     grid-area: detection;
     min-height: 300px;  /* Decreased from default */
     height: 300px;
 }
-
-#age-groups-chart-container {
+#detection-method-chart-container {
     grid-area: age;
     min-height: 300px;  /* Decreased from default */
     height: 300px;
 }
+
+
 
 /* CHART STYLING */
 /* Individual chart containers */
