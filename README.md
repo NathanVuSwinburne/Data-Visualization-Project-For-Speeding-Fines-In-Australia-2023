@@ -50,7 +50,7 @@ All visuals are interactive — hover for tool-tips, click legends to filter, an
 
 ## 🚀 Live Demo
 
-Click → **https://my-speeding-fines-dashboard-2025.s3-website-ap-southeast-2.amazonaws.com**  
+Click → **http://my-speeding-fines-dashboard-2025.s3-website-ap-southeast-2.amazonaws.com/**  
 No build step needed — the site is pure static assets.
 
 ## 🧑‍💻 Local Setup (2 mins)
