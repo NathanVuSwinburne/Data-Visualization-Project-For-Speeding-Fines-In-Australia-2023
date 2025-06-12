@@ -60,6 +60,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative; /* Add this to contain the absolute positioned button */
 }
 
 /* Government icon in header */
@@ -73,6 +74,26 @@ header {
 header h1 {
     font-size: 1.5rem;
     text-align: center;
+}
+
+/* Hamburger Button Styles */
+.hamburger-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 6px;
+    margin-right: 10px;
+    color: white;
+    position: fixed; /* Changed from absolute to fixed */
+    left: 10px;
+    top: 0px;
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+.hamburger-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
 }
 
 /* Dashboard grid layout */
@@ -95,6 +116,12 @@ header h1 {
     flex: 1 0 auto;
     margin-left: 340px;
     width: calc(100vw - 380px); /* Account for left margin and some padding */
+}
+
+/* Align dashboard to left when filters hidden */
+.dashboard-container.filters-hidden {
+    margin-left: 20px !important; /* Small left padding instead of 340px */
+    width: calc(100vw - 40px) !important; /* Full width minus padding */
 }
 
 /* KPI section */
@@ -159,6 +186,11 @@ header h1 {
     
     z-index: 1020; /* Ensure it's above other content */
     transition: top 0.4s ease-in-out, transform 0.3s ease; /* Animate 'top' for vertical slide */
+    transition: all 0.3s ease;
+}
+
+.filters-section.hidden {
+    display: none;
 }
 
 .filters-section:hover {
@@ -184,11 +216,6 @@ header h1 {
     padding: 0 4px; /* Added some padding */
 }
 
-/* Hamburger icon */
-.filters-section h3:after {
-    content: "≡";
-    margin-left: 169px; /* Reduced from 10px */
-}
 
 /* Filter group */
 .filter {
@@ -526,4 +553,42 @@ footer {
     right: auto !important;
     overflow-x: auto !important;
   }
-} 
+}
+
+/* ================= MOBILE LAYOUT (≤ 767px) ================= */
+@media (max-width: 767px) {
+    /* Dashboard grid: single column */
+    .dashboard-container {
+        grid-template-areas:
+            "kpi"
+            "month"
+            "jurisdiction"
+            "location"
+            "age"
+            "detection";
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: 0 8px;
+    }
+
+    /* KPI grid wraps */
+    .kpi-section {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .kpi-card {
+        flex: 1 1 calc(50% - 8px); /* 2-per row */
+    }
+
+    /* Chart container full width */
+    .chart-container {
+        width: 100% !important;
+    }
+
+    /* Filters hidden by default on mobile */
+    .filters-section {
+        display: none;
+    }
+}
