@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Speeding Dashboard</title>
+    <title>Speeding Dashboard In Australia</title>
     
     <!-- Load Select2 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -33,8 +33,9 @@
 <body>
     <header>
         <div class="header-content">
+            <button id="toggle-filters" class="hamburger-btn">☰</button>
             <img src="assets/australianicon.jfif" alt="Australian Government Icon" class="gov-icon">
-            <h1>2023 Speeding Dashboard</h1>
+            <h1>2023 Speeding Fines In Australia Dashboard</h1>
         </div>
     </header>
     
@@ -65,19 +66,17 @@
             <div class="filter">
                 <label for="month-filter">Month:</label>
                 <select id="month-filter" multiple="multiple" style="width: 100%;">
-                    <!-- Will be populated by JavaScript -->
+                   
                 </select>
             </div>
             <div class="filter">
                 <label for="jurisdiction-filter">Jurisdiction:</label>
                 <select id="jurisdiction-filter" multiple="multiple" style="width: 100%;">
-                    <!-- Will be populated by JavaScript -->
                 </select>
             </div>
             <div class="filter">
                 <label for="age-group-filter">Age Group:</label>
                 <select id="age-group-filter" multiple="multiple" style="width: 100%;">
-                    <!-- Will be populated by JavaScript -->
                 </select>
             </div>
             <button id="reset-filters" class="btn">RESET FILTERS</button>
@@ -130,7 +129,7 @@
     </div>
     
     <footer>
-        <p>&copy; 2025 Team 8 - COS30045 Data Visualization</p>
+        <p>&copy; 2025 Nathan Vu - Australia Speeding Fines Data Visualization Project</p>
     </footer>
 
     <!-- Load data module first -->
@@ -142,10 +141,6 @@
     <script src="js/Speeding_Fines_by_Detection_Method.js"></script>
     <script src="js/Number_of_Fines_Across_Age_Groups.js"></script>
     <script src="js/Number_of_Speeding_Fines_by_Location.js"></script>
-
-    <!-- Load interactions (simplified) -->
-    <script src="js/interactions.js"></script>
-
     <!-- Then load dashboard that uses all the modules -->
     <script src="js/dashboard.js"></script>
     <script>
