@@ -1,10 +1,22 @@
 console.log('Starting to load data...');
 
+const monthAbbreviations = {
+    "January": "JAN", "February": "FEB", "March": "MAR", "April": "APR",
+    "May": "MAY", "June": "JUN", "July": "JUL", "August": "AUG",
+    "September": "SEP", "October": "OCT", "November": "NOV", "December": "DEC"
+};
+
 // Load data from master_fine.csv
 d3.csv("data/master_fine.csv").then(rawData => {
     console.log("Raw data loaded from master_fine.csv:", rawData.length, "rows");
     
-    // Store raw data globally for filtering
+    // Transform month names to abbreviations IN PLACE in the 'Month (Name)' field
+    rawData.forEach(d => {
+        const fullMonthName = d["Month (Name)"];
+        d["Month (Name)"] = monthAbbreviations[fullMonthName] || fullMonthName;
+    });
+    
+    // Store raw data globally for filtering (now with abbreviated month names in 'Month (Name)')
     window.rawDashboardData = rawData;
     // 1. Monthly trend data
     const monthlyData = processMonthlyData(rawData);
@@ -99,7 +111,7 @@ function processMonthlyData(rawData) {
         // Skip QLD data for monthly trend
         if (d.JURISDICTION === "QLD") return;
         
-        const month = d["Month (Name)"];
+        const month = d["Month (Name)"]; // This now directly gives the abbreviation
         presentInRawDataMonths.add(month); // Record that this month has data from the filter
         if (!monthlyFines[month]) {
             monthlyFines[month] = 0;
@@ -108,8 +120,8 @@ function processMonthlyData(rawData) {
     });
     
     const monthOrder = [
-        "January", "February", "March", "April", "May", "June", 
-        "July", "August", "September", "October", "November", "December"
+        "JAN", "FEB", "MAR", "APR", "MAY", "JUN", 
+        "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
     ];
     
     // Create an array of month objects, ONLY for months that were present in rawData 
@@ -172,7 +184,7 @@ function processLocationData(rawData, filteredMonths = null) {
     
     // Filter by months if specified
     const dataToProcess = filteredMonths && filteredMonths.length > 0 
-        ? rawData.filter(d => filteredMonths.includes(d["Month (Name)"]))
+        ? rawData.filter(d => filteredMonths.includes(d["Month (Name)"])) // d["Month (Name)"] is now an abbreviation
         : rawData;
     
     // Group fines by location, excluding "Unknown" locations
@@ -197,7 +209,7 @@ function processAgeGroupData(rawData, filteredMonths = null) {
     
     // Filter by months if specified
     const dataToProcess = filteredMonths && filteredMonths.length > 0 
-        ? rawData.filter(d => filteredMonths.includes(d["Month (Name)"]))
+        ? rawData.filter(d => filteredMonths.includes(d["Month (Name)"])) // d["Month (Name)"] is now an abbreviation
         : rawData;
     
     dataToProcess.forEach(d => {
@@ -223,7 +235,7 @@ function processDetectionMethodData(rawData, filteredMonths = null) {
     
     // Filter by months if specified
     const dataToProcess = filteredMonths && filteredMonths.length > 0 
-        ? rawData.filter(d => filteredMonths.includes(d["Month (Name)"]))
+        ? rawData.filter(d => filteredMonths.includes(d["Month (Name)"])) // d["Month (Name)"] is now an abbreviation
         : rawData;
     
     dataToProcess.forEach(d => {
