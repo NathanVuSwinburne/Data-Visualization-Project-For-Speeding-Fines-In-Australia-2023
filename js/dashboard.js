@@ -138,6 +138,96 @@ function applyFilters() {
 
 // Dashboard initialization
 window.initDashboard = function() {
+    // Store filters section HTML for toggling
+    let filtersSectionHTML = $('.filters-section')[0].outerHTML;
+    let filtersVisible = true;
+
+    function attachFilterEvents() {
+        // Add change event listeners
+        $('#month-filter, #jurisdiction-filter, #age-group-filter').off('change').on('change', function() {
+            console.log('Filter changed:', this.id);
+            
+            const currentSelections = $(this).val() || [];
+            const filterType = this.id.replace('-filter', '');
+            
+            if (currentSelections.length === 0) {
+                const notification = $(`<div class='filter-notification'>You must keep at least one selection</div>`);
+                $(this).next('.select2-container').append(notification);
+                notification.fadeIn().delay(2000).fadeOut();
+                
+                $(this).val(filterState[filterType]).trigger('change');
+                return;
+            }
+            
+            applyFilters();
+        });
+        
+        // Reset filters button
+        $('#reset-filters').off('click').on('click', resetAllFilters);
+    }
+    
+    function resetAllFilters() {
+        console.log('Resetting all filters');
+        
+        const allMonths = [...new Set(window.rawDashboardData.map(d => d["Month (Name)"]))];
+        const allJurisdictions = [...new Set(window.rawDashboardData.map(d => d.JURISDICTION))];
+        const allAgeGroups = [...new Set(window.rawDashboardData.map(d => d.AGE_GROUP))]
+            .filter(ag => ag !== "Unknown" && ag !== "0-16");
+        
+        $('#month-filter').val(allMonths).trigger('change');
+        $('#jurisdiction-filter').val(allJurisdictions).trigger('change');
+        $('#age-group-filter').val(allAgeGroups).trigger('change');
+        
+        filterState.month = allMonths;
+        filterState.jurisdiction = allJurisdictions;
+        filterState.ageGroup = allAgeGroups;
+        
+        applyFilters();
+    }
+
+    // Add hamburger menu toggle functionality
+    $('#toggle-filters').on('click', function() {
+        if (filtersVisible) {
+            $('.filters-section').remove();
+            $('.dashboard-container').addClass('filters-hidden');
+            filtersVisible = false;
+        } else {
+            $('.kpi-section').after(filtersSectionHTML);
+            $('.dashboard-container').removeClass('filters-hidden');
+            filtersVisible = true;
+            
+            if (window.dashboardData) {
+                initFilters();
+                attachFilterEvents(); // Reattach event listeners
+                initializeSelect2('#month-filter', 'Select months');
+                initializeSelect2('#jurisdiction-filter', 'Select jurisdictions');
+                initializeSelect2('#age-group-filter', 'Select age groups');
+            }
+        }
+    });
+    
+    // Initialize filters
+    function initFilters() {
+        if (window.dashboardData.monthlyTrend) {
+            const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", 
+                          "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+            const availableMonths = months.filter(month => 
+                window.dashboardData.monthlyTrend.some(item => item.month === month)
+            );
+            populateDropdown('#month-filter', availableMonths, 'Select months');
+        }
+        
+        if (window.dashboardData.jurisdiction) {
+            const jurisdictions = [...new Set(window.dashboardData.jurisdiction.map(item => item.jurisdiction))];
+            populateDropdown('#jurisdiction-filter', jurisdictions, 'Select jurisdictions');
+        }
+        
+        if (window.dashboardData.ageGroup) {
+            const ageGroups = [...new Set(window.dashboardData.ageGroup.map(item => item.ageGroup))];
+            populateDropdown('#age-group-filter', ageGroups, 'Select age groups');
+        }
+    }
+
     // Add notification style
     $('head').append(`
         <style>
@@ -166,8 +256,8 @@ window.initDashboard = function() {
     if (!window.dashboardInitialized && window.dashboardData) {
         // Populate dropdowns
         if (window.dashboardData.monthlyTrend) {
-    const months = ["January", "February", "March", "April", "May", "June", 
-                    "July", "August", "September", "October", "November", "December"];
+    const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", 
+                    "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
     const availableMonths = months.filter(month => 
         window.dashboardData.monthlyTrend.some(item => item.month === month)
     );
@@ -185,56 +275,11 @@ window.initDashboard = function() {
         }
         
         // Add change event listeners - use single listener to avoid conflicts
-        $('#month-filter, #jurisdiction-filter, #age-group-filter').on('change', function() {
-            console.log('Filter changed:', this.id);
-            
-            // Get current selections
-            const currentSelections = $(this).val() || [];
-            const filterType = this.id.replace('-filter', '');
-            
-            // Prevent removing last element
-            if (currentSelections.length === 0) {
-                // Show notification
-                const notification = $(`<div class='filter-notification'>You must keep at least one selection</div>`);
-                $(this).next('.select2-container').append(notification);
-                notification.fadeIn().delay(2000).fadeOut();
-                
-                // Prevent the change by reverting immediately
-                $(this).val(filterState[filterType]).trigger('change');
-                return;
-            }
-            
-            // Only apply filters if selection is valid
-            applyFilters();
-        });
+        attachFilterEvents(); // Ensure listeners active from first load
         
-        // Add reset filters button functionality
-        $('#reset-filters').on('click', function() {
-            console.log('Resetting all filters');
-            
-            // Get all available values
-            const allMonths = [...new Set(window.rawDashboardData.map(d => d["Month (Name)"]))];
-            const allJurisdictions = [...new Set(window.rawDashboardData.map(d => d.JURISDICTION))];
-            const allAgeGroups = [...new Set(window.rawDashboardData.map(d => d.AGE_GROUP))]
-                .filter(ag => ag !== "Unknown" && ag !== "0-16");
-            
-            // Reset month filter
-            $('#month-filter').val(allMonths).trigger('change');
-            
-            // Reset jurisdiction filter
-            $('#jurisdiction-filter').val(allJurisdictions).trigger('change');
-            
-            // Reset age group filter
-            $('#age-group-filter').val(allAgeGroups).trigger('change');
-            
-            // Update filter state
-            filterState.month = allMonths;
-            filterState.jurisdiction = allJurisdictions;
-            filterState.ageGroup = allAgeGroups;
-            
-            // Apply filters to update charts
-            applyFilters();
-        });
+        initializeSelect2('#month-filter', 'Select months');
+        initializeSelect2('#jurisdiction-filter', 'Select jurisdictions');
+        initializeSelect2('#age-group-filter', 'Select age groups');
         
         // Initialize monthly trend chart
         if (typeof initMonthlyTrendChart === 'function' && window.dashboardData.monthlyTrend) {
