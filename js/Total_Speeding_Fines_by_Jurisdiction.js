@@ -1,15 +1,12 @@
 // Initialize function for jurisdiction chart
 window.initJurisdictionChart = async function() {
     try {
-        console.log('Initializing jurisdiction chart...');
-        
         // Clear any existing content
         const container = d3.select("#jurisdiction-chart");
         container.html("");
         
         // Check if global dashboard data is available
         if (!window.dashboardData || !window.dashboardData.jurisdiction || window.dashboardData.jurisdiction.length === 0) {
-            console.error("No jurisdiction data available in dashboardData");
             container.append("div")
                 .attr("class", "error-message")
                 .text("No jurisdiction data available");
@@ -17,7 +14,6 @@ window.initJurisdictionChart = async function() {
         }
 
         const jurisdictionData = window.dashboardData.jurisdiction;
-        console.log("Using jurisdiction data from dashboardData:", jurisdictionData);
         
         // Calculate total fines for percentage calculation
         const totalFines = jurisdictionData.reduce((sum, d) => sum + d.fines, 0);
@@ -27,11 +23,9 @@ window.initJurisdictionChart = async function() {
         jurisdictionData.forEach(row => {
             processedData[row.jurisdiction] = {
                 fines: row.fines,
-                percentage: ((row.fines / totalFines) * 100).toFixed(1)
+                percentage: ((row.fines / totalFines) * 100)
             };
         });
-        
-        console.log("Processed jurisdiction data for map:", processedData);
         
         // Get container dimensions to make the chart responsive
         const boundingRect = container.node().getBoundingClientRect();
@@ -61,7 +55,6 @@ window.initJurisdictionChart = async function() {
 
         // Load Australia GeoJSON data
         const geojson = await d3.json("https://raw.githubusercontent.com/rowanhogan/australian-states/master/states.geojson");
-        console.log("Loaded GeoJSON:", geojson);
 
         if (!geojson || !geojson.features) {
             throw new Error("Invalid GeoJSON data");
@@ -91,6 +84,17 @@ window.initJurisdictionChart = async function() {
             .style("color", "#000000")
             .style("box-shadow", "0 4px 8px rgba(0,0,0,0.1)");
 
+        const stateCodeToFullName = {
+            "ACT": "Australian Capital Territory",
+            "NSW": "New South Wales",
+            "NT": "Northern Territory",
+            "QLD": "Queensland",
+            "SA": "South Australia",
+            "TAS": "Tasmania",
+            "VIC": "Victoria",
+            "WA": "Western Australia"
+        };
+
         // Draw states with heatmap colors and add interactivity
         mapGroup.selectAll("path")
             .data(geojson.features)
@@ -117,15 +121,17 @@ window.initJurisdictionChart = async function() {
                     // Show tooltip
                     tooltip.transition()
                         .duration(200)
-                        .style("opacity", 0.9);
+                        .style("opacity", .9);
                     
+                    const displayName = stateCodeToFullName[stateCode] || d.properties.STATE_NAME; // Get full name, fallback to original
+
                     tooltip.html(`
-                        <strong>${stateCode}</strong><br/>
-                        <strong>Fines:</strong> ${stateData.fines.toLocaleString()}<br/>
-                        <strong>Percentage:</strong> ${stateData.percentage}%
+                        <strong>${displayName}</strong><br/>
+                        Fines: ${stateData.fines.toLocaleString()}<br/>
+                        Percentage: ${stateData.percentage.toFixed(2)}%
                     `)
-                        .style("left", (event.pageX + 10) + "px")
-                        .style("top", (event.pageY - 28) + "px");
+                    .style("left", (event.pageX + 15) + "px")
+                    .style("top", (event.pageY - 28) + "px");
                 }
             })
             .on("mouseout", function() {
@@ -163,10 +169,7 @@ window.initJurisdictionChart = async function() {
                 const stateCode = getStateCode(d.properties.STATE_NAME);
                 const stateData = processedData[stateCode];
                 
-                console.log("Adding label for:", stateCode, "Data:", stateData);
-
                 if (!stateData) {
-                    console.warn(`No data found for ${stateCode}`);
                     return;
                 }
 
@@ -181,16 +184,17 @@ window.initJurisdictionChart = async function() {
                     .style("fill", "black")
                     .text(stateCode);
                 
-                // Percentage - changed from white to black text
+                // Add percentage
                 g.append("text")
+                    .attr("class", "percentage-label")
                     .attr("text-anchor", "middle")
                     .attr("dy", "1em")
-                    .style("font-size", "20px")
                     .style("font-weight", "bold")
+                    .style("font-size", "18px")
                     .style("fill", "black")
-                    .text(stateData.percentage + "%");
-                
-                // Value in parentheses - changed from white to black text
+                    .text(`${stateData.percentage.toFixed(2)}%`);
+
+                // Add fines (in K or M)
                 g.append("text")
                     .attr("text-anchor", "middle")
                     .attr("dy", "2.5em")
@@ -291,7 +295,6 @@ window.initJurisdictionChart = async function() {
 // Helper function to convert state names to codes
 // Initialize the chart when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded, checking for jurisdiction data...');
     if (window.dashboardData && window.dashboardData.jurisdiction) {
         // Initialize the chart if data is already loaded
         initJurisdictionChart();
