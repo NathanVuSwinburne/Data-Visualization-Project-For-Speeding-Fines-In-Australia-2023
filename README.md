@@ -5,9 +5,14 @@
 
 > **Interactive dashboard revealing how, where and when Australians were fined for speeding in 2023.**
 
+### One half of the Dashboard
 <p align="center">
-  <img src="assets/Dashboard1.png" width="750" alt="Speeding Fines Dashboard screenshot">
-  <img src="assets/Dashboard2.png" width="750" alt="Speeding Fines Dashboard screenshot">
+  <img src="assets/Dashboard1.png" width="750" alt="Speeding Fines Dashboard - Part 1: Overview">
+</p>
+
+### The other half of the Dashboard
+<p align="center">
+  <img src="assets/Dashboard2.png" width="750" alt="Speeding Fines Dashboard - Part 2: Detailed Analysis">
 </p>
 
 ---
@@ -22,7 +27,7 @@
 | **Age Groups** | Which demographic racks up the most fines? |
 | **Location Type** | Urban vs rural roads, highways, school zones. |
 
-All visuals are interactive — hover for tool-tips, click legends to filter, and watch KPIs update in real time.
+All visuals are interactive — hover for tool-tips, click legends to filter, and watch KPIs update after filtering applied.
 
 ## 🛠️ Tech Stack
 
@@ -43,7 +48,6 @@ All visuals are interactive — hover for tool-tips, click legends to filter, an
 | `data/` | Contains datasets for road safety analysis |
 | `assets/` | Contains images and icons used in the dashboard |
 
-
 ## 🚀 Live Demo
 
 Click → **https://my-speeding-fines-dashboard-2025.s3-website-ap-southeast-2.amazonaws.com**  
@@ -53,8 +57,11 @@ No build step needed — the site is pure static assets.
 
 ```bash
 # Clone this repository
-git clone [https://github.com/your-username/DataVisualizationProject.git](https://github.com/your-username/DataVisualizationProject.git)
-cd DataVisualizationProject
+git clone https://github.com/NathanVuSwinburne/DataVisualizationProject.git
+
+# Use VS code with Live Server extension
+# 1. Open the folder in VS Code
+# 2. Open with Live Server
 
 # Note: Browsers block local file:// XHR requests,
 # so you must use a local server to load the CSV data.
