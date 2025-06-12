@@ -1,47 +1,102 @@
-# Road Safety Dashboard 2023 - Team 8
+# Speeding-Fines-AU (2023) &nbsp;🚗💨  
+[![Build](https://img.shields.io/badge/status-active-brightgreen)](../../branches) 
+[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE) 
+[![Made with D3](https://img.shields.io/badge/made%20with-D3.js-f06666)](https://d3js.org/) 
+![GitHub repo size](https://img.shields.io/github/repo-size/your-username/DataVisualizationProject)
 
-This repository contains a Data Visualization dashboard for road safety data in Australia for 2023, developed by Team 8 for COS30045.
+> **Interactive dashboard revealing how, where and when Australians were fined for speeding in 2023.**
 
-## Project Overview
+<p align="center">
+  <img src="assets/screenshot.png" width="750" alt="Speeding Fines Dashboard screenshot">
+</p>
 
-The Road Safety Dashboard visualizes speeding fine data across Australia for 2023, providing insights on:
+---
 
-- Monthly trends of speeding fines
-- Distribution by jurisdiction 
-- Detection methods used
-- Age group analysis
-- Location-based analysis
+## ✨ What You’ll See
 
-The dashboard aims to help the general public, policymakers, road safety analysts, and advocacy groups understand patterns in speeding violations to improve road safety initiatives.
+| Insight | Example |
+|---------|---------|
+| **Monthly Trends** | Identify spikes (e.g. holiday periods). |
+| **By Jurisdiction** | Compare VIC, NSW, QLD… |
+| **Detection Methods** | Mobile camera vs fixed vs police radar. |
+| **Age Groups** | Which demographic racks up the most fines? |
+| **Location Type** | Urban vs rural roads, highways, school zones. |
 
-## Project Structure
+All visuals are interactive — hover for tool-tips, click legends to filter, and watch KPIs update in real time.
 
-- `index.html` - Main dashboard interface
-- `css/` - Contains stylesheets for the dashboard
-- `js/` - Contains JavaScript files with D3.js visualizations
-- `data/` - Contains datasets for road safety analysis
-- `assets/` - Contains images and icons used in the dashboard
+## 🛠️ Tech Stack
 
-## Features
+| Layer | Tools |
+|-------|-------|
+| Front-End | **HTML · CSS · JavaScript** |
+| Visuals  | **D3.js v7** |
+| Hosting  | **AWS S3 static site** |
+| Data     | Cleaned CSV from [BITRE Road-Safety Enforcement Data (2024)](https://www.bitre.gov.au/publications/2024/road-safety-enforcement-data) |
 
-- Interactive charts that visualize different aspects of road safety data
-- Filtering capabilities to explore specific dimensions of the data
-- Responsive design that works on different screen sizes
-- Key Performance Indicators (KPIs) highlighting important insights
-- Tooltips providing detailed information on hover
+## 📂 Repo Structure
 
-## Technologies Used
+| File | Description |
+|------|-------------|
+| `index.html` | Main dashboard interface |
+| `css/` | Contains stylesheets for the dashboard |
+| `js/` | Contains JavaScript files with D3.js visualizations |
+| `data/` | Contains datasets for road safety analysis |
+| `assets/` | Contains images and icons used in the dashboard |
+# Speeding-Fines-AU (2023) &nbsp;🚗💨  
+[![Build](https://img.shields.io/badge/status-active-brightgreen)](../../branches) 
+[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE) 
+[![Made with D3](https://img.shields.io/badge/made%20with-D3.js-f06666)](https://d3js.org/) 
+![GitHub repo size](https://img.shields.io/github/repo-size/your-username/DataVisualizationProject)
 
-- HTML5, CSS3 for structure and styling
-- D3.js for data visualization
-- JavaScript for interactivity
-- Responsive design techniques for cross-device compatibility
+> **Interactive dashboard revealing how, where and when Australians were fined for speeding in 2023.**
 
-## Team Members
+<p align="center">
+  <img src="assets/screenshot.png" width="750" alt="Speeding Fines Dashboard screenshot">
+</p>
 
-- Add team member names here
+---
 
-## Getting Started
+## ✨ What You’ll See
 
-1. Clone this repository
-2. Open `index.html` in your browser to view the dashboard 
+| Insight | Example |
+|---------|---------|
+| **Monthly Trends** | Identify spikes (e.g. holiday periods). |
+| **By Jurisdiction** | Compare VIC, NSW, QLD… |
+| **Detection Methods** | Mobile camera vs fixed vs police radar. |
+| **Age Groups** | Which demographic racks up the most fines? |
+| **Location Type** | Urban vs rural roads, highways, school zones. |
+
+All visuals are interactive — hover for tool-tips, click legends to filter, and watch KPIs update in real time.
+
+## 🛠️ Tech Stack
+
+| Layer | Tools |
+|-------|-------|
+| Front-End | **HTML · CSS · JavaScript** |
+| Visuals  | **D3.js v7** |
+| Hosting  | **AWS S3 static site** |
+| Data     | Cleaned CSV from [BITRE Road-Safety Enforcement Data (2024)](https://www.bitre.gov.au/publications/2024/road-safety-enforcement-data) |
+
+
+## 🚀 Live Demo
+
+Click → **https://my-speeding-fines-dashboard-2025.s3-website-ap-southeast-2.amazonaws.com**  
+No build step needed — the site is pure static assets.
+
+## 🧑‍💻 Local Setup (2 mins)
+
+```bash
+# Clone this repository
+git clone [https://github.com/your-username/DataVisualizationProject.git](https://github.com/your-username/DataVisualizationProject.git)
+cd DataVisualizationProject
+
+# Option 1: Use VS Code with Live Server extension
+# 1. Open the folder in VS Code
+# 2. Right-click index.html → "Open with Live Server"
+
+# Option 2: Use a simple HTTP server
+npx serve .
+# Then open http://localhost:3000 in your browser
+
+# Note: Browsers block local file:// XHR requests,
+# so you must use a local server to load the CSV data.
