@@ -1,8 +1,9 @@
 # Road Safety Data Files
 
-This folder contains datasets used for the Road Safety Dashboard 2023 by Team 8.
+This folder contains datasets used for the Road Safety Dashboard 2023.
 
-## Data Sources
+## Data Sources from the Australian Road Safety Data
+https://www.bitre.gov.au/publications/2024/road-safety-enforcement-data
 
 The data represents speeding fine information across Australia for the year 2023. It includes:
 
@@ -14,12 +15,8 @@ The data represents speeding fine information across Australia for the year 2023
 
 ## Files
 
-- `Trend_of_Speed_Fines_Over_Months_in_2023.xlsx` - Monthly trend data for speeding fines in 2023
-- `Total_Speeding_Fines_by_Jurisdiction_2023.xlsx` - Speeding fines by Australian jurisdiction
-- `Speeding_Fine_by_Detection_Method_2023.xlsx` - Speeding fines categorized by detection method
-- `number_of_fines_across_all_age_groups_in_2023.xlsx` - Age group distribution of speeding fines
-- `Number_of_Speeding_Fines_by_Location_in_2023.xlsx` - Speeding fines by location type
+- `master_fine.csv` - Master csv data file for speeding fines in 2023
 
 ## Data Format
 
-Each file contains structured data in Excel format with columns representing categories and values representing fine counts.
+Each file contains structured data in csv format with columns representing categories and values representing fine counts.

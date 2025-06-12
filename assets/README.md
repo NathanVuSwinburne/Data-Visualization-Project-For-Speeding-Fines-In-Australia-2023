@@ -1,6 +1,6 @@
 # Assets
 
-This folder contains assets for the Data Visualization Project by Team 8.
+This folder contains assets for the Data Visualization Project.
 
 ## Contents
 
