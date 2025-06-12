@@ -6,7 +6,8 @@
 > **Interactive dashboard revealing how, where and when Australians were fined for speeding in 2023.**
 
 <p align="center">
-  <img src="assets/Dashboard.png" width="750" alt="Speeding Fines Dashboard screenshot">
+  <img src="assets/Dashboard1.png" width="750" alt="Speeding Fines Dashboard screenshot">
+  <img src="assets/Dashboard2.png" width="750" alt="Speeding Fines Dashboard screenshot">
 </p>
 
 ---
