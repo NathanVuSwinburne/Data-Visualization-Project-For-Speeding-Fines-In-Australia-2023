@@ -35,9 +35,9 @@ The raw data was processed using KNIME Analytics Platform to clean, transform, a
 ### KNIME Workflow
 
 #### 1. Data Exploration & Cleaning
-<p align="center">
+<div style="text-align: left;">
   <img src="assets\knime_workflow_part1.png" width="800" alt="KNIME workflow for initial data exploration and cleaning"/>
-</p>
+</div>
 
 *Figure 1 – Initial data exploration and cleaning workflow in KNIME.*
 
@@ -48,9 +48,9 @@ This workflow focuses on:
 - Basic filtering and cleaning steps
 
 #### 2. Data Transformation & Export
-<p align="center">
+<div style="text-align: left;">
   <img src="assets\knime_workflow_part2.png" width="800" alt="KNIME workflow for data transformation and export"/>
-</p>
+</div>
 
 *Figure 2 – Data transformation and export workflow in KNIME.*
 
